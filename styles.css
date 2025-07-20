@@ -1,0 +1,509 @@
+.alineado-izquierda {
+  margin-left: 120px;
+  max-width: 900px;
+  margin-right: auto;
+}
+.debajo-tabs {
+  margin-top: 10px;
+}
+.enlaces-empresa {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 0;
+  margin-bottom: 30px;
+}
+/* ESTILO CITI ORIGINAL */
+.text-citi-blue {
+  color: #255be3 !important;
+}
+.mb-0, .my-0 {
+  margin-bottom: 0 !important;
+}
+h1, h2, h3, h4, h5, h6 {
+  width: 100%;
+  font-family: "Citi-Sans-Display", Arial, sans-serif;
+  line-height: 1.2em !important;
+  font-weight: normal;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+.h1, h1 {
+  font-size: 2.5rem !important;
+  font-weight: 500;
+  margin-bottom: .5rem;
+}
+
+/* NAV EMPRESAS */
+.seccion-navegacion-empresas,
+.contenido-empresa {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 72px;
+}
+
+.navegacion-empresas-box {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e2e8f0;
+  padding: 0;
+}
+
+.navegacion-empresas-titulo {
+  padding: 16px 0;
+  font-weight: 600;
+  color: #255be3;
+  font-size: 20px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+.navegacion-empresas-tabs {
+  display: flex;
+}
+.tab-empresa {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 22px 0;
+  font-size: 18px;
+  color: #334155;
+  cursor: pointer;
+  font-weight: 500;
+  border-right: 1px solid #e2e8f0;
+  transition: background 0.2s;
+}
+.tab-empresa:last-child {
+  border-right: none;
+}
+.tab-activa {
+  color: #255be3;
+  border-bottom: 4px solid #255be3;
+  font-weight: 700;
+  cursor: default;
+  background: #f3f4f6;
+}
+
+/* ENLACES EMPRESA */
+.enlaces-empresa {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 0;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.enlace-empresa {
+  display: block;
+  font-size: 22px;
+  font-weight: 600;
+  color: #0f1632;
+  text-decoration: underline;
+  margin-bottom: 18px;
+  font-family: 'Citi Sans Display', Arial, sans-serif;
+}
+
+/* RESET Y CONFIGURACION BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Citi Sans Display', Arial, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  line-height: 1.2em;
+  font-weight: normal;
+  overflow-x: hidden;
+  /* Eliminado el padding-top ya que el header no será fijo */
+}
+
+/* HEADER */
+.header-principal {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 16px 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  /* Asegurar que sea completamente estático */
+  position: static;
+  display: block;
+  width: 100%;
+  z-index: 1;
+}
+
+.contenedor-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo-citi {
+  height: 32px;
+  width: auto;
+}
+
+/* CONTENIDO PRINCIPAL */
+.contenido-principal {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 40px 0;
+  /* Eliminado min-height y justify-content que causaban problemas */
+}
+
+/* BANNER COLOMBIA */
+.seccion-banner {
+  padding: 20px;
+  margin-bottom: 60px;
+  /* Asegurar que sea completamente estático */
+  position: static;
+  display: block;
+}
+
+.contenedor-banner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.banner-colombia {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  height: 500px;
+  background: #334155;
+  /* Asegurar que no se superponga */
+  z-index: 1;
+}
+
+.imagen-colombia {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.etiqueta-colombia {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  color: white;
+  padding: 16px 32px;
+  font-size: 24px;
+  font-weight: 600;
+  border-radius: 0 16px 0 0;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* BOTONES EMPRESAS */
+.seccion-empresas {
+  padding: 40px 20px;
+  /* Asegurar que sea completamente estático */
+  position: static;
+  display: block;
+  background: transparent;
+  /* Separación clara del banner */
+  margin-top: 20px;
+  z-index: 1;
+}
+
+.contenedor-empresas {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.boton-empresa {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  color: white;
+  border: none;
+  padding: 28px 60px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(30, 64, 175, 0.25);
+  min-width: 300px;
+  text-align: center;
+  font-family: inherit;
+}
+
+.boton-empresa:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(30, 64, 175, 0.35);
+}
+
+.boton-empresa:active {
+  transform: translateY(-1px);
+}
+
+.boton-cititrust {
+  background: linear-gradient(135deg, #92400e 0%, #b45309 100%);
+  box-shadow: 0 8px 24px rgba(146, 64, 14, 0.25);
+}
+
+.boton-cititrust:hover {
+  box-shadow: 0 12px 32px rgba(146, 64, 14, 0.35);
+}
+
+/* SECCION SERVICIOS */
+.seccion-servicios {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  color: white;
+  padding: 60px 0;
+  /* Asegurar separación clara de elementos anteriores */
+  margin-top: 60px;
+  position: static;
+  display: block;
+  z-index: 1;
+}
+
+.contenedor-servicios {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.columna-vigilado {
+  flex-shrink: 0;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 20px;
+}
+
+.contenedor-vigilado {
+  border-radius: 50%;
+}
+
+.imagen-vigilado {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.columna-servicios {
+  flex: 1;
+}
+
+.grid-servicios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+/* BOTONES SERVICIO MÁS NEGRITA */
+.boton-servicio {
+  background: white;
+  color: #1e40af;
+  border: none;
+  padding: 16px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Citi Sans Display', Arial, sans-serif;
+}
+
+.boton-servicio:hover {
+  background-color: #0f1632;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.boton-servicio:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+
+.boton-completo {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-weight: 600;
+  padding: 20px;
+}
+
+.texto-disclaimer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  margin-top: 40px;
+}
+
+.texto-disclaimer p {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* FOOTER */
+.footer-principal {
+  background: linear-gradient(135deg, #0a0f1f 0%, #1e293b 100%);
+  color: white;
+  padding: 40px 0;
+  position: static;
+  display: block;
+  z-index: 1;
+}
+
+.contenedor-footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-izquierda {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.logo-footer {
+  height: 24px;
+  width: auto;
+}
+
+.enlaces-footer {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.enlace-footer {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s ease;
+}
+
+.enlace-footer:hover {
+  color: #3b82f6;
+}
+
+.footer-derecha {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.redes-sociales {
+  display: flex;
+  gap: 16px;
+}
+
+.icono-social {
+  color: #ffffff;
+  font-size: 16px;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+.icono-social:hover {
+  color: #ffffff;
+}
+
+.copyright {
+  color: #ffffff;
+  font-size: 12px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .contenedor-servicios {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .columna-vigilado {
+    width: 100%;
+    justify-content: center;
+    padding-top: 0;
+  }
+  
+  .grid-servicios {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .contenedor-empresas {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .boton-empresa {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .banner-colombia {
+    height: 300px;
+  }
+  
+  .etiqueta-colombia {
+    font-size: 20px;
+    padding: 12px 24px;
+  }
+  
+  .contenedor-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-izquierda {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .grid-servicios {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .contenido-principal {
+    padding: 20px 0;
+  }
+  
+  .seccion-banner {
+    margin-bottom: 40px;
+  }
+  
+  .boton-empresa {
+    padding: 20px 32px;
+    min-width: auto;
+  }
+  
+  .seccion-servicios {
+    padding: 40px 0;
+  }
+  
+  .boton-servicio {
+    padding: 14px 16px;
+    font-size: 13px;
+  }
+}

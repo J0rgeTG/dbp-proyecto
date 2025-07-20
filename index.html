@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citibank Colombia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header-principal">
+    <div class="contenedor-header">
+      <img src="imgs/citilogo.png" alt="Citi" class="logo-citi">
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="contenido-principal">
+    <!-- BANNER COLOMBIA -->
+    <section class="seccion-banner">
+      <div class="contenedor-banner">
+        <div class="banner-colombia">
+          <img src="imgs/colombiaciudad.jpeg" alt="Colombia Ciudad" class="imagen-colombia">
+          <div class="etiqueta-colombia">
+            Colombia
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTONES EMPRESAS -->
+    <section class="seccion-empresas">
+      <div class="contenedor-empresas">
+        <button class="boton-empresa boton-citibank" onclick="window.location.href='citibak-colombia.html'">
+          Citibank Colombia S.A.
+        </button>
+        <button class="boton-empresa boton-citivalores" onclick="navegarEmpresa('citivalores')">
+          Citivalores S.A.
+        </button>
+        <button class="boton-empresa boton-cititrust" onclick="navegarEmpresa('cititrust')">
+          Cititrust S.A.
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- SECCION SERVICIOS -->
+  <section class="seccion-servicios">
+    <div class="contenedor-servicios">
+      <!-- VIGILADO -->
+      <div class="columna-vigilado">
+        <div class="contenedor-vigilado">
+          <img src="imgs/vigilado.png" alt="Vigilado" class="imagen-vigilado">
+        </div>
+      </div>
+
+      <!-- GRID SERVICIOS -->
+      <div class="columna-servicios">
+        <div class="grid-servicios">
+          <button class="boton-servicio" onclick="abrirServicio('tasas')">
+            Tasas y Tarifas Vigentes
+          </button>
+          <button class="boton-servicio" onclick="abrirServicio('citidirect')">
+            CitiDirect
+          </button>
+          <button class="boton-servicio" onclick="abrirServicio('payments')">
+            Online Payments Channel
+          </button>
+          <button class="boton-servicio" onclick="abrirServicio('pagos')">
+            Mis pagos al dia
+          </button>
+          <button class="boton-servicio" onclick="abrirServicio('pse')">
+            PSE
+          </button>
+          <button class="boton-servicio" onclick="abrirServicio('fxpulse')">
+            FXPulse
+          </button>
+          <button class="boton-servicio" onclick="abrirServicio('tarjetas')">
+            Portal de Tarjetas Corporativas
+          </button>
+          <button class="boton-servicio" onclick="abrirServicio('sac')">
+            SAC/Defensoria del Consumidor Financiero
+          </button>
+          <button class="boton-servicio" onclick="abrirServicio('transparencia')">
+            Programa de Transparencia PTEE Colrepfin LTDA
+          </button>
+          <button class="boton-servicio boton-completo" onclick="abrirServicio('transparency')">
+            TRANSPARENCY AND BUSINESS ETHICS PROGRAM (PTEE) COLREPFIN LTDA
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEXTO DISCLAIMER -->
+    <div class="texto-disclaimer">
+      <p>Productos y servicios financieros ofrecidos por Citibank - Colombia S.A. Citi y el diseno del arco es una marca registrada de servicios de Citigroup Inc. Carrera 9A # 99 - 02 Bogota, Colombia</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-principal">
+    <div class="contenedor-footer">
+      <!-- SECCION IZQUIERDA -->
+      <div class="footer-izquierda">
+        <img src="imgs\citilogo.png" alt="Citi" class="logo-footer">
+        <div class="enlaces-footer">
+          <a href="#" class="enlace-footer">Citigroup.com</a>
+          <a href="#" class="enlace-footer">Terminos y Condiciones</a>
+          <a href="#" class="enlace-footer">Privacidad</a>
+        </div>
+      </div>
+
+      <!-- SECCION DERECHA -->
+      <div class="footer-derecha">
+        <div class="redes-sociales">
+          <a href="#" class="icono-social">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="icono-social">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="icono-social">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="#" class="icono-social">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="icono-social">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="icono-social">
+            <i class="fab fa-google-plus-g"></i>
+          </a>
+        </div>
+        <span class="copyright">
+          &copy; 2003–2025 Citigroup Inc.
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
