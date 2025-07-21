@@ -1,0 +1,1041 @@
+<!DOCTYPE HTML>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Servicios de Custodia </title>
+  <meta name="keywords" content="citi, treasury and trade solutions, tts, solutions">
+  <meta name="description" content="With the most diverse array of products and the broadest global reach of any financial firm in the world, there is no bank better equipped to meet your corporation's evolving global needs.">
+  <meta content="index,follow" name="Googlebot">
+  <meta content="index,follow" name="robots">
+  
+  <!-- CSS -->
+  <style>
+    body {
+    width: 80%;
+    margin-left: 20%;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    }
+
+    .titulo {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #003366;
+    margin-bottom: 15px;
+  }
+
+  .menu-horizontal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .menu-item {
+    position: relative;
+  }
+
+  .menu-link,
+  .dropdown-button {
+    padding: 10px 16px;
+    text-decoration: none;
+    background-color: #e0f0ff;
+    border: 1px solid #0077cc;
+    border-radius: 5px;
+    color: #003366;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .menu-link:hover,
+  .dropdown-button:hover {
+    background-color: #c0e4ff;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: none;
+    min-width: 200px;
+    z-index: 10;
+  }
+
+  .dropdown-content a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #003366;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #eef;
+  }
+
+  .menu-item.show .dropdown-content {
+    display: block;
+  }
+    footer {
+    background-color: #f2f2f2;
+    padding: 30px 0;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    border-top: 2px solid #ccc;
+  }
+
+  footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 80%;
+  }
+
+  footer ul li a {
+    text-decoration: none;
+    color: #004990;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 1px solid transparent;
+  }
+
+  footer ul li a:hover {
+    background-color: #004990;
+    color: white;
+    border-color: #004990;
+  }
+.alineado-izquierda {
+  margin-left: 120px;
+  max-width: 900px;
+  margin-right: auto;
+}
+.debajo-tabs {
+  margin-top: 10px;
+}
+.enlaces-empresa {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 0;
+  margin-bottom: 30px;
+}
+/* ESTILO CITI ORIGINAL */
+.text-citi-blue {
+  color: #255be3 !important;
+}
+.mb-0, .my-0 {
+  margin-bottom: 0 !important;
+}
+h1, h2, h3, h4, h5, h6 {
+  width: 100%;
+  font-family: "Citi-Sans-Display", Arial, sans-serif;
+  line-height: 1.2em !important;
+  font-weight: normal;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+.h1, h1 {
+  font-size: 2.5rem !important;
+  font-weight: 500;
+  margin-bottom: .5rem;
+}
+
+/* NAV EMPRESAS */
+.seccion-navegacion-empresas,
+.contenido-empresa {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 72px;
+}
+
+.navegacion-empresas-box {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e2e8f0;
+  padding: 0;
+}
+
+.navegacion-empresas-titulo {
+  padding: 16px 0;
+  font-weight: 600;
+  color: #255be3;
+  font-size: 20px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+.navegacion-empresas-tabs {
+  display: flex;
+}
+.tab-empresa {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 22px 0;
+  font-size: 18px;
+  color: #334155;
+  cursor: pointer;
+  font-weight: 500;
+  border-right: 1px solid #e2e8f0;
+  transition: background 0.2s;
+}
+.tab-empresa:last-child {
+  border-right: none;
+}
+.tab-activa {
+  color: #255be3;
+  border-bottom: 4px solid #255be3;
+  font-weight: 700;
+  cursor: default;
+  background: #f3f4f6;
+}
+
+/* ENLACES EMPRESA */
+.enlaces-empresa {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 0;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.enlace-empresa {
+  display: block;
+  font-size: 22px;
+  font-weight: 600;
+  color: #0f1632;
+  text-decoration: underline;
+  margin-bottom: 18px;
+  font-family: 'Citi Sans Display', Arial, sans-serif;
+}
+
+/* RESET Y CONFIGURACION BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Citi Sans Display', Arial, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  line-height: 1.2em;
+  font-weight: normal;
+  overflow-x: hidden;
+  /* Eliminado el padding-top ya que el header no será fijo */
+}
+
+/* HEADER */
+.header-principal {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 16px 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  /* Asegurar que sea completamente estático */
+  position: static;
+  display: block;
+  width: 100%;
+  z-index: 1;
+}
+
+.contenedor-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo-citi {
+  height: 32px;
+  width: auto;
+}
+
+/* CONTENIDO PRINCIPAL */
+.contenido-principal {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 40px 0;
+  /* Eliminado min-height y justify-content que causaban problemas */
+}
+
+/* BANNER COLOMBIA */
+.seccion-banner {
+  padding: 20px;
+  margin-bottom: 60px;
+  /* Asegurar que sea completamente estático */
+  position: static;
+  display: block;
+}
+
+.contenedor-banner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.banner-colombia {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  height: 500px;
+  background: #334155;
+  /* Asegurar que no se superponga */
+  z-index: 1;
+}
+
+.imagen-colombia {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.etiqueta-colombia {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  color: white;
+  padding: 16px 32px;
+  font-size: 24px;
+  font-weight: 600;
+  border-radius: 0 16px 0 0;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* BOTONES EMPRESAS */
+.seccion-empresas {
+  padding: 40px 20px;
+  /* Asegurar que sea completamente estático */
+  position: static;
+  display: block;
+  background: transparent;
+  /* Separación clara del banner */
+  margin-top: 20px;
+  z-index: 1;
+}
+
+.contenedor-empresas {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.boton-empresa {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  color: white;
+  border: none;
+  padding: 28px 60px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(30, 64, 175, 0.25);
+  min-width: 300px;
+  text-align: center;
+  font-family: inherit;
+}
+
+.boton-empresa:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(30, 64, 175, 0.35);
+}
+
+.boton-empresa:active {
+  transform: translateY(-1px);
+}
+
+.boton-cititrust {
+  background: linear-gradient(135deg, #92400e 0%, #b45309 100%);
+  box-shadow: 0 8px 24px rgba(146, 64, 14, 0.25);
+}
+
+.boton-cititrust:hover {
+  box-shadow: 0 12px 32px rgba(146, 64, 14, 0.35);
+}
+
+/* SECCION SERVICIOS */
+.seccion-servicios {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  color: white;
+  padding: 60px 0;
+  /* Asegurar separación clara de elementos anteriores */
+  margin-top: 60px;
+  position: static;
+  display: block;
+  z-index: 1;
+}
+
+.contenedor-servicios {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.columna-vigilado {
+  flex-shrink: 0;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 20px;
+}
+
+.contenedor-vigilado {
+  border-radius: 50%;
+}
+
+.imagen-vigilado {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.columna-servicios {
+  flex: 1;
+}
+
+.grid-servicios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+/* BOTONES SERVICIO MÁS NEGRITA */
+.boton-servicio {
+  background: white;
+  color: #1e40af;
+  border: none;
+  padding: 16px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Citi Sans Display', Arial, sans-serif;
+}
+
+.boton-servicio:hover {
+  background-color: #0f1632;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.boton-servicio:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+
+.boton-completo {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-weight: 600;
+  padding: 20px;
+}
+
+.texto-disclaimer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  margin-top: 40px;
+}
+
+.texto-disclaimer p {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* FOOTER */
+.footer-principal {
+  background: linear-gradient(135deg, #0a0f1f 0%, #1e293b 100%);
+  color: white;
+  padding: 40px 0;
+  position: static;
+  display: block;
+  z-index: 1;
+}
+
+.contenedor-footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-izquierda {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.logo-footer {
+  height: 24px;
+  width: auto;
+}
+
+.enlaces-footer {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.enlace-footer {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s ease;
+}
+
+.enlace-footer:hover {
+  color: #3b82f6;
+}
+
+.footer-derecha {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.redes-sociales {
+  display: flex;
+  gap: 16px;
+}
+
+.icono-social {
+  color: #ffffff;
+  font-size: 16px;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+.icono-social:hover {
+  color: #ffffff;
+}
+
+.copyright {
+  color: #ffffff;
+  font-size: 12px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .contenedor-servicios {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .columna-vigilado {
+    width: 100%;
+    justify-content: center;
+    padding-top: 0;
+  }
+  
+  .grid-servicios {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .contenedor-empresas {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .boton-empresa {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .banner-colombia {
+    height: 300px;
+  }
+  
+  .etiqueta-colombia {
+    font-size: 20px;
+    padding: 12px 24px;
+  }
+  
+  .contenedor-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-izquierda {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .grid-servicios {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .contenido-principal {
+    padding: 20px 0;
+  }
+  
+  .seccion-banner {
+    margin-bottom: 40px;
+  }
+  
+  .boton-empresa {
+    padding: 20px 32px;
+    min-width: auto;
+  }
+  
+  .seccion-servicios {
+    padding: 40px 0;
+  }
+  
+  .boton-servicio {
+    padding: 14px 16px;
+    font-size: 13px;
+  }
+.toggle-btn {
+    background-color: #00447c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .toggle-content {
+    display: none;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+}
+  </style>
+  <link rel="stylesheet" href="/tts/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/tts/assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/tts/assets/css/main-v2.css">
+  <link rel="stylesheet" href="sryles.css">
+  <!-- JS -->
+  <script>
+    function toggleDropdown(button) {
+      const item = button.parentElement;
+      const wasOpen = item.classList.contains('show');
+  
+      // Cierra todos
+      document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('show'));
+  
+      // Si no estaba abierto, lo abre
+      if (!wasOpen) {
+        item.classList.add('show');
+      }
+    }
+  
+    // Cierra si haces clic fuera
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.menu-item')) {
+        document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('show'));
+      }
+    });
+<script>
+  function toggleTasas() {
+    const contenido = document.getElementById('contenidoTasas');
+    contenido.style.display = contenido.style.display === 'none' ? 'block' : 'none';
+  }
+</script>
+  </script>
+
+  <script async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" src="/tts/assets/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/tts/assets/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/tts/assets/js/main.js"></script>
+</head>
+  </header>
+  <div class="jumbotron parallax" style="background-position: 50% -308.2px;">
+    <div class="container">
+      <h1 class="text-citi-blue mb-0">Información Consumidor Financiero SAC</h1>
+    </div>
+  </div>
+  
+  <section class="container pb-15">
+    <!-- Modal -->
+    <div id="modalPop" class="modal fade" aria-hidden="true" style="display: none;">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">Información importante</button>
+          </div>
+          <div class="modal-body">
+            <p>Tenemos conocimiento de que se está usando el nombre de Citi con objetivos fraudulentos.<br>
+            Le recordamos que ninguna de las empresas de Citigroup en Colombia (Citibank Colombia S.A., Citivalores S.A. y Cititrust Colombia S.A.) ofrece productos a personas naturales ni realiza ningún tipo de gestión comercial asociada con sorteos o rifas a través de redes sociales o páginas web. <br>
+            Evite ser víctima de fraude y comunique a las autoridades cualquier actividad sospechosa.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+<section class="container pb-15">
+    <!-- Modal -->
+    <div id="modalPop" class="modal fade" style="display: none;" aria-hidden="true">
+      <div class="modal-dialog modal-lg">    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">Información importante</button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Tenemos conocimiento de que se está usando el nombre de Citi con objetivos fraudulentos.<br>
+              Le recordamos que ninguna de las empresas de Citigroup en Colombia (Citibank Colombia S.A., Citivalores S.A. y Cititrust Colombia S.A.) ofrece productos a personas naturales ni realiza ningún tipo de gestión comercial asociada con sorteos o rifas a través de redes sociales o páginas web. <br>
+              Evite ser víctima de fraude y comunique a las autoridades cualquier actividad sospechosa.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+<div id="subnav"> 
+  <nav id="page-subnav" class="page-subnav mb-30 navbar navbar-expand-xl navbar-light" role="navigation">
+    <div class="navbar-collapse collapse show">
+      <ul class="nav navbar-nav sm-collapsible">
+
+        <!-- Colombia (solo título, no enlace ni submenú) -->
+        <div class="titulo">Colombia</div>
+
+        <div class="menu-horizontal">
+        
+          <!-- Página Principal (no desplegable) -->
+          <div class="menu-item">
+            <a href="index.html" class="menu-link">Página Principal</a>
+          </div>
+        
+          <!-- Citibank Colombia S.A. (sí desplegable) -->
+          <div class="menu-item">
+            <div class="dropdown-button" onclick="toggleDropdown(this)">Citibank Colombia S.A.</div>
+            <div class="dropdown-content">
+              <a href="#">Página Principal</a>
+              <a href="#">Información Institucional</a>
+              <a href="#">Productos y Servicios</a>
+            </div>
+          </div>
+        
+          <!-- Citivalores S.A. (sí desplegable) -->
+          <div class="menu-item">
+            <div class="dropdown-button" onclick="toggleDropdown(this)">Citivalores S.A.</div>
+            <div class="dropdown-content">
+              <a href="#">Página Principal</a>
+              <a href="#">Inversiones Globales</a>
+              <a href="#">Banca de Inversión</a>
+              <a href="#">ETF MSCI COLCAP</a>
+            </div>
+          </div>
+        
+          <!-- Cititrust S.A. (sí desplegable) -->
+          <div class="menu-item">
+            <div class="dropdown-button" onclick="toggleDropdown(this)">Cititrust S.A.</div>
+            <div class="dropdown-content">
+              <a href="#">Página Principal</a>
+              <a href="#">Servicios de Custodia</a>
+              <a href="#">Fiducia Estructurada</a>
+              <a href="#">Links Frecuentes</a>
+            </div>
+          </div>
+        
+        </div>
+        
+
+      </ul>
+    </div>
+  </nav>
+</div>
+
+  <section class="background-citi-blue pt-30 pb-15">
+  <div class="container">
+    <div class="row mb-15">
+      <div class="col-12">
+        <div class="row">
+          <div class="mb-15 col-lg-1 col-md-1 col-12">
+            <img src="img/vigilado.png" class="float-none float-left img-fluid" alt="Vigilado">
+          </div>
+    <!-- SECCION SERVICIOS (reutilizada) -->
+  <h2>
+        Sistema de Atención al Consumidor Financiero SAC<br>
+        En Citibank Colombia S.A., Cititrust Colombia S.A. Sociedad Fiduciaria y Citivalores S.A. Comisionista de Bolsa entendemos la importancia de la educación financiera de los Consumidores Financieros.
+    
+  </h2>
+  <button class="boton-defensoria" onclick="toggleDefensoria()">Defensoría de Atención al Consumidor Financiero SAC</button>
+
+      <div id="contenidoDefensoria" style="display:none; margin-top:1em; max-height:600px; overflow-y:auto; border:1px solid #ccc; padding:1em; background:#f9f9f9; white-space: pre-line;">
+     Citibank - Colombia S.A., Cititrust Colombia S.A. y Citivalores S.A.
+
+En cumplimiento de lo dispuesto en el Estatuto Orgánico del Sistema Financiero, Capítulo VI de la Ley 1328 del 2009, y el Decreto 2281 del 2010, Citibank -Colombia S.A., Cititrust S.A. y Citivalores S.A. han designado como Defensor del Consumidor Financiero al Dr. Carlos Mario Serna Jaramillo y como suplente a la Dra. Patricia Amelia Rojas Amezquita.
+
+Presente sus reclamos o quejas a través de los siguientes canales: página WEB www.defensoriasernarojas.com ; correo electrónico defensoria@defensoriasernarojas.com ; teléfono en Bogotá (+57) 601 4898285, de lunes a viernes (días hábiles) en el horario de 8:00 a.m. a 5:30 p.m., buzón telefónico 24 horas; o en la Carrera 16A No 80-63 oficina 601 Edificio Torre Oval en Bogotá, de lunes a viernes (días hábiles) en el horario de 8:00 a.m. a 12:00 p.m. y de 2:00 p.m. a 5:00 p.m.
+
+También puede presentar su queja directamente con Citibank en nuestra Oficina Corporativa ubicada en la Carrera 9A No. 99-02 Piso 1 Local 104 en el horario: 9:00 a.m. a 4:00 p.m., de la que haremos traslado al Defensor del Consumidor Financiero dentro de los tres (3) días hábiles siguientes a la recepción de dicho documento, de acuerdo con lo dispuesto en el artículo 2.34.2.1.5 del Decreto 2555 de 2010.
+
+El defensor del consumidor financiero, tiene como función, actuar con absoluta autonomía e independencia de estas entidades, sirviendo como vocero entre éstas y nuestros clientes y usuarios. El defensor del consumidor financiero está encargado de velar por la protección de los derechos de los consumidores y de conocer y resolver de forma objetiva y gratuita las quejas y reclamos individuales que estos tengan en relación con el servicio por parte de las mencionadas entidades.
+
+Procedimiento para resolución de quejas o reclamos ante el defensor del consumidor financiero
+
+PRESENTACIÓN DE LA QUEJA O RECLAMACIÓN: Los consumidores financieros podrán presentar su queja o reclamo ante el defensor del consumidor financiero, mediante documento en el cual consignen sus datos personales y la información de contacto, la descripción de los hechos y las pretensiones concretas de su queja o reclamo. Dicha queja o reclamo podrá ser remitido directamente al defensor o podrá ser presentada en las oficinas, agencias o sucursales de las entidades. En este último caso, las entidades vigiladas tienen la obligación de hacer el traslado al DEFENSOR dentro de los tres (3) días hábiles siguientes a la recepción de dicho documento.
+
+ADMISIÓN O INADMISIÓN: Una vez recibida la queja o reclamo, el defensor decidirá si el asunto es de su competencia o no. La decisión sobre la admisión o inadmisión será comunicada al consumidor financiero y a la entidad involucrada dentro de los tres (3) días hábiles contados desde el día siguiente en que sea recibida la solicitud.
+
+Cuando la queja o reclamo es admitida, el defensor deberá comunicar al consumidor financiero si la decisión final que profiera es obligatoria según los reglamentos de la entidad respectiva, advirtiendo sobre la posibilidad de solicitar una audiencia de conciliación en cualquier momento.
+
+Si la queja o reclamo es inadmitida, el defensor comunicará su decisión al consumidor financiero, indicando los motivos de la inadmisión e informando que esto no obsta para el ejercicio de las demás acciones legales existentes.
+
+Si el defensor estima que para el análisis de la solicitud requiere mayor información de parte de la entidad involucrada o del consumidor financiero, procederá a comunicarles por cualquier medio verificable tal situación, a fin de que alleguen la información necesaria. En este evento, la entidad o el consumidor financiero deberán dar respuesta dentro del término que determine el defensor sin que se excedan los ocho (8) días hábiles, contados desde el día siguiente al que se solicite la información. Una vez recibida la información solicitada, el defensor podrá decidir sobre la admisión o inadmisión dentro del término máximo de tres (3) días hábiles.
+
+Se entenderá que la queja o reclamo ha sido desistida si el consumidor financiero no da respuesta a la solicitud dentro del término máximo mencionado en el párrafo anterior. Lo anterior, sin perjuicio de que el consumidor financiero pueda presentar posteriormente su queja o reclamo con la información completa, la cual se entenderá presentada como si fuera la primera vez.
+
+TRASLADO A LA ENTIDAD: Admitida la queja o reclamo, el defensor dará traslado de ella a la respectiva entidad, a fin de que allegue la información y presente los argumentos en que fundamenta su posición. La respuesta deberá ser allegada al defensor dentro de un término de ocho (8) días hábiles, contados desde el día siguiente al que se haga el traslado, término que se ampliará a petición de la entidad y a juicio del defensor. En este último caso, la entidad vigilada deberá informar al consumidor financiero las razones en las que sustenta la prórroga.
+
+Si después de iniciado el trámite de la solicitud, el defensor tiene conocimiento de que éste no es de su competencia, dará por terminada su actuación, comunicando inmediatamente su decisión a la entidad y al consumidor financiero.
+
+DECISIÓN DEL DEFENSOR: El defensor deberá evaluar la información aportada y resolver la queja o reclamo en un término que en ningún caso podrá ser superior a ocho (8) días hábiles, contados desde el día siguiente al vencimiento del término estipulado. La decisión que profiera el defensor deberá ser motivada, clara y completa. Dicha decisión, deberá ser comunicada al consumidor financiero y a la entidad vigilada el día hábil siguiente después de proferida.
+
+RECTIFIACIÓN: La entidad vigilada podrá rectificar total o parcialmente su posición frente una queja o reclamo con el consumidor financiero en cualquier momento anterior a la decisión final por parte del defensor. En estos casos, la entidad informará tal situación al defensor y éste, dentro de los tres (3) días hábiles siguientes a la comunicación de la entidad, consultará al consumidor financiero que formuló la queja o reclamo, por medio verificable, a efectos de establecer su expresa satisfacción. El consumidor financiero deberá responder a la consulta en un término máximo de ocho (8) días.
+Asuntos que corresponden conocer al defensor del consumidor financiero
+
+En cumplimiento de sus funciones, el defensor del consumidor financiero deberá conocer, evaluar y resolver íntegramente, dentro de los términos legales, las quejas o reclamaciones presentadas por posibles incumplimientos de normas legales o internas que rigen el desarrollo de las operaciones, contratos o servicios que ofrecen, prestan, o ejecutan Citibank®-Colombia S.A., Cititrust Colombia S.A. y Citivalores S.A. y que afecten directamente al cliente o usuario, así como las relativas a la calidad en la prestación de los servicios de estas entidades.
+
+Igualmente, como vocero de los consumidores financieros, el defensor del consumidor financiero podrá conocer sobre nuestras actividades y proponer cambios en aras de mejorar, facilitar y normalizar las relaciones, la seguridad y la confianza que debe existir con nuestros clientes. En caso de que una queja sea rechazada por razón de competencia, el cliente podrá acudir a las autoridades competentes y ésta no podrá ser presentada de nuevo a la Defensoría, mientras se mantengan las condiciones que dieron lugar al rechazo.
+
+En caso que el consumidor financiero y la entidad pongan un asunto en conocimiento del respectivo Defensor, indicando de manera explícita su deseo de que el caso sea atendido en desarrollo de la función de conciliación, el Defensor actuará como conciliador entre los consumidores financieros y la respectiva entidad en los términos indicados en la Ley.
+Asuntos excluidos de la competencia del defensor del consumidor financiero
+
+Se encuentran excluidos de la competencia del defensor del consumidor financiero los siguientes asuntos:
+
+Aquellos que no correspondan o no estén directamente relacionados con el giro ordinario de las operaciones autorizadas a Citibank -Colombia S.A., Cititrust Colombia S.A. y Citivalores S.A.;
+Los concernientes al vínculo laboral entre Citibank-Colombia S.A., Cititrust Colombia S.A. y Citivalores S.A. y sus empleados o respecto de sus contratistas;
+Aquellos que se deriven de la condición de accionista de Citibank -Colombia S.A., Cititrust Colombia S.A. y Citivalores S.A. Comisionista de Bolsa;
+Los que se refieren a cuestiones que se encuentren en trámite o hayan sido resueltas en vía judicial o arbitral o hayan sido resueltas en estas vías;
+Aquellos que correspondan a la decisión sobre la prestación de un servicio o producto;
+Los que se refieran a hechos sucedidos con tres (3) años de anterioridad o más a la fecha de presentación de la queja;
+Las quejas que tengan por objeto los mismos hechos y afecten a las mismas partes y que hayan sido objeto de decisión previa por parte del defensor del consumidor financiero;
+Las quejas cuya cuantía individual, sumados todos los conceptos, superen los cien (100) salarios mínimos legales mensuales vigentes al momento de su presentación.
+En el evento en que el defensor del consumidor financiero advierta, en su criterio, que la queja interpuesta corresponde a aquellas de interés general o colectivo, deberá dar traslado de la misma a la Superintendencia Financiera para su trámite.
+Otros mecanismos para resolución de reclamos de los consumidores financieros
+Para presentar sus quejas y/o reclamaciones, el consumidor financiero cuenta con las siguientes alternativas:
+
+(i) Acudir directamente a Citibank -Colombia S.A., Cititrust Colombia S.A. o Citivalores S.A., según el caso; o (ii) Presentar sus quejas y/o reclamaciones ante el defensor del consumidor financiero; o (iii) Presentar su queja directamente ante la Superintendencia Financiera de Colombia.
+
+En caso que el Cliente y/o Usuario no esté conforme con la decisión del Defensor o el motivo de su reclamación sea ajeno a la competencia del Defensor, podrá acudir a las autoridades administrativas o judiciales competentes o acudir directamente ante Citibank -Colombia S.A., Cititrust Colombia S.A. o Citivalores S.A., según corresponda.
+Efectos de las decisiones del defensor del consumidor financiero
+
+Las decisiones proferidas por el defensor del consumidor financiero no obligan a las partes ni son vinculantes para Citibank -Colombia S.A., Cititrust Colombia S.A. o Citivalores S.A., según el caso.
+Régimen sancionatorio para el defensor del cliente y entidades vigiladas por la superintendencia financiera
+
+El incumplimiento de las obligaciones a cargo del defensor del consumidor financiero podrá ser sancionado por la Superintendencia Financiera de Colombia, previa investigación administrativa con la imposición de las sanciones a que se refiere el artículo 208 numeral 3 del Estatuto Orgánico del Sistema Financiero. En los términos del régimen sancionatorio del mismo estatuto, Citibank-Colombia S.A., Cititrust Colombia S.A. o Citivalores S.A., podrán ser sancionadas por no designar al defensor del consumidor financiero, por no efectuar las apropiaciones necesarias para el suministro de los recursos humanos y técnicos que requiera su adecuado desempeño o por no proveer la información que necesite para el ejercicio de sus funciones.
+
+TRÁMITE DE CONCILIACIÓN
+El Consumidor Financiero podrá solicitar que el Defensor del Consumidor Financiero (“DCF”) actúe en calidad de conciliador en cualquier momento, ya sea dentro del trámite de conocimiento ordinario de una queja o por fuera de éste. En caso de que la solicitud se presente durante cualquier etapa del trámite de una queja, este se suspenderá de acuerdo con lo establecido en el numeral 11 del artículo 2.34.2.1.5 del Decreto 2555 de 2010. La solicitud de conciliación deberá ser presentada al correo electrónico defensoria@defensoriasernarojas.com. El trámite de conciliación ante el DCF es totalmente gratuito. El DCF actuará como conciliador extrajudicial en derecho.
+
+Para la preparación de las partes y el correcto desarrollo de la audiencia, la solicitud de conciliación (actuando el DCF como conciliador), deberá incluir:
+
+Nombre completo del solicitante, dirección de domicilio, celular o teléfono de contacto.
+Nombre de la Entidad Vigilada que desea invitar a la conciliación (debe ser una entidad en la cual el DCF obre como tal).
+Información detallada del asunto y de lo que se pretende conciliar, los hechos y pretensiones de la solicitud.
+Fotocopia del documento de identidad del convocante.
+Si es persona jurídica, acreditar la calidad de representante legal por medio del certificado de existencia y representación legal.
+Si es apoderado, deberá también anexar los documentos que legalmente lo acrediten como tal (poder otorgado en debida forma y allegar sus documentos de identificación).
+El convocante podrá allegar todos los documentos que considere pertinentes para soportar los hechos de su solicitud.
+Asuntos exceptuados del conocimiento del DCF:
+
+El DCF no puede actuar como conciliador en los mismos temas en los que tampoco puede conocer las reclamaciones de los consumidores (Art. 14 Ley 1328 de 2009 y Decreto 2555 de 2010), los cuales se encuentran en el punto 3 “Asuntos excluidos de la competencia del defensor del consumidor financiero”. Adicionalmente, como conciliador el DCF sólo podrá actuar en el territorio nacional y no podrá conocer de aquellos casos en los que se discutan controversias de naturaleza contenciosa administrativas y laborales.
+
+Efectos jurídicos de la conciliación:
+
+En caso de que las partes suscriban un acta de acuerdo, esta prestará merito ejecutivo, es decir que en caso de incumplimiento, la parte que cumplió podrá hacer exigible lo pactado ante un juez por medio de un proceso ejecutivo. Adicionalmente, lo acordado en ella hará tránsito a cosa juzgada, lo que implica que el acta equivale a una sentencia judicial.
+Tenga en cuenta:
+
+Si después de iniciado el trámite de la solicitud, el DCF tiene conocimiento de que éste no es de su competencia, dará por terminada su actuación. Esta decisión se informará al solicitante.
+El proceso de conciliación se encuentra regulado por la Ley 640 de 2001 y demás normas que la modifiquen o adicionen.
+
+Preguntas frecuentes defensor del consumidor financiero Citibank - Colombia S.A.
+¿El defensor del consumidor financiero reemplaza a CitiService®?
+
+No, CitiService es el área de Citi responsable de atender quejas y reclamos de clientes corporativos. En caso de que el cliente o usuario no esté satisfecho con la solución recibida a través de este canal, puede acudir al Defensor del Consumidor Financiero o a la Superintendencia Financiera de Colombia.
+
+Los asuntos que le corresponde conocer al Defensor del Consumidor Financiero son:
+
+a. En cuanto a quejas, por posible incumplimiento de las normas que rigen el desarrollo o ejecución de los servicios o productos que ofrecen o prestan las entidades vigiladas o respecto de la calidad de los mismos.
+
+b. Como vocero de clientes y usuarios, sobre la actividad de las entidades y que a su juicio puedan mejorar, facilitar, aclarar o regularizar las relaciones, la correcta prestación del servicio, la seguridad y la confianza que debe existir con los consumidores financieros.
+¿El defensor del consumidor financiero reemplaza a la Superintendencia Financiera?
+
+No la reemplaza. Es una figura independiente a la Superintendencia Financiera y ha sido creada para atender las inquietudes de los clientes y/o usuarios de las entidades vigiladas por la Superintendencia Financiera en forma objetiva y gratuita; así como, ser el vocero de los consumidores financieros ante la entidad.
+¿El defensor del consumidor financiero es independiente de las entidades financieras?
+
+Aunque el defensor del consumidor financiero es nombrado por la Asamblea de Accionistas de la entidad, éste ejerce sus funciones de forma autónoma e independiente, y no cumple ninguna otra función dentro de las entidades financieras.
+¿Qué debo tener en cuenta para radicar una queja ante el Defensor del Consumidor Financiero?
+
+Nombres y apellidos completos.
+Número de documento de identificación.
+Ciudad y dirección de correspondencia física o electrónica. Descripción de los hechos.
+Pretensiones de su queja o reclamación.
+(Opcional) Documentos que sustenten su solicitud.
+      </div>
+      
+      <script>
+      function toggleDefensoria() {
+        const contenido = document.getElementById('contenidoDefensoria');
+        if (contenido.style.display === 'none' || contenido.style.display === '') {
+          contenido.style.display = 'block';
+        } else {
+          contenido.style.display = 'none';
+        }
+      }
+      </script>
+<button class="toggle-btn" onclick="toggleContent()">Productos y Servicios Financieros</button>
+
+<div id="productosContenido" class="toggle-content">
+  <p>Los productos y servicios financieros son la razón de ser de las entidades financieras, y lo que ofrecen diariamente a sus clientes. Es a través de los productos y servicios que estas entidades cumplen su función de captar recursos y colocarlos al servicio de quienes los requieren.</p>
+
+  <p>Las entidades financieras establecen su portafolio de productos y servicios, así como las tarifas y comisiones, de acuerdo con lo reglamentado por la Superintendencia Financiera.</p>
+
+  <p>En línea con lo anterior, damos cumplimiento a las normas que se expiden en la materia, incluyendo aquellas relacionadas con el ofrecimiento y otorgamiento de productos financieros, para lo cual se tiene definido, entre otros, el mercado objetivo para la vinculación a la entidad. La negativa en la prestación de servicios o en el ofrecimiento de productos deberá fundamentarse en causas objetivas.</p>
+
+  <p>Si tiene inquietudes sobre el proceso de acceso a los productos y servicios financieros ofrecidos por Citi, incluyendo aquellos casos relacionados con pertenecer a un sector específico de la industria, podrá contactarse con los canales de atención al cliente de cada vehículo legal, para resolverlas.</p>
+
+  <h4>Tipos de Productos</h4>
+  <ul>
+    <li>Productos Bancarios</li>
+    <li>Productos Fiduciarios y de Custodia</li>
+    <li>Productos de Inversión</li>
+  </ul>
+
+  <h4>Tarifas o Precios de Productos o Servicios</h4>
+  <p><strong>Citibank Colombia S.A.:</strong><br>
+  Lunes a viernes, 8:00 am a 6:00 pm<br>
+  Tel: Bogotá (57) 601 6383838 – Nacional 01 8000 52 38 38<br>
+  Email: <a href="mailto:colombia.citiservice@citi.com">colombia.citiservice@citi.com</a></p>
+
+  <p><strong>Cititrust Colombia S.A.:</strong><br>
+  Lunes a viernes, 8:00 am a 5:30 pm<br>
+  Tel: (57) 601 4922913, 4922934, 4922617, 4922902, 4840465<br>
+  Email: <a href="mailto:cititrustcscolombia@citi.com">cititrustcscolombia@citi.com</a></p>
+
+  <p><strong>Citivalores S.A.:</strong><br>
+  Lunes a viernes, 9:00 am a 5:00 pm<br>
+  Tel: (57) 601 4920342<br>
+  Email: <a href="mailto:colombia.citivalores@citi.com">colombia.citivalores@citi.com</a></p>
+
+  <h4>Contratos y Reglamentos</h4>
+  <p>La información relacionada con contratos y reglamentos de productos y servicios se encuentra disponible a través de los canales de atención mencionados anteriormente.</p>
+</div>
+
+<script>
+  function toggleContent() {
+    var contenido = document.getElementById("productosContenido");
+    contenido.style.display = (contenido.style.display === "none" || contenido.style.display === "") ? "block" : "none";
+  }
+</script>
+  <section class="seccion-servicios">
+    <div class="contenedor-servicios">
+      <div class="columna-vigilado">
+        <div class="contenedor-vigilado">
+          <img src="imgs/vigilado.png" alt="Vigilado" class="imagen-vigilado">
+        </div>
+      </div>
+     <div class="columna-servicios">
+        <div class="grid-servicios">
+	  <a href="Tasas_tarifas.html" class="boton-servicio">Tasas y Tarifas Vigentes</a>
+          <a href="Citidirect.html" class="boton-servicio">CitiDirect</a>
+          <a href="online_payments.html" class="boton-servicio">Online Payments Channel</a>
+          <a href="Pagos_dia2.html" class="boton-servicio">Mis pagos al día</a>
+          <a href="pagos_PSE.html" class="boton-servicio">PSE</a>
+          <button class="boton-servicio" onclick="abrirServicio('fxpulse')">FXPulse</button>
+          <a href="tarjetas_corporativas.html" class="boton-servicio">Portal de Tarjetas Corporativas</a>
+          <a href="sistema_atencion.html" class="boton-servicio">Información Consumidor Financiero SAC</a>
+
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDA.pdf" class="boton-servicio" target="_blank" rel="noopener noreferrer">
+ 		 Programa de Transparencia PTEE Colrepfin LTDA
+	  </a>
+
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDAV2023_V_INGLES_VF2.pdf" class="boton-servicio boton-completo" target="_blank" rel="noopener noreferrer">
+     		TRANSPARENCY AND BUSINESS ETHICS PROGRAM (PTEE) COLREPFIN LTDA
+	  </a>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="texto-disclaimer">
+      <p>Productos y servicios financieros ofrecidos por Citibank - Colombia S.A. Citi y el diseño del arco es una marca registrada de servicios de Citigroup Inc. Carrera 9A # 99 - 02 Bogotá, Colombia</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-principal">
+    <div class="contenedor-footer">
+      <!-- SECCION IZQUIERDA -->
+      <div class="footer-izquierda">
+        <img src="imgs\citilogo.png" alt="Citi" class="logo-footer">
+        <div class="enlaces-footer">
+          <a href="#" class="enlace-footer">Citigroup.com</a>
+          <a href="#" class="enlace-footer">Terminos y Condiciones</a>
+          <a href="#" class="enlace-footer">Privacidad</a>
+        </div>
+      </div>
+      <!-- SECCION DERECHA -->
+      <div class="footer-derecha">
+        <div class="redes-sociales">
+          <a href="#" class="icono-social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-google-plus-g"></i></a>
+        </div>
+        <span class="copyright">&copy; 2003–2025 Citigroup Inc.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js">
+    const dropdown = document.querySelector('.tab-activa').parentElement;
+    const submenu = dropdown.querySelector('.submenu-colombia');
+    dropdown.addEventListener('mouseenter', () => submenu.style.display = 'block');
+    dropdown.addEventListener('mouseleave', () => submenu.style.display = 'none');
+</script>
+
+
+
+</section>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MisPagosAlDía - Versión Local</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #001f5b;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      position: relative;
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: white;
+      min-width: 180px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    .dropdown li a {
+      color: #001f5b;
+      display: block;
+      padding: 10px;
+    }
+
+    nav ul li:hover .dropdown {
+      display: block;
+    }
+
+    main {
+      display: flex;
+      flex-direction: row;
+      height: calc(100vh - 60px);
+    }
+
+    .login-box {
+      width: 300px;
+      background-color: #111;
+      color: white;
+      padding: 20px;
+      margin: 50px;
+      border-radius: 8px;
+    }
+
+    .login-box input[type="text"],
+    .login-box input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .login-box button {
+      background-color: #0072ce;
+      color: white;
+      padding: 10px;
+      border: none;
+      width: 100%;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .login-box .quickpay {
+      background-color: white;
+      color: #001f5b;
+      font-weight: bold;
+      border: 1px solid #001f5b;
+    }
+
+    .content-area {
+      flex: 1;
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #333;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .info-button {
+      background-color: transparent;
+      border: none;
+      color: white;
+      font-size: 16px;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .result-table {
+      margin-top: 20px;
+      background-color: white;
+      border-collapse: collapse;
+      width: 80%;
+    }
+
+    .result-table th, .result-table td {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    footer {
+      background-color: #f0f0f0;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+    }
+
+    .footer-links a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #001f5b;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">MisPagosAlDia</div>
+    <nav>
+      <ul>
+        <li>
+          <a href="#">Más información</a>
+          <ul class="dropdown">
+            <li><a href="quick_pay.html">Quick Pay</a></li>
+            <li><a href="Citidirect.html">CitiDirect BE</a></li>
+            <li><a href="online_payments.html">Online Payments</a></li>
+            <li><a href="pagos_PSE.html">PSE</a></li>
+            <li><a href="tarjetas_corporativas.html">Portal tarjetas</a></li>
+          </ul>
+        </li>
+        <li><a href="#" onclick="toggleLogin()">Ingrese a:</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="login-box">
+      <h3>ACCESO A MIS PAGOS AL DÍA</h3>
+      <input type="text" id="usuario" placeholder="Usuario" />
+      <input type="password" id="contrasenia" placeholder="Contraseña" />
+      <button onclick="login()">Entrar</button>
+      <p>Si no tiene usuario registrado en Mis Pagos al Día pague aquí</p>
+      <button class="quickpay" onclick="location.href='quick_pay.html'">QUICK PAY</button>
+    </div>
+
+    <div class="content-area">
+      <h2>Comuníquese con nosotros</h2>
+      <p>para mas informacion.</p>
+      <button class="info-button" onclick="alert('Más info pronto disponible')">▶ Más info</button>
+      <div id="resultado"></div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#" onclick="alert('De momento no tenemos sorry :d')">Términos y Condiciones</a>
+      |
+      <a href="#" onclick="alert('Tu privacidad es tan segura como un cuaderno cerrado con liga 📝🔒')">Privacidad</a>
+    </div>
+    <p>© 2025 Mi Citi Local Project</p>
+  </footer>
+
+  <script>
+    function login() {
+      const u = document.getElementById('usuario').value;
+      const c = document.getElementById('contrasenia').value;
+      const r = document.getElementById('resultado');
+      if (u === 'admin' && c === '1234') {
+        r.innerHTML = `
+          <table class="result-table">
+            <tr><th>Fecha</th><th>Monto</th><th>Estado</th></tr>
+            <tr><td>2025-06-30</td><td>$100.00</td><td>Pagado</td></tr>
+            <tr><td>2025-07-15</td><td>$250.00</td><td>Pendiente</td></tr>
+          </table>`;
+      } else {
+        alert("Usuario o contraseña incorrectos. Inténtelo otra vez con admin / 1234.");
+      }
+    }
+  </script>
+</body>
+</html>
+

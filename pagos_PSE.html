@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pagos PSE Citibank Colombia S.A.</title>
+  <style>
+    body {
+      font-family: Tahoma, sans-serif;
+      margin: 0;
+      background: #ffffff;
+      color: #003366;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .header-left {
+      background-color: #003366;
+      color: white;
+      padding: 20px;
+      width: 60%;
+    }
+
+    .header-right {
+      background-color: #e0f2ff;
+      padding: 20px;
+      width: 40%;
+      text-align: right;
+      font-size: 12px;
+      color: #003366;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    select {
+      font-size: 11px;
+      padding: 4px;
+      margin-top: 5px;
+      width: 80%;
+      height: 50%;
+    }
+
+    .marquee-container {
+      width: 100%;
+      overflow: hidden;
+      background-color: #e6e6e6;
+      color: #003366;
+      font-size: 11px;
+      padding: 5px 0;
+    }
+
+    .marquee-container marquee {
+      font-style: italic;
+    }
+
+    .container {
+      display: flex;
+      width: 663px;
+      margin: 20px auto;
+      border: 1px solid #ccc;
+    }
+
+    .login-box {
+      width: 180px;
+      padding: 20px;
+      background-color: #f8f8f8;
+    }
+
+    .login-box label {
+      font-size: 12px;
+      color: #336699;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .login-box input[type="text"],
+    .login-box input[type="password"] {
+      width: 90%;
+      margin-bottom: 10px;
+      padding: 4px;
+      font-size: 12px;
+    }
+
+    .login-box input[type="submit"] {
+      width: 100%;
+      padding: 6px;
+      font-size: 12px;
+      background-color: #003366;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .forgot {
+      font-size: 11px;
+      color: #003366;
+      text-decoration: underline;
+      margin-top: 10px;
+      display: inline-block;
+    }
+
+    .image-box {
+      width: 483px;
+      background: url('local-image.jpg') no-repeat center;
+      background-size: cover;
+    }
+
+    .footer {
+      text-align: right;
+      font-size: 10px;
+      color: #666;
+      padding: 10px;
+    }
+
+    .footer a {
+      color: #666;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    /* SECCIÓN CENTRAL ABAJO DEL LOGIN */
+    .central-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px 40px;
+      font-size: 12px;
+      width: 663px;
+      margin: 0 auto;
+    }
+
+    .center-box {
+      text-align: center;
+      flex: 1;
+    }
+
+    .center-box h2 {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #003366;
+    }
+
+    .center-box p {
+      margin: 2px 0;
+    }
+
+    .center-box a {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 4px 8px;
+      background-color: #003366;
+      color: white;
+      text-decoration: none;
+      font-size: 11px;
+      border-radius: 4px;
+    }
+
+    .right-middle {
+      text-align: left;
+      margin-left: 30px;
+      flex: 0.6;
+      font-weight: bold;
+      font-size: 12px;
+      color: #003366;
+    }
+
+    .right-extreme {
+      text-align: right;
+      flex: 0.7;
+    }
+
+    .right-extreme a {
+      display: inline-block;
+      padding: 5px 10px;
+      background-color: #e0f2ff;
+      text-decoration: none;
+      color: #003366;
+      border: 1px solid #003366;
+      font-size: 11px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-left">
+      <h1>Pagos PSE Citibank Colombia S.A.</h1>
+    </div>
+    <div class="header-right">
+      <div>Ingrese a:</div>
+      <select onchange="location.href=this.value;">
+        <option value="#">Seleccione...</option>
+        <option value="mispagos.html">Mis pagos al día</option>
+        <option value="citidirect.html">CitiDirect BE℠</option>
+        <option value="online.html">Online Payments Channel</option>
+        <option value="pse.html">PSE</option>
+        <option value="tarjetas.html">Portal de tarjetas corporativas</option>
+      </select>
+    </div>
+  </header>
+
+  <div class="marquee-container">
+    <marquee behavior="scroll" direction="left">
+      Podrá realizar sus pagos los días hábiles entre las 8:00 a.m. y las 6:00 p.m.
+    </marquee>
+  </div>
+
+  <div class="container">
+    <div class="login-box">
+      <form action="#" method="post">
+        <label for="usuario">Usuario</label>
+        <input type="text" name="usuario" id="usuario">
+
+        <label for="clave">Contraseña</label>
+        <input type="password" name="clave" id="clave">
+
+        <input type="submit" value="Ingresar">
+      </form>
+      <a href="#" class="forgot">¿Olvidó su contraseña?</a>
+    </div>
+    <div class="image-box"></div>
+  </div>
+
+  <!-- NUEVA SECCIÓN DESPUÉS DEL LOGIN -->
+  <div class="central-info">
+    <div class="center-box">
+      <h2>Conozca los cambios</h2>
+      <p>Para realizar pagos PSE</p>
+      <a href="masinfo.html">Más info</a>
+      <h2 style="margin-top: 30px;">Los pagos PSE han cambiado</h2>
+    </div>
+
+    <div class="right-middle">
+      ¡SIEMPRE A SU SERVICIO!
+    </div>
+
+    <div class="right-extreme">
+      <a href="informacion.html">INFORMACIÓN GENERAL</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="#">Términos y condiciones</a> | <a href="#">Privacidad: casi terminamos !!!!!!!!</a>
+  </div>
+
+</body>
+</html>

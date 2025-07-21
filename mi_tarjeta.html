@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>:: Mycardsinfonet.com ::</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      font-family: Tahoma, Verdana, Arial, Helvetica;
+    }
+    .header {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      background: url('https://www.mycardsinfonet.com/vhccppi/media/Base_02.jpeg');
+      padding: 10px;
+    }
+    .header img {
+      margin-left: 10px;
+    }
+    .main {
+      display: flex;
+      flex-direction: row;
+      width: 663px;
+      margin: auto;
+    }
+    .login-section {
+      width: 167px;
+      padding: 10px;
+      color: #336699;
+    }
+    .FormTextBox, .FormTextBoqx {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .FormButton {
+      width: 100%;
+      background-color: #ccc;
+      border: none;
+      padding: 5px;
+    }
+    .divider {
+      background-image: url('https://www.mycardsinfonet.com/vhccppi/media/LineaPunto.gif');
+      width: 4px;
+    }
+    .info-section {
+      width: 492px;
+      padding: 10px;
+    }
+    .footer {
+      text-align: right;
+      font-size: 10px;
+      margin: 10px 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="https://www.mycardsinfonet.com/vhccppi/media/header.jpg" width="591" height="55">
+    <img id="castellano" src="https://www.mycardsinfonet.com/vhccppi/media/castellano-flag.png" height="25">
+    <img id="ingles" src="https://www.mycardsinfonet.com/vhccppi/media/ingles-flag.png" height="25">
+  </div>
+
+  <div class="main">
+    <div class="login-section">
+      <form id="loginForm">
+        <img src="https://www.mycardsinfonet.com/vhccppi/media/MenuTitulo00.gif" width="168" height="39"><br>
+        <label for="usuario">Usuario:</label><br>
+        <input type="text" class="FormTextBox" name="usuario" required><br>
+        <label for="password">Clave de acceso:</label><br>
+        <input type="password" class="FormTextBoqx" name="password" required><br>
+        <input type="submit" class="FormButton" value="Ingresar">
+      </form>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="info-section">
+      <div align="center">
+        <img src="https://www.mycardsinfonet.com/vhccppi/media/Base_07.jpg" width="472" height="230"><br><br>
+      </div>
+      <p style="color:#666666; font-size: small;">
+        <strong>Mycardsinfonet.com</strong> brinda la posibilidad de abarcar, desde la administracion diaria de sus tarjetas de credito, hasta la planificacion comercial a largo plazo, permitiendo transferir la informacion a sus propias hojas de calculo, ahorrando tiempo en la recoleccion y carga de este tipo de datos.
+      </p>
+      <p>
+        <a href="#" onclick="openPdf()" style="font-size: small;">Informacion Importante sobre el servicio de Mycardsinfonet</a>
+      </p>
+      <div id="tablaPagos" style="display:none; margin-top:20px;">
+        <table border="1" cellpadding="5" cellspacing="0" style="width:100%; font-size:small;">
+          <thead>
+            <tr><th>Fecha</th><th>Descripcion</th><th>Monto</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>2025-07-01</td><td>Pago Tarjeta</td><td>$100.00</td></tr>
+            <tr><td>2025-07-15</td><td>Recarga</td><td>$50.00</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="#">Terminos</a> | <a href="#">Privacidad :quiere un juguito ?</a>
+  </div>
+
+  <script>
+    function openPdf() {
+      window.open('https://www.mycardsinfonet.com/vhccppi/media/RecomendacionesDeSeguridad.html', '_blank');
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('tablaPagos').style.display = 'block';
+    });
+  </script>
+</body>
+</html>

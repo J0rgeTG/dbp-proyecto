@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Citi | Enfoque ESG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Fonts (Inter) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <style>
+    :root {
+      --citi-blue: #255be3;
+      --citi-navy: #11193a;
+      --footer-blue: #182248;
+      --section-padding: 54px 0 60px 0;
+    }
+    html, body {
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      color: #11193a;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+    }
+    a { color: inherit; text-decoration: none; transition: color .16s;}
+    a:hover { color: var(--citi-blue); }
+    /* Header */
+    .esg-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 60px 7px 48px;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(32,40,80,0.04);
+      position: sticky;
+      top: 0;
+      z-index: 99;
+    }
+    .esg-header-left {
+      display: flex;
+      align-items: center;
+      gap: 19px;
+    }
+    .esg-header-logo {
+      height: 54px;
+      margin-right: 12px;
+    }
+    .esg-header-menu {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      font-size: 1.14rem;
+      font-weight: 500;
+    }
+    .esg-header-menu a {
+      padding: 2px 2px 8px 2px;
+      border-bottom: 3px solid transparent;
+    }
+    .esg-header-menu .active {
+      border-color: var(--citi-blue);
+      color: var(--citi-blue);
+    }
+    .esg-header-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      position: relative;
+    }
+    .header-search-wrap {
+      position: relative;
+      margin-right: 18px;
+    }
+    .header-search-btn {
+      font-size: 1.22em;
+      color: #333d57;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 4px;
+      transition: background .17s;
+    }
+    .header-search-btn:hover {
+      background: #f1f5fa;
+    }
+    .search-dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 110%;
+      background: #fff;
+      box-shadow: 0 4px 30px 0 rgba(48,60,80,0.10);
+      border-radius: 8px;
+      padding: 12px 16px;
+      min-width: 210px;
+      z-index: 20;
+    }
+    .header-search-wrap.open .search-dropdown {
+      display: block;
+    }
+    .search-dropdown input {
+      width: 170px;
+      font-size: 1rem;
+      padding: 6px 11px;
+      border: 1.2px solid #dbdfea;
+      border-radius: 7px;
+      outline: none;
+      margin-bottom: 4px;
+    }
+    .esg-header-right .myaccount {
+      font-size: 1.08em;
+      color: #26375e;
+      font-weight: 500;
+      padding-left: 9px;
+    }
+    /* Hero Banner */
+    .esg-hero {
+      background: var(--citi-navy);
+      color: #fff;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      gap: 62px;
+      padding: 52px 0 52px 0;
+    }
+    .esg-hero-text {
+      flex: 1.1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 9vw;
+      min-width: 300px;
+    }
+    .esg-hero-text .bank-label {
+      font-size: 1.15rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #b7c3e0;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .esg-hero-title {
+      font-size: 2.5em;
+      font-weight: 700;
+      line-height: 1.14;
+      letter-spacing: 0;
+      margin-bottom: 5px;
+    }
+    .esg-hero-img {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      min-width: 300px;
+      padding-right: 7vw;
+    }
+    .esg-hero-img img {
+      width: 405px;
+      height: 335px;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: 0 8px 42px rgba(24,38,90,0.10);
+    }
+    /* Paragraph Section */
+    .esg-mission-section {
+      background: #fff;
+      padding: 46px 0 34px 0;
+      display: flex;
+      justify-content: center;
+    }
+    .esg-mission-inner {
+      max-width: 1100px;
+      width: 96%;
+      font-size: 1.28rem;
+      color: #232949;
+      line-height: 1.49;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+    /* Report Card */
+    .esg-report-row {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding-bottom: 42px;
+      background: #fff;
+    }
+    .esg-report-card {
+      display: flex;
+      border-radius: 24px;
+      overflow: hidden;
+      background: var(--citi-navy);
+      color: #fff;
+      max-width: 1100px;
+      width: 96%;
+      margin: 0 auto;
+      box-shadow: 0 4px 42px 0 rgba(48,60,80,0.07);
+    }
+    .esg-report-card .card-text {
+      flex: 1.05;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 49px 50px 38px 56px;
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+    .esg-report-card .card-link {
+      display: flex;
+      align-items: center;
+      font-size: 1.08rem;
+      font-weight: 400;
+      margin-top: 33px;
+      color: #f5f8ff;
+      cursor: pointer;
+      gap: 9px;
+      text-decoration: underline;
+      transition: color .17s;
+    }
+    .esg-report-card .card-link i {
+      font-size: 1.1em;
+      margin-right: 7px;
+      color: var(--citi-blue);
+    }
+    .esg-report-card .card-img {
+      flex: 1;
+      min-width: 300px;
+      max-width: 480px;
+      background: #e8ebf4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .esg-report-card .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 300px;
+    }
+    /* Impact Highlights */
+    .esg-highlights-section {
+      background: #fff;
+      padding: 46px 0 0 0;
+      min-height: 400px;
+    }
+    .esg-highlights-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-left: 36px;
+      padding-right: 36px;
+    }
+    .esg-highlights-title {
+      font-size: 1.28em;
+      font-weight: 600;
+      letter-spacing: 1.1px;
+      margin-bottom: 27px;
+      color: #232949;
+      text-transform: uppercase;
+    }
+    .esg-highlights-slider-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .esg-slider-btn {
+      background: #fff;
+      border: 1.7px solid var(--citi-blue);
+      color: var(--citi-blue);
+      font-size: 1.47rem;
+      border-radius: 8px;
+      padding: 6px 15px;
+      cursor: pointer;
+      margin-top: 118px;
+      transition: background .13s;
+      z-index: 3;
+    }
+    .esg-slider-btn:hover {
+      background: var(--citi-blue);
+      color: #fff;
+    }
+    .esg-highlights-slider {
+      display: flex;
+      gap: 38px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding-bottom: 12px;
+    }
+    .highlight-card {
+      min-width: 340px;
+      max-width: 340px;
+      background: #fff;
+      border-radius: 11px;
+      box-shadow: 0 2px 20px 0 rgba(36,62,120,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 16px;
+      padding-bottom: 20px;
+      border-right: 1.5px solid #e4e8f0;
+    }
+    .highlight-card img {
+      width: 100%;
+      height: 170px;
+      border-radius: 11px 11px 0 0;
+      object-fit: cover;
+      margin-bottom: 14px;
+    }
+    .highlight-card .h-title {
+      font-size: 2.2em;
+      font-weight: 700;
+      margin-top: 8px;
+      margin-bottom: 0;
+      line-height: 1.04;
+    }
+    .highlight-card .h-title.green { color: #28a84a;}
+    .highlight-card .h-title.blue { color: var(--citi-blue);}
+    .highlight-card .h-title.burgundy { color: #6b1611;}
+    .highlight-card .h-label {
+      font-size: 1.16em;
+      font-weight: 500;
+      margin-bottom: 5px;
+      margin-top: 12px;
+      color: #333;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .highlight-card .h-caption {
+      font-size: 1.17em;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .highlight-card .h-caption.green { color: #28a84a;}
+    .highlight-card .h-caption.blue { color: var(--citi-blue);}
+    .highlight-card .h-caption.burgundy { color: #6b1611;}
+    .highlight-card .h-desc {
+      font-size: 1.03em;
+      color: #343957;
+      margin-top: 5px;
+      font-weight: 400;
+      line-height: 1.48;
+    }
+    /* In this section */
+    .esg-inthis-section {
+      background: #f2f7fa;
+      padding: 49px 0 54px 0;
+    }
+    .esg-inthis-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 25px;
+    }
+    .esg-inthis-title {
+      font-size: 1.18em;
+      font-weight: 700;
+      color: #273059;
+      letter-spacing: 1.2px;
+      margin-bottom: 32px;
+      text-transform: uppercase;
+    }
+    .inthis-cards-row {
+      display: flex;
+      gap: 34px;
+      margin-top: 14px;
+    }
+    .inthis-card {
+      flex: 1;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 28px 0 rgba(52,74,150,0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-width: 270px;
+    }
+    .inthis-img {
+      width: 100%;
+      height: 186px;
+      object-fit: cover;
+      border-radius: 20px 20px 0 0;
+    }
+    .inthis-card-content {
+      padding: 34px 27px 30px 27px;
+    }
+    .inthis-card-title {
+      font-size: 1.48em;
+      font-weight: 600;
+      color: #16307f;
+      margin-bottom: 8px;
+    }
+    .inthis-card-desc {
+      font-size: 1.05em;
+      margin-bottom: 24px;
+      color: #242b3d;
+    }
+    .inthis-btn {
+      background: #fff;
+      color: var(--citi-blue);
+      border: 1.5px solid var(--citi-blue);
+      border-radius: 8px;
+      font-size: 1.04em;
+      font-weight: 500;
+      padding: 8px 26px;
+      cursor: pointer;
+      transition: background .13s, color .13s;
+    }
+    .inthis-btn:hover {
+      background: var(--citi-blue);
+      color: #fff;
+    }
+    /* Sustainability Resources Card */
+    .esg-sustain-section {
+      background: #fff;
+      padding: 58px 0 38px 0;
+      display: flex;
+      justify-content: center;
+    }
+    .esg-sustain-card {
+      display: flex;
+      background: var(--citi-navy);
+      color: #fff;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 52px 0 rgba(32,40,84,0.12);
+      max-width: 1060px;
+      width: 96%;
+      margin: 0 auto;
+      min-height: 270px;
+      align-items: stretch;
+    }
+    .sustain-card-content {
+      flex: 1.2;
+      padding: 44px 48px 42px 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 27px;
+    }
+    .sustain-title {
+      font-size: 2.05em;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .sustain-link-list {
+      display: flex;
+      flex-direction: column;
+      gap: 19px;
+      font-size: 1.14em;
+    }
+    .sustain-link-list a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      transition: color .18s;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .sustain-link-list a:hover {
+      color: var(--citi-blue);
+    }
+    .sustain-link-list i {
+      color: var(--citi-blue);
+      margin-right: 4px;
+      font-size: 1.04em;
+    }
+    .sustain-card-img {
+      flex: 1;
+      min-width: 290px;
+      max-width: 430px;
+      background: #e8ebf4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sustain-card-img img {
+      width: 100%;
+      height: 100%;
+      min-height: 200px;
+      object-fit: cover;
+      border-radius: 0 24px 24px 0;
+    }
+    
+    .esg-signup-section {
+      background: var(--citi-navy);
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      padding: 65px 0 0 0;
+    }
+    .signup-card {
+      background: var(--citi-blue);
+      color: #fff;
+      border-radius: 24px;
+      box-shadow: 0 8px 52px 0 rgba(28,60,180,0.13);
+      max-width: 1080px;
+      width: 98%;
+      margin: 0 auto;
+      padding: 43px 54px 36px 54px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 37px;
+      position: relative;
+      top: 41px;
+      min-height: 120px;
+    }
+    .signup-title {
+      font-size: 1.43em;
+      font-weight: 500;
+      line-height: 1.28;
+      letter-spacing: 0.01em;
+    }
+    .signup-form-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 18px;
+      min-width: 410px;
+    }
+    .signup-form-label {
+      font-size: 1em;
+      font-weight: 500;
+      margin-bottom: 4px;
+      color: #e2e8f5;
+    }
+    .signup-form-input {
+      padding: 9px 18px;
+      border-radius: 9px;
+      border: none;
+      background: #f7fafc;
+      color: #1b2439;
+      font-size: 1.08em;
+      font-weight: 500;
+      min-width: 230px;
+      margin-right: 8px;
+      outline: none;
+    }
+    .signup-form-btn {
+      background: #fff;
+      color: var(--citi-blue);
+      border: 1.7px solid #fff;
+      border-radius: 8px;
+      font-size: 1em;
+      font-weight: 600;
+      padding: 10px 34px;
+      cursor: pointer;
+      transition: background .13s, color .13s;
+    }
+    .signup-form-btn:hover {
+      background: var(--citi-blue);
+      color: #fff;
+      border-color: #fff;
+    }
+    
+    .esg-footer-main {
+      background: var(--citi-navy);
+      color: #fff;
+      padding: 58px 0 0 0;
+      display: flex;
+      justify-content: center;
+      border-top: 1px solid #1f2642;
+    }
+    .footer-main-inner {
+      width: 100%;
+      max-width: 1260px;
+      display: flex;
+      gap: 58px;
+      margin: 0 auto;
+      align-items: flex-start;
+    }
+    .footer-logo-col {
+      flex: 0 0 145px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-right: 8px;
+      margin-top: 3px;
+    }
+    .footer-logo {
+      width: 92px;
+      margin-bottom: 16px;
+    }
+    .footer-col {
+      flex: 1 1 0;
+      min-width: 140px;
+      margin-bottom: 16px;
+    }
+    .footer-col-title {
+      font-size: 1.06em;
+      font-weight: 700;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+    }
+    .footer-link-list {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .footer-link-list a {
+      color: #f0f2fc;
+      font-size: 1.02em;
+      transition: color .14s;
+    }
+    .footer-link-list a:hover {
+      color: var(--citi-blue);
+    }
+    .footer-extra {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      margin-top: 23px;
+    }
+    .footer-extra a {
+      color: #fff;
+      opacity: 0.75;
+      font-size: 0.98em;
+    }
+    .footer-social {
+      display: flex;
+      align-items: center;
+      gap: 17px;
+      margin-left: auto;
+      margin-right: 2vw;
+      margin-top: 38px;
+      margin-bottom: 6px;
+    }
+    .footer-social a {
+      color: #fff;
+      font-size: 1.45em;
+      opacity: 0.78;
+      transition: color .17s, opacity .14s;
+      margin: 0 4px;
+    }
+    .footer-social a:hover {
+      color: var(--citi-blue);
+      opacity: 1;
+    }
+    .esg-footer-copyright {
+      text-align: center;
+      color: #b2b8ce;
+      font-size: 1em;
+      margin-top: 32px;
+      margin-bottom: 15px;
+      opacity: 0.83;
+      letter-spacing: 0.02em;
+    }
+    
+    @media (max-width: 1000px) {
+      .esg-header {padding: 14px 10px 7px 10px;}
+      .esg-hero {padding-left: 0; gap:24px;}
+      .esg-hero-img img {width: 300px; height: 235px;}
+      .esg-hero-text {padding-left: 2vw;}
+      .esg-header-menu {gap: 18px;}
+      .footer-main-inner {flex-direction: column; gap: 20px;}
+      .footer-social {margin-left: 0;}
+      .esg-report-card {flex-direction: column;}
+      .esg-report-card .card-img, .esg-sustain-card .sustain-card-img {max-width: 100%; border-radius:0;}
+    }
+    @media (max-width: 770px) {
+      .esg-hero {flex-direction: column; align-items: center; gap:16px; padding: 36px 0;}
+      .esg-hero-text {padding-left: 0;}
+      .esg-hero-img {padding-right: 0;}
+      .esg-report-card, .esg-sustain-card {flex-direction: column;}
+      .esg-report-card .card-text, .sustain-card-content {padding: 25px 13px 22px 14px;}
+      .esg-header {flex-direction: column; align-items: flex-start;}
+      .footer-main-inner {flex-direction: column; gap: 18px;}
+      .footer-logo-col {margin-bottom: 12px;}
+      .signup-card {flex-direction: column; gap:21px; align-items: flex-start; padding: 28px 16px;}
+    }
+    @media (max-width: 600px) {
+      .esg-header-menu, .footer-main-inner {flex-direction: column;}
+      .esg-header-menu {gap: 8px;}
+      .esg-hero-title {font-size: 1.2em;}
+      .esg-hero-img img, .esg-report-card .card-img img, .esg-sustain-card .sustain-card-img img {width: 100%; height: auto;}
+      .highlight-card, .esg-highlights-slider {min-width: 99vw;}
+      .inthis-cards-row {flex-direction: column; gap:22px;}
+      .signup-form-row {min-width:0;}
+    }
+  </style>
+</head>
+<body>
+  
+  <header class="esg-header">
+    <div class="esg-header-left">
+      <img src="imgs/citilogo.png" class="esg-header-logo" alt="Citi Logo">
+    </div>
+    <nav class="esg-header-menu">
+      <a href="#" class="active">About Us</a>
+      <a href="#">Businesses</a>
+      <a href="#">Our Impact</a>
+      <a href="#">News</a>
+      <a href="#">Insights</a>
+      <a href="#">Investors</a>
+      <a href="#">Careers</a>
+    </nav>
+    <div class="esg-header-right">
+      <div class="header-search-wrap" id="search-wrap">
+        <button class="header-search-btn" id="headerSearchBtn"><i class="fas fa-search"></i></button>
+        <div class="search-dropdown" id="searchDropdown">
+          <input type="text" placeholder="Search Citi...">
+        </div>
+      </div>
+      <span class="myaccount">My Account</span>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="esg-hero">
+    <div class="esg-hero-text">
+      <div class="bank-label">A HUMAN BANK</div>
+      <div class="esg-hero-title">
+        We’re helping build more sustainable, economically vibrant communities around the world.
+      </div>
+    </div>
+    <div class="esg-hero-img">
+      <img src="imgs/esg1.jpg" alt="Hero Volunteers">
+    </div>
+  </section>
+
+  
+  <section class="esg-mission-section">
+    <div class="esg-mission-inner">
+      At Citi, helping our clients navigate the challenges and embrace the opportunities of our rapidly changing world is fundamental to our mission of enabling growth and economic progress.
+    </div>
+  </section>
+
+  
+  <section class="esg-report-row">
+    <div class="esg-report-card">
+      <div class="card-text">
+        Each year, we report on our sustainability-related activities and performance.
+        <a href="#" class="card-link"><i class="fa fa-download"></i>Read about our work</a>
+      </div>
+      <div class="card-img">
+        <img src="imgs/esg2.jpg" alt="Citi Office Wall"/>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="esg-highlights-section">
+    <div class="esg-highlights-inner">
+      <div class="esg-highlights-title">Impact Highlights</div>
+      <div class="esg-highlights-slider-row">
+        <button class="esg-slider-btn" onclick="highlightScroll(-1)"><i class="fa fa-chevron-left"></i></button>
+        <div class="esg-highlights-slider" id="highlightSlider">
+          
+          <div class="highlight-card">
+            <img src="imgs/esg3.jpg" alt="highways">
+            <div class="h-title blue">$1 trillion</div>
+            <div class="h-caption blue">in sustainable finance by 2030</div>
+            <div class="h-desc">
+              Our $1 Trillion Sustainable Finance Goal aims to support clients that are working to create a sustainable and low-carbon economy that supports society’s environmental, social and economic needs.
+            </div>
+          </div>
+          
+          <div class="highlight-card">
+            <img src="imgs/esg4.jpg" alt="city">
+            <div class="h-title burgundy">Net Zero</div>
+            <div class="h-caption burgundy">by 2050</div>
+            <div class="h-desc">
+              We’re taking steps to reduce our own environmental impact while supporting our clients in their own transitions to a low-carbon economy.
+            </div>
+          </div>
+          
+          <div class="highlight-card">
+            <img src="imgs/esg5.jpg" alt="houses">
+            <div class="h-title green">Over $7 billion</div>
+            <div class="h-caption green">in U.S. affordable housing finance</div>
+            <div class="h-desc">
+              Citi was the largest U.S. affordable housing development lender for the 15th consecutive year.
+            </div>
+          </div>
+          
+          <div class="highlight-card">
+            <img src="imgs/esg6.jpg" alt="volunteers">
+            <div class="h-title burgundy">57,000+</div>
+            <div class="h-caption burgundy">volunteer engagements</div>
+            <div class="h-desc">
+              In 2024, we volunteered in over 57,000 engagements globally as part of Citi’s Global Community Day campaign.
+            </div>
+          </div>
+        </div>
+        <button class="esg-slider-btn" onclick="highlightScroll(1)"><i class="fa fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="esg-inthis-section">
+    <div class="esg-inthis-inner">
+      <div class="esg-inthis-title">In this section</div>
+      <div class="inthis-cards-row">
+        <div class="inthis-card">
+          <img src="imgs/esg7.jpg" class="inthis-img" alt="solar panels"/>
+          <div class="inthis-card-content">
+            <div class="inthis-card-title">Sustainability</div>
+            <div class="inthis-card-desc">We're proud to play a leading role in our industry’s drive to a more sustainable future.</div>
+            <button class="inthis-btn">Learn More</button>
+          </div>
+        </div>
+        <div class="inthis-card">
+          <img src="imgs/esg8.jpg" class="inthis-img" alt="community"/>
+          <div class="inthis-card-content">
+            <div class="inthis-card-title">Strengthening Community</div>
+            <div class="inthis-card-desc">Citi and the Citi Foundation are working to take on complex challenges facing communities.</div>
+            <button class="inthis-btn">Learn More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="esg-sustain-section">
+    <div class="esg-sustain-card">
+      <div class="sustain-card-content">
+        <div class="sustain-title">Sustainability Resources</div>
+        <div class="sustain-link-list">
+          <a href="#"><i class="fa fa-arrow-right"></i>Download Sustainability Materials</a>
+          <a href="#"><i class="fa fa-arrow-right"></i>Environmental &amp; Social Policies</a>
+        </div>
+      </div>
+      <div class="sustain-card-img">
+        <img src="imgs/esg9.jpg" alt="green building"/>
+      </div>
+    </div>
+  </section>
+
+    
+    <footer style="background: #11193d; padding: 0; margin-top:60px; font-family: 'Inter', Arial, sans-serif;">
+    <div style="max-width: 1350px; margin: 0 auto; padding: 0 30px;">
+        
+        <div style="background: #2d63e9; border-radius: 26px; padding: 32px 40px 24px 40px; display: flex; align-items: center; justify-content: space-between; margin: 0 auto 32px auto; max-width: 1050px; min-height: 90px; position: relative; top: -32px;">
+        <div style="color: #fff; font-size: 1.6rem; font-weight: 500; letter-spacing: -0.01em;">
+            Sign up to receive the latest insights from Citi.
+        </div>
+        <form style="display: flex; align-items: flex-end; gap: 16px; min-width: 360px;">
+            <div style="display:flex; flex-direction:column; align-items:flex-start;">
+            <label style="color:#fff; font-size:.95rem; margin-bottom: 6px;">Email Address*</label>
+            <input type="email" placeholder="Your Email Address" required style="padding:10px 18px; border-radius:8px; border:none; width:225px; font-size:1rem;">
+            </div>
+            <button type="submit" style="background: #fff; color: #2d63e9; border:none; border-radius:8px; padding:10px 28px; font-weight:600; font-size:1.05rem; cursor:pointer; transition:background 0.2s;">Next</button>
+        </form>
+        </div>
+
+        
+        <div style="display:grid; grid-template-columns: 130px repeat(6, 1fr) 135px; gap: 0 22px; align-items: start; background: none;">
+        
+        <div style="display:flex; align-items:flex-start; padding-top:14px;">
+            <img src="imgs/citilogo.png" alt="Citi Logo" style="width:98px;">
+        </div>
+        
+        <div>
+            <div style="color:#fff; font-weight:600; letter-spacing:.01em; font-size:1.05em; margin-bottom:9px;">ABOUT US</div>
+            <div style="display:flex; flex-direction:column; gap:2px;">
+            <a href="#" style="color:#fff; text-decoration:none; font-size:1em;">Strategy</a>
+            <a href="#">Leadership</a>
+            <a href="#">Global Presence</a>
+            <a href="#">Heritage</a>
+            <a href="#">People, Engagement & Inclusion</a>
+            <a href="#">Careers</a>
+            <a href="#">Alumni</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Regulatory Disclosures</a>
+            </div>
+        </div>
+        
+        <div>
+            <div style="color:#fff; font-weight:600; letter-spacing:.01em; font-size:1.05em; margin-bottom:9px;">BUSINESSES</div>
+            <div style="display:flex; flex-direction:column; gap:2px;">
+            <a href="#">Services</a>
+            <a href="#">Markets</a>
+            <a href="#">Banking and International</a>
+            <a href="#">Wealth</a>
+            <a href="#">U.S. Personal Banking</a>
+            </div>
+        </div>
+        
+        <div>
+            <div style="color:#fff; font-weight:600; letter-spacing:.01em; font-size:1.05em; margin-bottom:9px;">OUR IMPACT</div>
+            <div style="display:flex; flex-direction:column; gap:2px;">
+            <a href="#">Sustainability</a>
+            <a href="#">Strengthening Community</a>
+            </div>
+        </div>
+        
+        <div>
+            <div style="color:#fff; font-weight:600; letter-spacing:.01em; font-size:1.05em; margin-bottom:9px;">NEWS</div>
+            <div style="display:flex; flex-direction:column; gap:2px;">
+            <a href="#">Press Releases</a>
+            <a href="#">Perspectives</a>
+            <a href="#">Events</a>
+            <a href="#">Media Resources</a>
+            </div>
+        </div>
+        
+        <div>
+            <div style="color:#fff; font-weight:600; letter-spacing:.01em; font-size:1.05em; margin-bottom:9px;">INSIGHTS</div>
+            <div style="display:flex; flex-direction:column; gap:2px;">
+            <a href="#">Citi Institute</a>
+            <a href="#">All Insights</a>
+            </div>
+        </div>
+        
+        <div>
+            <div style="color:#fff; font-weight:600; letter-spacing:.01em; font-size:1.05em; margin-bottom:9px;">INVESTORS</div>
+            <div style="display:flex; flex-direction:column; gap:2px;">
+            <a href="#">Quarterly Earnings</a>
+            <a href="#">Events and Presentations</a>
+            <a href="#">Annual Reports and Proxy Statements</a>
+            <a href="#">SEC Filings</a>
+            <a href="#">Other Regulatory Filings</a>
+            <a href="#">Fixed Income Investor Relations</a>
+            <a href="#">Stockholder Services</a>
+            <a href="#">Corporate Governance</a>
+            <a href="#">ESG for Investors</a>
+            <a href="#">Investor Contacts</a>
+            </div>
+        </div>
+        
+        <div style="display:flex; flex-direction:column; align-items:flex-end; justify-content: flex-end; height:100%; padding-top: 42px;">
+            <div style="display:flex; gap:24px; font-size:2.1em; color:#fff;">
+            <a href="#" style="color:#fff;"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" style="color:#fff;"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" style="color:#fff;"><i class="fab fa-youtube"></i></a>
+            <a href="#" style="color:#fff;"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" style="color:#fff;"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        </div>
+
+        
+        <div style="width:100%;margin:32px auto 0 auto; color:#b2b8ce; font-size:1.05em; opacity:.87; text-align:center; letter-spacing:-.01em; padding-bottom: 20px;">
+        Terms &nbsp; Privacy &nbsp; Cookie Policy &nbsp; Cookie Preferences &nbsp; Notice at Collection &nbsp; CA Privacy Hub &nbsp; Accessibility &nbsp; Suppliers &nbsp; Ethics Hotline<br>
+        © 2025 Citi Foundation. All rights reserved.
+        </div>
+    </div>
+    </footer>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <style>
+    footer a { color:#b2b8ce; text-decoration:none; transition:color .18s;}
+    footer a:hover { color:#fff; text-decoration:underline;}
+    footer .fa-x-twitter::before {content:"\e61b";}
+    @media (max-width: 1100px) {
+    footer > div {padding:0 10px;}
+    footer .fa-x-twitter, footer .fa-facebook-f, footer .fa-youtube, footer .fa-linkedin-in, footer .fa-instagram {font-size:1.4em!important;}
+    }
+    @media (max-width: 900px) {
+    footer > div > .footer-main-inner { grid-template-columns: 1fr 1fr; gap:16px; }
+    footer > div > .footer-main-inner > div {padding-bottom: 22px;}
+    }
+    @media (max-width: 700px) {
+    footer .footer-main-inner { display: block !important; }
+    footer .footer-main-inner > div { margin-bottom: 22px;}
+    }
+    </style>
+
+    <script>
+    
+    const headerSearchBtn = document.getElementById("headerSearchBtn");
+    const searchWrap = document.getElementById("search-wrap");
+    headerSearchBtn.onclick = (e) => {
+      e.stopPropagation();
+      searchWrap.classList.toggle("open");
+      if (searchWrap.classList.contains("open")) {
+        searchWrap.querySelector('input').focus();
+      }
+    };
+    document.body.addEventListener("click", () => searchWrap.classList.remove("open"));
+
+    // Highlights slider (fake scroll, you can improve with a real carousel lib)
+    function highlightScroll(dir) {
+      const slider = document.getElementById('highlightSlider');
+      const cardWidth = slider.firstElementChild.offsetWidth + 38; // card + gap
+      slider.scrollBy({left: dir * cardWidth, behavior: "smooth"});
+    }
+  </script>
+</body>
+</html>

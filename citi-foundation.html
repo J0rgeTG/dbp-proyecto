@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Citi Foundation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    :root {
+      --citi-blue: #255be3;
+      --citi-dark: #101937;
+      --citi-light: #f5f7fa;
+    }
+    body {
+      margin: 0;
+      background: #fff;
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      color: #101937;
+    }
+    
+    .foundation-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      height: 78px;
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(50,50,80,0.07);
+      z-index: 10;
+      position: sticky;
+      top: 0;
+    }
+    .foundation-header-inner {
+      width: 100%;
+      max-width: 1440px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100%;
+      gap: 30px;
+    }
+    .foundation-logo {
+      height: 40px;
+      margin-left: 26px;
+      margin-right: 30px;
+    }
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .header-nav a {
+      color: #222;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 3px 0 1px 0;
+      transition: color 0.2s;
+      border-bottom: 3px solid transparent;
+      margin: 0 6px;
+    }
+    .header-nav a.header-active,
+    .header-nav a:hover {
+      color: var(--citi-blue);
+      border-bottom: 3px solid var(--citi-blue);
+    }
+
+    
+    .hero-section {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      max-width: 1360px;
+      margin: 0 auto;
+      min-height: 440px;
+      padding: 56px 0 48px 0;
+    }
+    .hero-content {
+      flex: 1 1 0%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 86px;
+      padding-right: 36px;
+    }
+    .hero-title {
+      font-size: 48px;
+      font-weight: 600;
+      margin: 0 0 18px 0;
+      letter-spacing: -0.5px;
+    }
+    .hero-subtitle {
+      font-size: 20px;
+      margin-bottom: 28px;
+      color: #333;
+    }
+    .hero-btn {
+      background: var(--citi-blue);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 11px 32px;
+      box-shadow: 0 2px 10px rgba(40,90,230,0.10);
+      cursor: pointer;
+      transition: background 0.16s;
+      margin-bottom: 4px;
+    }
+    .hero-btn:hover { background: #1946b0; }
+    .hero-image {
+      flex: 1 1 0%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 44px;
+    }
+    .hero-image img {
+      max-width: 450px;
+      width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 4px 32px rgba(40,55,120,0.11);
+      background: #eceef5;
+      object-fit: cover;
+      height: 290px;
+    }
+
+    
+    .fade-section {
+      opacity: 1;
+      pointer-events: all;
+      transition: opacity 0.85s cubic-bezier(.82,.12,.38,1.03);
+    }
+    .fade-section.hidden {
+      opacity: 0;
+      pointer-events: none;
+      height: 0 !important;
+      overflow: hidden;
+    }
+
+    
+    .foundation-blue-section {
+      background: var(--citi-dark);
+      padding: 0;
+      margin: 0;
+      min-height: 520px;
+      width: 100%;
+    }
+    .blue-main-row {
+      display: flex;
+      max-width: 1350px;
+      margin: 0 auto;
+      align-items: stretch;
+      padding: 64px 0 0 0;
+      gap: 0;
+    }
+    .blue-img-box {
+      background: #255be3;
+      min-width: 420px;
+      max-width: 440px;
+      display: flex;
+      align-items: center;
+      border-radius: 20px 0 0 20px;
+      justify-content: flex-end;
+    }
+    .blue-img-box img {
+      width: 360px;
+      height: 260px;
+      border-radius: 18px;
+      object-fit: cover;
+      margin: 32px;
+      background: #fff;
+      box-shadow: 0 4px 32px rgba(40,55,120,0.09);
+    }
+    .blue-text-box {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #255be3;
+      color: #fff;
+      padding: 48px 54px 36px 54px;
+      border-radius: 0 20px 20px 0;
+      min-height: 260px;
+    }
+    .blue-text-main {
+      font-size: 2.1rem;
+      font-weight: 500;
+      margin-bottom: 28px;
+    }
+    .blue-btn {
+      background: #fff;
+      color: #255be3;
+      border: 1.7px solid #fff;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 11px 32px;
+      margin-top: 6px;
+      width: fit-content;
+      cursor: pointer;
+      transition: background 0.19s, color 0.16s;
+      box-shadow: 0 1px 9px rgba(20,60,220,0.06);
+    }
+    .blue-btn:hover {
+      background: #1946b0;
+      color: #fff;
+      border-color: #fff;
+    }
+
+    
+    .ourwork-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 44px 0 36px 0;
+      max-width: 1330px;
+      margin: 0 auto;
+      gap: 64px;
+    }
+    .ourwork-left {
+      flex: 1.6;
+      min-width: 340px;
+      color: #fff;
+      font-size: 27px;
+      font-weight: 400;
+      letter-spacing: -.5px;
+    }
+    .ourwork-title {
+      color: #b9c7f6;
+      font-size: 17px;
+      letter-spacing: 2px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .ourwork-right {
+      flex: 1.1;
+      min-width: 220px;
+      display: flex;
+      flex-direction: column;
+      gap: 21px;
+    }
+    .ourwork-right a {
+      color: #fff;
+      font-size: 19px;
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: color .14s;
+    }
+    .ourwork-right a:hover { color: #b9c7f6; }
+    .ourwork-right a i {
+      font-size: 18px;
+      opacity: 0.8;
+    }
+
+    
+    .news-section {
+      background: #fff;
+      padding: 42px 0 36px 0;
+    }
+    .news-wrapper {
+      max-width: 1340px;
+      margin: 0 auto;
+    }
+    .news-title {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #202440;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+    }
+    .news-slider-row {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .news-slider-btn {
+      border: 2px solid #255be3;
+      background: #fff;
+      color: #255be3;
+      border-radius: 8px;
+      width: 46px;
+      height: 46px;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background .13s, color .13s;
+      margin-top: 94px;
+      user-select: none;
+    }
+    .news-slider-btn:active {
+      background: #255be3;
+      color: #fff;
+    }
+    .news-slider {
+      flex: 1;
+      display: flex;
+      gap: 40px;
+      overflow: hidden;
+      scroll-behavior: smooth;
+    }
+    .news-card {
+      background: #fff;
+      border: 1.5px solid #f1f4fc;
+      border-radius: 19px;
+      min-width: 364px;
+      max-width: 370px;
+      flex: 0 0 364px;
+      box-shadow: 0 2px 18px rgba(46,76,130,0.06);
+      padding: 0 0 0 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .news-img {
+      width: 100%;
+      height: 185px;
+      object-fit: cover;
+      border-top-left-radius: 19px;
+      border-top-right-radius: 19px;
+      background: #eaeef9;
+    }
+    .news-card-content {
+      padding: 18px 26px 24px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .news-label {
+      font-size: 13px;
+      color: #b62e1b;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+    .news-title-main {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #101937;
+      line-height: 1.14;
+    }
+    .news-date {
+      font-size: 15px;
+      color: #667;
+      margin-bottom: 2px;
+    }
+    .news-author {
+      font-size: 15px;
+      color: #255be3;
+      font-weight: 500;
+      margin-top: 2px;
+    }
+    .news-viewall {
+      margin: 30px 0 0 0;
+      text-align: right;
+    }
+    .btn-viewall {
+      background: #fff;
+      border: 2px solid #255be3;
+      color: #255be3;
+      border-radius: 8px;
+      font-size: 17px;
+      font-weight: 500;
+      padding: 8px 36px;
+      cursor: pointer;
+      margin-top: 16px;
+      transition: background .16s, color .16s;
+    }
+    .btn-viewall:hover {
+      background: #255be3;
+      color: #fff;
+    }
+/* FOOTER */
+    .foundation-footer {
+      background: #101937;
+      color: #fff;
+      padding: 48px 0 0 0;
+      font-size: 15px;
+      margin-top: 10;
+    }
+    .footer-wrapper {
+      max-width: 1340px;
+      margin: 0 auto;
+      display: flex;
+      gap: 74px;
+    }
+    .footer-logo-col {
+      min-width: 128px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 30px;
+      margin-right: 30px;
+    }
+    .footer-logo {
+      height: 41px;
+      margin-bottom: 16px;
+    }
+    .footer-links-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      min-width: 168px;
+      margin-bottom: 19px;
+    }
+    .footer-group-title {
+      color: #b9c7f6;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin: 7px 0 6px 0;
+    }
+    .footer-link {
+      color: #fff;
+      text-decoration: none;
+      font-size: 15.3px;
+      opacity: .93;
+      transition: color .13s;
+      font-weight: 400;
+    }
+    .footer-link:hover {
+      color: #b9c7f6;
+      text-decoration: underline;
+    }
+    .footer-socials {
+      display: flex;
+      gap: 15px;
+      margin-top: 12px;
+      margin-bottom: 10px;
+    }
+    .footer-socials a {
+      color: #b9c7f6;
+      font-size: 20px;
+      transition: color .13s;
+      opacity: .88;
+    }
+    .footer-socials a:hover { color: #fff; }
+    .footer-legal {
+      width: 100%;
+      max-width: 950px;
+      margin: 0 auto;
+      padding-top: 38px;
+      padding-bottom: 13px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .footer-policy-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 23px;
+      justify-content: center;
+      margin-bottom: 12px;
+      margin-top: 10px;
+    }
+    .footer-policy-link {
+      color: #b9c7f6;
+      text-decoration: none;
+      font-size: 14px;
+      opacity: .87;
+    }
+    .footer-policy-link:hover { color: #fff; }
+    .footer-bottom {
+      text-align: center;
+      font-size: 14px;
+      color: #b9c7f6;
+    }
+
+    @media (max-width: 1200px) {
+      .footer-wrapper { flex-wrap: wrap; gap: 30px; }
+      .news-slider { gap: 18px; }
+      .news-card { min-width: 320px; max-width: 330px; }
+    }
+    @media (max-width: 900px) {
+      .hero-section { flex-direction: column; padding: 28px 0 18px 0;}
+      .hero-content { padding-left: 28px; padding-right: 18px; }
+      .hero-image { justify-content: center; padding-right: 0; margin-top: 18px;}
+      .hero-image img { max-width: 88vw; height: 180px; }
+      .blue-main-row { flex-direction: column; padding-top: 38px;}
+      .blue-img-box, .blue-text-box { border-radius: 20px; min-width: unset; }
+      .blue-img-box { justify-content: center; max-width: 100%; }
+      .blue-img-box img { margin: 24px 0 0 0; width: 90vw; max-width: 440px;}
+      .blue-text-box { border-radius: 20px; min-height: unset; padding: 30px 10vw 26px 10vw;}
+      .ourwork-row { flex-direction: column; gap: 30px; padding: 30px 0 16px 0;}
+    }
+    @media (max-width: 700px) {
+      .foundation-header { flex-direction: column; height: auto; padding: 0 8px;}
+      .header-nav { gap: 12px; flex-wrap: wrap; margin-left: 0;}
+      .hero-title { font-size: 29px;}
+      .hero-subtitle { font-size: 16px;}
+      .blue-main-row { padding: 22px 0 0 0;}
+      .blue-img-box img { height: 115px;}
+      .blue-text-main { font-size: 1.2rem;}
+      .footer-wrapper { flex-direction: column; gap: 10px; }
+      .footer-links-group { margin-bottom: 9px; }
+      .news-card { min-width: 99vw; max-width: 99vw;}
+      .news-slider { gap: 12px; }
+      .news-section { padding-left: 7px; padding-right: 7px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="foundation-header">
+    <img src="imgs/citilogo.png" class="foundation-logo" alt="Citi Foundation Logo" />
+    <nav class="header-nav">
+      <a href="#" class="header-active">Citi Foundation</a>
+      <a href="#">About Us</a>
+      <a href="#">Programs</a>
+      <a href="#">Knowledge Center</a>
+      <a href="#">Apply for Funding</a>
+    </nav>
+  </header>
+
+  <section class="hero-section fade-section" id="hero-section">
+    <div class="hero-content">
+      <div class="hero-title">Citi Foundation Announces 2025 Global Innovation Challenge</div>
+      <div class="hero-subtitle">
+        Supporting community organizations working to accelerate youth employability around the world.
+      </div>
+      <button class="hero-btn" onclick="scrollToBlueSection()">Learn More</button>
+    </div>
+    <div class="hero-image">
+      <img src="imgs/fundacion1.jpg" alt="Meeting"/>
+    </div>
+  </section>
+
+  <section class="foundation-blue-section">
+    <div class="blue-main-row">
+      <div class="blue-img-box">
+        <img src="imgs/fundacion2.jpg" alt="Citi foundation volunteer"/>
+      </div>
+      <div class="blue-text-box">
+        <div class="blue-text-main">
+          We partner with community organizations working across 80+ countries and territories globally.
+        </div>
+        <button class="blue-btn">Learn More</button>
+      </div>
+    </div>
+    <div class="ourwork-row">
+      <div class="ourwork-left">
+        <div class="ourwork-title">OUR WORK</div>
+        We invest in efforts that increase financial inclusion, catalyze job opportunities for youth, and reimagine approaches to building economically vibrant communities.
+      </div>
+      <div class="ourwork-right">
+        <a href="#"><i class="fa fa-arrow-right"></i>Our Team</a>
+        <a href="#"><i class="fa fa-arrow-right"></i>Programs</a>
+        <a href="#"><i class="fa fa-download"></i>Funding Approach</a>
+        <a href="#"><i class="fa fa-arrow-right"></i>Reports & Resources</a>
+      </div>
+    </div>
+  </section>
+
+ 
+  <section class="news-section">
+    <div class="news-wrapper">
+      <div class="news-title">Featured News</div>
+      <div class="news-slider-row">
+        <button class="news-slider-btn" onclick="slideNews(-1)"><i class="fas fa-chevron-left"></i></button>
+        <div class="news-slider" id="news-slider">
+          
+          <div class="news-card">
+            <img src="imgs/featured1.jpg" class="news-img" alt="News"/>
+            <div class="news-card-content">
+              <div class="news-label">PRESS RELEASE</div>
+              <div class="news-title-main">Citi Foundation Announces 2025 Global Innovation Challenge for Nonprofits Accelerating Youth Employability</div>
+              <div class="news-date">February 04, 2025</div>
+            </div>
+          </div>
+          
+          <div class="news-card">
+            <img src="imgs/featured2.jpg" class="news-img" alt="News"/>
+            <div class="news-card-content">
+              <div class="news-label">PRESS RELEASE</div>
+              <div class="news-title-main">Citi Foundation Announces Recipients of 2024 Global Innovation Challenge, Granting a Collective $25 Million to 50 Community Organizations Advancing Solutions to Homelessness</div>
+              <div class="news-date">September 24, 2024</div>
+            </div>
+          </div>
+        
+          <div class="news-card">
+            <img src="imgs/featured3.jpg" class="news-img" alt="News"/>
+            <div class="news-card-content">
+              <div class="news-label">PRESS RELEASE</div>
+              <div class="news-title-main">Citi Foundation Announces Latest Cohort of Community Progress Makers, Granting a Collective $50 Million to Nonprofits Working Locally to Increase Economic Opportunity</div>
+              <div class="news-date">May 14, 2024</div>
+            </div>
+          </div>
+          <div class="news-card">
+            <img src="imgs/featured4.jpg" class="news-img" alt="News"/>
+            <div class="news-card-content">
+              <div class="news-label">PRESS RELEASE</div>
+              <div class="news-title-main">Citi Foundation Announces 2024 Global Innovation Challenge to Strengthen Nonprofits Pioneering Solutions to Homelessness</div>
+              <div class="news-date">January 17, 2024</div>
+            </div>
+          </div>
+          <div class="news-card">
+            <img src="imgs/featured5.jpg" class="news-img" alt="News"/>
+            <div class="news-card-content">
+              <div class="news-label">PERSPECTIVES</div>
+              <div class="news-title-main">Our Impact from Pathways to Progress</div>
+              <div class="news-date">December 13, 2023</div>
+              <div class="news-author">Brandee McHale, Head of Community Investing and Development at Citi and President of the Citi Foundation</div>
+            </div>
+          </div>
+        </div>
+        <button class="news-slider-btn" onclick="slideNews(1)"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      <div class="news-viewall">
+        <button class="btn-viewall">View All News</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foundation-footer">
+    <div class="footer-wrapper">
+      <div class="footer-logo-col">
+        <img src="imgs/citilogo.png" class="footer-logo" alt="Citi Foundation" />
+        <div class="footer-socials">
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-links-group">
+        <div class="footer-group-title">CITI FOUNDATION</div>
+        <a href="#" class="footer-link">Home</a>
+      </div>
+      <div class="footer-links-group">
+        <div class="footer-group-title">ABOUT US</div>
+        <a href="#" class="footer-link">Philanthropic Focus</a>
+        <a href="#" class="footer-link">People</a>
+      </div>
+      <div class="footer-links-group">
+        <div class="footer-group-title">PROGRAMS</div>
+        <a href="#" class="footer-link">Overview</a>
+        <a href="#" class="footer-link">Community Finance Innovation Fund</a>
+        <a href="#" class="footer-link">Community Progress Makers</a>
+        <a href="#" class="footer-link">Global Innovation Challenge</a>
+        <a href="#" class="footer-link">Pathways to Progress</a>
+        <a href="#" class="footer-link">Past Programs</a>
+      </div>
+      <div class="footer-links-group">
+        <div class="footer-group-title">KNOWLEDGE CENTER</div>
+        <a href="#" class="footer-link">News</a>
+        <a href="#" class="footer-link">Reports & Resources</a>
+        <a href="#" class="footer-link">Videos</a>
+      </div>
+      <div class="footer-links-group">
+        <div class="footer-group-title">APPLY FOR FUNDING</div>
+        <a href="#" class="footer-link">Overview</a>
+        <a href="#" class="footer-link">Get Updates</a>
+      </div>
+    </div>
+    <div class="footer-policy-row">
+      <a href="#" class="footer-policy-link">Terms</a>
+      <a href="#" class="footer-policy-link">Privacy</a>
+      <a href="#" class="footer-policy-link">Cookie Policy</a>
+      <a href="#" class="footer-policy-link">Cookie Preferences</a>
+      <a href="#" class="footer-policy-link">Notice at Collection</a>
+      <a href="#" class="footer-policy-link">CA Privacy Hub</a>
+      <a href="#" class="footer-policy-link">Accessibility</a>
+      <a href="#" class="footer-policy-link">Suppliers</a>
+      <a href="#" class="footer-policy-link">Ethics Hotline</a>
+      <a href="#" class="footer-policy-link">Contact Us</a>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Citi Foundation. All rights reserved.
+    </div>
+  </footer>
+  <script>
+    window.addEventListener('scroll', function() {
+      const hero = document.getElementById('hero-section');
+      if (window.scrollY > 90) {
+        hero.classList.add('hidden');
+      } else {
+        hero.classList.remove('hidden');
+      }
+    });
+
+    function scrollToBlueSection() {
+      window.scrollTo({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+    }
+
+    let currentNews = 0;
+    function slideNews(dir) {
+      const slider = document.getElementById('news-slider');
+      const cardWidth = slider.querySelector('.news-card').offsetWidth + 40;
+      currentNews += dir;
+      if (currentNews < 0) currentNews = 0;
+      const maxScroll = slider.scrollWidth - slider.clientWidth;
+      let nextScroll = currentNews * cardWidth;
+      if (nextScroll > maxScroll) {
+        currentNews--;
+        nextScroll = maxScroll;
+      }
+      slider.scrollTo({ left: nextScroll, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Información Financiera y de la Sociedad</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    .contenido-principal {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .contenido-principal h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #255be3;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .navegacion-empresas-titulo {
+      font-weight: bold;
+      color: #255be3;
+      margin-bottom: 12px;
+      padding-left: 72px;
+    }
+    .navegacion-empresas-tabs {
+      display: flex;
+      margin: 0 auto 32px auto;
+      max-width: 900px;
+      padding-left: 72px;
+      gap: 16px;
+    }
+    .tab-empresa {
+      background: none;
+      border: none;
+      padding: 14px 0;
+      font-size: 16px;
+      font-weight: 500;
+      color: #0f172a;
+      cursor: pointer;
+      position: relative;
+    }
+    .tab-empresa:hover,
+    .tab-empresa:focus {
+      color: #255be3;
+    }
+    .tab-empresa:hover::after,
+    .tab-activa::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background-color: #255be3;
+    }
+    .tab-activa {
+      font-weight: bold;
+      color: #255be3;
+    }
+    .contenido-empresa {
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: 72px;
+      padding-bottom: 40px;
+    }
+    .contenido-empresa h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #255be3;
+      margin-top: 36px;
+      margin-bottom: 10px;
+    }
+    .contenido-empresa h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 30px 0 10px 0;
+      color: #0f172a;
+    }
+    .contenido-empresa p {
+      font-size: 15px;
+      margin-bottom: 24px;
+      color: #222;
+      max-width: 900px;
+    }
+    .contenido-empresa ul, .contenido-empresa ol {
+      margin: 0 0 24px 0;
+      padding-left: 20px;
+      font-size: 15px;
+    }
+    .contenido-empresa li {
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+    .contenido-empresa a {
+      color: #255be3;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+    .contenido-empresa a:hover {
+      color: #0f172a;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+      z-index: 100;
+      width: 220px;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content a {
+      display: block;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #0f172a;
+    }
+    .dropdown-content a:hover {
+      color: #255be3;
+      background-color: #f1f5f9;
+    }
+    .dropdown-content a.active {
+      color: #255be3;
+      border-bottom: 2px solid #255be3;
+    }
+  </style>
+</head>
+<body>
+  <header class="header-principal">
+    <div class="contenedor-header">
+      <img src="imgs/citilogo.png" alt="Citi" class="logo-citi" />
+    </div>
+  </header>
+
+  <main class="contenido-principal">
+    <h1>Información Financiera y de la Sociedad</h1>
+
+    <div class="navegacion-empresas-titulo">Colombia</div>
+    <div class="navegacion-empresas-tabs" style="gap:90px;justify-content:center;">
+      <button onclick="window.location.href='index.html'" class="tab-empresa">Página Principal</button>
+      <div class="dropdown">
+        <button class="tab-empresa tab-activa">Citibank Colombia S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="citibak-colombia.html">Página Principal</a>
+          <a href="informacion-institucional.html">Información Institucional</a>
+          <a href="productos-servicios.html">Productos y Servicios</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="tab-empresa">Citivalores S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="#">Página principal</a>
+          <a href="#">Corresponsal en Inversiones Globales</a>
+          <a href="#">Corresponsal en Banca de Inversión</a>
+          <a href="#">ETF MSCI COLCAP</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="tab-empresa">Cititrust S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="#">Página Principal</a>
+          <a href="#">Servicios de Custodia</a>
+          <a href="#">Fiducia Estructurada</a>
+          <a href="#">Links frecuentes</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contenido-empresa">
+      <h2>Estados Financieros:</h2>
+      <p>Según lo establecido en el Articulo 11.2.4.1.1 del Decreto 2555 de 2010, los estados financieros no requirieron autorización previa de la Superintendencia Financiera de Colombia para la aprobación por parte de la Asamblea de Accionistas</p>
+      
+      <h3>Informes Anuales</h3>
+      <p style="margin-bottom:8px"><strong>Citibank® Colombia S.A.</strong></p>
+      <ul>
+        <li>2024</li>
+        <li>2023</li>
+        <li>2022</li>
+        <li>2021</li>
+        <li>2020</li>
+        <li>2019</li>
+        <li>2018</li>
+        <li>2017</li>
+        <li>2016</li>
+        <li>2015</li>
+        <li>2014</li>
+        <li>2013</li>
+        <li>2012</li>
+      </ul>
+      <p style="margin-bottom:8px"><strong>Citibank Colombia S.A. y Subordinadas Grupo Empresarial</strong></p>
+      <ul>
+        <li>2024</li>
+        <li>2023</li>
+        <li>2022</li>
+        <li>2021</li>
+        <li>2020</li>
+        <li>2019</li>
+        <li>2018</li>
+        <li>2017</li>
+        <li>2016</li>
+        <li>2015</li>
+        <li>2014</li>
+        <li>2013</li>
+        <li>2012</li>
+      </ul>
+
+      <h3>Informes Trimestrales</h3>
+      <ul>
+        <li>Citibank 1Q 2025</li>
+        <li>Citibank Colombia S.A. y Subordinadas 1Q 2025</li>
+        <li>Citibank 3Q 2024</li>
+        <li>Citibank Colombia S.A. y Subordinadas 3Q 2024</li>
+        <li>Citibank 2Q 2024</li>
+        <li>Citibank Colombia S.A. y Subordinadas 2Q 2024</li>
+        <li>Citibank 1Q 2024</li>
+        <li>Citibank Colombia S.A. y Subordinadas 1Q 2024</li>
+        <li>Citibank 3Q 2023</li>
+        <li>Citibank Colombia S.A. y Subordinadas 3Q 2023</li>
+        <li>Citibank 2Q 2023</li>
+        <li>Citibank Colombia S.A. y Subordinadas 2Q 2023</li>
+        <li>Citibank Colombia S.A. y Subordinadas 1Q 2023</li>
+        <li>Citibank 1Q 2023</li>
+        <li>Citibank 3Q 2022</li>
+        <li>Citibank Colombia S.A. y Subordinadas 3Q 2022</li>
+        <li>Citibank Colombia S.A. y Subordinadas 2Q 2022</li>
+        <li>Citibank 2Q 2022</li>
+        <li>Citibank Colombia S.A. y Subordinadas 1Q 2022</li>
+        <li>Citibank 1Q 2022</li>
+        <li>Citibank 3Q 2021</li>
+        <li>Citibank Colombia S.A. y Subordinadas 3Q 2021</li>
+        <li>Citibank Colombia S.A. y Subordinadas 2Q 2021</li>
+        <li>Citibank 2Q 2021</li>
+        <li>Citibank Colombia S.A. y Subordinadas 1Q 2021</li>
+        <li>Citibank 1Q 2021</li>
+        <li>Citibank 3Q 2020</li>
+        <li>Citibank Colombia S.A. y Subordinadas 3Q 2020</li>
+        <li>Citibank 2Q 2020</li>
+        <li>Citibank Colombia S.A. y Subordinadas 2Q 2020</li>
+        <li>Citibank 1Q 2020</li>
+        <li>Citibank Colombia S.A. y Subordinadas 1Q 2020</li>
+        <li>Citibank 3Q 2019</li>
+        <li>Citibank Colombia S.A. y Subordinadas 3Q 2019</li>
+        <li>Citibank 2Q 2019</li>
+        <li>Citibank Colombia S.A. y Subordinadas 2Q 2019</li>
+        <li>Citibank Colombia S.A. 1Q 2019</li>
+        <li>Citibank Colombia S.A. y Subordinales 1Q 2019</li>
+        <li>Citibank Colombia S.A. 3Q</li>
+        <li>Citibank Colombia S.A. y Subordinadas 3Q 2018</li>
+        <li>Citibank Colombia S.A. 2Q 2018</li>
+        <li>Citibank Colombia S.A. y Subordinadas Grupo Empresarial 2Q 2018</li>
+        <li>Citibank Colombia S.A. 1Q 2018</li>
+        <li>Citibank Colombia S.A. y Subordinadas Grupo Empresarial 1Q 2018</li>
+      </ul>
+
+      <h3>Superintendencia Financiera de Colombia</h3>
+      <ul>
+        <li><a href="#">Información Relevante Superintendencia Financiera de Colombia</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <section class="seccion-servicios">
+    <div class="contenedor-servicios">
+      <div class="columna-vigilado">
+        <div class="contenedor-vigilado">
+          <img src="imgs/vigilado.png" alt="Vigilado" class="imagen-vigilado" />
+        </div>
+      </div>
+      <div class="columna-servicios">
+        <div class="grid-servicios">
+          <button class="boton-servicio" onclick="abrirServicio('tasas')">Tasas y Tarifas Vigentes</button>
+          <button class="boton-servicio" onclick="abrirServicio('citidirect')">CitiDirect</button>
+          <button class="boton-servicio" onclick="abrirServicio('payments')">Online Payments Channel</button>
+          <button class="boton-servicio" onclick="abrirServicio('pagos')">Mis pagos al día</button>
+          <button class="boton-servicio" onclick="abrirServicio('pse')">PSE</button>
+          <button class="boton-servicio" onclick="abrirServicio('fxpulse')">FXPulse</button>
+          <button class="boton-servicio" onclick="abrirServicio('tarjetas')">Portal de Tarjetas Corporativas</button>
+          <button class="boton-servicio" onclick="abrirServicio('sac')">SAC/Defensoría del Consumidor Financiero</button>
+          <button class="boton-servicio" onclick="abrirServicio('transparencia')">Programa de Transparencia PTEE Colrepfin LTDA</button>
+          <button class="boton-servicio boton-completo" onclick="abrirServicio('transparency')">TRANSPARENCY AND BUSINESS ETHICS PROGRAM (PTEE) COLREPFIN LTDA</button>
+        </div>
+      </div>
+    </div>
+    <div class="texto-disclaimer">
+      <p>Productos y servicios financieros ofrecidos por Citibank - Colombia S.A. Citi y el diseño del arco es una marca registrada de servicios de Citigroup Inc. Carrera 9A # 99 - 02 Bogotá, Colombia</p>
+    </div>
+  </section>
+
+  <footer class="footer-principal">
+    <div class="contenedor-footer">
+      <div class="footer-izquierda">
+        <img src="imgs/citilogo.png" alt="Citi" class="logo-footer" />
+        <div class="enlaces-footer">
+          <a href="#" class="enlace-footer">Citigroup.com</a>
+          <a href="#" class="enlace-footer">Términos y Condiciones</a>
+          <a href="#" class="enlace-footer">Privacidad</a>
+        </div>
+      </div>
+      <div class="footer-derecha">
+        <div class="redes-sociales">
+          <a href="#" class="icono-social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-google-plus-g"></i></a>
+        </div>
+        <span class="copyright">&copy; 2003–2025 Citigroup Inc.</span>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

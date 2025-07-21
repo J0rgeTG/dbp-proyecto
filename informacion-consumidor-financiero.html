@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Información Consumidor Financiero SAC</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    body { background: #fff; margin:0; font-family:'Inter', Arial, sans-serif;}
+    .header-principal {
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(30,41,59,.06);
+      padding: 28px 0 18px 0;
+      text-align: center;
+    }
+    .header-principal img { height: 52px;}
+    .contenido-principal {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 44px 20px 30px 20px;
+    }
+    .contenido-principal h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #255be3;
+      text-align: center;
+      margin-bottom: 100px;
+    }
+    .navegacion-empresas-titulo {
+      font-weight: bold;
+      color: #255be3;
+      margin-bottom: 10px;
+      margin-left: 54px;
+      font-size: 20px;
+    }
+    .navegacion-empresas-tabs {
+      display: flex;
+      margin: 0 auto 30px auto;
+      max-width: 900px;
+      padding-left: 54px;
+      gap: 16px;
+    }
+    .tab-empresa {
+      background: none;
+      border: none;
+      padding: 14px 0;
+      font-size: 16px;
+      font-weight: 500;
+      color: #0f172a;
+      cursor: pointer;
+      position: relative;
+    }
+    .tab-empresa:hover,
+    .tab-empresa:focus { color: #255be3; }
+    .tab-empresa:hover::after,
+    .tab-activa::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0; right: 0; height: 4px;
+      background-color: #255be3;
+    }
+    .tab-activa { font-weight: bold; color: #255be3;}
+    .dropdown { position: relative; }
+    .dropdown-content {
+      display: none; position: absolute; background: #fff; box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+      z-index: 100; width: 220px;
+    }
+    .dropdown:hover .dropdown-content { display: block; }
+    .dropdown-content a {
+      display: block; padding: 12px 16px; text-decoration: none; color: #0f172a;
+    }
+    .dropdown-content a:hover { color: #255be3; background: #f1f5f9; }
+    .accordion-section { max-width: 900px; margin: 0 auto 26px auto;}
+    .accordion { border-radius: 16px; overflow: hidden; box-shadow: 0 1px 8px #edf2f7; background: #f8fafc;}
+    .accordion-item + .accordion-item { border-top: 1px solid #e2e8f0;}
+    .accordion-title {
+      font-size: 19px;
+      color: #255be3;
+      background: #f4f7fb;
+      cursor: pointer;
+      padding: 22px 30px 22px 28px;
+      font-weight: 500;
+      display: flex; align-items: center; justify-content: space-between;
+      border: none; width: 100%;
+      transition: background 0.18s;
+      outline: none;
+    }
+    .accordion-title:hover { background: #e7efff;}
+    .accordion-title .icon {
+      font-size: 22px;
+      color: #255be3;
+      margin-left: 16px;
+      font-weight: bold;
+      transition: transform 0.2s;
+    }
+    .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    background: #fff;
+    padding: 0 30px;
+    font-size: 16px;
+    color: #1e293b;
+    transition: max-height 0.5s cubic-bezier(.4,0,.2,1);
+    }
+    .accordion-item.active .accordion-content {
+    padding: 22px 30px;
+    max-height: none;  /* Ajusta aquí si alguna sección es muy extensa */
+    transition: max-height 0.7s cubic-bezier(.4,0,.2,1);
+    }
+    .accordion-item.active .accordion-title .icon { transform: rotate(180deg);}
+    .video-inclusion { max-width: 400px; margin-right:40px;}
+    .video-texto-flex {display: flex; gap:36px; align-items:center;}
+    @media (max-width: 900px){
+      .video-texto-flex { flex-direction: column; gap:18px;}
+      .video-inclusion {margin-right:0;}
+    }
+    /* ————————————————————————————
+   Sección de Servicios
+————————————————————————————— */
+.seccion-servicios {
+  background: #fff;
+  padding: 36px 0 0 0;
+}
+.contenedor-servicios {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.columna-vigilado {
+  width: 100px;
+  position: relative;
+}
+.contenedor-vigilado {
+  position: absolute;
+  left: calc(50% - 50px);
+  top: -58px;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 1;
+  padding: 15px;
+  box-shadow: 0 5px 8px rgba(0,0,0,0.1);
+}
+.imagen-vigilado {
+  width: 100%;
+}
+.columna-servicios .grid-servicios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  flex: 1;
+}
+.boton-servicio,
+.boton-completo {
+  background: #255be3;
+  color: #fff;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  height: 48px;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(10,24,147,0.07);
+  transition: background .15s ease, transform .15s ease;
+}
+.boton-servicio:hover,
+.boton-completo:hover {
+  background: #1e4fcc;
+}
+.boton-completo {
+  grid-column: span 3;
+}
+.texto-disclaimer {
+  text-align: center;
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 24px;
+  padding: 0 16px;
+}
+
+/* ————————————————————————————
+   Footer Principal
+————————————————————————————— */
+.footer-principal {
+  background: #18214e;
+  color: #fff;
+  margin-top: 42px;
+}
+.footer-principal .contenedor-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+.footer-izquierda,
+.footer-derecha {
+  display: flex;
+  align-items: center;
+}
+.logo-footer {
+  height: 38px;
+  margin-right: 22px;
+}
+.enlaces-footer a {
+  color: #fff;
+  margin-right: 24px;
+  text-decoration: none;
+  font-size: 15px;
+}
+.enlaces-footer a:hover {
+  text-decoration: underline;
+}
+.footer-derecha {
+  flex-direction: column;
+  align-items: flex-end;
+}
+.redes-sociales {
+  margin-bottom: 7px;
+}
+.icono-social {
+  color: #fff;
+  font-size: 19px;
+  margin-right: 13px;
+}
+.icono-social:last-child {
+  margin-right: 0;
+}
+.icono-social:hover {
+  color: #255be3;
+}
+.copyright {
+  font-size: 13px;
+  color: #b8bdd8;
+}
+@media (max-width:800px) {
+  .contenedor-footer,
+  .contenedor-servicios {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-derecha {
+    align-items: flex-start;
+  }
+  .grid-servicios {
+    grid-template-columns: 1fr;
+  }
+  .navegacion-empresas-tabs {
+    padding-left: 12px;
+  }
+  .navegacion-empresas-titulo {
+    margin-left: 12px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  
+  <header class="header-principal">
+    <img src="imgs/citilogo.png" alt="Citi" class="logo-citi" />
+  </header>
+
+  
+  <main class="contenido-principal">
+    <h1>Información Consumidor Financiero SAC</h1>
+    <div class="navegacion-empresas-titulo">Colombia</div>
+    <div class="navegacion-empresas-tabs" style="gap:90px;justify-content:center;">
+      <button onclick="window.location.href='index.html'" class="tab-empresa">Página Principal</button>
+      <div class="dropdown">
+        <button class="tab-empresa tab-activa">Citibank Colombia S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="citibak-colombia.html">Página Principal</a>
+          <a href="informacion-institucional.html">Información Institucional</a>
+          <a href="productos-servicios.html">Productos y Servicios</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="tab-empresa">Citivalores S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="#">Página principal</a>
+          <a href="#">Corresponsal en Inversiones Globales</a>
+          <a href="#">Corresponsal en Banca de Inversión</a>
+          <a href="#">ETF MSCI COLCAP</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="tab-empresa">Cititrust S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="#">Página Principal</a>
+          <a href="#">Servicios de Custodia</a>
+          <a href="#">Fiducia Estructurada</a>
+          <a href="#">Links frecuentes</a>
+        </div>
+      </div>
+    </div>
+    
+    <div style="margin-bottom:30px;">
+    <div style="font-size: 1.25rem; color: #2764cc; font-weight: 600; margin-bottom: 0.25em;">
+        Sistema de Atención al Consumidor Financiero SAC
+    </div>
+    <div style="font-size:1rem; color:#222;">
+        En Citibank Colombia S.A., Cititrust Colombia S.A. Sociedad Fiduciaria y Citivalores S.A. Comisionista de Bolsa entendemos la importancia de la educación financiera de los Consumidores Financieros.
+    </div>
+    </div>
+
+    <section class="accordion-section">
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-title" type="button">
+            Defensoría del Consumidor Financiero
+            <span class="icon"><i class="fas fa-plus"></i></span>
+          </button>
+
+        <div class="accordion-content">
+        <h3 style="font-size: 1.19rem; color: #255be3; font-weight: 600; margin-bottom: 12px;">
+            Citibank - Colombia S.A., Cititrust Colombia S.A. y Citivalores S.A.
+        </h3>
+
+        <p style="margin-bottom:14px;">
+            En cumplimiento de lo dispuesto en el Estatuto Orgánico del Sistema Financiero, Capítulo VI de la Ley 1328 del 2009, y el Decreto 2281 del 2010, Citibank -Colombia S.A., Cititrust S.A. y Citivalores S.A. han designado como Defensor del Consumidor Financiero al <strong>Dr. Carlos Mario Serna Jaramillo</strong> y como suplente a la <strong>Dra. Patricia Amelia Rojas Amezquita</strong>.
+        </p>
+
+        <p style="margin-bottom:14px;">
+            <strong>Presente sus reclamos o quejas a través de los siguientes canales:</strong><br>
+            Página WEB: <a href="http://www.defensoriasernarojas.com" target="_blank" style="color:#255be3;">www.defensoriasernarojas.com</a> ;<br>
+            Correo electrónico: <a href="mailto:defensoria@defensoriasernarojas.com" style="color:#255be3;">defensoria@defensoriasernarojas.com</a> ;<br>
+            Teléfono en Bogotá (+57) 601 4898285, de lunes a viernes (días hábiles) en el horario de 8:00 a.m. a 5:30 p.m., buzón telefónico 24 horas;<br>
+            o en la Carrera 16A No 80-63 oficina 601 Edificio Torre Oval en Bogotá, de lunes a viernes (días hábiles) en el horario de 8:00 a.m. a 12:00 p.m. y de 2:00 p.m. a 5:00 p.m.
+        </p>
+
+        <p style="margin-bottom:14px;">
+            También puede presentar su queja directamente con Citibank en nuestra Oficina Corporativa ubicada en la Carrera 9A No. 99-02 Piso 1 Local 104 en el horario: 9:00 a.m. a 4:00 p.m., de la que haremos traslado al Defensor del Consumidor Financiero dentro de los tres (3) días hábiles siguientes a la recepción de dicho documento, de acuerdo con lo dispuesto en el artículo 2.34.2.1.5 del Decreto 2555 de 2010.
+        </p>
+
+        <p style="margin-bottom:18px;">
+            El defensor del consumidor financiero, tiene como función, actuar con absoluta autonomía e independencia de estas entidades, sirviendo como vocero entre éstas y nuestros clientes y usuarios. El defensor del consumidor financiero está encargado de velar por la protección de los derechos de los consumidores y de conocer y resolver de forma objetiva y gratuita las quejas y reclamos individuales que estos tengan en relación con el servicio por parte de las mencionadas entidades.
+        </p>
+
+        <h4 style="color:#255be3; font-size:1.07rem; margin:20px 0 10px 0; font-weight:600;">
+            Procedimiento para resolución de quejas o reclamos ante el defensor del consumidor financiero
+        </h4>
+
+        <ul style="margin-left:1.1em; margin-bottom:15px;">
+            <li style="margin-bottom:7px;"><strong>PRESENTACIÓN DE LA QUEJA O RECLAMACIÓN:</strong> Los consumidores financieros podrán presentar su queja o reclamo ante el defensor del consumidor financiero, mediante documento en el cual consignen sus datos personales y la información de contacto, la descripción de los hechos y las pretensiones concretas de su queja o reclamo. Dicha queja o reclamo podrá ser remitido directamente al defensor o podrá ser presentada en las oficinas, agencias o sucursales de las entidades. En este último caso, las entidades vigiladas tienen la obligación de hacer el traslado al DEFENSOR dentro de los tres (3) días hábiles siguientes a la recepción de dicho documento.</li>
+            <li style="margin-bottom:7px;"><strong>ADMISIÓN O INADMISIÓN:</strong> Una vez recibida la queja o reclamo, el defensor decidirá si el asunto es de su competencia o no. La decisión sobre la admisión o inadmisión será comunicada al consumidor financiero y a la entidad involucrada dentro de los tres (3) días hábiles contados desde el día siguiente en que sea recibida la solicitud.</li>
+            <li style="margin-bottom:7px;">Cuando la queja o reclamo es admitida, el defensor deberá comunicar al consumidor financiero si la decisión final que profiera es obligatoria según los reglamentos de la entidad respectiva, advirtiendo sobre la posibilidad de solicitar una audiencia de conciliación en cualquier momento.</li>
+            <li style="margin-bottom:7px;">Si la queja o reclamo es inadmitida, el defensor comunicará su decisión al consumidor financiero, indicando los motivos de la inadmisión e informando que esto no obsta para el ejercicio de las demás acciones legales existentes.</li>
+            <li style="margin-bottom:7px;">Si el defensor estima que para el análisis de la solicitud requiere mayor información de parte de la entidad involucrada o del consumidor financiero, procederá a comunicarles por cualquier medio verificable tal situación, a fin de que alleguen la información necesaria. En este evento, la entidad o el consumidor financiero deberán dar respuesta dentro del término que determine el defensor sin que se excedan los ocho (8) días hábiles, contados desde el día siguiente al que se solicite la información. Una vez recibida la información solicitada, el defensor podrá decidir sobre la admisión o inadmisión dentro del término máximo de tres (3) días hábiles.</li>
+            <li style="margin-bottom:7px;">Se entenderá que la queja o reclamo ha sido desistida si el consumidor financiero no da respuesta a la solicitud dentro del término máximo mencionado en el párrafo anterior. Lo anterior, sin perjuicio de que el consumidor financiero pueda presentar posteriormente su queja o reclamo con la información completa, la cual se entenderá presentada como si fuera la primera vez.</li>
+            <li style="margin-bottom:7px;"><strong>TRASLADO A LA ENTIDAD:</strong> Admitida la queja o reclamo, el defensor dará traslado de ella a la respectiva entidad, a fin de que allegue la información y presente los argumentos en que fundamenta su posición. La respuesta deberá ser allegada al defensor dentro de un término de ocho (8) días hábiles, contados desde el día siguiente al que se haga el traslado, término que se ampliará a petición de la entidad y a juicio del defensor. En este último caso, la entidad vigilada deberá informar al consumidor financiero las razones en las que sustenta la prórroga.</li>
+            <li style="margin-bottom:7px;">Si después de iniciado el trámite de la solicitud, el defensor tiene conocimiento de que éste no es de su competencia, dará por terminada su actuación, comunicando inmediatamente su decisión a la entidad y al consumidor financiero.</li>
+            <li style="margin-bottom:7px;"><strong>DECISIÓN DEL DEFENSOR:</strong> El defensor deberá evaluar la información aportada y resolver la queja o reclamo en un término que en ningún caso podrá ser superior a ocho (8) días hábiles, contados desde el día siguiente al vencimiento del término estipulado. La decisión que profiera el defensor deberá ser motivada, clara y completa. Dicha decisión, deberá ser comunicada al consumidor financiero y a la entidad vigilada el día hábil siguiente después de proferida.</li>
+            <li style="margin-bottom:7px;"><strong>RECTIFIACIÓN:</strong> La entidad vigilada podrá rectificar total o parcialmente su posición frente una queja o reclamo con el consumidor financiero en cualquier momento anterior a la decisión final por parte del defensor. En estos casos, la entidad informará tal situación al defensor y éste, dentro de los tres (3) días hábiles siguientes a la comunicación de la entidad, consultará al consumidor financiero que formuló la queja o reclamo, por medio verificable, a efectos de establecer su expresa satisfacción. El consumidor financiero deberá responder a la consulta en un término máximo de ocho (8) días.</li>
+        </ul>
+
+        <h4 style="color:#255be3; font-size:1.07rem; margin:18px 0 10px 0; font-weight:600;">
+            Asuntos que corresponde conocer al defensor del consumidor financiero
+        </h4>
+        <p style="margin-bottom:12px;">
+            En cumplimiento de sus funciones, el defensor del consumidor financiero deberá conocer, evaluar y resolver íntegramente, dentro de los términos legales, las quejas o reclamaciones presentadas por posibles incumplimientos de normas legales o internas que rigen el desarrollo de las operaciones, contratos o servicios que ofrecen, prestan, o ejecutan Citibank®-Colombia S.A., Cititrust Colombia S.A. y Citivalores S.A. y que afecten directamente al cliente o usuario, así como las relativas a la calidad en la prestación de los servicios de estas entidades.
+        </p>
+        <p style="margin-bottom:12px;">
+            Igualmente, como vocero de los consumidores financieros, el defensor del consumidor financiero podrá conocer sobre nuestras actividades y proponer cambios en aras de mejorar, facilitar y normalizar las relaciones, la seguridad y la confianza que debe existir con nuestros clientes. En caso de que una queja sea rechazada por razón de competencia, el cliente podrá acudir a las autoridades competentes y ésta no podrá ser presentada de nuevo a la Defensoría, mientras se mantengan las condiciones que dieron lugar al rechazo.
+        </p>
+        <p style="margin-bottom:18px;">
+            En caso que el consumidor financiero y la entidad pongan un asunto en conocimiento del respectivo Defensor, indicando de manera explícita su deseo de que el caso sea atendido en desarrollo de la función de conciliación, el Defensor actuará como conciliador entre los consumidores financieros y la respectiva entidad en los términos indicados en la Ley.
+        </p>
+
+        <h4 style="color:#255be3; font-size:1.07rem; margin:18px 0 10px 0; font-weight:600;">
+            Asuntos excluidos de la competencia del defensor del consumidor financiero
+        </h4>
+        <p style="margin-bottom:7px;">Se encuentran excluidos de la competencia del defensor del consumidor financiero los siguientes asuntos:</p>
+        <ul style="margin-left:1.1em; margin-bottom:15px;">
+            <li>Aquellos que no correspondan o no estén directamente relacionados con el giro ordinario de las operaciones autorizadas a Citibank -Colombia S.A., Cititrust Colombia S.A. y Citivalores S.A.;</li>
+            <li>Los concernientes al vínculo laboral entre Citibank-Colombia S.A., Cititrust Colombia S.A. y Citivalores S.A. y sus empleados o respecto de sus contratistas;</li>
+            <li>Aquellos que se deriven de la condición de accionista de Citibank -Colombia S.A., Cititrust Colombia S.A. y Citivalores S.A. Comisionista de Bolsa;</li>
+            <li>Los que se refieren a cuestiones que se encuentren en trámite o hayan sido resueltas en vía judicial o arbitral o hayan sido resueltas en estas vías;</li>
+            <li>Aquellos que correspondan a la decisión sobre la prestación de un servicio o producto;</li>
+            <li>Los que se refieran a hechos sucedidos con tres (3) años de anterioridad o más a la fecha de presentación de la queja;</li>
+            <li>Las quejas que tengan por objeto los mismos hechos y afecten a las mismas partes y que hayan sido objeto de decisión previa por parte del defensor del consumidor financiero;</li>
+            <li>Las quejas cuya cuantía individual, sumados todos los conceptos, superen los cien (100) salarios mínimos legales mensuales vigentes al momento de su presentación.</li>
+        </ul>
+        <p style="margin-bottom:14px;">
+            En el evento en que el defensor del consumidor financiero advierta, en su criterio, que la queja interpuesta corresponde a aquellas de interés general o colectivo, deberá dar traslado de la misma a la Superintendencia Financiera para su trámite.
+        </p>
+
+        <h4 style="color:#255be3; font-size:1.07rem; margin:18px 0 10px 0; font-weight:600;">
+            Otros mecanismos para resolución de reclamos de los consumidores financieros
+        </h4>
+        <ul style="margin-left:1.1em; margin-bottom:15px;">
+            <li>(i) Acudir directamente a Citibank -Colombia S.A., Cititrust Colombia S.A. o Citivalores S.A., según el caso;</li>
+            <li>(ii) Presentar sus quejas y/o reclamaciones ante el defensor del consumidor financiero;</li>
+            <li>(iii) Presentar su queja directamente ante la Superintendencia Financiera de Colombia.</li>
+        </ul>
+        <p style="margin-bottom:14px;">
+            En caso que el Cliente y/o Usuario no esté conforme con la decisión del Defensor o el motivo de su reclamación sea ajeno a la competencia del Defensor, podrá acudir a las autoridades administrativas o judiciales competentes o acudir directamente ante Citibank -Colombia S.A., Cititrust Colombia S.A. o Citivalores S.A., según corresponda.
+        </p>
+
+        <h4 style="color:#255be3; font-size:1.07rem; margin:18px 0 10px 0; font-weight:600;">
+            Efectos de las decisiones del defensor del consumidor financiero
+        </h4>
+        <p style="margin-bottom:14px;">
+            Las decisiones proferidas por el defensor del consumidor financiero no obligan a las partes ni son vinculantes para Citibank -Colombia S.A., Cititrust Colombia S.A. o Citivalores S.A., según el caso.
+        </p>
+
+        <h4 style="color:#255be3; font-size:1.07rem; margin:18px 0 10px 0; font-weight:600;">
+            Régimen sancionatorio para el defensor del cliente y entidades vigiladas por la superintendencia financiera
+        </h4>
+        <p style="margin-bottom:16px;">
+            El incumplimiento de las obligaciones a cargo del defensor del consumidor financiero podrá ser sancionado por la Superintendencia Financiera de Colombia, previa investigación administrativa con la imposición de las sanciones a que se refiere el artículo 208 numeral 3 del Estatuto Orgánico del Sistema Financiero. En los términos del régimen sancionatorio del mismo estatuto, Citibank-Colombia S.A., Cititrust Colombia S.A. o Citivalores S.A., podrán ser sancionadas por no designar al defensor del consumidor financiero, por no efectuar las apropiaciones necesarias para el suministro de los recursos humanos y técnicos que requiera su adecuado desempeño o por no proveer la información que necesite para el ejercicio de sus funciones.
+        </p>
+
+        <h4 style="color:#255be3; font-size:1.07rem; margin:18px 0 10px 0; font-weight:600;">
+            TRÁMITE DE CONCILIACIÓN
+        </h4>
+        <p style="margin-bottom:12px;">
+            El Consumidor Financiero podrá solicitar que el Defensor del Consumidor Financiero (“DCF”) actúe en calidad de conciliador en cualquier momento, ya sea dentro del trámite de conocimiento ordinario de una queja o por fuera de éste. En caso de que la solicitud se presente durante cualquier etapa del trámite de una queja, este se suspenderá de acuerdo con lo establecido en el numeral 11 del artículo 2.34.2.1.5 del Decreto 2555 de 2010. La solicitud de conciliación deberá ser presentada al correo electrónico defensoria@defensoriasernarojas.com. El trámite de conciliación ante el DCF es totalmente gratuito. El DCF actuará como conciliador extrajudicial en derecho.
+        </p>
+
+        <p style="margin-bottom:10px;">
+            Para la preparación de las partes y el correcto desarrollo de la audiencia, la solicitud de conciliación (actuando el DCF como conciliador), deberá incluir:
+        </p>
+        <ul style="margin-left:1.1em; margin-bottom:12px;">
+            <li>Nombre completo del solicitante, dirección de domicilio, celular o teléfono de contacto.</li>
+            <li>Nombre de la Entidad Vigilada que desea invitar a la conciliación (debe ser una entidad en la cual el DCF obre como tal).</li>
+            <li>Información detallada del asunto y de lo que se pretende conciliar, los hechos y pretensiones de la solicitud.</li>
+            <li>Fotocopia del documento de identidad del convocante.</li>
+            <li>Si es persona jurídica, acreditar la calidad de representante legal por medio del certificado de existencia y representación legal.</li>
+            <li>Si es apoderado, deberá también anexar los documentos que legalmente lo acrediten como tal (poder otorgado en debida forma y allegar sus documentos de identificación).</li>
+            <li>El convocante podrá allegar todos los documentos que considere pertinentes para soportar los hechos de su solicitud.</li>
+        </ul>
+        <p style="margin-bottom:12px;">
+            Asuntos exceptuados del conocimiento del DCF:<br>
+            El DCF no puede actuar como conciliador en los mismos temas en los que tampoco puede conocer las reclamaciones de los consumidores (Art. 14 Ley 1328 de 2009 y Decreto 2555 de 2010), los cuales se encuentran en el punto 3 “Asuntos excluidos de la competencia del defensor del consumidor financiero”. Adicionalmente, como conciliador el DCF sólo podrá actuar en el territorio nacional y no podrá conocer de aquellos casos en los que se discutan controversias de naturaleza contenciosa administrativas y laborales.
+        </p>
+        <p style="margin-bottom:12px;">
+            <strong>Efectos jurídicos de la conciliación:</strong><br>
+            En caso de que las partes suscriban un acta de acuerdo, esta prestará merito ejecutivo, es decir que en caso de incumplimiento, la parte que cumplió podrá hacer exigible lo pactado ante un juez por medio de un proceso ejecutivo. Adicionalmente, lo acordado en ella hará tránsito a cosa juzgada, lo que implica que el acta equivale a una sentencia judicial.
+        </p>
+        <p style="margin-bottom:14px;">
+            Tenga en cuenta:<br>
+            Si después de iniciado el trámite de la solicitud, el DCF tiene conocimiento de que éste no es de su competencia, dará por terminada su actuación. Esta decisión se informará al solicitante.<br>
+            El proceso de conciliación se encuentra regulado por la Ley 640 de 2001 y demás normas que la modifiquen o adicionen.
+        </p>
+
+        <h4 style="color:#255be3; font-size:1.07rem; margin:18px 0 10px 0; font-weight:600;">
+            Preguntas frecuentes defensor del consumidor financiero Citibank - Colombia S.A.
+        </h4>
+        <p style="margin-bottom:8px;">
+            <strong>¿El defensor del consumidor financiero reemplaza a CitiService®?</strong><br>
+            No, CitiService es el área de Citi responsable de atender quejas y reclamos de clientes corporativos. En caso de que el cliente o usuario no esté satisfecho con la solución recibida a través de este canal, puede acudir al Defensor del Consumidor Financiero o a la Superintendencia Financiera de Colombia.
+        </p>
+        <p style="margin-bottom:8px;">
+            <strong>Los asuntos que le corresponde conocer al Defensor del Consumidor Financiero son:</strong><br>
+            a. En cuanto a quejas, por posible incumplimiento de las normas que rigen el desarrollo o ejecución de los servicios o productos que ofrecen o prestan las entidades vigiladas o respecto de la calidad de los mismos.<br>
+            b. Como vocero de clientes y usuarios, sobre la actividad de las entidades y que a su juicio puedan mejorar, facilitar, aclarar o regularizar las relaciones, la correcta prestación del servicio, la seguridad y la confianza que debe existir con los consumidores financieros.
+        </p>
+        <p style="margin-bottom:8px;">
+            <strong>¿El defensor del consumidor financiero reemplaza a la Superintendencia Financiera?</strong><br>
+            No la reemplaza. Es una figura independiente a la Superintendencia Financiera y ha sido creada para atender las inquietudes de los clientes y/o usuarios de las entidades vigiladas por la Superintendencia Financiera en forma objetiva y gratuita; así como, ser el vocero de los consumidores financieros ante la entidad.
+        </p>
+        <p style="margin-bottom:8px;">
+            <strong>¿El defensor del consumidor financiero es independiente de las entidades financieras?</strong><br>
+            Aunque el defensor del consumidor financiero es nombrado por la Asamblea de Accionistas de la entidad, éste ejerce sus funciones de forma autónoma e independiente, y no cumple ninguna otra función dentro de las entidades financieras.
+        </p>
+        <p style="margin-bottom:8px;">
+            <strong>¿Qué debo tener en cuenta para radicar una queja ante el Defensor del Consumidor Financiero?</strong><br>
+            Nombres y apellidos completos.<br>
+            Número de documento de identificación.<br>
+            Ciudad y dirección de correspondencia física o electrónica.<br>
+            Descripción de los hechos.<br>
+            Pretensiones de su queja o reclamación.<br>
+            (Opcional) Documentos que sustenten su solicitud.
+        </p>
+        </div>
+        </div>
+    
+        <!-- ACCORDION ITEM 2 -->
+        <div class="accordion-item">
+          <button class="accordion-title" type="button">
+            Productos y Servicios
+            <span class="icon"><i class="fas fa-plus"></i></span>
+          </button>
+          
+          <div class="accordion-content">
+            <p>
+                Los productos y servicios financieros son la razón de ser de las entidades financieras, y lo que ofrecen diariamente a sus clientes. Es a través de los productos y servicios que estas entidades cumplen su función de captar recursos y colocarlos al servicio de quienes los requieren.
+            </p>
+            <p>
+                Las entidades financieras establecen su portafolio de productos y servicios, así como las tarifas y comisiones, de acuerdo con lo reglamentado por la Superintendencia Financiera. En línea con lo anterior, damos cumplimiento a las normas que se expiden en la materia, incluyendo aquellas relacionadas con el ofrecimiento y otorgamiento de productos financieros, para lo cual se tiene definido, entre otros, el mercado objetivo para la vinculación a la entidad. La negativa en la prestación de servicios o en el ofrecimiento de productos deberá fundamentarse en causas objetivas, dentro de las cuales se incluye el no pertenecer al mercado objetivo definido por la compañía. Si tiene inquietudes sobre el proceso de acceso a los productos y servicios financieros ofrecidos por Citi, incluyendo aquellos casos relacionados con pertenecer a un sector específico de la industria, podrá contactarse con los canales de atención al cliente de cada vehículo legal, para resolverlas.
+            </p>
+            <p>
+                Entre los productos que ofrecen las entidades financieras se encuentran: <span style="font-weight: 500;">Por favor haga clic sobre cada una para desplegar la información.</span>
+            </p>
+            <ul style="margin-left: 16px; margin-bottom: 20px;">
+                <li><a href="#" style="color: #2361e8; text-decoration: underline;">Productos Bancarios</a></li>
+                <li><a href="#" style="color: #2361e8; text-decoration: underline;">Productos Fiduciarios y de Custodia</a></li>
+                <li><a href="#" style="color: #2361e8; text-decoration: underline;">Productos de Inversión</a></li>
+            </ul>
+            <h4 style="font-size: 17px; color: #2361e8; margin-top: 24px; margin-bottom: 8px; font-weight: 600;">
+                Tarifas o Precios de Productos o Servicios
+            </h4>
+            <p>
+                La información de tarifas o precios asociados a los productos o servicios ofrecidos por Citi se encuentra disponible para su consulta a través de los gerentes de relación/ventas, contrato firmado entre las partes o los siguientes canales de atención al cliente:
+            </p>
+            <div style="margin-top: 16px; margin-bottom: 12px;">
+                <strong>Citibank Colombia S.A.:</strong><br>
+                <strong>Horario de Atención:</strong> Días hábiles de lunes a viernes de 8:00 am a 6:00 pm<br>
+                <strong>Teléfonos:</strong> Bogotá (57) 601 6383838 y a nivel nacional 01 8000 52 38 38<br>
+                <strong>Correo electrónico:</strong> <a href="mailto:colombia.citiservice@citi.com" style="color: #2361e8;">colombia.citiservice@citi.com</a><br>
+                <strong>Fax:</strong> (Desde Colombia) 01 800 519 0200 (Fuera de Colombia) 1 845 2243336
+            </div>
+            <div style="margin-bottom: 12px;">
+                <strong>Cititrust Colombia S.A. Sociedad Fiduciaria:</strong><br>
+                <strong>Horario de Atención:</strong> Días hábiles de lunes a viernes de 8:00 am a 5:30 pm<br>
+                <strong>Teléfonos:</strong> (57) 601 4922913, 4922934, 4922617, 4922902, 4840465 en Bogotá<br>
+                <strong>Correo electrónico:</strong> <a href="mailto:cititrustcscolombia@citi.com" style="color: #2361e8;">cititrustcscolombia@citi.com</a><br>
+                <strong>Fax:</strong> (Desde Colombia) 01 800 519 0200 (Fuera de Colombia) 1 845 224 3336
+            </div>
+            <div style="margin-bottom: 12px;">
+                <strong>Citivalores S.A. Sociedad Comisionista de Bolsa:</strong><br>
+                <strong>Horario de Atención:</strong> Días hábiles de lunes a viernes de 9:00 am a 5:00 pm<br>
+                <strong>Teléfono:</strong> (57) 601 4920342 en Bogotá<br>
+                <strong>Correo electrónico:</strong> <a href="mailto:colombia.citivalores@citi.com" style="color: #2361e8;">colombia.citivalores@citi.com</a>
+            </div>
+            <h4 style="font-size: 17px; color: #2361e8; margin-top: 24px; margin-bottom: 8px; font-weight: 600;">
+                Contratos y Reglamentos de Productos y Servicios
+            </h4>
+            <p>
+                La información relacionada con contratos y reglamentos de productos y servicios se encuentra disponible para su consulta a través de los siguientes canales de atención al cliente:
+            </p>
+            <div style="margin-top: 16px; margin-bottom: 12px;">
+                <strong>Citibank Colombia S.A.:</strong><br>
+                <strong>Horario de Atención:</strong> Días hábiles de lunes a viernes de 8:00 am a 6:00 pm<br>
+                <strong>Teléfonos:</strong> Bogotá (57) 601 6383838 y a nivel nacional 01 8000 52 38 38<br>
+                <strong>Correo electrónico:</strong> <a href="mailto:colombia.citiservice@citi.com" style="color: #2361e8;">colombia.citiservice@citi.com</a><br>
+                <strong>Fax:</strong> (Desde Colombia) 01 800 519 0200 (Fuera de Colombia) 1 845 2243336
+            </div>
+            <div style="margin-bottom: 12px;">
+                <strong>Cititrust Colombia S.A. Sociedad Fiduciaria:</strong><br>
+                <strong>Horario de Atención:</strong> Días hábiles de lunes a viernes de 8:00 am a 5:30 pm<br>
+                <strong>Teléfonos:</strong> (57) 601 4922913, 4922934, 4922617, 4922902, 4840465 en Bogotá<br>
+                <strong>Correo electrónico:</strong> <a href="mailto:cititrustcscolombia@citi.com" style="color: #2361e8;">cititrustcscolombia@citi.com</a><br>
+                <strong>Fax:</strong> (Desde Colombia) 01 800 519 0200 (Fuera de Colombia) 1 845 224 3336
+            </div>
+            <div style="margin-bottom: 16px;">
+                <strong>Citivalores S.A. Sociedad Comisionista de Bolsa:</strong><br>
+                <strong>Horario de Atención:</strong> Días hábiles de lunes a viernes de 9:00 am a 5:00 pm<br>
+                <strong>Teléfono:</strong> (57) 601 4920342 en Bogotá<br>
+                <strong>Correo electrónico:</strong> <a href="mailto:colombia.citivalores@citi.com" style="color: #2361e8;">colombia.citivalores@citi.com</a>
+            </div>
+            <p>
+                Para consultar la información relacionada con las consecuencias derivadas a incumplimientos de contratos por alguna de las partes, por favor contacte a su gerente de relación/ventas.
+            </p>
+            </div>
+
+        </div>
+
+        <!-- ACCORDION ITEM 3 -->
+        <div class="accordion-item">
+          <button class="accordion-title" type="button">
+            Recomendaciones para el manejo Seguro de sus Productos y Servicios
+            <span class="icon"><i class="fas fa-plus"></i></span>
+          </button>
+          
+          <div class="accordion-content">
+            <p>
+                En Citibank Colombia S.A., Cititrust Colombia S.A. Sociedad Fiduciaria y Citivalores S.A. Comisionista de Bolsa, su seguridad es una prioridad para nosotros, por eso compartimos a continuación las siguientes recomendaciones:
+            </p>
+
+            <h4 style="font-size:1.05rem;color:#255be3;font-weight:600;margin:20px 0 9px 0;">Administración de contraseñas y Token</h4>
+            <p>Para el manejo de sus contraseñas y códigos de acceso del Token, tenga en cuenta:</p>
+
+            <ol style="margin-left:1.2em;">
+                <li style="margin-bottom:12px;">
+                <b>Seleccione contraseñas robustas:</b>
+                <ul>
+                    <li>Utilice al menos ocho (8) caracteres alfanuméricos (Mayúsculas, minúsculas y números). Algunos sistemas exigen también el uso de símbolos (#, $, %, ^, &).</li>
+                </ul>
+                </li>
+                <li style="margin-bottom:12px;">
+                <b>Asegúrese de:</b>
+                <ul>
+                    <li>No usar información de su ID de usuario en la contraseña.</li>
+                    <li>No usar nombres comunes de personas o lugares.</li>
+                    <li>No usar fechas de cumpleaños, nombres de familiares o mascotas.</li>
+                </ul>
+                </li>
+                <li style="margin-bottom:12px;">
+                <b>Proteja sus contraseñas y/o códigos de acceso del Token:</b>
+                <ul>
+                    <li>No las comparta con nadie</li>
+                    <li>Nunca anote las contraseñas ni códigos de acceso.</li>
+                    <li>Procure cambiar sus contraseñas periódicamente, al menos semestralmente.</li>
+                    <li>Prevenga ser visto al digitar su contraseña.</li>
+                </ul>
+                </li>
+            </ol>
+
+            <p style="margin-top:16px;">
+                Si usted sospecha que su contraseña o códigos de acceso han sido comprometidos, inactive el usuario contactándose inmediatamente a través de los siguientes canales:
+            </p>
+
+            <div style="margin-top:10px;margin-bottom:8px;">
+                <b>Citibank Colombia S.A.:</b><br>
+                <b>Horario de Atención:</b> Días hábiles de lunes a viernes de 8:00 am a 6:00 pm<br>
+                <b>Teléfonos:</b> Bogotá (57) 601 6383838 y a nivel nacional 01 8000 52 38 38<br>
+                <b>Correo electrónico:</b> <a href="mailto:colombia.citiservice@citi.com" style="color:#2361e8;">colombia.citiservice@citi.com</a><br>
+                <b>Fax:</b> (Desde Colombia) 01 800 519 0200 (Fuera de Colombia) 1 845 2243336
+            </div>
+
+            <div style="margin-bottom:8px;">
+                <b>Cititrust Colombia S.A. Sociedad Fiduciaria:</b><br>
+                <b>Horario de Atención:</b> Días hábiles de lunes a viernes de 8:00 am a 5:30 pm<br>
+                <b>Teléfonos:</b> (57) 601 4922913, 4922934, 4922617, 4922902, 4840465 en Bogotá<br>
+                <b>Correo electrónico:</b> <a href="mailto:cititrustcscolombia@citi.com" style="color:#2361e8;">cititrustcscolombia@citi.com</a><br>
+                <b>Fax:</b> (Desde Colombia) 01 800 519 0200 (Fuera de Colombia) 1 845 224 3336
+            </div>
+
+            <div style="margin-bottom:16px;">
+                <b>Citivalores S.A. Sociedad Comisionista de Bolsa:</b><br>
+                <b>Horario de Atención:</b> Días hábiles de lunes a viernes de 9:00 am a 5:00 pm<br>
+                <b>Teléfono:</b> (57) 601 4920342 en Bogotá<br>
+                <b>Correo electrónico:</b> <a href="mailto:colombia.citivalores@citi.com" style="color:#2361e8;">colombia.citivalores@citi.com</a>
+            </div>
+
+            <h4 style="font-size:1.05rem;color:#255be3;font-weight:600;margin:24px 0 10px 0;">Evite ser víctima de robos de información o ataques cibernéticos</h4>
+            <p>Tenga en cuenta las siguientes recomendaciones:</p>
+            <ul style="margin-left:1.1em;margin-bottom:13px;">
+                <li>Citi no le solicitará información de cuentas o contraseñas vía mail, mensajes de texto, o por medio de links incluidos en correos electrónicos</li>
+                <li>Verifique la autenticidad de los links incluidos en los correos electrónicos, una forma es desplazar el mouse sobre el enlace para comprobar que el texto flotante coincide con el remitente.</li>
+                <li>Verifique la autenticidad o seguridad de los sitios que visite, una forma de hacerlo es validando que en la barra de direcciones del navegador se encuentre un candado que indica que la conexión es segura.</li>
+                <li>Citi no envía links para descargar software o aplicaciones.</li>
+                <li>Desconfíe de los mensajes que le soliciten actualizar información bajo amenaza de cancelación de sus cuentas.</li>
+                <li>Sugerimos restringir el acceso a sitios que ofrezcan software gratuito, videos o música.</li>
+                <li>No se conecte a redes Wi-Fi públicas sin utilizar mecanismos de protección (ej. Firewall y Software Antivirus).</li>
+                <li>Solo use la cuenta de administrador de su equipo para crear nuevos usuarios o instalar software de fuentes conocidas.</li>
+                <li>Mantenga el sistema operativo de sus equipos actualizado, al igual que el software antivirus.</li>
+                <li>Entrene a sus empleados para que no sean víctimas de ataques de ingeniería social (práctica de manipular a las personas para que compartan información confidencial o hagan acciones inseguras) y/o Spears Phishing (estos son mensajes personalizados generalmente con mensajes con solicitudes de pago o infracciones ante presuntos entes gubernamentales).</li>
+            </ul>
+
+            <b>AVISO IMPORTANTE</b>
+            <p style="margin-bottom:0;">
+                Este material es de carácter informativo y pretende ser una ayuda para mejorar la seguridad cibernética y el conocimiento sobre eventos de fraude, y no son un sustituto de su propio programa para este respecto.
+            </p>
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+        <button class="accordion-title" type="button">
+            Sistema Financiero
+            <span class="icon"><i class="fas fa-plus"></i></span>
+        </button>
+        <div class="accordion-content">
+            <div style="padding-bottom:10px;">
+            <p style="margin-bottom:16px;">
+                El sistema financiero es un conjunto de instituciones y operaciones a través del cual el dinero circula en la economía, con el rol principal de actuar como intermediario entre las personas que tienen recursos disponibles y las que solicitan esos recursos. Por esta razón las instituciones que conforman el sistema financiero cumplen dos funciones fundamentales: la captación de recursos y la colocación.
+            </p>
+            <a href="#" style="color:#255be3;text-decoration:underline;cursor:pointer;font-weight:500;">Ver más</a>
+            </div>
+        </div>
+        </div>
+
+
+        <div class="accordion-item">
+          <button class="accordion-title" type="button">
+            Derechos del Consumidor Financiero
+            <span class="icon"><i class="fas fa-plus"></i></span>
+          </button>
+            
+            <div class="accordion-content">
+                <h3 style="font-size:17px; font-weight:600; margin-bottom:12px;">Derechos de los Consumidores Financieros y Obligaciones de las Entidades Vigiladas</h3>
+                <p style="margin-bottom:15px;">
+                    La Ley 1328 de 2009 define los derechos y buenas prácticas de los consumidores financieros, así como las obligaciones de las entidades vigiladas por la Superintendencia Financiera de Colombia, que a continuación se refieren para su conocimiento.
+                </p>
+                <div style="margin-bottom:12px;">
+                    <b>1. Derechos de los consumidores financieros:</b>
+                    <br>
+                    Los consumidores financieros tendrán, durante todos los momentos de su relación con la entidad vigilada, los siguientes derechos:
+                    <ul style="margin-left:18px; margin-top:8px;">
+                        <li>a. Recibir productos y servicios con estándares de seguridad y calidad, de acuerdo con las condiciones ofrecidas y las obligaciones asumidas por las entidades vigiladas.</li>
+                        <li>b. Tener a su disposición, en los términos establecidos en la ley 1328 de 2009 y en las demás disposiciones de carácter especial, publicidad e información transparente, clara, veraz, oportuna y verificable, sobre las características propias de los productos o servicios ofrecidos y/o suministrados, que permita y facilite su comparación y comprensión frente a los diferentes productos y servicios ofrecidos en el mercado.</li>
+                        <li>c. Exigir la debida diligencia en la prestación del servicio.</li>
+                        <li>d. Recibir una adecuada educación respecto de las diferentes formas de instrumentar los productos y servicios ofrecidos, sus derechos y obligaciones, así como los costos que se generan sobre los mismos, los mercados y tipo de actividad que desarrollan las entidades vigiladas, así como sobre los diversos mecanismos de protección establecidos para la defensa de sus derechos.</li>
+                        <li>e. Presentar de manera respetuosa consultas, peticiones, solicitudes, quejas o reclamos ante la entidad vigilada, el defensor del Consumidor Financiero, la Superintendencia Financiera de Colombia y los organismos de autorregulación.</li>
+                        <li>f. Los demás derechos que se establezcan en esta ley o en otras disposiciones, y los contemplados en las instrucciones que imparta la Superintendencia Financiera de Colombia</li>
+                        <li>g. Efectuar pagos anticipados en toda operación de crédito en moneda nacional sin incurrir en ningún tipo de penalización o compensación por lucro cesante, de las cuotas o saldos en forma total o parcial, con la consiguiente liquidación de intereses al día del pago. (Literal g del Artículo 5 de la Ley 1328 de 2009).</li>
+                    </ul>
+                    <div style="margin-top:8px;">Consulte <a href="#" style="text-decoration:underline; color:#255be3; font-weight:500;">aquí</a> más información sobre los derechos de los consumidores financieros.</div>
+                </div>
+                <div style="margin-bottom:12px;">
+                    <b>2. Buenas prácticas de los consumidores financieros:</b>
+                    <br>
+                    Las siguientes se constituyen como buenas prácticas de protección para los consumidores financieros:
+                    <ul style="margin-left:18px; margin-top:8px;">
+                        <li>a. Cerciorarse si la entidad con la cual desea contratar o utilizar los productos o servicios se encuentre autorizada y vigilada por la Superintendencia Financiera de Colombia.</li>
+                        <li>b. Informarse sobre los productos o servicios que piensa adquirir o emplear, indagando sobre las condiciones generales de la operación; es decir, los derechos, obligaciones, costos, exclusiones y restricciones aplicables al producto o servicio, exigiendo las explicaciones verbales y escritas necesarias, precisas y suficientes que le posibiliten la toma de decisiones informadas.</li>
+                        <li>c. Observar las instrucciones y recomendaciones que imparta la entidad vigilada sobre el manejo de productos o servicios financieros.</li>
+                        <li>d. Revisar los términos y condiciones del respectivo contrato y sus anexos, así como conservar las copias que se le suministren de dichos documentos.</li>
+                        <li>e. Informarse sobre los órganos y medios de que dispone la entidad para presentar peticiones, solicitudes, quejas o reclamos.</li>
+                        <li>f. Obtener una respuesta oportuna a cada solicitud de producto o servicio.</li>
+                    </ul>
+                </div>
+                <div style="margin-bottom:12px;">
+                    <b>3. Obligaciones de las entidades vigiladas:</b>
+                    <br>
+                    Las entidades vigiladas por la Superintendencia Financiera de Colombia tenemos las siguientes obligaciones:
+                    <ul style="margin-left:18px; margin-top:8px;">
+                        <li>a. Suministrar información respecto de los Defensores del Consumidor Financiero, de conformidad con las instrucciones que sobre el particular imparta la Superintendencia Financiera de Colombia.</li>
+                        <li>b. Entregar el producto o prestar el servicio en las condiciones informadas, ofrecidas o pactadas con el consumidor financiero, y emplear adecuados estándares de seguridad y calidad en el suministro de los mismos.</li>
+                        <li>c. Suministrar información comprensible y publicidad transparente, clara, veraz, oportuna acerca de sus productos y servicios ofrecidos en el mercado.</li>
+                        <li>d. Contar con un Sistema de Atención al Consumidor Financiero (SAC).</li>
+                        <li>e. Abstenerse de incurrir en conductas que conlleven abusos contractuales o de convenir cláusulas que puedan afectar el equilibrio del contrato o dar lugar a un abuso de posición dominante contractual.</li>
+                        <li>f. Elaborar los contratos y anexos que regulen las relaciones con los clientes, con claridad, en caracteres legibles a simple vista, y ponerlos a disposición de estos para su aceptación. Copia de los documentos que soporten la relación contractual deberá estar a disposición del respectivo cliente, y contendrá los términos y condiciones del producto o servicio, los derechos y obligaciones, y las tasas de interés, precios o tarifas y la forma para determinarlos</li>
+                        <li>g. Abstenerse de hacer cobros no pactados o no informados previamente al consumidor financiero, de acuerdo con los términos establecidos en las normas sobre la materia, y tener a disposición de los consumidores financieros los comprobantes o soportes de los pagos, transacciones u operaciones realizadas por cualquier canal ofrecido por la entidad vigilada.</li>
+                        <li>h. Abstenerse de realizar cobro alguno por concepto de gastos de cobranza prejudicial sin haberse desplegado una actividad real encaminada efectivamente a dicha gestión, y sin haber informado previamente al consumidor financiero el valor de los mismos. Las gestiones de cobro deben efectuarse de manera respetuosa y en horarios adecuados.</li>
+                        <li>i. Guardar la reserva de la información suministrada por el consumidor financiero y que tenga carácter de reservada en los términos establecidos en las normas correspondientes, sin perjuicio de su suministro a las autoridades competentes.</li>
+                        <li>j. Dar constancia del estado y/o las condiciones específicas de los productos a una fecha determinada, cuando el consumidor financiero lo solicite, de conformidad con el procedimiento establecido para el efecto, salvo aquellos casos en que la entidad vigilada se encuentre obligada a hacerlo sin necesidad de solicitud previa.</li>
+                        <li>k. Atender y dar respuesta oportuna a las solicitudes, quejas o reclamos formulados por los consumidores financieros, siguiendo los procedimientos establecidos para el efecto y las normas que resulten aplicables</li>
+                        <li>l. Proveer los recursos humanos, físicos y tecnológicos para que en las sucursales se brinde una atención eficiente y oportuna a los consumidores financieros.</li>
+                        <li>m. Permitir a sus clientes la consulta gratuita, al menos una vez al mes, por los canales que la entidad señale, del estado de sus productos y servicios.</li>
+                        <li>n. Contar en su sitio en Internet con un enlace al sitio de la Superintendencia Financiera de Colombia dedicado al consumidor financiero.</li>
+                        <li>o. Reportar a la Superintendencia Financiera de Colombia, en la forma que esta señale, el precio de todos los productos y servicios que se ofrezcan de manera masiva.</li>
+                        <li>p. Dar a conocer a los consumidores financieros, en los plazos que señale la Superintendencia Financiera de Colombia, por el respectivo canal y en forma previa a la realización de la operación, el costo de la misma, si lo hay, brindándoles la posibilidad de efectuarla o no.</li>
+                        <li>q. Dar a conocer a los consumidores financieros, en los plazos que señale la Superintendencia Financiera de Colombia, por el respectivo canal y en forma previa a la realización de la operación, el costo de la misma, si lo hay, brindándoles la posibilidad de efectuarla o no.</li>
+                        <li>r. Colaborar oportuna y diligentemente con el Defensor del Consumidor Financiero, las autoridades judiciales y administrativas y los organismos de autorregulación en la recopilación de la información y la obtención de pruebas, en los casos que se requieran, entre otros, los de fraude, hurto o cualquier otra conducta que pueda ser constitutiva de un hecho punible realizada mediante la utilización de tarjetas crédito o débito, la realización de transacciones electrónicas o telefónicas, así como cualquier otra modalidad.</li>
+                        <li>s. No requerir al consumidor financiero información que ya repose en la entidad vigilada o en sus dependencias, sucursales o agencias, sin perjuicio de la obligación del consumidor financiero de actualizar la información que de acuerdo con la normatividad correspondiente así lo requiera.</li>
+                        <li>t. Desarrollar programas y campañas de educación financiera a sus clientes sobre los diferentes productos y servicios que prestan, obligaciones y derechos de estos y los costos de los productos y servicios que prestan, mercados y tipo de entidades vigiladas, así como de los diferentes mecanismos establecidos para la protección de sus derechos, según las instrucciones que para el efecto imparta la Superintendencia Financiera de Colombia.</li>
+                        <li>u. Las demás previstas en esta ley, las normas concordantes, complementarias, reglamentarias, las que se deriven de la naturaleza del contrato celebrado o del servicio prestado a los consumidores financieros, así como de las instrucciones que emita la Superintendencia Financiera de Colombia en desarrollo de sus funciones y los organismos de autorregulación en sus reglamentos.</li>
+                    </ul>
+                    <div style="margin-top:8px;">
+                        Puede consultar la página de la <a href="#" style="text-decoration:underline; color:#255be3; font-weight:500;">Superintendencia Financiera de Colombia</a> para mayor información acerca del Régimen de Protección al Consumidor Financiero.
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+        <button class="accordion-title" type="button">
+            Información atención incluyente
+            <span class="icon"><i class="fas fa-plus"></i></span>
+        </button>
+            <div class="accordion-content">
+                <!-- Texto introductorio -->
+                <p style="margin-bottom:16px;">
+                Citibank Colombia S.A., Cititrust Colombia S.A. Sociedad Fiduciaria y Citivalores S.A. Comisionista de Bolsa, respondiendo a las necesidades de las personas con discapacidad y en línea con el concepto de inclusión, cuenta con políticas de atención incluyente que permiten el acceso a la información, productos, canales y servicios. Para ello, nuestras oficinas bancarias contemplan elementos informativos y de comunicación accesible en su entorno, como señalización en Lengua de Señas Colombiana para personas sordas y lenguaje braille utilizado por personas ciegas y sordociegas como sistema de lectura y escritura táctil, en complemento todas nuestras oficinas ofrecen atención prioritaria para personas con discapacidad física, visual, auditiva, intelectual y sordociegas, así como para adultos mayores de 60 años y mujeres en estado de embarazo, con el propósito de que su atención se efectúe de forma adecuada y oportuna.
+                </p>
+                <p style="margin-bottom:16px;">
+                Para promover una atención efectiva, Citi tiene establecido protocolos para la atención de personas con discapacidad y entrenamientos dirigidos a colaboradores que brinden las pautas y lineamientos necesarios para una adecuada atención, buscando fortalecer la experiencia de los consumidores financieros y su interacción con nuestros canales de atención, para que cualquier persona pueda acceder en igualdad de condiciones a los múltiples beneficios de la inclusión financiera.
+                </p>
+                <p style="margin-bottom:24px;">
+                Lo invitamos a que conozca el programa gremial de educación financiera incluyente <a href="#" style="color:#255be3; text-decoration:underline; font-weight:500;">Saber Más Ser Más</a> de la Asobancaria donde podrá ampliar información sobre el sector financiero.
+                </p>
+
+                <!-- Contenedor flex para video + texto -->
+                <div class="video-texto-flex" style="display:flex; gap:24px; align-items:flex-start;">
+                <!-- Video -->
+                <div class="video-inclusion" style="flex:1; min-width:0;">
+                    <iframe
+                    src="https://video.citi.com/embed/secure/iframe/entryId/1_2dvmor42/uiConfId/53182812/st/0"
+                    width="100%" height="230" allowfullscreen
+                    style="border-radius:12px; border:none; overflow:hidden; background:#000;">
+                    </iframe>
+                </div>
+                <!-- Texto al costado -->
+                <div class="texto-inclusion" style="flex:1; font-size:16px; line-height:1.6;">
+                    <strong>2020-1094 Citi 5 minutos – Lengua de señas</strong>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        
+        <div class="accordion-item">
+        <button class="accordion-title" type="button">
+            Quejas, Denuncias, Peticiones y Reclamos ante el AMV
+            <span class="icon"><i class="fas fa-plus"></i></span>
+        </button>
+        <div class="accordion-content">
+            <p style="margin-bottom:16px;">
+            Cualquier usuario, cliente potencial o cliente de un miembro autorregulado puede optar por presentar su queja, denuncia, petición y/o reclamo relacionado a la actividad de intermediación de valores y divisas directamente ante el Autorregulador del Mercado de Valores (AMV). Para conocer el procedimiento que se debe seguir por favor consulte la Carta Circular Única de Autorregulación en Valores en <a href="https://www.amvcolombia.org.co/normativa" style="color:#255be3; text-decoration:underline; font-weight:500;">Normativa del mercado de valores – AMV Colombia</a>. AMV no surtirá el procedimiento de queja, cuando:
+            </p>
+            <ul style="margin:0 0 16px 20px; padding:0; list-style-type:disc; line-height:1.6;">
+            <li>Los hechos u operaciones puestos en su conocimiento no guarden relación con las actividades autorreguladas.</li>
+            <li>Los hechos u operaciones no involucren a los sujetos autorregulados por AMV, los cuales podrán ser consultados en el portal de internet <a href="https://www.amvcolombia.org.co" style="color:#255be3; text-decoration:underline; font-weight:500;">www.amvcolombia.org.co</a>.</li>
+            <li>Cuando el quejoso no corresponda con el consumidor financiero relacionado con los hechos planteados, a menos que cuente con poder para actuar en su nombre.</li>
+            <li>Cuando la queja esté dirigida en contra de AMV o sus funcionarios.</li>
+            <li>Cuando se trate de quejas de tipo civil, laboral o penal en contra de los sujetos autorregulados.</li>
+            <li>Cuando la queja se relacione con hechos ocurridos con tres o más años de anterioridad.</li>
+            <li>Cuando los escritos que se le presenten correspondan a copias de quejas presentadas previamente ante otras instancias de protección al consumidor financiero (entidad, DCF o SFC).</li>
+            <li>Cuando se advierta que la misma reclamación esté siendo tramitada por otra de las instancias de protección al consumidor financiero.</li>
+            </ul>
+        </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-title" type="button">
+                Información sobre interrupción de los servicios
+                <span class="icon"><i class="fas fa-plus"></i></span>
+            </button>
+            <div class="accordion-content">
+                <p style="margin: 16px 0;">
+                Citibank Colombia S.A. garantiza la debida protección del Consumidor Financiero, por esta razón toma acción para comunicar oportunamente a los clientes, consumidores financieros y a la Superintendencia Financiera, la interrupción de servicios que impida la realización de operaciones por cualquiera de los canales ofrecidos. En cumplimiento de la regulación aplicable, tiene criterios de resarcimiento por eventos de interrupción del servicio. En caso de considerar haberse visto afectado por algún evento de interrupción, puede comunicarse a través de nuestro canal de servicio CitiService® al correo electrónico <a href="mailto:colombia.citiservice@citi.com" style="color:#255be3; text-decoration:underline;">colombia.citiservice@citi.com</a> o líneas telefónicas en Bogotá (57) 601 6383838 y línea nacional 018000 523838 en el horario de atención de lunes a viernes (días hábiles) de 8:00 a.m. a 6:00 p.m. o con su Ejecutivo de cuenta.
+                </p>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+        <button class="accordion-title" type="button">
+            Prevención de lavado de activos, Financiación al terrorismo y Proliferación de armas de destrucción masiva
+            <span class="icon"><i class="fas fa-plus"></i></span>
+        </button>
+        <div class="accordion-content">
+            <p style="margin-bottom:16px;">
+            <strong>¿Qué es el lavado de activos (LA)?</strong><br>
+            Dar apariencia de legalidad a los bienes y dineros provenientes de delitos como narcotráfico, corrupción, tráfico de migrantes, trata de personas, extorsión, enriquecimiento ilícito, secuestro extorsivo, tráfico de armas, entre otros. En pocas palabras, el lavado de dinero es el proceso mediante el cual se busca que el dinero ilegal parezca legal.
+            </p>
+            <p style="margin-bottom:16px;">
+            <strong>¿A qué se refiere la financiación del terrorismo (FT)?</strong><br>
+            Es el apoyo financiero, de cualquier forma, al terrorismo o a aquéllos que lo fomentan, planifican o están implicados en el mismo. Los financiadores del terrorismo lo que buscan es soportar acciones terroristas o suministrar insumos para las estructuras detrás de las empresas.
+            </p>
+            <p style="margin-bottom:16px;">
+            <strong>¿A qué se refiere la proliferación de armas masivas?</strong><br>
+            Es todo acto que provea fondos o utilice servicios financieros, en todo o en parte, para la fabricación, adquisición, posesión, desarrollo, exportación, trasiego de material, fraccionamiento, transporte, trasferencia, depósito o uso dual para propósitos ilegítimos en contravención de las leyes nacionales u obligaciones internacionales, cuando esto último sea aplicable.
+            </p>
+            <p style="margin-bottom:16px;">
+            <strong>¿Qué es el SARLAFT?</strong><br>
+            Es el Sistema de Administración del Riesgo de Lavado de Activos y de la Financiación del Terrorismo, compuesto de etapas y elementos para que las entidades vigiladas por la Superintendencia Financiera de Colombia gestionen el riesgo de ser utilizadas como instrumento para dar apariencia de legalidad a activos provenientes de actividades delictivas o para la canalización de recursos hacia la realización de actividades terroristas. Por medio de la Circular Básica Jurídica, la Superintendencia Financiera requiere que las entidades vigiladas implementen un Sistema de Administración del Riesgo de Lavado de Activos y Financiación del Terrorismo –SARLAFT– con el fin de prevenir que éstas sean utilizadas para dar apariencia de legalidad a activos provenientes de actividades delictivas y para la canalización de recursos hacia la realización de actividades terroristas; establece los criterios y parámetros mínimos que las entidades deben atender en el diseño, implementación y funcionamiento del mencionado sistema. Uno de los principales procesos aplicables por las entidades es el proceso de la debida diligencia de sus potenciales clientes y clientes existentes.
+            </p>
+            <p style="margin-bottom:16px;">
+            <strong>¿Qué es el proceso de debida diligencia?</strong><br>
+            Es el proceso mediante el cual las entidades conocen al potencial cliente y actualizan su información durante la duración de la relación comercial e incluye, entre otros:
+            </p>
+            <ol style="margin:0 0 16px 20px; padding:0;">
+            <li><strong>Identificar al cliente:</strong> Identificar y verificar la identidad del potencial cliente, sea persona natural o persona jurídica, al momento de su vinculación. Para el caso de las personas jurídicas, se requiere el documento actualizado que certifique la existencia y representación de la misma expedido por la autoridad competente.</li>
+            <li><strong>Identificar el Beneficiario Final:</strong> Identificar y verificar la identidad de(l) (los) beneficiario(s) final(es), accionistas y/o asociados que tengan directa o indirectamente el 5% o más del capital social, aporte o participación del potencial cliente, obteniendo como mínimo nombre y número de identificación.</li>
+            <li><strong>Identificar características especiales:</strong> Identificar si el cliente, sus familiares o asociados cercanos son personas expuestas políticamente; identificar si el cliente tiene relaciones con países clasificados por el GAFI como de mayor riesgo; entre otros.</li>
+            <li><strong>Conocer el mercado:</strong> Las entidades deben conocer a fondo las características particulares de las actividades económicas de sus clientes, así como de las operaciones que éstos realizan en los diferentes mercados. El SARLAFT debe incorporar procedimientos que permitan a la entidad establecer con claridad las características usuales de los agentes económicos y sus transacciones.</li>
+            <li><strong>Clasificar el riesgo:</strong> Perfilar el riesgo del cliente considerando las características anteriores y otras adicionales, para determinar el nivel de debida diligencia que debe aplicarse, lo cual define la frecuencia de actualización de la información (máximo 3 años, o 1 año para clientes de alto riesgo).</li>
+            <li><strong>Medidas intensificadas:</strong> Para clientes de alto riesgo, emplear medidas adicionales como (i) obtener información sobre origen de recursos y relaciones contractuales; (ii) revisar estados financieros; (iii) realizar entrevistas o visitas; (iv) identificar administradores; o (v) consultar bases de datos públicas, entre otras.</li>
+            <li><strong>Identificar y analizar operaciones inusuales:</strong> El SARLAFT debe contar con metodologías, modelos e indicadores cualitativos y/o cuantitativos para detectar transacciones que no guarden relación con la actividad económica o que excedan parámetros normales, y sobre las cuales la entidad no haya recibido una explicación razonable.</li>
+            </ol>
+        </div>
+        </div>
+
+
+        <div class="accordion-item">
+            <button class="accordion-title" type="button">
+                Programa de Cumplimiento
+                <span class="icon"><i class="fas fa-plus"></i></span>
+            </button>
+            <div class="accordion-content"">
+                <p style="margin:0;">
+                Citi, en cumplimiento de las políticas globales de CitiGroup, implementa un robusto programa de transparencia bajo el marco normativo interno: “Anti-Bribery Program Framework”. Así mismo, cuenta con un Código de Conducta que se estructura a partir de los más altos estándares de ética y conducta profesionales para atender los asuntos en esta materia. Con respecto al cumplimiento regulatorio, Citi tiene implementado un proceso transversal que identifica las normativas potencialmente aplicables y monitorea la implementación y cumplimiento de aquellas normas que tienen impacto dentro de la organización.
+                </p>
+            </div>
+        </div>
+
+
+      </div>
+    </section>
+  </main>
+
+
+  <!-- Sección Servicios -->
+    <section class="seccion-servicios">
+    <div class="contenedor-servicios">
+        <div class="columna-vigilado">
+        <div class="contenedor-vigilado">
+            <img src="imgs/vigilado.png" alt="Vigilado" class="imagen-vigilado" />
+        </div>
+        </div>
+        <div class="columna-servicios">
+        <div class="grid-servicios">
+            <button class="boton-servicio" onclick="abrirServicio('tasas')">Tasas y Tarifas Vigentes</button>
+            <button class="boton-servicio" onclick="abrirServicio('citidirect')">CitiDirect</button>
+            <button class="boton-servicio" onclick="abrirServicio('payments')">Online Payments Channel</button>
+            <button class="boton-servicio" onclick="abrirServicio('pagos')">Mis pagos al día</button>
+            <button class="boton-servicio" onclick="abrirServicio('pse')">PSE</button>
+            <button class="boton-servicio" onclick="abrirServicio('fxpulse')">FXPulse</button>
+            <button class="boton-servicio" onclick="abrirServicio('tarjetas')">Portal de Tarjetas Corporativas</button>
+            <button class="boton-servicio" onclick="abrirServicio('sac')">SAC/Defensoría del Consumidor Financiero</button>
+            <button class="boton-servicio" onclick="abrirServicio('transparencia')">Programa de Transparencia PTEE Colrepfin LTDA</button>
+            <button class="boton-servicio boton-completo" onclick="abrirServicio('transparency')">
+                TRANSPARENCY AND BUSINESS ETHICS PROGRAM (PTEE) COLREPFIN LTDA
+            </button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="texto-disclaimer">
+        <p>
+        Productos y servicios financieros ofrecidos por Citibank - Colombia S.A. Citi y
+        el diseño del arco es una marca registrada de servicios de Citigroup Inc. Carrera
+        9A # 99 - 02 Bogotá, Colombia
+        </p>
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-principal">
+    <div class="contenedor-footer">
+        <div class="footer-izquierda">
+        <img src="imgs/citilogo.png" alt="Citi" class="logo-footer" />
+        <div class="enlaces-footer">
+            <a href="#" class="enlace-footer">Citigroup.com</a>
+            <a href="#" class="enlace-footer">Términos y Condiciones</a>
+            <a href="#" class="enlace-footer">Privacidad</a>
+        </div>
+
+        </div>
+        <div class="footer-derecha">
+        <div class="redes-sociales">
+            <a href="#" class="icono-social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="icono-social"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="icono-social"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="icono-social"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="icono-social"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="icono-social"><i class="fab fa-google-plus-g"></i></a>
+        </div>
+
+        <div class="copyright">
+            © 2003–2025 Citigroup Inc.
+        </div>
+        </div>
+    </div>
+    </footer>
+
+
+
+  <!-- Script acordeón funcionalidad -->
+  <script>
+    // Lógica para solo 1 desplegado, cambia + a -
+    document.querySelectorAll('.accordion-title').forEach((btn, idx) => {
+      btn.addEventListener('click', function(){
+        document.querySelectorAll('.accordion-item').forEach((item, i) => {
+          if (i === idx) {
+            item.classList.toggle('active');
+            let icon = item.querySelector('.icon i');
+            icon.classList.toggle('fa-plus');
+            icon.classList.toggle('fa-minus');
+          } else {
+            item.classList.remove('active');
+            let icon = item.querySelector('.icon i');
+            icon.classList.remove('fa-minus');
+            icon.classList.add('fa-plus');
+          }
+        });
+      });
+    });
+
+  </script>
+</body>
+</html>

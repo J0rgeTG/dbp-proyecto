@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citibank Online Pagos</title>
+  <style>
+    :root {
+      --citi-blue: #003b71;
+      --citi-red: #eb001b;
+      --gray-100: #f6f7f8;
+      --gray-900: #1e1e1e;
+      --font-main: 'Arial', sans-serif;
+      --radius: 8px;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-main);
+      background: var(--citi-blue);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: white;
+      color: var(--citi-blue);
+      padding: 1rem;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .login-box {
+      background: white;
+      color: black;
+      padding: 2rem;
+      border-radius: var(--radius);
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .login-box h2 {
+      margin-top: 0;
+      text-align: center;
+      color: var(--citi-blue);
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: var(--radius);
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 0.7rem;
+      background: var(--citi-blue);
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .login-box button:hover {
+      background: #002c59;
+    }
+
+    .quickpay {
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .quickpay a {
+      color: var(--citi-red);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .table-container {
+      margin-top: 2rem;
+      display: none;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      color: black;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    footer {
+      background: #012b4a;
+      color: #ccc;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: #ccc;
+      margin: 0 0.5rem;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>Citibank Colombia - Canal de Pagos</header>
+
+  <main>
+    <div class="login-box">
+      <h2>Iniciar sesión</h2>
+      <input type="text" id="usuario" placeholder="Usuario">
+      <input type="password" id="clave" placeholder="Contraseña">
+      <button onclick="mostrarTabla()">Entrar</button>
+      <div class="quickpay">
+        <a href="#quickpay" onclick="irAQuickPay()">Ir a Quick Pay</a>
+      </div>
+
+      <div class="table-container" id="tablaSimulada">
+        <h3>Resumen de pagos</h3>
+        <table>
+          <tr><th>Factura</th><th>Monto</th><th>Estado</th></tr>
+          <tr><td>123456</td><td>$150.000</td><td>Pendiente</td></tr>
+          <tr><td>789012</td><td>$320.000</td><td>Pagado</td></tr>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <a href="#">Términos y Condiciones (Aburridos, pero importantes)</a>
+    <a href="#">Privacidad (No espías, lo prometemos)</a>
+    <a href="#">Ayuda (¿Estás perdido?)</a>
+  </footer>
+
+  <script>
+    function mostrarTabla() {
+      const usuario = document.getElementById('usuario').value.trim();
+      const clave = document.getElementById('clave').value.trim();
+      if (!usuario || !clave) {
+        alert('Por favor ingrese usuario y clave');
+        return;
+      }
+      document.getElementById('tablaSimulada').style.display = 'block';
+    }
+
+    function irAQuickPay() {
+      alert('Redirigiendo a Quick Pay...');
+      window.location.href = 'quick_pay.html'; // o cambia por el ID o vista simulada
+    }
+  </script>
+</body>
+</html>

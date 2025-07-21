@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avisos Legales</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    .contenido-principal {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .contenido-principal h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #255be3;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .navegacion-empresas-titulo {
+      font-weight: bold;
+      color: #255be3;
+      margin-bottom: 12px;
+      padding-left: 72px;
+    }
+    .navegacion-empresas-tabs {
+      display: flex;
+      margin: 0 auto 32px auto;
+      max-width: 900px;
+      padding-left: 72px;
+      gap: 16px;
+    }
+    .tab-empresa {
+      background: none;
+      border: none;
+      padding: 14px 0;
+      font-size: 16px;
+      font-weight: 500;
+      color: #0f172a;
+      cursor: pointer;
+      position: relative;
+    }
+    .tab-empresa:hover,
+    .tab-empresa:focus {
+      color: #255be3;
+    }
+    .tab-empresa:hover::after,
+    .tab-activa::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background-color: #255be3;
+    }
+    .tab-activa {
+      font-weight: bold;
+      color: #255be3;
+    }
+    .contenido-empresa {
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: 72px;
+      padding-bottom: 40px;
+    }
+    .contenido-empresa h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #255be3;
+      margin-top: 36px;
+      margin-bottom: 10px;
+    }
+    .contenido-empresa h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 30px 0 10px 0;
+      color: #0f172a;
+    }
+    .contenido-empresa p {
+      font-size: 15px;
+      margin-bottom: 24px;
+      color: #222;
+      max-width: 900px;
+    }
+    .contenido-empresa ul, .contenido-empresa ol {
+      margin: 0 0 24px 0;
+      padding-left: 20px;
+      font-size: 15px;
+    }
+    .contenido-empresa li {
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+    .contenido-empresa a {
+      color: #255be3;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+    .contenido-empresa a:hover {
+      color: #0f172a;
+    }
+    .acordeon {
+      border-radius: 12px;
+      margin-bottom: 18px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      overflow: hidden;
+    }
+    .acordeon summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 17px;
+      color: #255be3;
+      padding: 18px 16px;
+      outline: none;
+      display: flex;
+      align-items: center;
+      transition: background 0.2s;
+    }
+    .acordeon[open] summary {
+      background: #e6edfa;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .acordeon summary::-webkit-details-marker {
+      display: none;
+    }
+    .acordeon summary::after {
+      content: '+';
+      margin-left: auto;
+      font-size: 22px;
+      color: #94a3b8;
+      transition: transform 0.2s;
+    }
+    .acordeon[open] summary::after {
+      content: '-';
+      transform: rotate(180deg);
+    }
+    .acordeon-content {
+      padding: 18px 16px;
+      color: #222;
+      background: white;
+      font-size: 15px;
+      border-top: 1px solid #e5e7eb;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+      z-index: 100;
+      width: 220px;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content a {
+      display: block;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #0f172a;
+    }
+    .dropdown-content a:hover {
+      color: #255be3;
+      background-color: #f1f5f9;
+    }
+    .dropdown-content a.active {
+      color: #255be3;
+      border-bottom: 2px solid #255be3;
+    }
+  </style>
+</head>
+<body>
+  <header class="header-principal">
+    <div class="contenedor-header">
+      <img src="imgs/citilogo.png" alt="Citi" class="logo-citi" />
+    </div>
+  </header>
+
+  <main class="contenido-principal">
+    <h1>Avisos Legales</h1>
+
+    <div class="navegacion-empresas-titulo">Colombia</div>
+    <div class="navegacion-empresas-tabs" style="gap:90px;justify-content:center;">
+      <button onclick="window.location.href='index.html'" class="tab-empresa">Página Principal</button>
+      <div class="dropdown">
+        <button class="tab-empresa tab-activa">Citibank Colombia S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="citibak-colombia.html">Página Principal</a>
+          <a href="informacion-institucional.html">Información Institucional</a>
+          <a href="productos-servicios.html">Productos y Servicios</a>
+        </div>
+      </div>
+      <button class="tab-empresa" onclick="alert('Próximamente')">Citivalores S.A.</button>
+      <button class="tab-empresa" onclick="alert('Próximamente')">Cititrust S.A.</button>
+    </div>
+
+    <div class="contenido-empresa">
+      <ul>
+        <li><a href="#">Citibank® Código de Buen Gobierno</a></li>
+        <li><a href="#">Citibank Perfil de Riesgo Operativo</a></li>
+        <li><a href="#">Aviso de Privacidad Citibank 2019</a></li>
+        <li><a href="#">Manual/Política de Tratamiento de Datos Personales Citibank</a></li>
+        <li><a href="#">Certificación del Programa de Prevención de Lavado Activos y Financiación del Terrorismo</a></li>
+        <li><a href="#">Encuesta Código País</a></li>
+      </ul>
+      <h3>Encuestas Código País</h3>
+      <ul>
+        <li>2024</li>
+        <li>2023</li>
+        <li>2022</li>
+        <li>2021</li>
+        <li>2020</li>
+        <li>2019</li>
+        <li>2018</li>
+        <li>2017</li>
+        <li>2016</li>
+        <li>2015</li>
+        <li>2014</li>
+        <li>2013</li>
+      </ul>
+      <h3>Informes de Gestión</h3>
+      <ul>
+        <li>2024</li>
+        <li>2023</li>
+        <li>2022</li>
+        <li>2021</li>
+        <li>2020</li>
+        <li>2019</li>
+        <li>2018</li>
+        <li>2017</li>
+        <li>2016</li>
+        <li>2015</li>
+        <li>2014</li>
+        <li>2013</li>
+      </ul>
+      <details class="acordeon">
+        <summary>SITUACION DE CONTROL</summary>
+        <div class="acordeon-content">
+          El día veintiséis (26) de enero de 2011, bajo el Nro. 01447746 del libro IX, se inscribió en la Cámara de Comercio de Bogotá el documento bajo el cual se indicó que se desde el veintiocho (28) de diciembre de 2010 se configuró situación de control y grupo empresarial. Citibank NA como controlante ejerce situación de control y grupo empresarial de manera indirecta a través de su subordinada Citibank Overseas Investment Corporation (Sociedad Extranjera), sobre las sociedades Citibank Colombia S.A. a través de las cuales controla de manera indirecta a las sociedades Citivalores S.A., Cititrust Colombia S.A. y Colrepfin LTDA (Controladas).
+        </div>
+      </details>
+      <details class="acordeon">
+        <summary>CENTRALES DE INFORMACION</summary>
+        <div class="acordeon-content">
+          Actualmente Citibank Colombia tiene suscrito un contrato con la Central de Información TransUnion (CIFIN S.A.S) para el reporte y consulta de la información de crédito de sus clientes. En virtud de dicho contrato periódicamente Citibank le entrega a TransUnion (CIFIN S.A.S) la información de crédito de cada uno de sus clientes, incluyendo tanto el reporte de los pagos oportunos como el de los retardos presentados.<br><br>
+          De la misma forma, Citibank consulta a TransUnion (CIFIN S.A.S) con el fin de analizar los datos consolidados de sus clientes, siendo esta información, uno de los elementos de juicio considerados para la toma de decisiones crediticias dentro de los parámetros constitucionales y legales.<br><br>
+          Las reglas sobre la permanencia de la información registrada en las Centrales de Riesgo son definidas por cada Central de acuerdo con la normatividad vigente aplicable.<br><br>
+          Actualmente TransUnion (CIFIN S.A.S) cuenta con diferentes canales de comunicación para el ejercicio de los derechos de las personas. Si usted desea conocer su historial de crédito puede dirigirse a los Centros de Atención de las Centrales de Información. En el evento de encontrar que su información reportada no es correcta, usted puede generar un reclamo, el cual será trasladado a la entidad que reportó el dato, para su revisión y eventual corrección.<br><br>
+          Si desea obtener mayor información por favor comuníquese en Transunion (CIFIN S.A.S) a los teléfonos Bogotá: 3 44 12 07 Línea Nacional: 01-8000-124346, los días hábiles de lunes a viernes entre las 7:00 a.m. a 7:00 p.m. y los sábados de 8:00 a.m. a 1:00 p.m. o ingrese a la página web <a href=\"https://www.transunion.co\">www.transunion.co</a>.<br><br>
+          Cualquier inquietud por favor comuníquese con la línea de atención de CitiService en el teléfono 6 38 38 38 en Bogotá o desde el resto del país al 01 800 05 23838, los días hábiles de lunes a viernes entre las 8:30 am y las 6:00 pm o también puede comunicarse con su Gerente de Relación.<br><br>
+          Para conocer información relacionada con la Ley 2157 de octubre 2021 (Borrón y Cuenta Nueva), <a href=\"#\">ingrese aquí</a>.
+        </div>
+      </details>
+      <ul>
+        <li><a href=\"#\">Seguro de Depósito Fogafín</a></li>
+        <li><a href=\"#\">Modificación de Condiciones de Crédito</a></li>
+        <li><a href=\"#\">Consumidores financieros afectados por el cierre indefinido del corredor vial Bogotá – Villavicencio</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <section class="seccion-servicios">
+    <div class="contenedor-servicios">
+      <div class="columna-vigilado">
+        <div class="contenedor-vigilado">
+          <img src="imgs/vigilado.png" alt="Vigilado" class="imagen-vigilado" />
+        </div>
+      </div>
+      <div class="columna-servicios">
+        <div class="grid-servicios">
+          <button class="boton-servicio" onclick="abrirServicio('tasas')">Tasas y Tarifas Vigentes</button>
+          <button class="boton-servicio" onclick="abrirServicio('citidirect')">CitiDirect</button>
+          <button class="boton-servicio" onclick="abrirServicio('payments')">Online Payments Channel</button>
+          <button class="boton-servicio" onclick="abrirServicio('pagos')">Mis pagos al día</button>
+          <button class="boton-servicio" onclick="abrirServicio('pse')">PSE</button>
+          <button class="boton-servicio" onclick="abrirServicio('fxpulse')">FXPulse</button>
+          <button class="boton-servicio" onclick="abrirServicio('tarjetas')">Portal de Tarjetas Corporativas</button>
+          <button class="boton-servicio" onclick="abrirServicio('sac')">SAC/Defensoría del Consumidor Financiero</button>
+          <button class="boton-servicio" onclick="abrirServicio('transparencia')">Programa de Transparencia PTEE Colrepfin LTDA</button>
+          <button class="boton-servicio boton-completo" onclick="abrirServicio('transparency')">TRANSPARENCY AND BUSINESS ETHICS PROGRAM (PTEE) COLREPFIN LTDA</button>
+        </div>
+      </div>
+    </div>
+    <div class="texto-disclaimer">
+      <p>Productos y servicios financieros ofrecidos por Citibank - Colombia S.A. Citi y el diseño del arco es una marca registrada de servicios de Citigroup Inc. Carrera 9A # 99 - 02 Bogotá, Colombia</p>
+    </div>
+  </section>
+
+  <footer class="footer-principal">
+    <div class="contenedor-footer">
+      <div class="footer-izquierda">
+        <img src="imgs/citilogo.png" alt="Citi" class="logo-footer" />
+        <div class="enlaces-footer">
+          <a href="#" class="enlace-footer">Citigroup.com</a>
+          <a href="#" class="enlace-footer">Términos y Condiciones</a>
+          <a href="#" class="enlace-footer">Privacidad</a>
+        </div>
+      </div>
+      <div class="footer-derecha">
+        <div class="redes-sociales">
+          <a href="#" class="icono-social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-google-plus-g"></i></a>
+        </div>
+        <span class="copyright">&copy; 2003–2025 Citigroup Inc.</span>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

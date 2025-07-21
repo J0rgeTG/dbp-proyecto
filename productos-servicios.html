@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Productos y Servicios - Citibank Colombia</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    .contenido-principal {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: none;
+    }
+    .contenido-principal h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #255be3;
+      text-align: center;
+      margin-bottom: 60px;
+      font-family: 'Inter', 'Citi Sans Display', Arial, sans-serif;
+    }
+    .navegacion-empresas-titulo {
+      font-weight: bold;
+      color: #255be3;
+      margin-bottom: 12px;
+      padding-left: 72px;
+      font-size: 17px;
+      font-family: 'Inter', 'Citi Sans Display', Arial, sans-serif;
+    }
+    .navegacion-empresas-tabs {
+      display: flex;
+      margin: 0 auto 32px auto;
+      max-width: 900px;
+      padding-left: 72px;
+      gap: 16px;
+    }
+    .tab-empresa {
+      background: none;
+      border: none;
+      padding: 14px 0;
+      font-size: 16px;
+      font-weight: 500;
+      color: #0f172a;
+      cursor: pointer;
+      position: relative;
+      font-family: 'Inter', 'Citi Sans Display', Arial, sans-serif;
+    }
+    .tab-empresa:hover,
+    .tab-empresa:focus {
+      color: #255be3;
+    }
+    .tab-empresa:hover::after,
+    .tab-activa::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background-color: #255be3;
+    }
+    .tab-activa {
+      font-weight: bold;
+      color: #255be3;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+      z-index: 100;
+      width: 220px;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content a {
+      display: block;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #0f172a;
+      border-bottom: 1px solid #e2e8f0;
+      font-family: 'Inter', 'Citi Sans Display', Arial, sans-serif;
+    }
+    .dropdown-content a:hover {
+      color: #255be3;
+      background-color: #f1f5f9;
+    }
+    .dropdown-content a.active {
+      color: #255be3;
+      border-bottom: 2px solid #255be3;
+    }
+
+    .grid-categorias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px 36px;
+    max-width: 900px;
+    margin: 32px auto 48px auto;
+    }
+    @media (max-width: 990px) {
+    .grid-categorias {
+      grid-template-columns: 1fr 1fr;
+    }
+    }
+    @media (max-width: 680px) {
+    .grid-categorias {
+      grid-template-columns: 1fr;
+    }
+    }
+    .boton-categoria {
+    width: 100%;
+    min-height: 100px;
+    border-radius: 18px;
+    font-size: 1.20rem; /* ~18.5px */
+    font-weight: 500;
+    color: #fff;
+    border: none;
+    transition: box-shadow 0.2s, transform 0.18s;
+    cursor: pointer;
+    box-shadow: 0 3px 20px rgba(0,0,0,0.09);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 10px;
+    letter-spacing: 0.01em;
+    font-family: 'Inter', 'Citi Sans Display', Arial, sans-serif;
+    line-height: 1.2;
+    }
+    .boton-categoria:active {
+    transform: scale(0.97);
+    }
+    .boton-categoria:hover {
+    box-shadow: 0 8px 28px rgba(30,91,227,0.15);
+    filter: brightness(1.07);
+    }
+
+</style>
+</head>
+<body>
+  <header class="header-principal">
+    <div class="contenedor-header">
+      <img src="imgs/citilogo.png" alt="Citi" class="logo-citi" />
+    </div>
+  </header>
+
+  <main class="contenido-principal">
+    <h1>Productos y Servicios</h1>
+    <div class="navegacion-empresas-titulo">Colombia</div>
+
+<div class="navegacion-empresas-tabs" style="gap:90px;justify-content:center;">
+  <button onclick="window.location.href='index.html'" class="tab-empresa">Página Principal</button>
+
+  <div class="dropdown">
+    <button class="tab-empresa tab-activa">Citibank Colombia S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+    <div class="dropdown-content">
+      <a href="citibak-colombia.html">Página Principal</a>
+      <a href="informacion-institucional.html">Información Institucional</a>
+      <a href="productos-servicios.html">Productos y Servicios</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="tab-empresa">Citivalores S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+    <div class="dropdown-content">
+      <a href="#">Página principal</a>
+      <a href="#">Corresponsal en Inversiones Globales</a>
+      <a href="#">Corresponsal en Banca de Inversión</a>
+      <a href="#">ETF MSCI COLCAP</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="tab-empresa">Cititrust S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+    <div class="dropdown-content">
+      <a href="#">Página Principal</a>
+      <a href="#">Servicios de Custodia</a>
+      <a href="#">Fiducia Estructurada</a>
+      <a href="#">Links frecuentes</a>
+    </div>
+  </div>
+  </div>
+
+    <!-- Botones grandes de categorías -->
+     <div class="grid-categorias">
+      <a class="boton-categoria" style="background:#255be3;" href="cash-management.html">Cash Management</a>
+      <a class="boton-categoria" style="background:#916024;" href="plataformas-digitales.html">Plataformas Digitales</a>
+      <a class="boton-categoria" style="background:#193722;" href="comercio-exterior-local.html">Comercio Exterior y Local</a>
+      <a class="boton-categoria" style="background:#460303;" href="tesoreria.html">Tesorería</a>
+      <a class="boton-categoria" style="background:#193722;" href="citiservice.html">CitiService</a>
+      <a class="boton-categoria" style="background:#460303;" href="modificacion-instrucciones-pago.html">Modificación de Instrucciones de Pago</a>
+    </div>
+
+  </main>
+
+  <!-- SECCIÓN SERVICIOS -->
+  <section class="seccion-servicios">
+    <div class="contenedor-servicios">
+      <div class="columna-vigilado">
+        <div class="contenedor-vigilado">
+          <img src="imgs/vigilado.png" alt="Vigilado" class="imagen-vigilado" />
+        </div>
+      </div>
+      <div class="columna-servicios">
+        <div class="grid-servicios">
+          <button class="boton-servicio" onclick="abrirServicio('tasas')">Tasas y Tarifas Vigentes</button>
+          <button class="boton-servicio" onclick="abrirServicio('citidirect')">CitiDirect</button>
+          <button class="boton-servicio" onclick="abrirServicio('payments')">Online Payments Channel</button>
+          <button class="boton-servicio" onclick="abrirServicio('pagos')">Mis pagos al día</button>
+          <button class="boton-servicio" onclick="abrirServicio('pse')">PSE</button>
+          <button class="boton-servicio" onclick="abrirServicio('fxpulse')">FXPulse</button>
+          <button class="boton-servicio" onclick="abrirServicio('tarjetas')">Portal de Tarjetas Corporativas</button>
+          <button class="boton-servicio" onclick="abrirServicio('sac')">SAC/Defensoría del Consumidor Financiero</button>
+          <button class="boton-servicio" onclick="abrirServicio('transparencia')">Programa de Transparencia PTEE Colrepfin LTDA</button>
+          <button class="boton-servicio boton-completo" onclick="abrirServicio('transparency')">TRANSPARENCY AND BUSINESS ETHICS PROGRAM (PTEE) COLREPFIN LTDA</button>
+        </div>
+      </div>
+    </div>
+    <div class="texto-disclaimer">
+      <p>Productos y servicios financieros ofrecidos por Citibank - Colombia S.A. Citi y el diseño del arco es una marca registrada de servicios de Citigroup Inc. Carrera 9A # 99 - 02 Bogotá, Colombia</p>
+    </div>
+  </section>
+
+  <footer class="footer-principal">
+    <div class="contenedor-footer">
+      <div class="footer-izquierda">
+        <img src="imgs/citilogo.png" alt="Citi" class="logo-footer" />
+        <div class="enlaces-footer">
+          <a href="#" class="enlace-footer">Citigroup.com</a>
+          <a href="#" class="enlace-footer">Términos y Condiciones</a>
+          <a href="#" class="enlace-footer">Privacidad</a>
+        </div>
+      </div>
+      <div class="footer-derecha">
+        <div class="redes-sociales">
+          <a href="#" class="icono-social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-google-plus-g"></i></a>
+        </div>
+        <span class="copyright">&copy; 2003–2025 Citigroup Inc.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

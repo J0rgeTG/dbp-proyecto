@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>MisPagosAlDía - Pagar Factura</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #fff;
+    }
+
+    header {
+      background-color: #0d1333;
+      color: white;
+      padding: 15px 30px;
+      font-size: 24px;
+      font-weight: bold;
+      position: relative;
+    }
+
+    .sub-bar {
+      background-color: #2a64ff;
+      color: white;
+      padding: 10px 30px;
+      font-size: 14px;
+    }
+
+    .container {
+      padding: 40px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #0d1333;
+      margin-bottom: 20px;
+    }
+
+    label, p {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      background-color: #ffffcc;
+    }
+
+    .opciones {
+      margin-top: 10px;
+    }
+
+    .opciones label {
+      font-weight: normal;
+      margin-left: 10px;
+    }
+
+    .help {
+      font-size: 12px;
+      color: #555;
+      margin-top: 5px;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #00cfff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .error {
+      margin-top: 15px;
+      color: red;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+      padding: 30px 0;
+    }
+
+    .logo-citi {
+      position: absolute;
+      right: 30px;
+      top: 15px;
+      height: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    MisPagosAlDía
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Citibank.svg" class="logo-citi" alt="Citi">
+  </header>
+
+  <div class="sub-bar">
+    Pagar Factura
+  </div>
+
+  <div class="container">
+    <h2>Pagar factura</h2>
+
+    <label for="busqueda">Buscar:</label>
+    <input type="text" id="busqueda" placeholder="Ingrese texto...">
+    <p>No hay coincidencias</p>
+
+    <label>Número de contrato o factura</label>
+    <p>Digite un número de contrato o factura.</p>
+
+    <div class="opciones">
+      <input type="radio" id="op-contrato" name="tipo" value="contrato" checked>
+      <label for="op-contrato">Ingresaré el número de contrato</label>
+      <input type="radio" id="op-factura" name="tipo" value="factura">
+      <label for="op-factura">Ingresaré el número de factura</label>
+    </div>
+
+    <input type="text" id="numero" placeholder="Ej: 123456789">
+    <div class="help">¿Dónde lo encuentro?</div>
+
+    <button onclick="validar()">Buscar</button>
+    <div class="error" id="errorMsg"></div>
+  </div>
+
+  <footer>
+    © 2025 MisPagosAlDía | Página simulada  sin conexión real
+  </footer>
+
+  <script>
+    function validar() {
+      const busqueda = document.getElementById('busqueda').value.trim();
+      const numero = document.getElementById('numero').value.trim();
+      const errorDiv = document.getElementById('errorMsg');
+
+      errorDiv.textContent = ""; // Limpiar errores anteriores
+
+      if (busqueda === "" || numero === "") {
+        errorDiv.textContent = "Por favor, complete todos los campos para continuar.";
+        return;
+      }
+
+      // Simular búsqueda exitosa
+      errorDiv.style.color = "green";
+      errorDiv.textContent = "Búsqueda realizada exitosamente.";
+    }
+  </script>
+
+</body>
+</html>
+
+

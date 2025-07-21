@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sucursales Corporativas</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    .contenido-principal {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: none;
+    }
+    .contenido-principal h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #255be3;
+      text-align: center;
+      margin-bottom: 60px;
+      font-family: 'Inter', 'Citi Sans Display', Arial, sans-serif;
+    }
+    .navegacion-empresas-titulo {
+      font-weight: bold;
+      color: #255be3;
+      margin-bottom: 12px;
+      padding-left: 72px;
+      font-size: 17px;
+      font-family: 'Inter', 'Citi Sans Display', Arial, sans-serif;
+    }
+    .navegacion-empresas-tabs {
+      display: flex;
+      margin: 0 auto 32px auto;
+      max-width: 900px;
+      padding-left: 72px;
+      gap: 16px;
+    }
+    .tab-empresa {
+      background: none;
+      border: none;
+      padding: 14px 0;
+      font-size: 16px;
+      font-weight: 500;
+      color: #0f172a;
+      cursor: pointer;
+      position: relative;
+      font-family: 'Inter', 'Citi Sans Display', Arial, sans-serif;
+    }
+    .tab-empresa:hover,
+    .tab-empresa:focus {
+      color: #255be3;
+    }
+    .tab-empresa:hover::after,
+    .tab-activa::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background-color: #255be3;
+    }
+    .tab-activa {
+      font-weight: bold;
+      color: #255be3;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+      z-index: 100;
+      width: 220px;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content a {
+      display: block;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #0f172a;
+      border-bottom: 1px solid #e2e8f0;
+      font-family: 'Inter', 'Citi Sans Display', Arial, sans-serif;
+    }
+    .dropdown-content a:hover {
+      color: #255be3;
+      background-color: #f1f5f9;
+      border-bottom: 2px solid #255be3;
+    }
+    .dropdown-content a.active {
+      color: #255be3;
+      border-bottom: 2px solid #255be3;
+    }
+    .contenido-empresa {
+      max-width: 900px;
+      margin: 56px 0 20px 72px; /* Menos margen abajo */
+      font-family: 'Inter', 'Citi Sans Display', Arial, sans-serif;
+      color: #202440;
+      font-size: 16px;
+      padding-left: 0;
+    }
+    .contenido-empresa > * {
+      margin-bottom: 25px;
+    }
+    .ciudad {
+      font-size: 25px;
+      color: #255be3;
+      font-weight: bold;
+      margin-bottom: 12px;
+      font-family: 'Inter', 'Citi Sans Display', Arial, sans-serif;
+    }
+    .datos-direccion {
+      margin-bottom: 38px; /* Más espacio después de Horario */
+    }
+    .servicios-habilitados, .medidas-preventivas {
+      font-weight: 600;
+      color: #202440;
+      margin-bottom: 8px;
+      margin-top: 12px;
+    }
+    .contenido-empresa ul {
+      margin: 0 0 28px 16px;
+      padding-left: 10px;
+      font-size: 16px;
+    }
+    .contenido-empresa li {
+      margin-bottom: 11px;
+      line-height: 1.7;
+    }
+    .mapa-citi {
+      margin: 32px 0 42px 0 !important; /* Más espacio después del mapa */
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+    }
+    .mapa-citi iframe {
+      border: 1px solid #c9ced7;
+      border-radius: 0;
+      width: 390px;
+      height: 250px;
+      margin-left: 10px;
+    }
+    .mapa-citi-info {
+      padding: 8px 16px 0 0;
+      font-size: 17px;
+      color: #19316f;
+      font-weight: 500;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 160px;
+    }
+    .subrayado {
+      font-weight: bold;
+      margin-bottom: 6px;
+      color: #19316f;
+      font-size: 17px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .medidas-preventivas {
+      font-weight: 600;
+      color: #202440;
+      margin-top: 22px;
+      margin-bottom: 12px;
+    }
+    /* Menos espacio abajo de la última lista */
+    .contenido-empresa ul:last-of-type {
+      margin-bottom: 8px !important;
+    }
+    @media (max-width: 900px) {
+      .mapa-citi {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .mapa-citi-info, .mapa-citi iframe {
+        margin: 0 0 10px 0;
+        width: 100%;
+      }
+      .mapa-citi iframe {
+        width: 100%;
+        min-width: 240px;
+      }
+      .contenido-empresa {
+        margin-left: 16px;
+        margin-right: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header-principal">
+    <div class="contenedor-header">
+      <img src="imgs/citilogo.png" alt="Citi" class="logo-citi" />
+    </div>
+  </header>
+
+  <main class="contenido-principal">
+    <h1>Sucursales Corporativas</h1>
+    <div class="navegacion-empresas-titulo">Colombia</div>
+    <div class="navegacion-empresas-tabs" style="gap:90px;justify-content:center;">
+      <button onclick="window.location.href='index.html'" class="tab-empresa">Página Principal</button>
+      <div class="dropdown">
+        <button class="tab-empresa tab-activa">Citibank Colombia S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="citibak-colombia.html">Página Principal</a>
+          <a href="informacion-institucional.html">Información Institucional</a>
+          <a href="productos-servicios.html">Productos y Servicios</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="tab-empresa">Citivalores S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="#">Página principal</a>
+          <a href="#">Corresponsal en Inversiones Globales</a>
+          <a href="#">Corresponsal en Banca de Inversión</a>
+          <a href="#">ETF MSCI COLCAP</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="tab-empresa">Cititrust S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="#">Página Principal</a>
+          <a href="#">Servicios de Custodia</a>
+          <a href="#">Fiducia Estructurada</a>
+          <a href="#">Links frecuentes</a>
+        </div>
+      </div>
+    </div>
+    <div class="contenido-empresa">
+      <div class="ciudad">Bogotá</div>
+      <div class="datos-direccion">
+        Citibank Colombia Centro de Servicio Calle 100,<br>
+        Carrera 9A No. 99-02 Piso 1 Local 104<br>
+        Horario: 9:00 a.m. a 4:00 p.m.
+      </div>
+      <div class="servicios-habilitados">Servicios habilitados:</div>
+      <ul>
+        <li>Pago de impuestos, aduanas.</li>
+        <li>Apertura y mantenimiento de productos.</li>
+        <li>Pagarés y solicitudes de operaciones crediticias (Sobregiros, créditos, cartas de crédito documentarias, cartas de crédito standby y garantías bancarias).</li>
+        <li>Instrucciones manuales.</li>
+        <li>Confirmaciones de derivados.</li>
+        <li>Instrucciones manuales para operaciones de tipo de cambio (FX), CDT y TIDIS.</li>
+        <li>Formatos para CitiFX pulse.</li>
+        <li>Contratos marco y documentos relacionados.</li>
+      </ul>
+      <!-- Mapa y datos -->
+      <div class="mapa-citi">
+        <div class="mapa-citi-info">
+          <span class="subrayado"><i class="fas fa-map-marker-alt"></i> Bogotá</span>
+          <span>Servicio Calle 100</span>
+        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.6672309820567!2d-74.0429577852378!3d4.684064196591382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a0b3da340cb%3A0x850b4d7b2ef15eb3!2sCitibank%20Colombia%20S.A.!5e0!3m2!1ses-419!2sco!4v1689359738000!5m2!1ses-419!2sco" width="390" height="250" style="border:1px solid #c9ced7;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="medidas-preventivas">Medidas preventivas para la prestación de servicios en oficina calle 100 para evitar la propagación del COVID-19.</div>
+      <ul>
+        <li>Se debe usar permanentemente el tapabocas.</li>
+        <li>Mantener el distanciamiento físico (1.5 metros).</li>
+        <li>Cumplir con las normas locales relacionadas con la restricción a la movilidad y circulación, tales como pico y género, y pico y cédula – validar si aplica.</li>
+        <li>Realizar lavado frecuente de manos, especialmente antes y después del uso de dispositivos biométricos y pin pad.</li>
+        <li>Usar gel antibacterial.</li>
+        <li>Abstenerse de acudir a oficinas si presentan enfermedades respiratorias o síntomas asociados al COVID-19.</li>
+      </ul>
+    </div>
+  </main>
+  <!-- Sección servicios -->
+  <section class="seccion-servicios">
+    <div class="contenedor-servicios">
+      <div class="columna-vigilado">
+        <div class="contenedor-vigilado">
+          <img src="imgs/vigilado.png" alt="Vigilado" class="imagen-vigilado" />
+        </div>
+      </div>
+      <div class="columna-servicios">
+        <div class="grid-servicios">
+          <button class="boton-servicio" onclick="abrirServicio('tasas')">Tasas y Tarifas Vigentes</button>
+          <button class="boton-servicio" onclick="abrirServicio('citidirect')">CitiDirect</button>
+          <button class="boton-servicio" onclick="abrirServicio('payments')">Online Payments Channel</button>
+          <button class="boton-servicio" onclick="abrirServicio('pagos')">Mis pagos al día</button>
+          <button class="boton-servicio" onclick="abrirServicio('pse')">PSE</button>
+          <button class="boton-servicio" onclick="abrirServicio('fxpulse')">FXPulse</button>
+          <button class="boton-servicio" onclick="abrirServicio('tarjetas')">Portal de Tarjetas Corporativas</button>
+          <button class="boton-servicio" onclick="abrirServicio('sac')">SAC/Defensoría del Consumidor Financiero</button>
+          <button class="boton-servicio" onclick="abrirServicio('transparencia')">Programa de Transparencia PTEE Colrepfin LTDA</button>
+          <button class="boton-servicio boton-completo" onclick="abrirServicio('transparency')">TRANSPARENCY AND BUSINESS ETHICS PROGRAM (PTEE) COLREPFIN LTDA</button>
+        </div>
+      </div>
+    </div>
+    <div class="texto-disclaimer">
+      <p>Productos y servicios financieros ofrecidos por Citibank - Colombia S.A. Citi y el diseño del arco es una marca registrada de servicios de Citigroup Inc. Carrera 9A # 99 - 02 Bogotá, Colombia</p>
+    </div>
+  </section>
+  <footer class="footer-principal">
+    <div class="contenedor-footer">
+      <div class="footer-izquierda">
+        <img src="imgs/citilogo.png" alt="Citi" class="logo-footer" />
+        <div class="enlaces-footer">
+          <a href="#" class="enlace-footer">Citigroup.com</a>
+          <a href="#" class="enlace-footer">Términos y Condiciones</a>
+          <a href="#" class="enlace-footer">Privacidad</a>
+        </div>
+      </div>
+      <div class="footer-derecha">
+        <div class="redes-sociales">
+          <a href="#" class="icono-social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-google-plus-g"></i></a>
+        </div>
+        <span class="copyright">&copy; 2003–2025 Citigroup Inc.</span>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

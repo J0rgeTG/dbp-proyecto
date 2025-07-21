@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Historia de Citi en Colombia / Premios</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    .contenido-principal {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: none;
+    }
+    .contenido-principal h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #255be3;
+      text-align: center;
+      margin-bottom: 60px;
+      font-family: 'Inter', 'Citi Sans Display', Arial, sans-serif;
+    }
+    .navegacion-empresas-titulo {
+      font-weight: bold;
+      color: #255be3;
+      margin-bottom: 12px;
+      padding-left: 72px;
+      font-size: 17px;
+      font-family: 'Inter', 'Citi Sans Display', Arial, sans-serif;
+    }
+    .navegacion-empresas-tabs {
+      display: flex;
+      margin: 0 auto 32px auto;
+      max-width: 900px;
+      padding-left: 72px;
+      gap: 16px;
+    }
+    .tab-empresa {
+      background: none;
+      border: none;
+      padding: 14px 0;
+      font-size: 16px;
+      font-weight: 500;
+      color: #0f172a;
+      cursor: pointer;
+      position: relative;
+      font-family: 'Inter', 'Citi Sans Display', Arial, sans-serif;
+    }
+    .tab-empresa:hover,
+    .tab-empresa:focus {
+      color: #255be3;
+    }
+    .tab-empresa:hover::after,
+    .tab-activa::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background-color: #255be3;
+    }
+    .tab-activa {
+      font-weight: bold;
+      color: #255be3;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+      z-index: 100;
+      width: 220px;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content a {
+      display: block;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #0f172a;
+      border-bottom: 1px solid #e2e8f0;
+      font-family: 'Inter', 'Citi Sans Display', Arial, sans-serif;
+    }
+    .dropdown-content a:hover {
+    color: #255be3;
+    background-color: #f1f5f9;
+    border-bottom: 2px solid #255be3;
+    }
+
+    .dropdown-content a.active {
+      color: #255be3;
+      border-bottom: 2px solid #255be3;
+    }
+    .contenido-empresa {
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: 0px;
+      font-family: 'Inter', 'Citi Sans Display', Arial, sans-serif;
+      color: #202440;
+      font-size: 16px;
+      margin-bottom: 48px;
+    }
+    .contenido-empresa p {
+      margin-bottom: 20px;
+      line-height: 1.6;
+      font-size: 16px;
+      color: #202440;
+    }
+    .contenido-empresa h2 {
+      font-size: 24px;
+      color: #255be3;
+      font-weight: 700;
+      margin: 36px 0 18px 0;
+    }
+    .contenido-empresa h3 {
+      font-size: 21px;
+      color: #255be3;
+      font-weight: 600;
+      margin: 30px 0 14px 0;
+    }
+    .tabla-premios {
+      width: 100%;
+      max-width: 900px;
+      margin: 16px 0 36px 0;
+      border-collapse: collapse;
+      font-size: 15px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+    .tabla-premios th, .tabla-premios td {
+      border-bottom: 1px solid #e2e8f0;
+      padding: 8px 10px;
+      text-align: left;
+      font-weight: 400;
+      color: #202440;
+    }
+    .tabla-premios th {
+      font-weight: 700;
+      color: #255be3;
+      background: #f4f8fe;
+    }
+    .tabla-premios tr:last-child td {
+      border-bottom: none;
+    }
+    /* Responsive */
+    @media (max-width: 700px) {
+      .contenido-principal, .contenido-empresa, .tabla-premios {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        font-size: 14px;
+      }
+      .tabla-premios th, .tabla-premios td {
+        padding: 6px 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header-principal">
+    <div class="contenedor-header">
+      <img src="imgs/citilogo.png" alt="Citi" class="logo-citi" />
+    </div>
+  </header>
+
+  <main class="contenido-principal">
+    <h1>Historia de Citi<sup style="font-size:0.55em;">®</sup> en Colombia/ Premios</h1>
+    <div class="navegacion-empresas-titulo">Colombia</div>
+
+  <div class="navegacion-empresas-tabs" style="gap:90px;justify-content:center;">
+  <button onclick="window.location.href='index.html'" class="tab-empresa">Página Principal</button>
+
+  <div class="dropdown">
+    <button class="tab-empresa tab-activa">Citibank Colombia S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+    <div class="dropdown-content">
+      <a href="citibak-colombia.html">Página Principal</a>
+      <a href="informacion-institucional.html">Información Institucional</a>
+      <a href="productos-servicios.html">Productos y Servicios</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="tab-empresa">Citivalores S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+    <div class="dropdown-content">
+      <a href="#">Página principal</a>
+      <a href="#">Corresponsal en Inversiones Globales</a>
+      <a href="#">Corresponsal en Banca de Inversión</a>
+      <a href="#">ETF MSCI COLCAP</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="tab-empresa">Cititrust S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+    <div class="dropdown-content">
+      <a href="#">Página Principal</a>
+      <a href="#">Servicios de Custodia</a>
+      <a href="#">Fiducia Estructurada</a>
+      <a href="#">Links frecuentes</a>
+    </div>
+  </div>
+  </div>
+
+    <div class="contenido-empresa">
+      <p>
+        En 1916 abrió sus puertas la primera oficina de representación de Citi en Colombia. Desde entonces hemos acompañado el progreso del país haciendo parte de importantes transacciones, canalizando recursos e inversiones del sector privado y público, e impulsado el comercio exterior.
+      </p>
+      <p>
+        Citi ofrece a corporaciones, gobiernos e instituciones en Colombia una amplia gama de productos y servicios bancarios, fiduciarios y de custodia, y de banca de inversión para clientes corporativos.
+      </p>
+      <p>
+        Nuestro profundo conocimiento del mercado e inigualable red internacional, facilita a nuestros clientes hacer negocios en 23 países de Latinoamérica y más de 160 territorios y jurisdicciones alrededor del mundo.
+      </p>
+
+      <h2>Premios y Reconocimientos a Citi Colombia</h2>
+      <h3>Euromoney Awards</h3>
+      <table class="tabla-premios">
+        <thead>
+          <tr>
+            <th>Premio</th>
+            <th>Categoría</th>
+            <th>Año</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Private Banking Awards</td><td>Innovative Technology-Back Office Systems</td><td>2017</td></tr>
+          <tr><td>Private Banking Awards</td><td>International Clients</td><td>2017</td></tr>
+          <tr><td>Private Banking Awards</td><td>Net-worth-specific Services Super Affluent (1MM - 5MM)</td><td>2016</td></tr>
+          <tr><td>Private Banking Awards</td><td>International Clients</td><td>2016</td></tr>
+          <tr><td>Private Banking Awards</td><td>Net-worth-specific Services High Net Worth I (1MM - 10MM)</td><td>2014, 2013</td></tr>
+          <tr><td>Foreign Exchange Poll for Latin America</td><td>Largest Foreign Exchange Bank</td><td>2013</td></tr>
+          <tr><td>Foreign Exchange Poll for Latin America</td><td>#1 for Corporates</td><td>2013</td></tr>
+          <tr><td>Foreign Exchange Poll for Latin America</td><td>#1 for E-Trading Market Share</td><td>2013</td></tr>
+          <tr><td>Private Banking Awards</td><td>Net-worth-specific Services Super Affluent (500K - 1MM)</td><td>2013</td></tr>
+        </tbody>
+      </table>
+      <h3>Global Finance Awards</h3>
+      <table class="tabla-premios">
+        <thead>
+          <tr>
+            <th>Premio</th>
+            <th>Categoría</th>
+            <th>Año</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>World's Best Securities Services Providers</td><td>Best Sub-Custodian Bank in Colombia</td><td>2017, 2016</td></tr>
+          <tr><td>World's Best Digital Banks (1st Round)</td><td>Best in Social Media -Citi</td><td>2017</td></tr>
+          <tr><td>World's Best Sub-Custodian Banks</td><td>Best Sub-Custodian Bank</td><td>2015, 2014, 2013</td></tr>
+          <tr><td>World's Best Digital Banks (1st Round)</td><td>Best Country Corporate/Institutional Digital Bank</td><td>2015</td></tr>
+          <tr><td>World's Best Internet Banks (1st Round)</td><td>Best Country Corporate/Institutional Internet Bank</td><td>2014, 2013</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- SECCIÓN SERVICIOS (igual a las otras páginas) -->
+  <section class="seccion-servicios">
+    <div class="contenedor-servicios">
+      <div class="columna-vigilado">
+        <div class="contenedor-vigilado">
+          <img src="imgs/vigilado.png" alt="Vigilado" class="imagen-vigilado" />
+        </div>
+      </div>
+      <div class="columna-servicios">
+        <div class="grid-servicios">
+          <button class="boton-servicio" onclick="abrirServicio('tasas')">Tasas y Tarifas Vigentes</button>
+          <button class="boton-servicio" onclick="abrirServicio('citidirect')">CitiDirect</button>
+          <button class="boton-servicio" onclick="abrirServicio('payments')">Online Payments Channel</button>
+          <button class="boton-servicio" onclick="abrirServicio('pagos')">Mis pagos al día</button>
+          <button class="boton-servicio" onclick="abrirServicio('pse')">PSE</button>
+          <button class="boton-servicio" onclick="abrirServicio('fxpulse')">FXPulse</button>
+          <button class="boton-servicio" onclick="abrirServicio('tarjetas')">Portal de Tarjetas Corporativas</button>
+          <button class="boton-servicio" onclick="abrirServicio('sac')">SAC/Defensoría del Consumidor Financiero</button>
+          <button class="boton-servicio" onclick="abrirServicio('transparencia')">Programa de Transparencia PTEE Colrepfin LTDA</button>
+          <button class="boton-servicio boton-completo" onclick="abrirServicio('transparency')">TRANSPARENCY AND BUSINESS ETHICS PROGRAM (PTEE) COLREPFIN LTDA</button>
+        </div>
+      </div>
+    </div>
+    <div class="texto-disclaimer">
+      <p>Productos y servicios financieros ofrecidos por Citibank - Colombia S.A. Citi y el diseño del arco es una marca registrada de servicios de Citigroup Inc. Carrera 9A # 99 - 02 Bogotá, Colombia</p>
+    </div>
+  </section>
+
+  <footer class="footer-principal">
+    <div class="contenedor-footer">
+      <div class="footer-izquierda">
+        <img src="imgs/citilogo.png" alt="Citi" class="logo-footer" />
+        <div class="enlaces-footer">
+          <a href="#" class="enlace-footer">Citigroup.com</a>
+          <a href="#" class="enlace-footer">Términos y Condiciones</a>
+          <a href="#" class="enlace-footer">Privacidad</a>
+        </div>
+      </div>
+      <div class="footer-derecha">
+        <div class="redes-sociales">
+          <a href="#" class="icono-social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-google-plus-g"></i></a>
+        </div>
+        <span class="copyright">&copy; 2003–2025 Citigroup Inc.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
