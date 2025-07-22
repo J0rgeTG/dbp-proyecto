@@ -8,9 +8,19 @@
   <meta name="description" content="With the most diverse array of products and the broadest global reach of any financial firm in the world, there is no bank better equipped to meet your corporation's evolving global needs.">
   <meta content="index,follow" name="Googlebot">
   <meta content="index,follow" name="robots">
-  <link rel="stylesheet" href="styles.css">
   
+  <!-- CSS -->
   <style>
+  .{
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif; /* o cualquier otra fuente que uses */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh; /* Asegura que la altura ocupe toda la pantalla */
+  background-color: #f8f8f8; /* Color de fondo, cambia si lo deseas */
+  }
     body {
     width: 80%;
     margin-left: 20%;
@@ -149,7 +159,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
 }
 
-
+/* NAV EMPRESAS */
 .seccion-navegacion-empresas,
 .contenido-empresa {
   max-width: 900px;
@@ -199,7 +209,7 @@ h1, h2, h3, h4, h5, h6 {
   background: #f3f4f6;
 }
 
-
+/* ENLACES EMPRESA */
 .enlaces-empresa {
   display: flex;
   flex-direction: column;
@@ -219,7 +229,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Citi Sans Display', Arial, sans-serif;
 }
 
-
+/* RESET Y CONFIGURACION BASE */
 * {
   margin: 0;
   padding: 0;
@@ -233,15 +243,16 @@ body {
   line-height: 1.2em;
   font-weight: normal;
   overflow-x: hidden;
- 
+  /* Eliminado el padding-top ya que el header no será fijo */
 }
 
-
+/* HEADER */
 .header-principal {
   background: #ffffff;
   border-bottom: 1px solid #e2e8f0;
   padding: 16px 0;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  /* Asegurar que sea completamente estático */
   position: static;
   display: block;
   width: 100%;
@@ -259,15 +270,18 @@ body {
   width: auto;
 }
 
-
+/* CONTENIDO PRINCIPAL */
 .contenido-principal {
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   padding: 40px 0;
+  /* Eliminado min-height y justify-content que causaban problemas */
 }
 
+/* BANNER COLOMBIA */
 .seccion-banner {
   padding: 20px;
   margin-bottom: 60px;
+  /* Asegurar que sea completamente estático */
   position: static;
   display: block;
 }
@@ -284,6 +298,7 @@ body {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   height: 500px;
   background: #334155;
+  /* Asegurar que no se superponga */
   z-index: 1;
 }
 
@@ -308,12 +323,14 @@ body {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-
+/* BOTONES EMPRESAS */
 .seccion-empresas {
   padding: 40px 20px;
+  /* Asegurar que sea completamente estático */
   position: static;
   display: block;
   background: transparent;
+  /* Separación clara del banner */
   margin-top: 20px;
   z-index: 1;
 }
@@ -360,10 +377,12 @@ body {
   box-shadow: 0 12px 32px rgba(146, 64, 14, 0.35);
 }
 
+/* SECCION SERVICIOS */
 .seccion-servicios {
   background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
   color: white;
   padding: 60px 0;
+  /* Asegurar separación clara de elementos anteriores */
   margin-top: 60px;
   position: static;
   display: block;
@@ -409,6 +428,7 @@ body {
   gap: 16px;
 }
 
+/* BOTONES SERVICIO MÁS NEGRITA */
 .boton-servicio {
   background: white;
   color: #1e40af;
@@ -617,19 +637,22 @@ body {
   <link rel="stylesheet" href="/tts/assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="/tts/assets/css/main-v2.css">
   <link rel="stylesheet" href="styles.css">
-
+  <!-- JS -->
   <script>
     function toggleDropdown(button) {
       const item = button.parentElement;
       const wasOpen = item.classList.contains('show');
   
+      // Cierra todos
       document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('show'));
   
+      // Si no estaba abierto, lo abre
       if (!wasOpen) {
         item.classList.add('show');
       }
     }
   
+    // Cierra si haces clic fuera
     document.addEventListener('click', function (e) {
       if (!e.target.closest('.menu-item')) {
         document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('show'));
@@ -641,17 +664,18 @@ body {
   <script type="text/javascript" src="/tts/assets/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="/tts/assets/js/main.js"></script>
 </head>
-<body id="solutions" class="">	
+<body id="solutions" class="todo ">	
   <header id="main-header">
   	<div>
   		<div class="container">
   			<div id="blue-wave-inner">
   				<div id="main-header-citi-logo">
   					<a href="https://www.citigroup.com/" title="Citi">
-                          <img src="imgs/citilogo.png" width="65" height="42" alt="Citi" title="Citigroup.com">
+                          <img src="https://www.citibank.com/icg/assets/img/branding/citi-logo-blue.svg" width="65" height="42" alt="Citi" title="Citigroup.com">
             </a>
   				</div>
   				<div id="main-header-lob">
+  					<!-- Aquí puedes añadir algún texto o enlace si lo deseas -->
   				</div>
   			</div>
   		</div>
@@ -659,11 +683,12 @@ body {
   </header>
   <div class="jumbotron parallax" style="background-position: 50% -308.2px;">
     <div class="container">
-      <h1 class="text-citi-blue mb-0">Servicios de Custodia</h1>
+      <h1 class="text-citi-blue mb-0">Links Frecuentes</h1>
     </div>
   </div>
   
   <section class="container pb-15">
+    <!-- Modal -->
     <div id="modalPop" class="modal fade" aria-hidden="true" style="display: none;">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -683,8 +708,10 @@ body {
     </div>
   
 <section class="container pb-15">
+    <!-- Modal -->
     <div id="modalPop" class="modal fade" style="display: none;" aria-hidden="true">
       <div class="modal-dialog modal-lg">    
+        <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">Información importante</button>
@@ -708,23 +735,27 @@ body {
     <div class="navbar-collapse collapse show">
       <ul class="nav navbar-nav sm-collapsible">
 
+        <!-- Colombia (solo título, no enlace ni submenú) -->
         <div class="titulo">Colombia</div>
 
         <div class="menu-horizontal">
         
+          <!-- Página Principal (no desplegable) -->
           <div class="menu-item">
             <a href="index.html" class="menu-link">Página Principal</a>
           </div>
-     
+        
+          <!-- Citibank Colombia S.A. (sí desplegable) -->
           <div class="menu-item">
             <div class="dropdown-button" onclick="toggleDropdown(this)">Citibank Colombia S.A.</div>
             <div class="dropdown-content">
               <a href="citibak-colombia.html">Página Principal</a>
               <a href="informacion-institucional.html">Información Institucional</a>
               <a href="productos-servicios.html">Productos y Servicios</a>
-            </div>  
+            </div>
           </div>
         
+          <!-- Citivalores S.A. (sí desplegable) -->
           <div class="menu-item">
             <div class="dropdown-button" onclick="toggleDropdown(this)">Citivalores S.A.</div>
             <div class="dropdown-content">
@@ -735,10 +766,11 @@ body {
             </div>
           </div>
         
+          <!-- Cititrust S.A. (sí desplegable) -->
           <div class="menu-item">
             <div class="dropdown-button" onclick="toggleDropdown(this)">Cititrust S.A.</div>
             <div class="dropdown-content">
-              <a href="Cititrust.html">Página Principal</a>
+              <a href="index.html">Página Principal</a>
               <a href="servicio_custodia.html">Servicios de Custodia</a>
               <a href="fiducia.html">Fiducia Estructurada</a>
               <a href="links.html">Links Frecuentes</a>
@@ -754,183 +786,45 @@ body {
 </div>
 
   </section>
-
-
- 
-  </div>
-  </section>
-  <section class="container mb-30">
-  <h3 class="text-citi-blue">Quienes Somos</h3>
-    
-    <p>Cititrust Colombia S.A. Sociedad Fiduciaria ("Cititrust") fue constituida el 23 de septiembre de 1991 como resultado de la Ley 45 de 1990, por medio de la cual se estableció la obligación para los bancos de separar sus negocios fiduciarios de su actividad bancaria propia.</p>
-    
-    <p>Desde hace más de diez (10) años Cititrust decidió extender su oferta de servicios de custodia a clientes locales (inversionistas institucionales en su mayoría) al tiempo que amplió su oferta de servicios para soportar no solo los mercados de Europa y EEUU, sino también ciertos mercados de América Latina, lo cual la ha llevado a constituirse como uno de los principales proveedores de este tipo de servicios en Colombia con una alta participación de mercado medido en términos de activos bajo custodia.</p>
-    
-    <p>Cititrust como la entidad que desarrolla el negocio fiduciario de Citi<sup>®</sup> en Colombia, cuenta con personal de dedicación exclusiva para cada uno de los productos que ofrece en el desarrollo de su objeto social, tanto para clientes nacionales e Internacionales, es así como en su negocio de Custodia, se atienden un número importante de inversionistas extranjeros de portafolio en virtud del Decreto 119 de 2017, para que los mismos puedan invertir en el mercado público de valores en Colombia.</p>
-    
-    <p>Igualmente, Cititrust desarrolla negocios de Fiducia Estructurada relacionados principalmente, con operaciones de finanzas corporativas tales como créditos sindicados, financiaciones de proyectos, operaciones del mercado de valores y fusiones y adquisiciones.</p>
-    
-    <p>Es de precisar que para todas las líneas de negocios que la Fiduciaria ofrece en Colombia a la fecha, está dirigido principalmente a clientes de orden Corporativo o Institucional.</p>
-    
-    <p>Por su parte, es importante señalar que Cititrust cuenta con ventajas importantes como es su presencia global, experiencia en custodia a nivel internacional, fundamentado en procesos ágiles, sistematizados y seguros, entre otros.</p>
-    
-      <p>La fiducia estructurada que ofrece Cititrust brinda transparencia y control en el manejo de los recursos, velando por el estricto cumplimiento de los acuerdos y obligaciones de las partes, fortaleciendo así la confianza entre las partes.</p>
-    
-    <p>Como Custodio, autorizado por la Superintendencia de Valores de Colombia desde 2015, está especializado en proveer servicios integrales a inversionistas en función de su portafolio, con el propósito de garantizarles un flujo de proceso seguro y eficiente, utilizando una infraestructura tecnológica y humana altamente calificada y con amplia experiencia.</p>
-    
-    <p>Para el desarrollo de sus funciones, Cititrust cuenta con una garantía técnica y de buen funcionamiento, con cobertura del programa de reaseguro de Citigroup a nivel global, y con una póliza nacional de seguro con cobertura de riesgos de pérdida o daño.</p>
-    
-    <p>Cititrust he llevado la vanguardia en Colombia en la gestión de la custodia local y ha realizado aportes basada en su experiencia importantes para el desarrollo de esta actividad en el mercado colombiano.</p>
-  <ul class="link-list">
-    <li class="li-doc"><a href="https://www.citi.com/icg/sa/latam/colombia/cititrust/assets/docs/Codigo-de-Bueno-Gobierno-Cititrust.pdf" target="_blank">Código de Buen Gobierno</a></li>
-    <li class="li-doc"><a href="https://www.citi.com/icg/sa/latam/colombia/cititrust/assets/docs/Perfil-de-Riesgo-Operativo-Cititrust.pdf" target="_blank">Perfil de Riesgo Operativo</a></li>
-    <li class="li-doc"><a href="https://www.citi.com/icg/sa/latam/colombia/cititrust/assets/docs/Aviso_de_Privacidad_Cititrust_2019.pdf" target="_blank">Aviso de Privacidad Cititrust 2019</a></li>
-    <li class="li-doc"><a href="https://www.citi.com/icg/sa/latam/colombia/cititrust/assets/docs/Politica-de-tratamiento-de-datos-personales-cititrust.pdf" target="_blank">Manual/Política de Tratamiento de Datos Personales Cititrust</a></li>
-      
-  </ul>
-  <h3 class="text-citi-blue">Estados Financieros Cititrust Colombia S.A. Sociedad Fiduciaria </h3>
-  <p>Según lo establecido en el Articulo 11.2.4.1.1 del Decreto 2555 de 2010, los estados financieros no requirieron autorización previa de la Superintendencia Financiera de Colombia para la aprobación por parte de la Asamblea de Accionistas</p>
-  <ul class="link-list">
-  <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Cititrust-Estados-Financieros-2024.pdf" target="_blank">2024</a></li>
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Cititrust-Estados-Financieros-2023.pdf" target="_blank">2023</a></li>
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Cititrust-Estados-Financieros-2022.pdf" target="_blank">2022</a></li>
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Cititrust-Estados-Financieros-2021.pdf" target="_blank">2021</a></li>
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Cititrust-Estados-Financieros-2020.pdf" target="_blank">2020</a></li>  
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Cititrust-Estados-Financieros-2019.pdf" target="_blank">2019</a></li>
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Cititrust-Estados-Financieros-2018.pdf" target="_blank">2018</a></li>
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Cititrust-Estados-Financieros-2017.pdf" target="_blank">2017</a></li>
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Cititrust-Estados-Financieros-2016.pdf" target="_blank">2016</a></li>
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Cititrust-Estados-Financieros-2015.pdf" target="_blank">2015</a></li>
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Cititrust-Estados-Financieros-2014.pdf" target="_blank">2014</a></li>
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Cititrust-Estados-Financieros-2013.pdf" target="_blank">2013</a></li>
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Cititrust-Estados-Financieros-2012.pdf" target="_blank">2012</a></li>
-  </ul>
-
-  <ul class="link-list">
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/EEFF-y-Notas-Cititrust-Marzo-2025.pdf" target="_blank">Cititrust Colombia S.A. Sociedad Fiduciaria 1Q 2025</a></li>
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Cititrust-Estados-Financieros-3Q-2024.pdf" target="_blank">Cititrust Colombia S.A. Sociedad Fiduciaria 3Q 2024</a></li>
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Cititrust-Estados-Financieros-2Q-2024.pdf" target="_blank">Cititrust Colombia S.A. Sociedad Fiduciaria 2Q 2024</a></li>
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Notas_EEFF_Cititrust_Marzo_2024.pdf" target="_blank">Cititrust Colombia S.A. Sociedad Fiduciaria 1Q 2024</a></li>
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Cititrust-Estados-Financieros-1Q-2018.pdf" target="_blank">Informes Trimestrales</a></li>
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Notas_EEFF_Cititrust_Septiembre_2023.pdf" target="_blank">Cititrust Colombia S.A. Sociedad Fiduciaria 3Q 2023 </a></li>
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Notas_EEFF_Cititrust_Junio_2023.pdf" target="_blank">Cititrust Colombia S.A. Sociedad Fiduciaria 2Q 2023 </a></li>
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Estados_Financieros_Cititrust-1q-2023.pdf" target="_blank">Cititrust Colombia S.A. Sociedad Fiduciaria 1Q 2023</a></li> 
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Estados_Financieros_Cititrust-3q-2022.pdf" target="_blank">Cititrust Colombia S.A. Sociedad Fiduciaria 3Q 2022</a></li>	
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Estados_Financieros_Cititrust-2q-2022.pdf" target="_blank">Cititrust Colombia S.A. Sociedad Fiduciaria 2Q 2022</a></li>
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Estados_Financieros_Cititrust-1q-2022.pdf" target="_blank">Cititrust Colombia S.A. Sociedad Fiduciaria 1Q 2022</a></li> 
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Estados_Financieros_Cititrust-3q-2021.pdf" target="_blank">Cititrust Colombia S.A. Sociedad Fiduciaria 3Q 2021</a></li> 
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Estados_Financieros_Cititrust-2q-2021.pdf" target="_blank">Cititrust Colombia S.A. Sociedad Fiduciaria 2Q 2021</a></li>  
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Estados_Financieros_Cititrust-2q-2021.pdf" target="_blank">Cititrust Colombia S.A. Sociedad Fiduciaria 2Q 2021</a></li> 
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Estados_Financieros_Cititrust-1q-2021.pdf" target="_blank">Cititrust Colombia S.A. Sociedad Fiduciaria 1Q 2021</a></li>  
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Estados_Financieros_Cititrust-3q-2020.pdf" target="_blank">Cititrust Colombia S.A. Sociedad Fiduciaria 3Q 2020</a></li>  
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Cititrust_Colombia_SA_Sociedad_Fiduciaria_2Q_2020.pdf" target="_blank">Cititrust Colombia S.A. Sociedad Fiduciaria 2Q 2020</a></li>   
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Estados_Financieros_Cititrust-1q-2020.pdf" target="_blank">Cititrust Colombia S.A. Sociedad Fiduciaria 1Q 2020</a></li>
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Estados_Financieros_Cititrust-3q-2019.pdf" target="_blank">Cititrust Colombia S.A. Sociedad Fiduciaria 3Q 2019</a></li>
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Estados_Financieros_Cititrust-2q-2019.pdf" target="_blank">Cititrust Colombia S.A. Sociedad Fiduciaria 2Q 2019</a></li>
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Estados_Financieros_Cititrust-1q-2019.pdf" target="_blank">Cititrust Colombia S.A. Sociedad Fiduciaria 1Q 2019</a></li>  
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Estados_Financieros_Cititrust_3Q_2018.pdf" target="_blank">Cititrust Colombia S.A. Sociedad Fiduciaria 3Q 2018</a></li>
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Cititrust-Colombia-S.A.-Sociedad-Fiduciaria.-2Q-2018.pdf" target="_blank">Cititrust Colombia S.A. Sociedad Fiduciaria. 2Q 2018</a></li>
-    <li class="li-doc"><a href="/icg/sa/latam/colombia/cititrust/assets/docs/Cititrust-Estados-Financieros-2017.pdf" target="_blank">Cititrust Colombia S.A. Sociedad Fiduciaria. 1Q 2018</a>
-    </li>
-  </ul>
-  <h3 class="text-citi-blue">Puntos de Contacto</h3>
-  <p>Para descargar y conocer el procedimiento de atención de Peticiones, Quejas o Reclamos (PQRs) haga clic <a href="https://www.citi.com/icg/sa/latam/colombia/cititrust/assets/docs/PQR_Cititrust_Columbia.pdf" target="_blank"><span>aquí</span></a>. (Si es que se atreve... 👀)</p>
-  <p><strong>Horario de Atención:</strong> Días hábiles de lunes a viernes de 8:00 am a 5:30 pm (o hasta que el café se acabe)</p>
-  <table>
-    <tbody>
-      <tr>
-        <td><img src="https://www.citi.com/icg/sa/latam/colombia/citiservice/assets/img/icons/icon-call.png"></td>
-        <td><strong class="text-citi-blue">Teléfonos</strong><br>Bogotá: +57 601 xxxx913, xxxx934,<br> xxxx617, xxxx902, xxxx465</td>
-        <td width="10px"></td>
-        <td><img src="https://www.citi.com/icg/sa/latam/colombia/citiservice/assets/img/icons/icon-call.png"></td>
-        <td><strong class="text-citi-blue">Correo Electrónico</strong><br><a href="mailto:fraud-alert@nopiques.com" class="text-cyan">cititrustconmuchocuidado@fake.com</a></td>
-        <td width="10px"></td>
-        <td><img src="https://www.citi.com/icg/sa/latam/colombia/citiservice/assets/img/icons/icon-fax.png"></td>
-        <td><strong class="text-citi-blue">Fax</strong><br>
-          (Desde Colombia) 01 800 xxxx xxx<br>
-          (Fuera de Colombia) 1 845 xxx xxxx
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <p class="text-citi-blue text-bold pt-15">Notificaciones legales</p>
-  <p><strong>Correo Electrónico:</strong> <a href="mailto:legalnotificacionescititrust@citi.com">legalnotificacionescititrust@citi.com</a></p>
-  
-  <h3>
-    <a href="informacion-consumidor-financiero.html" target="_self">Sistema de Atención a Consumidores Financieros SAC</a>
+<h2 styles="color:blue;">Información de su interés:</h2>
+<div>
+<a href="https://securities.citidirect.com/">CitiDirect BE® for Securities </a>
+</div>
+<div>
+<a href="https://securefiletransfer.citigroup.com/">CitiSFTP - Secure File Transfer </a>
+</div>
+<div>
+<a href="https://www.superfinanciera.gov.co/jsp/index.jsf">Superintendencia Financiera de Colombia </a>
+<div>
+</div>
+<a href="http://www.asofiduciarias.org.co/">Asofiducairias </a>
+</div>
+    <!-- SECCION SERVICIOS (reutilizada) -->
   <section class="seccion-servicios">
     <div class="contenedor-servicios">
       <div class="columna-vigilado">
         <div class="contenedor-vigilado">
-          <img src="imgs/vigilado.png" alt="Vigilado" class="imagen-vigilado">
+          <img src="https://www.citibank.com/icg/sa/latam/colombia/assets/img/vigilado.png" alt="Vigilado" class="imagen-vigilado">
         </div>
       </div>
       <div class="columna-servicios">
         <div class="grid-servicios">
-          <button
-            type="button"
-            class="boton-servicio"
-            onclick="window.location.href='Tasas_tarifas.html';"
-          >
-            Tasas y Tarifas Vigentes
-          </button>
-          <button
-            type="button"
-            class="boton-servicio"
-            onclick="window.location.href='Citidirect.html';"
-          >
-            CitiDirect
-          </button>
-          <button
-            type="button"
-            class="boton-servicio"
-            onclick="window.location.href='online_payments.html';"
-          >
-            Online Payments Channel
-          </button>
-          <button
-            type="button"
-            class="boton-servicio"
-            onclick="window.location.href='Pago_dia2.html';"
-          >
-            Mis pagos al dia
-          </button>
-          <button
-            type="button"
-            class="boton-servicio"
-            onclick="window.location.href='pagos_PSE.html';"
-          >
-            PSE
-          </button>
-          <button
-            type="button"
-            class="boton-servicio"
-            onclick="window.location.href='';"
-          >
-            FXPulse
-          </button>
-          <button
-            type="button"
-            class="boton-servicio"
-            onclick="window.location.href='tarjetas_corporativas.html';"
-          >
-            Portal de tarjetas corporativas
-          </button>
-          <button
-            type="button"
-            class="boton-servicio"
-            onclick="window.location.href='informacion-consumidor-financiero.html';"
-          >
-            Sistema de Atencion al consumidor financiero SAC/Defensoria del Consumidor Financiero
-          </button>
-          </button>
+	  <a href="Tasas_tarifas.html" class="boton-servicio">Tasas y Tarifas Vigentes</a>
+          <a href="Citidirect.html" class="boton-servicio">CitiDirect</a>
+          <a href="online_payments.html" class="boton-servicio">Online Payments Channel</a>
+          <a href="Pago_dia2.html" class="boton-servicio">Mis pagos al día</a>
+          <a href="pagos_PSE.html" class="boton-servicio">PSE</a>
+          <button class="boton-servicio" onclick="abrirServicio('fxpulse')">FXPulse</button>
+          <a href="tarjetas_corporativas.html" class="boton-servicio">Portal de Tarjetas Corporativas</a>
+          <a href="sistema_atencion.html" class="boton-servicio">Información Consumidor Financiero SAC</a>
           <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDA.pdf" class="boton-servicio" target="_blank" rel="noopener noreferrer">
  		 Programa de Transparencia PTEE Colrepfin LTDA
-	        </a>
+	  </a>
 
           <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDAV2023_V_INGLES_VF2.pdf" class="boton-servicio boton-completo" target="_blank" rel="noopener noreferrer">
      		TRANSPARENCY AND BUSINESS ETHICS PROGRAM (PTEE) COLREPFIN LTDA
-	        </a>
+	  </a>
+
         </div>
       </div>
     </div>
@@ -939,9 +833,10 @@ body {
     </div>
   </section>
 
-  
+  <!-- FOOTER -->
   <footer class="footer-principal">
     <div class="contenedor-footer">
+      <!-- SECCION IZQUIERDA -->
       <div class="footer-izquierda">
         <img src="imgs\citilogo.png" alt="Citi" class="logo-footer">
         <div class="enlaces-footer">
@@ -950,6 +845,7 @@ body {
           <a href="#" class="enlace-footer">Privacidad</a>
         </div>
       </div>
+      <!-- SECCION DERECHA -->
       <div class="footer-derecha">
         <div class="redes-sociales">
           <a href="#" class="icono-social"><i class="fab fa-facebook-f"></i></a>
@@ -975,4 +871,3 @@ body {
 
 </body>
 </html>
-
