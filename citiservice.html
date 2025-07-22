@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CitiService®</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .modal {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 640px;
+      width: 90%;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+      text-align: left;
+    }
+    .modal h2 {
+      margin-top: 0;
+      font-size: 22px;
+      color: #1e293b;
+    }
+    .modal p {
+      font-size: 15px;
+      color: #1e293b;
+      margin: 20px 0;
+      line-height: 1.5;
+    }
+    .modal button {
+      padding: 10px 20px;
+      background: #0f1632;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+    }
+    .contenido-principal {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .contenido-principal h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #255be3;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .navegacion-empresas-titulo {
+      font-weight: bold;
+      color: #255be3;
+      margin-bottom: 12px;
+      padding-left: 72px;
+    }
+    .navegacion-empresas-tabs {
+      display: flex;
+      margin: 0 auto 32px auto;
+      max-width: 900px;
+      padding-left: 72px;
+      gap: 16px;
+    }
+    .tab-empresa {
+      background: none;
+      border: none;
+      padding: 14px 0;
+      font-size: 16px;
+      font-weight: 500;
+      color: #0f172a;
+      cursor: pointer;
+      position: relative;
+    }
+    .tab-empresa:hover,
+    .tab-empresa:focus {
+      color: #255be3;
+    }
+    .tab-empresa:hover::after,
+    .tab-activa::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background-color: #255be3;
+    }
+    .tab-activa {
+      font-weight: bold;
+      color: #255be3;
+    }
+    .contenido-empresa {
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: 0px;
+    }
+    .contenido-empresa h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 36px 0 24px;
+      color: #0f172a;
+    }
+    .contenido-empresa ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+    .contenido-empresa ul li {
+      margin-bottom: 16px;
+    }
+    .contenido-empresa ul li a {
+      color: #0f172a;
+      text-decoration: underline;
+      transition: color 0.2s ease;
+    }
+    .contenido-empresa ul li a:hover {
+      color: #255be3;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+      z-index: 100;
+      width: 220px;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content a {
+      display: block;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #0f172a;
+    }
+    .dropdown-content a:hover {
+      color: #255be3;
+      background-color: #f1f5f9;
+    }
+    .dropdown-content a.active {
+      color: #255be3;
+      border-bottom: 2px solid #255be3;
+    }
+
+    .accordion-section { max-width: 900px; margin: 0 auto 26px auto;}
+    .accordion { border-radius: 16px; overflow: hidden; box-shadow: 0 1px 8px #edf2f7; background: #f8fafc;}
+    .accordion-item + .accordion-item { border-top: 1px solid #e2e8f0;}
+    .accordion-title {
+      font-size: 16px;
+      color: #255be3;
+      background: #f4f7fb;
+      cursor: pointer;
+      padding: 22px 30px 22px 28px;
+      font-weight: 400;
+      display: flex; align-items: center; justify-content: space-between;
+      border: none; width: 100%;
+      transition: background 0.18s;
+      outline: none;
+    }
+    .accordion-title:hover { background: #e7efff;}
+    .accordion-title .icon {
+      font-size: 22px;
+      color: #255be3;
+      margin-left: 16px;
+      font-weight: bold;
+      transition: transform 0.2s;
+    }
+    .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    background: #fff;
+    padding: 0 30px;
+    font-size: 16px;
+    color: #1e293b;
+    transition: max-height 0.5s cubic-bezier(.4,0,.2,1);
+    }
+    .accordion-item.active .accordion-content {
+    padding: 22px 30px;
+    max-height: none; 
+    transition: max-height 0.7s cubic-bezier(.4,0,.2,1);
+    }
+    .accordion-item.active .accordion-title .icon { transform: rotate(180deg);}
+    .video-inclusion { max-width: 400px; margin-right:40px;}
+    .video-texto-flex {display: flex; gap:36px; align-items:center;}
+    @media (max-width: 900px){
+      .video-texto-flex { flex-direction: column; gap:18px;}
+      .video-inclusion {margin-right:0;}
+    }
+  
+  </style>
+</head>
+<body>
+  <div id="modalAviso" class="modal-overlay">
+    <div class="modal">
+      <h2>Información importante</h2>
+      <p>
+        Tenemos conocimiento de que se está usando el nombre de Citi con objetivos fraudulentos.<br>
+        Le recordamos que ninguna de las empresas de Citigroup en Colombia (Citibank Colombia S.A., Citivalores S.A. y Cititrust Colombia S.A.) ofrece productos a personas naturales ni realiza ningún tipo de gestión comercial asociada con sorteos o rifas a través de redes sociales o páginas web.<br>
+        Evite ser víctima de fraude y comunique a las autoridades cualquier actividad sospechosa.
+      </p>
+      <button onclick="cerrarModal()">Cerrar</button>
+    </div>
+  </div>
+
+  <header class="header-principal">
+    <div class="contenedor-header">
+      <img src="imgs/citilogo.png" alt="Citi" class="logo-citi" />
+    </div>
+  </header>
+
+  <main class="contenido-principal">
+    <h1>Centro de atención a Clientes Corporativos de Citibank®</h1>
+
+    <div style="margin-top: 80px;"  class="navegacion-empresas-titulo">Colombia</div>
+    
+    <div class="navegacion-empresas-tabs" style="gap:90px;justify-content:center;">
+  <button onclick="window.location.href='index.html'" class="tab-empresa">Página Principal</button>
+
+  <div class="dropdown">
+    <button class="tab-empresa tab-activa">Citibank Colombia S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+    <div class="dropdown-content">
+      <a href="citibak-colombia.html">Página Principal</a>
+      <a href="informacion-institucional.html">Información Institucional</a>
+      <a href="productos-servicios.html">Productos y Servicios</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="tab-empresa">Citivalores S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+    <div class="dropdown-content">
+      <a href="citivalores.html">Página principal</a>
+      <a href="corresponsal-inversiones.html">Corresponsal en Inversiones Globales</a>
+      <a href="corresponsal-banca.html">Corresponsal en Banca de Inversión</a>
+      <a href="etf.html">ETF MSCI COLCAP</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="tab-empresa">Cititrust S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+    <div class="dropdown-content">
+      <a href="Cititrust.html">Página Principal</a>
+      <a href="#">Servicios de Custodia</a>
+      <a href="#">Fiducia Estructurada</a>
+      <a href="#">Links frecuentes</a>
+    </div>
+  </div>
+  </div>
+
+<div class="contenido-empresa">
+
+
+
+    <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:20px;font-weight:600;font-size: 24px;">CitiService®</h2>
+    <div style="margin-bottom:16px; line-height:1.4; font-size: 14px;">
+        En Citibank Colombia S.A. estamos comprometidos con prestar el mejor servicio a nuestros clientes y ofrecerles las mejores soluciones digitales para el manejo de sus cuentas y productos. Por esta razón, a lo largo de los años hemos enfocado nuestros esfuerzos en ampliar las capacidades de la banca electrónica CitiDirect® y ser un socio estratégico en su operación diaria. Dentro de esas funcionalidades clave, está la de designar a un Administrador de Seguridad (Security Manager) de CitiDirect® quien a su vez tendrá la facultad de asignar los permisos por tipo de perfil que se requieran a empleados de su compañía, dentro de los cuales está el de ¨Reportes y Consultas¨.
+    </div>
+    <div style="margin-bottom:16px; line-height:1.4; font-size: 14px;">
+        Aprovechando esta ventaja de CitiDirect® y con el objetivo de simplificar sus procesos de consultas, nos es grato informarle que, a partir del 1 de septiembre de 2024, para tener acceso a Citiservice ya no requerirá de una designación adicional vía el Administrador de Accesos Citiservice por su signa en ingles * SAM-Service Access Manager¨ pues, si el Administrador de Seguridad (Security Manager) de Citidirect le da al funcionario respectivo acceso al perfil de ¨Reportes y Consultas¨, tal funcionario ya podrá acceder a Citiservice. Por tal razón se eliminará la figura de Administrador de Accesos a CitiService® por su sigla en inglés “SAM – Service Access Manager”, así como el “Formulario de Autorización de Servicio CitiService®.
+    </div>
+    <div style="margin-bottom:16px; line-height:1.4; font-size: 14px;">
+        A partir de la fecha en mención, cada vez que su empresa requiera que un nuevo usuario tenga acceso a CitiService®, bastará con que el Administrador de Seguridad de CitiDirect® (Security Manager) le haya otorgado el privilegio de “Reportes y Consultas” para los productos a los que el usuario desea tener acceso.
+    </div>
+    <div style="margin-bottom:16px; line-height:1.4; font-size: 14px;">
+        De otro lado, para aquellos usuarios con acceso a CitiService® que no se encuentran creados en CitiDirect® con el privilegio de Reportes y Consultas, el servicio de acceso a Citiservice® seguirá siendo prestado hasta la fecha que se comunicará próximamente, por lo que le sugerimos que con la debida anticipación sean creados los usuarios correspondientes en CitiDirect®, y de esa manera asegurar la continuidad del servicio de acceso a Citiservice®.
+    </div>
+    <div style="margin-bottom:16px; line-height:1.4; font-size: 14px;">
+        Para mayor facilidad, nos permitimos compartir link en el que podrá encontrar la guía para crear usuarios y asignar perfiles en CitiDirect. (Ingresar en la ventana de búsqueda : “Create and assign Access Profiles to users”) Client Knowledge Center: <a href="https://www.citidirect.com/cdhome/client-knowledge-center">CitiDirect CKC</a>
+    </div>
+
+    <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:20px;font-weight:600;font-size: 24px;">Nuestro horario de atención es:</h2>
+    <div style="margin-bottom:16px; line-height:1.4; font-size: 14px;">
+        Días hábiles de lunes a viernes de 8:00am a 6:00pm
+    </div>
+    <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:14px;font-weight:600;font-size: 24px;">Guías de Referencia para Autoservicio</h2>
+    <div style="margin-bottom:16px; line-height:1.4; font-size: 18px;font-weight: bold;">
+        Conozca de forma ágil la obtención de información en el manejo de sus cuentas:
+    </div>
+
+    <div style="margin-bottom:16px; line-height:1.4; font-size: 24px;font-weight: bold; margin-left: 450px; color: #255be3;">
+        IVR
+    </div>
+
+    <div class="accordion-item">
+        <button class="accordion-title" type="button">
+            (Interactive Voice Response)
+            <span class="icon"><i class="fas fa-plus"></i></span>
+        </button>
+            
+            <div class="accordion-content">
+                <img src="imgs/ivr.jpg" alt="IVR" style="width: 100%; max-width: 850px; margin-bottom: 20px;">
+                
+            </div>
+    </div>
+
+    <div style="margin-bottom:5px; line-height:1.4; font-size: 24px;font-weight: bold; margin-left: 300px; color: #255be3;">
+        Herramientas de Auto Servicio
+    </div>
+    <div style="margin-bottom:16px; line-height:1.4; font-size: 24px;font-weight: bold; margin-left: 420px; color: #255be3;">
+        CitiDirect
+    </div>
+
+    <div style="margin-bottom:16px; line-height:1.4; font-size: 14px;">
+        Nuestra banca electrónica ofrece múltiples opciones para el manejo eficaz y oportuno de reportes dando click en cada una de las guías le indicamos como.
+    </div>
+
+    <ul style="margin-left:20px;margin-bottom:20px;line-height: 1.3;font-size: 14px;">
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citiservice/assets/docs/Necesita_la_informacion_detallada_de_su_transaccion.pdf">Necesita la información detallada de su transacción</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citiservice/assets/docs/Como_consultar_su_estado_de_cuenta_general.pdf">Como consultar su estado de cuenta general</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citiservice/assets/docs/Consultar_su_estado_de_cuenta_detallado_ahora_es_mas_facil.pdf">Consultar su estado de cuenta detallado ahora es más fácil</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citiservice/assets/docs/Como_obtener_el_resumen_de_todas_las_transacciones.pdf">Como obtener el resumen de todas las transacciones</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citiservice/assets/docs/Necesita_el_informe_de_detalle_de_pagos.pdf">Necesita el informe de detalle de pagos</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citiservice/assets/docs/Como_obtener_su_comprobante_de_pago.pdf">Como obtener su comprobante de pago</a></li>
+    </ul>
+
+    <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:20px;font-weight:600;font-size: 24px;">Horarios transaccionales</h2>
+    <div style="margin-bottom:16px; line-height:1.4; font-size: 14.5px;">
+        Book to Book:	         6:00 p.m.
+    </div>
+    <div style="margin-bottom:16px; line-height:1.4; font-size: 14.5px;">
+        Interbancarias:	         5:00 p.m
+    </div>
+    <div style="margin-bottom:16px; line-height:1.4; font-size: 14.5px;">
+        Cheques de Gerencia:	 2:00 p.m.
+    </div>
+    
+    <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:20px;font-weight:600;font-size: 24px;">Sabia que......</h2>
+    <ul style="margin-left:20px;margin-bottom:50px;line-height: 1.3;font-size: 14px;">
+        <li>Usted puede obtener su estado de cuenta en CitiDirect</li>
+        <div style="margin-bottom:16px; line-height:1.4; font-size: 14.5px;">
+            Descargue su formulario digital para transferencias
+        </div>
+        <li>Usted puede obtener su estado de cuenta en CitiDirect.s</li>
+        <li>Puede descargar su formulario digital para transferencias</li>
+        <li>Se pueden generar reportes automáticos (Pagos, Rechazos, Estados de Cuenta)</li>
+        <li>Puede realizar los Stop Payment a través de CitiDirect.</li>
+    </ul>
+
+    <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:20px;font-weight:600;font-size: 24px;">Defensor del Consumidor Financiero</h2>
+    <div style="margin-bottom:16px; line-height:1.4; font-size: 14px; text-align: left;">
+        Presente sus reclamos o quejas a través de los siguientes canales: página WEB <a href="https://www.defensoriasernarojas.com/">www.defensoriasernarojas.com</a>; correo electrónico defensoria@defensoriasernarojas.com; teléfono en Bogotá (+57) 601 4898285, de lunes a viernes (días hábiles) en el horario de 8:00 a.m. a 5:30 p.m., buzón telefónico 24 horas; o en la Carrera 16A No 80-63 oficina 601 Edificio Torre Oval en Bogotá, de lunes a viernes (días hábiles) en el horario de 8:00 a.m. a 12:00 p.m. y de 2:00 p.m. a 5:00 p.m.; también puede presentar su queja directamente con Citibank en nuestra Oficina Corporativa ubicada en la Carrera 9A No. 99-02 Piso 1 Local 104 en el horario: 9:00 a.m. a 4:00 p.m., de la que haremos traslado al Defensor del Consumidor Financiero dentro de los tres (3) días hábiles siguientes a la recepción de dicho documento, de acuerdo con lo dispuesto en el artículo 2.34.2.1.5 del Decreto 2555 de 2010.
+    </div>
+    <h2 style="color:#000000;margin-top:30px;font-size:20px;margin-bottom:60px;font-weight:600;font-size: 24px;"><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Politica-de-tratamiento-de-datos-personales-citibank.pdf">Manual/Política de Tratamiento de Datos Personales Citibank</a></h2>
+    <hr>
+
+    <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:20px;font-weight:600;font-size: 36px;">Preguntas Frecuentes</h2>
+    <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:20px;font-weight:600;font-size: 24px;">Acerca de CitiService®</h2>
+
+    <section class="accordion-section">
+
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-title" type="button">
+            ¿Que tipo de consultas atiende CitiService®?
+            <span class="icon"><i class="fas fa-plus"></i></span>
+          </button>
+
+        <div class="accordion-content">
+
+        <div style="margin-bottom:16px; line-height:1.4; font-size: 14px; text-align: left;">
+            CitiService ofrece información sobre sus operaciones financieras y consultas diarias como:
+        </div>
+
+        <ul style="margin-left:20px;margin-bottom:20px;line-height: 1.3;font-size: 14px;">
+            <li>Información general sobre los productos y servicios</li>
+            <li>Confirmación de transacciones e información sobre débitos y créditos.</li>
+            <li>Envío de copias de estados de cuenta, notas bancarias, cheques y comprobantes de depósito.</li>
+            <li>Elaboración y envío de Certificaciones / Referencias bancarias de sus cuentas.</li>
+            <li>Anulación de pagos/cheques y transferencias.</li>
+            <li>Investigaciones sobre pagos y cobranzas.</li>
+            <li>Copias SWIFT.</li>
+            <li>Consultas sobre el estado de sus cartas de crédito</li>
+        </ul>
+
+        </div>
+        </div>
+        </div>
+
+        <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-title" type="button">
+            ¿Como generar mi clave telefonica?
+            <span class="icon"><i class="fas fa-plus"></i></span>
+          </button>
+
+        <div class="accordion-content">
+        
+            <img src="imgs/clavetelefonica.png" alt="Clave Telefonica" style="width: 100%; max-width: 850px; margin-bottom: 20px;">
+        
+        </div>
+        </div>
+        </div>
+
+        <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-title" type="button">
+            ¿Mi clave telefonica esta bloqueada, que puedo hacer para utilizarla de nuevo?
+            <span class="icon"><i class="fas fa-plus"></i></span>
+          </button>
+
+        <div class="accordion-content">
+        
+            <img src="imgs/client-existente.png" alt="Clave Telefonica" style="width: 100%; max-width: 850px; margin-bottom: 20px;">
+        
+        </div>
+        </div>
+        </div>
+
+        <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-title" type="button">
+            ¿Existe algun tipo de recargo al contactar a CitiService*?
+            <span class="icon"><i class="fas fa-plus"></i></span>
+          </button>
+
+            <div class="accordion-content">
+        
+            <div style="margin-bottom:16px; line-height:1.4; font-size: 14px; text-align: left;">
+                Dependiendo del tipo de solicitud y la complejidad del trámite que se requiera este puede generar un costo. (Copias de planillas, estados de cuentas de años anteriores, etc.). Para tener claridad sobre los costos relacionados con su solicitud, por favor comuníquese con la línea de atención telefónica de CitiService.
+            </div>
+        </div>
+        </div>
+        </div>
+
+        <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-title" type="button">
+            ¿Qué información debo proporcionar al área de servicio al hacer una consulta?
+            <span class="icon"><i class="fas fa-plus"></i></span>
+          </button>
+
+            <div class="accordion-content">
+        
+            <div style="margin-bottom:16px; line-height:1.4; font-size: 14px; text-align: left;">
+                Antes de efectuar su consulta, es conveniente que tenga disponible el mayor detalle sobre la misma, por ejemplo, número de cuenta, monto, fecha, etc. Así nuestros representantes podrán responderle de manera más eficiente.
+            </div>
+        </div>
+        </div>
+        </div>
+
+        <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-title" type="button">
+            ¿Qué puedo solicitar a través de CitiService*?
+            <span class="icon"><i class="fas fa-plus"></i></span>
+          </button>
+
+            <div class="accordion-content">
+        
+            <div style="margin-bottom:16px; line-height:1.4; font-size: 14px; text-align: left;">
+                Las personas autorizadas por el administrador de usuarios de CitiService, delegado en su empresa, podrá solicitar a través del buzón de CitiService o su canal telefónico la siguiente información sin tener que enviar carta.
+            </div>
+
+            <ul style="margin-left:20px;margin-bottom:20px;line-height: 1.3;font-size: 14px;">
+                <li>Certificaciones de:</li>
+                <ul>
+                    <li>Firmantes</li>
+                    <li>Banca Electrónica</li>
+                    <li>CitiService</li>
+                    <li>CitiFx Pulse</li>
+                </ul>
+                <li>Certificaciones para sus auditores.</li>
+                <li>Petición Chequeras</li>
+                <li>Stop Payments: Se puede hacer por Banca electrónica para ACH - B2B – cheques con fecha futuro y cheques / ACH</li>
+            </ul>
+        </div>
+        </div>
+        </div>
+
+        <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-title" type="button">
+            ¿Qué debo hacer si estoy registrado en CitiService y mi correo no lo está o cambie mi dominio? 
+            <span class="icon"><i class="fas fa-plus"></i></span>
+          </button>
+
+            <div class="accordion-content">
+        
+            <div style="margin-bottom:16px; line-height:1.4; font-size: 14px; text-align: left;">
+                Si ya está autorizado por el administrador de usuarios de CitiService delegado en su empresa, pero su correo no está autorizado o cambió de dominio, solicite a su administrador de usuario de CitiService que envíe la solicitud de inclusión o cambio según el caso al correo electrónico Colombia.citiservice@citi.com.
+            </div>
+        </div>
+        </div>
+        </div>
+
+        <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-title" type="button">
+            ¿Qué solicitudes puedo realizar de internacional Cash a través de CitiService? 
+            <span class="icon"><i class="fas fa-plus"></i></span>
+          </button>
+
+            <div class="accordion-content">
+            <ul style="margin-left:20px;margin-bottom:20px;line-height: 1.3;font-size: 14px;">
+                <li>Copias de Swift</li>
+                <li>Estatus de su enmienda</li>
+                <li>Retorno de fondos</li>
+                <li>Detención de pagos</li>
+                <li>Estatus de pagos</li>
+            </ul>
+        </div>
+        </div>
+        </div>
+
+    <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:20px;font-weight:600;font-size: 24px;">CitiFX Pulse®</h2>
+
+
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-title" type="button">
+            ¿Qué es CitiFX Pulse? 
+            <span class="icon"><i class="fas fa-plus"></i></span>
+          </button>
+
+        <div class="accordion-content">
+
+        <div style="margin-bottom:16px; line-height:1.4; font-size: 14px; text-align: left;">
+            CitiFX Pulse es una plataforma global que brinda una amplia cobertura de divisas utilizando la red Citi a nivel mundial; La plataforma permite al cliente acceder permanentemente a los precios en los mercados de compra/ventas de divisas con rapidez y seguridad. La negociación es realizada a través de Internet, sin necesidad de instalar ninguna plataforma.
+        </div>
+
+        </div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-title" type="button">
+            ¿Cuál es la línea de atención de CitiFX Pulse?  
+            <span class="icon"><i class="fas fa-plus"></i></span>
+          </button>
+
+        <div class="accordion-content">
+
+        <div style="margin-bottom:16px; line-height:1.4; font-size: 14px; text-align: left;">
+            Si requiere soporte sobre el uso de CitiFX Pulse puede comunicarse de lunes a viernes de 8:30am a 6:00pm (días hábiles) a la línea de atención 571 – 6384024
+        </div>
+
+        </div>
+        </div>
+      </div>
+
+    <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:20px;font-weight:600;font-size: 34px;">Online Payment Channel (OLPC) y Mis Pagos al día (MPAD):</h2>
+    
+    <div style="margin-bottom:16px; line-height:1.4; font-size: 14px; text-align: left;">
+        Si requiere soporte o realizar consultas como beneficiario de pagos, puede comunicarse de lunes a viernes de 8:00 a.m. a 6:00 p.m. (días hábiles) a la línea de atención en Bogotá (57) 601 6383621, opción 1, si es proveedor y requiere soporte de la plataforma Online Payment Channel (OLPC); y opción 2, si no es cliente Citi y requiere soporte de la plataforma Mis Pagos al Día (MPAD), módulo Quick Pay.
+    </div>
+
+    <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:20px;font-weight:600;font-size: 34px;">Oficina Corporativa</h2>
+    <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:20px;font-weight:600;font-size: 24px;">Bogotá</h2>
+    <div style="margin-bottom:1px; line-height:1.4; font-size: 14px; text-align: left;">
+        Citibank Colombia Centro de Servicios Calle 100,
+    </div>
+    <div style="margin-bottom:1px; line-height:1.4; font-size: 14px; text-align: left;">
+        Carrera 9A No. 99-02 Piso 1 Local 104
+    </div>
+    <div style="margin-bottom:1px; line-height:1.4; font-size: 14px; text-align: left;">
+        Horario: 9:00 a.m. a 4:00 p.m.
+    </div>
+
+    <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:20px;font-weight:600;font-size: 24px;">Tarjetas Corporativas</h2>
+
+
+    <div class="accordion">
+    <div class="accordion-item">
+        <button class="accordion-title" type="button">
+        ¿Canales de Servicio para Tarjetas Corporativas?
+        <span class="icon"><i class="fas fa-plus"></i></span>
+        </button>
+
+        <div class="accordion-content">
+        <div style="margin-bottom:20px; line-height:1.4; font-size: 14px; text-align: left;">
+            Tenemos disponibles los siguientes canales para atender las consultas y requerimientos de los Administradores de Programa y Tarjetahabientes:
+        </div>
+
+        <ol style="margin-top: 20px; margin-left:20px; margin-bottom:20px; line-height: 1.3; font-size: 14px;">
+            <li><strong>Canales para Tarjetahabientes y sus funcionalidades</strong></li>
+            <li>
+            Línea de Atención 57 601 6383838, opción 1-4-2 y línea nacional 01 8000 523838.
+            <div style="margin-top: 15px; margin-bottom:10px; font-weight: bold;">
+                Principales Servicios brindados en el canal telefónico a los Tarjetahabientes:
+            </div>
+            <ol style="margin-left:20px; line-height: 1.4;">
+                <li>Activación de tarjetas.</li>
+                <li>Bloqueo de tarjetas por pérdida o robo y reemplazo de las mismas.</li>
+                <li>Asesoría para el proceso de solicitud de cargos no reconocidos.</li>
+                <li>Consultar el disponible de la tarjeta.</li>
+                <li>Reportar problemas con la tarjeta o transacción.</li>
+                <li>Presentar reclamos.</li>
+                <li>Realizar otras consultas generales o informativas.</li>
+                <li>Atención las 24 horas al día, los 7 días de la semana.</li>
+            </ol>
+            </li>
+
+            <li style="margin-top:20px;"><strong>Canales para Administradores de Programa y sus funcionalidades</strong></li>
+            <li>
+            <strong>Portal web "MyCardsInfonet"</strong>
+            <ol style="margin-left:20px; line-height: 1.4;">
+                <li>Consulta disponible de la tarjeta.</li>
+                <li>Consulta fecha y monto de pago mínimo.</li>
+                <li>Solicitud de copias extractos o movimientos.</li>
+                <li>Detalles sobre transacciones.</li>
+            </ol>
+            </li>
+            <li>
+            <strong>Línea de Atención 57 601 6383838 opción 1-4-1</strong> (Opc.1 con clave / Opc. 2 sin clave) y línea nacional 01 8000 523838.
+            <div style="margin-top: 10px; font-weight: bold;">Principales Servicios:</div>
+            <ol style="margin-left:20px; line-height: 1.4;">
+                <li>Activación de tarjetas.</li>
+                <li>Bloqueo de tarjetas por pérdida o robo y reemplazo de las mismas.</li>
+                <li>Asesoría para el proceso de solicitud de cargos no reconocidos.</li>
+                <li>Asesoría para el proceso de solicitud de nuevas tarjetas o cancelaciones.</li>
+                <li>Consultar el disponible de la línea de crédito; tanto del programa como de cada tarjeta.</li>
+                <li>Reportar problemas con alguna tarjeta o transacción.</li>
+                <li>Solicitar soporte para la navegación en el Portal web MyCardsInfonet.</li>
+                <li>Solicitar el aumento temporal de líneas de crédito.</li>
+                <li>Consultar el procedimiento para el aumento definitivo de líneas de crédito.</li>
+                <li>Presentar reclamos.</li>
+                <li>Realizar otras consultas generales o informativas.</li>
+                <li>Atención de lunes a viernes de 8:00 a.m. a 6:00 p.m. (días hábiles).</li>
+            </ol>
+            </li>
+            <li>
+            <strong>Correo Electrónico: cards.co.service@citi.com</strong>
+            <div style="margin-top: 10px; font-weight: bold;">Servicios disponibles vía correo electrónico:</div>
+            <ol style="margin-left:20px; line-height: 1.4;">
+                <li>Bloqueo de tarjetas por pérdida o robo y reemplazo de las mismas.</li>
+                <li>Asesoría para el proceso de solicitud de cargos no reconocidos.</li>
+                <li>Asesoría para el proceso de solicitud de nuevas tarjetas o cancelaciones.</li>
+                <li>Consultar el disponible de la línea de crédito del programa y/o a nivel de tarjeta.</li>
+                <li>Reportar problemas con alguna tarjeta o transacción.</li>
+                <li>Solicitar soporte para la navegación en el Portal web MyCardsInfonet.</li>
+                <li>Solicitar el aumento temporal de líneas de crédito.</li>
+                <li>Asesoría en el procedimiento para el aumento definitivo de líneas de crédito.</li>
+                <li>Asesoría en el proceso de inclusión o exclusión de Administradores de Programa.</li>
+                <li>Presentar reclamos.</li>
+                <li>Realizar otras consultas generales o informativas.</li>
+            </ol>
+            </li>
+        </ol>
+        </div>
+    </div>
+    </div>
+
+    <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:20px;font-weight:600;font-size: 24px;">Comercio Exterior - Garantías, Cartas de Crédito y Cobranzas</h2>
+
+    <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-title" type="button">
+            Línea de servicio de Trade Service Profesional (TSP) para atención a Garantías, Cartas de Crédito y Cobranzas  
+            <span class="icon"><i class="fas fa-plus"></i></span>
+          </button>
+
+        <div class="accordion-content">
+
+        <div style="margin-bottom:16px; line-height:1.4; font-size: 14px; text-align: left;">
+            Si usted es nuestro Cliente y requiere soporte sobre temas relacionados con Garantías, Cartas de Crédito y Cobranzas, puede comunicarse de lunes a viernes de 8:00 am a 6:00 pm (días hábiles) a la línea de atención en Bogotá: (57) 601 – 6383838 opción 3-1- 3 y a nivel Nacional 01 8000 523838 opción 3-1-3 o a través del Correo electrónico Latamtsp@citi.com
+        </div>
+
+        <div style="margin-bottom:16px; line-height:1.4; font-size: 14px; text-align: left;">
+            Si es Beneficiario de Garantías, Cartas de Crédito y Cobranzas, puede comunicarse de lunes a viernes de 8:00 am a 6:00 pm (días hábiles) a la línea de atención en Bogotá: (57) 601 – 6383838 opción 3-3, y a nivel Nacional 01 8000 523838 opción 3-3 o a través del Correo electrónico: Latamtsp@citi.com
+        </div>
+
+        </div>
+        </div>
+      </div>
+
+      <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:20px;font-weight:600;font-size: 24px;">Citi Supplier Finance</h2>
+
+    <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-title" type="button">
+            Línea de atención de Trade Service Profesional (TSP) para atención al programa de Adelanto de Pagos a Proveedores Citi Supplier Finance 
+            <span class="icon"><i class="fas fa-plus"></i></span>
+          </button>
+
+        <div class="accordion-content">
+
+        <div style="margin-bottom:16px; line-height:1.4; font-size: 14px; text-align: left;">
+            Si usted es nuestro Cliente y requiere soporte sobre temas relacionados con el estado, detalle, o confirmación de las instrucciones de pago emitidas por ustedes a través de nuestro programa de Adelanto de Pagos a Proveedores - Citi Supplier Finance, puede comunicarse de lunes a viernes de 8:00 am a 6:00 pm (días hábiles) a la línea de atención en Bogotá: (57) 601 – 6383838 opción 3-1- 2 y a nivel Nacional 01 8000 523838 opción 3-1-2 o a través del Correo electrónico: Supplychainlatam@citi.com
+        </div>
+
+        <div style="margin-bottom:16px; line-height:1.4; font-size: 14px; text-align: left;">
+            Si usted es proveedor y requiere soporte sobre temas relacionados al estado, detalle, o confirmación de su anticipo efectuado por su Cliente a través de nuestro programa de Adelanto de Pagos a Proveedores - Citi Supplier Finance, puede comunicarse de lunes a viernes de 8:00 am a 6:00 pm (días hábiles) a la línea de atención en Bogotá: (57) 601 – 6383838 opción 3-2 y a nivel Nacional 01 8000 523838 opción 3-2 o a través del Correo electrónico: Supplychainlatam@citi.com
+        </div>
+
+        <h2 style="color:#000000;margin-top:30px;font-size:20px;margin-bottom:14px;font-weight:600;font-size: 18px;">Línea de atención de Trade Service Profesional (TSP) para soporte en la plataforma de Online Payment Channel</h2>
+
+        <div style="margin-bottom:16px; line-height:1.4; font-size: 14px; text-align: left;">
+            Si requiere soporte sobre temas relacionados a la navegación, creación de usuario, restablecimiento de usuario o cualquier consulta relacionada con la plataforma: ONLINE PAYMENT CHANNEL, módulo de Citi Supplier Finance, puede comunicarse de lunes a viernes de 8:00 am a 6:00 pm (días hábiles) a la línea de atención en Bogotá: (57) 601 – 6383838 opción 3-2 y a nivel Nacional 01 8000 523838 opción 3-2 o a través del Correo electrónico: Supplychainlatam@citi.com
+        </div>
+
+        </div>
+        </div>
+      </div>
+
+    <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:20px;font-weight:600;font-size: 24px;">Préstamos Corporativos</h2>
+
+    <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-title" type="button">
+            Línea de servicio de Trade Service Profesional (TSP) para atención a préstamos locales y en otras monedas 
+            <span class="icon"><i class="fas fa-plus"></i></span>
+          </button>
+
+        <div class="accordion-content">
+
+        <div style="margin-bottom:16px; line-height:1.4; font-size: 14px; text-align: left;">
+            Si usted es nuestro Cliente y requiere soporte sobre temas relacionados al estado, detalle o documentación de sus obligaciones financieras adquiridas con nosotros, puede comunicarse de lunes a viernes de 8:00 am a 6:00 pm (días hábiles) a la línea de atención en Bogotá: (57) 601 – 6383838 opción 3 -1 -1 y a nivel Nacional 01 8000 523838 opción 3-1-1 o a través del Correo electrónico: Latamtradefinance@citi.com
+        </div>
+
+        <div style="margin-bottom:16px; line-height:1.4; font-size: 14px; text-align: left;">
+            Agradecemos tener presente que esta opción es destinada únicamente para atención de nuestros Clientes Corporativos.
+        </div>
+
+        </div>
+        </div>
+      </div>
+    
+    <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:20px;font-weight:600;font-size: 24px;">Markets</h2>
+
+    <div style="margin-bottom: 80px;" class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-title" type="button">
+            Línea de atención y documentos soporte de liquidación de operaciones de compra/venta de divisas
+            <span class="icon"><i class="fas fa-plus"></i></span>
+          </button>
+
+        <div class="accordion-content">
+
+        <div style="margin-bottom:16px; line-height:1.4; font-size: 14px; text-align: left;">
+            Para requerimientos asociados a cumplimiento de operaciones FX, mensajes Swift, copias de declaraciones de cambio, confirmación disponibilidad de divisas para negociación de FX, copias de contratos Marco y certificados para operaciones de derivados, puede comunicarse a la línea en Bogotá (57) 601 6383838 opción 5, de lunes a viernes (días hábiles) de 8:00 a.m. a 6:00 p.m. o a través del correo electrónico csmarketsco@citi.com .
+        </div>
+
+        </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div style="margin-top: 50px;margin-bottom:16px; line-height:1.4; font-size: 14px; text-align: left;">
+        El fácil acceso a nuestros representantes es una de las mayores ventajas del concepto CitiService, Una sola llamada, un solo contacto, un único número de referencia.
+    </div>
+
+      <h2 style="font-size: 18px; color: #255be3; font-weight:700; margin-top:30px; margin-bottom:14px;">Puntos de contacto</h2>
+      <p style="font-size: 15px; color:#0f172a; margin-bottom:10px;">
+        Para descargar y conocer el procedimiento de atención de Peticiones, Quejas o Reclamos (PQRs) haga clic <a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/PQR_Citivalores_Columbia.pdf">aquí</a>.
+      </p>
+
+      <div style="display:flex; align-items:center; gap:30px; margin: 18px 0 8px 0;">
+        <div style="display:flex; align-items:center; gap:10px;">
+            <img src="https://www.citibank.com/icg/sa/latam/colombia/citiservice/assets/img/icons/icon-call.png" alt="Teléfonos" style="width:48px; height:48px;">
+            <div>
+            <span style="font-weight:600; color:#255be3;">Teléfonos</span><br>
+            Bogotá: (57) 601 492 03 42
+            </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+            <img src="https://www.citibank.com/icg/sa/latam/colombia/citiservice/assets/img/icons/icon-contact.png" alt="Correo Electrónico" style="width:48px; height:48px;">
+            <div>
+            <span style="font-weight:600; color:#255be3;">Correo Electrónico</span><br>
+            <a href="mailto:colombia.citivalores@citi.com" style="color:#255be3;">colombia.citivalores@citi.com</a>
+            </div>
+        </div>
+      </div>
+        <p style="margin-bottom:20px;">Horario de atención: lunes a viernes (días hábiles) de 9:00 am hasta 5:00pm</p>
+
+
+      <h2 style="font-size: 18px; color: #255be3; font-weight:700; margin-top:28px; margin-bottom:14px;">Notificaciones legales</h2>
+      <div style="font-size:15px;margin-bottom:30px;">
+        Correo Electrónico: <a href="mailto:legalnotificacionescitivalores@citi.com">legalnotificacionescitivalores@citi.com</a>
+      </div>
+
+      
+    </div>
+  </main>
+
+  <section class="seccion-servicios">
+    <div class="contenedor-servicios">
+      <div class="columna-vigilado">
+        <div class="contenedor-vigilado">
+          <img src="imgs/vigilado.png" alt="Vigilado" class="imagen-vigilado">
+        </div>
+      </div>
+      <div class="columna-servicios">
+        <div class="grid-servicios">
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Tasas_tarifas.html';"
+          >
+            Tasas y Tarifas Vigentes
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Citidirect.html';"
+          >
+            CitiDirect
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='online_payments.html';"
+          >
+            Online Payments Channel
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Pago_dia2.html';"
+          >
+            Mis pagos al dia
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='pagos_PSE.html';"
+          >
+            PSE
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='';"
+          >
+            FXPulse
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='tarjetas_corporativas.html';"
+          >
+            Portal de tarjetas corporativas
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='informacion-consumidor-financiero.html';"
+          >
+            Sistema de Atencion al consumidor financiero SAC/Defensoria del Consumidor Financiero
+          </button>
+          </button>
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDA.pdf" class="boton-servicio" target="_blank" rel="noopener noreferrer">
+ 		 Programa de Transparencia PTEE Colrepfin LTDA
+	        </a>
+
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDAV2023_V_INGLES_VF2.pdf" class="boton-servicio boton-completo" target="_blank" rel="noopener noreferrer">
+     		TRANSPARENCY AND BUSINESS ETHICS PROGRAM (PTEE) COLREPFIN LTDA
+	        </a>
+        </div>
+      </div>
+    </div>
+    <div class="texto-disclaimer">
+      <p>Productos y servicios financieros ofrecidos por Citibank - Colombia S.A. Citi y el diseño del arco es una marca registrada de servicios de Citigroup Inc. Carrera 9A # 99 - 02 Bogotá, Colombia</p>
+    </div>
+  </section>
+
+  <footer class="footer-principal">
+    <div class="contenedor-footer">
+      <div class="footer-izquierda">
+        <img src="imgs/citilogo.png" alt="Citi" class="logo-footer" />
+        <div class="enlaces-footer">
+          <a href="#" class="enlace-footer">Citigroup.com</a>
+          <a href="#" class="enlace-footer">Términos y Condiciones</a>
+          <a href="#" class="enlace-footer">Privacidad</a>
+        </div>
+      </div>
+      <div class="footer-derecha">
+        <div class="redes-sociales">
+          <a href="#" class="icono-social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-google-plus-g"></i></a>
+        </div>
+        <span class="copyright">&copy; 2003–2025 Citigroup Inc.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function cerrarModal() {
+      const modal = document.getElementById('modalAviso');
+      modal.style.display = 'none';
+    }
+
+
+    document.querySelectorAll('.accordion-title').forEach((btn, idx) => {
+      btn.addEventListener('click', function(){
+        document.querySelectorAll('.accordion-item').forEach((item, i) => {
+          if (i === idx) {
+            item.classList.toggle('active');
+            let icon = item.querySelector('.icon i');
+            icon.classList.toggle('fa-plus');
+            icon.classList.toggle('fa-minus');
+          } else {
+            item.classList.remove('active');
+            let icon = item.querySelector('.icon i');
+            icon.classList.remove('fa-minus');
+            icon.classList.add('fa-plus');
+          }
+        });
+      });
+    });
+
+</script>
+
+</body>
+</html>
+

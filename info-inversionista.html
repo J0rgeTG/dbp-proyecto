@@ -30,7 +30,8 @@
       margin: 0 auto 32px auto;
       max-width: 900px;
       padding-left: 72px;
-      gap: 16px;
+      gap: 90px;
+      justify-content: center;
     }
     .tab-empresa {
       background: none;
@@ -63,7 +64,7 @@
     .contenido-empresa {
       max-width: 900px;
       margin: 0 auto;
-      padding-left: 72px;
+      padding-left: 0px;
       padding-bottom: 40px;
     }
     .contenido-empresa h2 {
@@ -102,9 +103,7 @@
     .contenido-empresa a:hover {
       color: #0f172a;
     }
-    .dropdown {
-      position: relative;
-    }
+    .dropdown { position: relative; }
     .dropdown-content {
       display: none;
       position: absolute;
@@ -113,9 +112,7 @@
       z-index: 100;
       width: 220px;
     }
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
+    .dropdown:hover .dropdown-content { display: block; }
     .dropdown-content a {
       display: block;
       padding: 12px 16px;
@@ -143,7 +140,7 @@
     <h1>Información Financiera y de la Sociedad</h1>
 
     <div class="navegacion-empresas-titulo">Colombia</div>
-    <div class="navegacion-empresas-tabs" style="gap:90px;justify-content:center;">
+    <div class="navegacion-empresas-tabs">
       <button onclick="window.location.href='index.html'" class="tab-empresa">Página Principal</button>
       <div class="dropdown">
         <button class="tab-empresa tab-activa">Citibank Colombia S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
@@ -156,16 +153,16 @@
       <div class="dropdown">
         <button class="tab-empresa">Citivalores S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
         <div class="dropdown-content">
-          <a href="#">Página principal</a>
-          <a href="#">Corresponsal en Inversiones Globales</a>
-          <a href="#">Corresponsal en Banca de Inversión</a>
-          <a href="#">ETF MSCI COLCAP</a>
+          <a href="citivalores.html">Página principal</a>
+          <a href="corresponsal-inversiones.html">Corresponsal en Inversiones Globales</a>
+          <a href="corresponsal-banca.html">Corresponsal en Banca de Inversión</a>
+          <a href="etf.html">ETF MSCI COLCAP</a>
         </div>
       </div>
       <div class="dropdown">
         <button class="tab-empresa">Cititrust S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
         <div class="dropdown-content">
-          <a href="#">Página Principal</a>
+          <a href="Cititrust.html">Página Principal</a>
           <a href="#">Servicios de Custodia</a>
           <a href="#">Fiducia Estructurada</a>
           <a href="#">Links frecuentes</a>
@@ -175,116 +172,167 @@
 
     <div class="contenido-empresa">
       <h2>Estados Financieros:</h2>
-      <p>Según lo establecido en el Articulo 11.2.4.1.1 del Decreto 2555 de 2010, los estados financieros no requirieron autorización previa de la Superintendencia Financiera de Colombia para la aprobación por parte de la Asamblea de Accionistas</p>
+      <p>Según lo establecido en el Artículo 11.2.4.1.1 del Decreto 2555 de 2010, los estados financieros no requirieron autorización previa de la Superintendencia Financiera de Colombia para la aprobación por parte de la Asamblea de Accionistas.</p>
       
       <h3>Informes Anuales</h3>
       <p style="margin-bottom:8px"><strong>Citibank® Colombia S.A.</strong></p>
       <ul>
-        <li>2024</li>
-        <li>2023</li>
-        <li>2022</li>
-        <li>2021</li>
-        <li>2020</li>
-        <li>2019</li>
-        <li>2018</li>
-        <li>2017</li>
-        <li>2016</li>
-        <li>2015</li>
-        <li>2014</li>
-        <li>2013</li>
-        <li>2012</li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/EFF_Citibank-Colombia-S-A-2024.pdf" target="_blank">2024</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-S-A-2023.pdf" target="_blank">2023</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-S-A-2022.pdf" target="_blank">2022</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-S-A-2021.pdf" target="_blank">2021</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-S-A-2020.pdf" target="_blank">2020</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-S-A-2019.pdf" target="_blank">2019</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-S-A-2018.pdf" target="_blank">2018</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-S-A-2017.pdf" target="_blank">2017</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-S-A-2016.pdf" target="_blank">2016</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-S-A-2015.pdf" target="_blank">2015</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-S-A-2014.pdf" target="_blank">2014</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-S-A-2013.pdf" target="_blank">2013</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-S-A-2012.pdf" target="_blank">2012</a></li>
       </ul>
       <p style="margin-bottom:8px"><strong>Citibank Colombia S.A. y Subordinadas Grupo Empresarial</strong></p>
       <ul>
-        <li>2024</li>
-        <li>2023</li>
-        <li>2022</li>
-        <li>2021</li>
-        <li>2020</li>
-        <li>2019</li>
-        <li>2018</li>
-        <li>2017</li>
-        <li>2016</li>
-        <li>2015</li>
-        <li>2014</li>
-        <li>2013</li>
-        <li>2012</li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/EFF_Citibank-Colombia-SA-y-Subordinadas-2024.pdf" target="_blank">2024</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-SA-y-Subordinadas-2023.pdf" target="_blank">2023</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-SA-y-Subordinadas-2022.pdf" target="_blank">2022</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-SA-y-Subordinadas-2021.pdf" target="_blank">2021</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-SA-y-Subordinadas-2020.pdf" target="_blank">2020</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-SA-y-Subordinadas-2019.pdf" target="_blank">2019</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-SA-y-Subordinadas-2018.pdf" target="_blank">2018</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-S-A-y-Subordinadas-Grupo-Empresarial-2017.pdf" target="_blank">2017</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-S-A-y-Subordinadas-Grupo-Empresarial-2016.pdf" target="_blank">2016</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-S-A-y-Subordinadas-Grupo-Empresarial-2015.pdf" target="_blank">2015</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-S-A-y-Subordinadas-Grupo-Empresarial-2014.pdf" target="_blank">2014</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-S-A-y-Subordinadas-Grupo-Empresarial-2013.pdf" target="_blank">2013</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-S-A-y-Subordinadas-Grupo-Empresarial-2012.pdf" target="_blank">2012</a></li>
       </ul>
 
       <h3>Informes Trimestrales</h3>
       <ul>
-        <li>Citibank 1Q 2025</li>
-        <li>Citibank Colombia S.A. y Subordinadas 1Q 2025</li>
-        <li>Citibank 3Q 2024</li>
-        <li>Citibank Colombia S.A. y Subordinadas 3Q 2024</li>
-        <li>Citibank 2Q 2024</li>
-        <li>Citibank Colombia S.A. y Subordinadas 2Q 2024</li>
-        <li>Citibank 1Q 2024</li>
-        <li>Citibank Colombia S.A. y Subordinadas 1Q 2024</li>
-        <li>Citibank 3Q 2023</li>
-        <li>Citibank Colombia S.A. y Subordinadas 3Q 2023</li>
-        <li>Citibank 2Q 2023</li>
-        <li>Citibank Colombia S.A. y Subordinadas 2Q 2023</li>
-        <li>Citibank Colombia S.A. y Subordinadas 1Q 2023</li>
-        <li>Citibank 1Q 2023</li>
-        <li>Citibank 3Q 2022</li>
-        <li>Citibank Colombia S.A. y Subordinadas 3Q 2022</li>
-        <li>Citibank Colombia S.A. y Subordinadas 2Q 2022</li>
-        <li>Citibank 2Q 2022</li>
-        <li>Citibank Colombia S.A. y Subordinadas 1Q 2022</li>
-        <li>Citibank 1Q 2022</li>
-        <li>Citibank 3Q 2021</li>
-        <li>Citibank Colombia S.A. y Subordinadas 3Q 2021</li>
-        <li>Citibank Colombia S.A. y Subordinadas 2Q 2021</li>
-        <li>Citibank 2Q 2021</li>
-        <li>Citibank Colombia S.A. y Subordinadas 1Q 2021</li>
-        <li>Citibank 1Q 2021</li>
-        <li>Citibank 3Q 2020</li>
-        <li>Citibank Colombia S.A. y Subordinadas 3Q 2020</li>
-        <li>Citibank 2Q 2020</li>
-        <li>Citibank Colombia S.A. y Subordinadas 2Q 2020</li>
-        <li>Citibank 1Q 2020</li>
-        <li>Citibank Colombia S.A. y Subordinadas 1Q 2020</li>
-        <li>Citibank 3Q 2019</li>
-        <li>Citibank Colombia S.A. y Subordinadas 3Q 2019</li>
-        <li>Citibank 2Q 2019</li>
-        <li>Citibank Colombia S.A. y Subordinadas 2Q 2019</li>
-        <li>Citibank Colombia S.A. 1Q 2019</li>
-        <li>Citibank Colombia S.A. y Subordinales 1Q 2019</li>
-        <li>Citibank Colombia S.A. 3Q</li>
-        <li>Citibank Colombia S.A. y Subordinadas 3Q 2018</li>
-        <li>Citibank Colombia S.A. 2Q 2018</li>
-        <li>Citibank Colombia S.A. y Subordinadas Grupo Empresarial 2Q 2018</li>
-        <li>Citibank Colombia S.A. 1Q 2018</li>
-        <li>Citibank Colombia S.A. y Subordinadas Grupo Empresarial 1Q 2018</li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/EEFF-y-Notas-Citibank-Separado-Marzo-2025.pdf" target="_blank">Citibank 1Q 2025</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/EEFF-y-Notas-Citibank-Consolidado-Marzo-2025.pdf" target="_blank">Citibank Colombia S.A. y Subordinadas 1Q 2025</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/3Q_Citibank-Colombia-S-A-2024.pdf" target="_blank">Citibank 3Q 2024</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/3Q_Citibank-Colombia-SA-y-Subordinadas-2024.pdf" target="_blank">Citibank Colombia S.A. y Subordinadas 3Q 2024</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/2Q_Citibank-Colombia-S-A-2024.pdf" target="_blank">Citibank 2Q 2024</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/2Q_Citibank-Colombia-SA-y-Subordinadas-2024.pdf" target="_blank">Citibank Colombia S.A. y Subordinadas 2Q 2024</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-S-A-2024.pdf" target="_blank">Citibank 1Q 2024</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-SA-y-Subordinadas-2024.pdf" target="_blank">Citibank Colombia S.A. y Subordinadas 1Q 2024</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs//Notas_Citibank_Separado_Septiembre_2023.pdf" target="_blank">Citibank 3Q 2023</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Notas_Citibank_Consolidado_Septiembre_2023.pdf" target="_blank">Citibank Colombia S.A. y Subordinadas 3Q 2023</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Notas_EEFF_Separados_Citibank_Colombia_SA.pdf" target="_blank">Citibank 2Q 2023</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Notas_EEFF_Consolidado_Citibank_Colombia_SA.pdf" target="_blank">Citibank Colombia S.A. y Subordinadas 2Q 2023</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank_Colombia_S.A._1Q_2023.pdf" target="_blank">Citibank Colombia S.A. y Subordinadas 1Q 2023</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank_1Q_2023.pdf" target="_blank">Citibank 1Q 2023</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank_3Q_2022.pdf" target="_blank">Citibank 3Q 2022</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank_Colombia_S.A._3Q_2022.pdf" target="_blank">Citibank Colombia S.A. y Subordinadas 3Q 2022</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank_Colombia_S.A._2Q_2022.pdf" target="_blank">Citibank Colombia S.A. y Subordinadas 2Q 2022</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank_2Q_2022.pdf" target="_blank">Citibank 2Q 2022</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank_3Q_2021.pdf" target="_blank">Citibank 3Q 2021</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank_Colombia_S.A._3Q_2021.pdf" target="_blank">Citibank Colombia S.A. y Subordinadas 3Q 2021</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank_Colombia_S.A._2Q_2021.pdf" target="_blank">Citibank Colombia S.A. y Subordinadas 2Q 2021</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank_2Q_2021.pdf" target="_blank">Citibank 2Q 2021</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank_Colombia_S.A._1Q_2021.pdf" target="_blank">Citibank Colombia S.A. y Subordinadas 1Q 2021</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank_1Q_2021.pdf" target="_blank">Citibank 1Q 2021</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank_3Q_2020.pdf" target="_blank">Citibank 3Q 2020</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank_Colombia_S.A._3Q_2020.pdf" target="_blank">Citibank Colombia S.A. y Subordinadas 3Q 2020</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank_2Q_2020.pdf" target="_blank">Citibank 2Q 2020</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank_Colombia_SA_y_Subordinadas_2Q_2020.pdf" target="_blank">Citibank Colombia S.A. y Subordinadas 2Q 2020</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank_1Q_2020.pdf" target="_blank">Citibank 1Q 2020</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank_Colombia_S.A._1Q_2020.pdf" target="_blank">Citibank Colombia S.A. y Subordinadas 1Q 2020</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank_3Q_2019.pdf" target="_blank">Citibank 3Q 2019</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank_Colombia_S.A._3Q_2019.pdf" target="_blank">Citibank Colombia S.A. y Subordinadas 3Q 2019</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank_2Q_2019.pdf" target="_blank">Citibank 2Q 2019</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank_Colombia_S.A._2Q_2019.pdf" target="_blank">Citibank Colombia S.A. y Subordinadas 2Q 2019</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank_Colombia_S.A._1Q_2019.pdf" target="_blank">Citibank Colombia S.A. 1Q 2019</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/EEFF_Consolidado_1Q_2019.pdf" target="_blank">Citibank Colombia S.A. y Subordinales 1Q 2019</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank_Colombia_S.A._3Q_2018.pdf" target="_blank">Citibank Colombia S.A. 3Q</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/EEFF_Consolidado_Septiembre_2018.pdf" target="_blank">Citibank Colombia S.A. y Subordinadas 3Q 2018</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-S.A.-2Q-2018.pdf" target="_blank">Citibank Colombia S.A. 2Q 2018</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/Citibank-Colombia-S.A.-y-Subordinadas-Grupo-Empresarial-2Q-2018.pdf" target="_blank">Citibank Colombia S.A. y Subordinadas Grupo Empresarial 2Q 2018</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/PDF-CITIBANK-17052018.pdf" target="_blank">Citibank Colombia S.A. 1Q 2018</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/assets/docs/CONSOLIDADO.pdf" target="_blank">Citibank Colombia S.A. y Subordinadas Grupo Empresarial 1Q 2018</a></li>
       </ul>
 
       <h3>Superintendencia Financiera de Colombia</h3>
       <ul>
-        <li><a href="#">Información Relevante Superintendencia Financiera de Colombia</a></li>
+        <li><a href="https://www.superfinanciera.gov.co/jsp/loader.jsf?lServicio=Publicaciones&lTipo=publicaciones&lFuncion=loadContenidoPublicacion&id=61446" target="_blank">Información Relevante Superintendencia Financiera de Colombia</a></li>
       </ul>
     </div>
   </main>
-
   <section class="seccion-servicios">
     <div class="contenedor-servicios">
       <div class="columna-vigilado">
         <div class="contenedor-vigilado">
-          <img src="imgs/vigilado.png" alt="Vigilado" class="imagen-vigilado" />
+          <img src="imgs/vigilado.png" alt="Vigilado" class="imagen-vigilado">
         </div>
       </div>
       <div class="columna-servicios">
         <div class="grid-servicios">
-          <button class="boton-servicio" onclick="abrirServicio('tasas')">Tasas y Tarifas Vigentes</button>
-          <button class="boton-servicio" onclick="abrirServicio('citidirect')">CitiDirect</button>
-          <button class="boton-servicio" onclick="abrirServicio('payments')">Online Payments Channel</button>
-          <button class="boton-servicio" onclick="abrirServicio('pagos')">Mis pagos al día</button>
-          <button class="boton-servicio" onclick="abrirServicio('pse')">PSE</button>
-          <button class="boton-servicio" onclick="abrirServicio('fxpulse')">FXPulse</button>
-          <button class="boton-servicio" onclick="abrirServicio('tarjetas')">Portal de Tarjetas Corporativas</button>
-          <button class="boton-servicio" onclick="abrirServicio('sac')">SAC/Defensoría del Consumidor Financiero</button>
-          <button class="boton-servicio" onclick="abrirServicio('transparencia')">Programa de Transparencia PTEE Colrepfin LTDA</button>
-          <button class="boton-servicio boton-completo" onclick="abrirServicio('transparency')">TRANSPARENCY AND BUSINESS ETHICS PROGRAM (PTEE) COLREPFIN LTDA</button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Tasas_tarifas.html';"
+          >
+            Tasas y Tarifas Vigentes
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Citidirect.html';"
+          >
+            CitiDirect
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='online_payments.html';"
+          >
+            Online Payments Channel
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Pago_dia2.html';"
+          >
+            Mis pagos al dia
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='pagos_PSE.html';"
+          >
+            PSE
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='';"
+          >
+            FXPulse
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='tarjetas_corporativas.html';"
+          >
+            Portal de tarjetas corporativas
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='informacion-consumidor-financiero.html';"
+          >
+            Sistema de Atencion al consumidor financiero SAC/Defensoria del Consumidor Financiero
+          </button>
+          </button>
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDA.pdf" class="boton-servicio" target="_blank" rel="noopener noreferrer">
+ 		 Programa de Transparencia PTEE Colrepfin LTDA
+	        </a>
+
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDAV2023_V_INGLES_VF2.pdf" class="boton-servicio boton-completo" target="_blank" rel="noopener noreferrer">
+     		TRANSPARENCY AND BUSINESS ETHICS PROGRAM (PTEE) COLREPFIN LTDA
+	        </a>
         </div>
       </div>
     </div>
@@ -316,6 +364,7 @@
       </div>
     </div>
   </footer>
+
   <script src="script.js"></script>
 </body>
 </html>

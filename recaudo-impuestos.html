@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sucursales Corporativas</title>
+  <title>Recaudo de Impuesto y Aduanas</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
   <style>
+    
     .contenido-principal {
       max-width: 1100px;
       margin: 0 auto;
       padding: 40px 20px;
-      background: none;
     }
     .contenido-principal h1 {
       font-size: 36px;
@@ -19,15 +19,12 @@
       color: #255be3;
       text-align: center;
       margin-bottom: 60px;
-      font-family: 'Inter', 'Citi Sans Display', Arial, sans-serif;
     }
     .navegacion-empresas-titulo {
       font-weight: bold;
       color: #255be3;
       margin-bottom: 12px;
       padding-left: 72px;
-      font-size: 17px;
-      font-family: 'Inter', 'Citi Sans Display', Arial, sans-serif;
     }
     .navegacion-empresas-tabs {
       display: flex;
@@ -45,7 +42,6 @@
       color: #0f172a;
       cursor: pointer;
       position: relative;
-      font-family: 'Inter', 'Citi Sans Display', Arial, sans-serif;
     }
     .tab-empresa:hover,
     .tab-empresa:focus {
@@ -63,6 +59,32 @@
     }
     .tab-activa {
       font-weight: bold;
+      color: #255be3;
+    }
+    .contenido-empresa {
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: 0px;
+    }
+    .contenido-empresa h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 36px 0 24px;
+      color: #0f172a;
+    }
+    .contenido-empresa ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+    .contenido-empresa ul li {
+      margin-bottom: 16px;
+    }
+    .contenido-empresa ul li a {
+      color: #0f172a;
+      text-decoration: underline;
+      transition: color 0.2s ease;
+    }
+    .contenido-empresa ul li a:hover {
       color: #255be3;
     }
     .dropdown {
@@ -84,117 +106,20 @@
       padding: 12px 16px;
       text-decoration: none;
       color: #0f172a;
-      border-bottom: 1px solid #e2e8f0;
-      font-family: 'Inter', 'Citi Sans Display', Arial, sans-serif;
     }
     .dropdown-content a:hover {
       color: #255be3;
       background-color: #f1f5f9;
-      border-bottom: 2px solid #255be3;
     }
     .dropdown-content a.active {
       color: #255be3;
       border-bottom: 2px solid #255be3;
     }
-    .contenido-empresa {
-      max-width: 900px;
-      margin: 56px 0 20px 72px; 
-      font-family: 'Inter', 'Citi Sans Display', Arial, sans-serif;
-      color: #202440;
-      font-size: 16px;
-      padding-left: 0;
-    }
-    .contenido-empresa > * {
-      margin-bottom: 25px;
-    }
-    .ciudad {
-      font-size: 25px;
-      color: #255be3;
-      font-weight: bold;
-      margin-bottom: 12px;
-      font-family: 'Inter', 'Citi Sans Display', Arial, sans-serif;
-    }
-    .datos-direccion {
-      margin-bottom: 38px; 
-    }
-    .servicios-habilitados, .medidas-preventivas {
-      font-weight: 600;
-      color: #202440;
-      margin-bottom: 8px;
-      margin-top: 12px;
-    }
-    .contenido-empresa ul {
-      margin: 0 0 28px 16px;
-      padding-left: 10px;
-      font-size: 16px;
-    }
-    .contenido-empresa li {
-      margin-bottom: 11px;
-      line-height: 1.7;
-    }
-    .mapa-citi {
-      margin: 32px 0 42px 0 !important;
-      display: flex;
-      align-items: flex-start;
-      gap: 0;
-    }
-    .mapa-citi iframe {
-      border: 1px solid #c9ced7;
-      border-radius: 0;
-      width: 390px;
-      height: 250px;
-      margin-left: 10px;
-    }
-    .mapa-citi-info {
-      padding: 8px 16px 0 0;
-      font-size: 17px;
-      color: #19316f;
-      font-weight: 500;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      min-width: 160px;
-    }
-    .subrayado {
-      font-weight: bold;
-      margin-bottom: 6px;
-      color: #19316f;
-      font-size: 17px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-    .medidas-preventivas {
-      font-weight: 600;
-      color: #202440;
-      margin-top: 22px;
-      margin-bottom: 12px;
-    }
-   
-    .contenido-empresa ul:last-of-type {
-      margin-bottom: 8px !important;
-    }
-    @media (max-width: 900px) {
-      .mapa-citi {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .mapa-citi-info, .mapa-citi iframe {
-        margin: 0 0 10px 0;
-        width: 100%;
-      }
-      .mapa-citi iframe {
-        width: 100%;
-        min-width: 240px;
-      }
-      .contenido-empresa {
-        margin-left: 16px;
-        margin-right: 8px;
-      }
-    }
   </style>
 </head>
 <body>
+  
+  
   <header class="header-principal">
     <div class="contenedor-header">
       <img src="imgs/citilogo.png" alt="Citi" class="logo-citi" />
@@ -202,9 +127,12 @@
   </header>
 
   <main class="contenido-principal">
-    <h1>Sucursales Corporativas</h1>
+    <h1>Recaudo de Impuesto y Aduanas</h1>
+    <div style="font-size: 15px; color: #163faf; margin-top: -10px; margin-bottom: 90px; text-align:left; max-width:900px; margin-left:auto; margin-right:auto;">
+      Fecha de actualización: enero 29 de 2024
+    </div>
     <div class="navegacion-empresas-titulo">Colombia</div>
-    <div class="navegacion-empresas-tabs" style="gap:90px;justify-content:center;">
+    <div class="navegacion-empresas-tabs" style="gap:90px;justify-content:center;margin-bottom: 40px;">
       <button onclick="window.location.href='index.html'" class="tab-empresa">Página Principal</button>
       <div class="dropdown">
         <button class="tab-empresa tab-activa">Citibank Colombia S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
@@ -233,43 +161,36 @@
         </div>
       </div>
     </div>
-    <div class="contenido-empresa">
-      <div class="ciudad">Bogotá</div>
-      <div class="datos-direccion">
-        Citibank Colombia Centro de Servicio Calle 100,<br>
-        Carrera 9A No. 99-02 Piso 1 Local 104<br>
-        Horario: 9:00 a.m. a 4:00 p.m.
-      </div>
-      <div class="servicios-habilitados">Servicios habilitados:</div>
-      <ul>
-        <li>Pago de impuestos, aduanas.</li>
-        <li>Apertura y mantenimiento de productos.</li>
-        <li>Pagarés y solicitudes de operaciones crediticias (Sobregiros, créditos, cartas de crédito documentarias, cartas de crédito standby y garantías bancarias).</li>
-        <li>Instrucciones manuales.</li>
-        <li>Confirmaciones de derivados.</li>
-        <li>Instrucciones manuales para operaciones de tipo de cambio (FX), CDT y TIDIS.</li>
-        <li>Formatos para CitiFX pulse.</li>
-        <li>Contratos marco y documentos relacionados.</li>
-      </ul>
-      <div class="mapa-citi">
-        <div class="mapa-citi-info">
-          <span class="subrayado"><i class="fas fa-map-marker-alt"></i> Bogotá</span>
-          <span>Servicio Calle 100</span>
-        </div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.6672309820567!2d-74.0429577852378!3d4.684064196591382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a0b3da340cb%3A0x850b4d7b2ef15eb3!2sCitibank%20Colombia%20S.A.!5e0!3m2!1ses-419!2sco!4v1689359738000!5m2!1ses-419!2sco" width="390" height="250" style="border:1px solid #c9ced7;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-      <div class="medidas-preventivas">Medidas preventivas para la prestación de servicios en oficina calle 100 para evitar la propagación del COVID-19.</div>
-      <ul>
-        <li>Se debe usar permanentemente el tapabocas.</li>
-        <li>Mantener el distanciamiento físico (1.5 metros).</li>
-        <li>Cumplir con las normas locales relacionadas con la restricción a la movilidad y circulación, tales como pico y género, y pico y cédula – validar si aplica.</li>
-        <li>Realizar lavado frecuente de manos, especialmente antes y después del uso de dispositivos biométricos y pin pad.</li>
-        <li>Usar gel antibacterial.</li>
-        <li>Abstenerse de acudir a oficinas si presentan enfermedades respiratorias o síntomas asociados al COVID-19.</li>
-      </ul>
-    </div>
+
+<div class="contenido-empresa">
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:1.3em;margin-bottom:25px;font-weight:600;">Impuestos Nacionales</h2>
+  <div style="margin-bottom:16px; line-height:1.4;">
+    Servicio de recaudo de impuestos a través del convenio con la DIAN.
+  </div>
+  <div style="margin-bottom:16px; line-height:1.4;font-weight: bold;">
+    Características del servicio de recaudo de impuestos nacionales.
+  </div>
+  <ul style="margin-left:25px;margin-bottom:18px;">
+    <li>Servicio en línea y tiempo real con Citibank Colombia y reportería en línea mediante Web Services.</li>
+    <li>Impuestos disponibles: Renta, Patrimonio, IVA, Retención en la Fuente, Tributos Aduaneros, Consumo, GMF, CREE, Impuesto a la Gasolina y ACPM.</li>
+    <li>Los pagos se pueden realizar en efectivo, con débito a su cuenta corriente o de ahorros o con cheques de gerencia emitidos por Citibank Colombia S.A..</li>
+    <li>El pago de sus impuestos los puede realizar en la oficina de Citibank Colombia S.A. de Lunes a Viernes de 9:00 a.m. a 4:00 p.m. o por medio del canal digital de PSE de Citibank Colombia S.A. en horario de 8:00 a.m. a 6:00 p.m.</li>
+</ul>
+  <div style="margin-top:16px; margin-bottom:16px; line-height: 1.4;">
+    Este producto cuenta con seguro de depósitos.
+  </div>
+  <img src="https://www.citibank.com/icg/sa/latam/colombia/cash-mgmt/assets/img/fogafin-logo.png" alt="Fogafín">
+
+  <div style="margin-top:16px;margin-bottom:0px;line-height: 1.4;">
+    En caso de requerir más información de los productos de recaudos y cobranzas, por favor no dude en comunicarse con el canal de atención al cliente CitiService o su gerente de relación/ventas.
+  </div>
+
+</div>
+
   </main>
-  <section class="seccion-servicios">
+
+    <section class="seccion-servicios">
     <div class="contenedor-servicios">
       <div class="columna-vigilado">
         <div class="contenedor-vigilado">
@@ -349,7 +270,7 @@
       <p>Productos y servicios financieros ofrecidos por Citibank - Colombia S.A. Citi y el diseño del arco es una marca registrada de servicios de Citigroup Inc. Carrera 9A # 99 - 02 Bogotá, Colombia</p>
     </div>
   </section>
-
+  
   <footer class="footer-principal">
     <div class="contenedor-footer">
       <div class="footer-izquierda">
@@ -373,6 +294,11 @@
       </div>
     </div>
   </footer>
+  <script>
+    function cerrarModal() {
+      document.getElementById('modalAviso').style.display = 'none';
+    }
+  </script>
   <script src="script.js"></script>
 </body>
 </html>

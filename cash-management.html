@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
   <style>
+    
     .contenido-principal {
       max-width: 1100px;
       margin: 0 auto;
@@ -31,6 +32,7 @@
       max-width: 900px;
       padding-left: 72px;
       gap: 16px;
+      padding-bottom: 32px;
     }
     .tab-empresa {
       background: none;
@@ -92,8 +94,16 @@
     .contenido-empresa {
       max-width: 900px;
       margin: 0 auto;
-      padding-left: 72px;
+      text-align: left;
+      padding-left: 0px;
       padding-bottom: 40px;
+    }
+
+    .contenido-empresa {
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: 0px;
+      padding-bottom: 0px;
     }
     .contenido-empresa h2 {
       font-size: 18px;
@@ -120,7 +130,7 @@
   </style>
 </head>
 <body>
-  <!-- HEADER -->
+ 
   <header class="header-principal">
     <div class="contenedor-header">
       <img src="imgs/citilogo.png" alt="Citi" class="logo-citi">
@@ -131,7 +141,7 @@
     <h1>Cash Management</h1>
 
     <div class="navegacion-empresas-titulo">Colombia</div>
-    <div class="navegacion-empresas-tabs">
+    <div class="navegacion-empresas-tabs" style="gap:90px;justify-content:center;">
       <button onclick="window.location.href='index.html'" class="tab-empresa">Página Principal</button>
       <div class="dropdown">
         <button class="tab-empresa tab-activa">
@@ -148,10 +158,10 @@
           Citivalores S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
         </button>
         <div class="dropdown-content">
-          <a href="#">Página principal</a>
-          <a href="#">Corresponsal en Inversiones Globales</a>
-          <a href="#">Corresponsal en Banca de Inversión</a>
-          <a href="#">ETF MSCI COLCAP</a>
+          <a href="citivalores.html">Página principal</a>
+          <a href="corresponsal-inversiones.html">Corresponsal en Inversiones Globales</a>
+          <a href="corresponsal-banca.html">Corresponsal en Banca de Inversión</a>
+          <a href="etf.html">ETF MSCI COLCAP</a>
         </div>
       </div>
       <div class="dropdown">
@@ -159,7 +169,7 @@
           Cititrust S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
         </button>
         <div class="dropdown-content">
-          <a href="#">Página Principal</a>
+          <a href="Cititrust.html">Página Principal</a>
           <a href="#">Servicios de Custodia</a>
           <a href="#">Fiducia Estructurada</a>
           <a href="#">Links frecuentes</a>
@@ -167,22 +177,22 @@
       </div>
     </div>
 
-    <!-- CASH MANAGEMENT CONTENT -->
+    
     <div class="contenido-empresa">
       <h2>Citibank Colombia S.A brinda las siguientes soluciones de Cash Management</h2>
       <ul>
-        <li><a href="#">Cuentas Corrientes y Ahorros</a></li>
-        <li><a href="#">Soluciones de Recaudo y Cobranza</a></li>
-        <li><a href="#">Soluciones de Pagos</a></li>
-        <li><a href="#">Recaudo de Impuestos y Aduanas</a></li>
-        <li><a href="#">Soluciones de Liquidez</a></li>
-        <li><a href="#">Tarjetas Corporativas</a></li>
-        <li><a href="#">Guía de Canales</a></li>
+        <li><a href="cuentas-corrientes.html">Cuentas Corrientes y Ahorros</a></li>
+        <li><a href="solucion-recaudo.html">Soluciones de Recaudo y Cobranza</a></li>
+        <li><a href="solucion-pago.html">Soluciones de Pagos</a></li>
+        <li><a href="recaudo-impuestos.html">Recaudo de Impuestos y Aduanas</a></li>
+        <li><a href="solucion-liquidez.html">Soluciones de Liquidez</a></li>
+        <li><a href="tarjeta-corporativa.html">Tarjetas Corporativas</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/cash-mgmt/assets/docs/Guia-de-Canales.pdf">Guía de Canales</a></li>
       </ul>
     </div>
   </main>
 
-  <!-- SECCION SERVICIOS -->
+  
   <section class="seccion-servicios">
     <div class="contenedor-servicios">
       <div class="columna-vigilado">
@@ -192,16 +202,70 @@
       </div>
       <div class="columna-servicios">
         <div class="grid-servicios">
-          <button class="boton-servicio" onclick="abrirServicio('tasas')">Tasas y Tarifas Vigentes</button>
-          <button class="boton-servicio" onclick="abrirServicio('citidirect')">CitiDirect</button>
-          <button class="boton-servicio" onclick="abrirServicio('payments')">Online Payments Channel</button>
-          <button class="boton-servicio" onclick="abrirServicio('pagos')">Mis pagos al día</button>
-          <button class="boton-servicio" onclick="abrirServicio('pse')">PSE</button>
-          <button class="boton-servicio" onclick="abrirServicio('fxpulse')">FXPulse</button>
-          <button class="boton-servicio" onclick="abrirServicio('tarjetas')">Portal de Tarjetas Corporativas</button>
-          <button class="boton-servicio" onclick="abrirServicio('sac')">SAC/Defensoría del Consumidor Financiero</button>
-          <button class="boton-servicio" onclick="abrirServicio('transparencia')">Programa de Transparencia PTEE Colrepfin LTDA</button>
-          <button class="boton-servicio boton-completo" onclick="abrirServicio('transparency')">TRANSPARENCY AND BUSINESS ETHICS PROGRAM (PTEE) COLREPFIN LTDA</button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Tasas_tarifas.html';"
+          >
+            Tasas y Tarifas Vigentes
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Citidirect.html';"
+          >
+            CitiDirect
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='online_payments.html';"
+          >
+            Online Payments Channel
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Pago_dia2.html';"
+          >
+            Mis pagos al dia
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='pagos_PSE.html';"
+          >
+            PSE
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='';"
+          >
+            FXPulse
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='tarjetas_corporativas.html';"
+          >
+            Portal de tarjetas corporativas
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='informacion-consumidor-financiero.html';"
+          >
+            Sistema de Atencion al consumidor financiero SAC/Defensoria del Consumidor Financiero
+          </button>
+          </button>
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDA.pdf" class="boton-servicio" target="_blank" rel="noopener noreferrer">
+ 		 Programa de Transparencia PTEE Colrepfin LTDA
+	        </a>
+
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDAV2023_V_INGLES_VF2.pdf" class="boton-servicio boton-completo" target="_blank" rel="noopener noreferrer">
+     		TRANSPARENCY AND BUSINESS ETHICS PROGRAM (PTEE) COLREPFIN LTDA
+	        </a>
         </div>
       </div>
     </div>
@@ -210,7 +274,7 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
+  
   <footer class="footer-principal">
     <div class="contenedor-footer">
       <div class="footer-izquierda">

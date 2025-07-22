@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soluciones de Recaudo y Cobranza</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    /* Solo estilos para el modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .modal {
+      background: #fff;
+      border-radius: 16px;
+      padding: 30px 28px 22px 28px;
+      max-width: 600px;
+      width: 96%;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.19);
+      text-align: left;
+      position: relative;
+    }
+    .modal .close-btn {
+      position: absolute;
+      top: 12px; right: 12px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: #444;
+      cursor: pointer;
+    }
+    .modal h2 {
+      font-size: 1.6rem;
+      margin: 0 0 10px 0;
+      color: #233A7A;
+    }
+    .modal .fecha-actualizacion {
+      font-size: 1rem;
+      color: #575757;
+      text-align: right;
+      margin-bottom: 18px;
+      margin-top: -12px;
+    }
+    .modal ul { margin-left: 16px; margin-bottom: 12px; }
+    .modal ul li { margin-bottom: 6px; }
+    .modal a { color: #255be3; text-decoration: underline; word-break: break-all; }
+    .modal img { margin-top: 10px; width: 140px; }
+    .modal button {
+      margin-top: 15px;
+      padding: 8px 28px;
+      background: #255be3;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .modal button:hover {
+      background: #1744a8;
+    }
+    @media (max-width: 650px) {
+      .modal { padding: 16px; }
+      .modal h2 { font-size: 1.2rem;}
+
+    }
+
+    .contenido-principal {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .contenido-principal h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #255be3;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .navegacion-empresas-titulo {
+      font-weight: bold;
+      color: #255be3;
+      margin-bottom: 12px;
+      padding-left: 72px;
+    }
+    .navegacion-empresas-tabs {
+      display: flex;
+      margin: 0 auto 32px auto;
+      max-width: 900px;
+      padding-left: 72px;
+      gap: 16px;
+    }
+    .tab-empresa {
+      background: none;
+      border: none;
+      padding: 14px 0;
+      font-size: 16px;
+      font-weight: 500;
+      color: #0f172a;
+      cursor: pointer;
+      position: relative;
+    }
+    .tab-empresa:hover,
+    .tab-empresa:focus {
+      color: #255be3;
+    }
+    .tab-empresa:hover::after,
+    .tab-activa::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background-color: #255be3;
+    }
+    .tab-activa {
+      font-weight: bold;
+      color: #255be3;
+    }
+    .contenido-empresa {
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: 0px;
+    }
+    .contenido-empresa h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 36px 0 24px;
+      color: #0f172a;
+    }
+    .contenido-empresa ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+    .contenido-empresa ul li {
+      margin-bottom: 16px;
+    }
+    .contenido-empresa ul li a {
+      color: #0f172a;
+      text-decoration: underline;
+      transition: color 0.2s ease;
+    }
+    .contenido-empresa ul li a:hover {
+      color: #255be3;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+      z-index: 100;
+      width: 220px;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content a {
+      display: block;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #0f172a;
+    }
+    .dropdown-content a:hover {
+      color: #255be3;
+      background-color: #f1f5f9;
+    }
+    .dropdown-content a.active {
+      color: #255be3;
+      border-bottom: 2px solid #255be3;
+    }
+  </style>
+</head>
+<body>
+  <!-- MODAL DE AVISO INICIAL -->
+  <div id="modalAviso" class="modal-overlay">
+    <div class="modal">
+      <button class="close-btn" onclick="cerrarModal()">&times;</button>
+      <h2>Recaudo físico a través de Corresponsal Bancario Reval</h2>
+      <div class="fecha-actualizacion">Fecha actualización: 1/29/2024</div>
+      <p style="line-height:1.3; margin-bottom: 15px;">
+        Le recordamos que Citibank tiene habilitados los puntos de recaudo del corresponsal bancario Reval S.A. para realizar las siguientes transacciones:
+      </p>
+      <p style="margin-bottom: 15px;">
+        <b>Depósitos y recaudo identificado en cuentas corrientes y de ahorros de Citibank:</b>
+        <ul>
+          <li>En efectivo hasta por un monto de $9.900.000.</li>
+          <li>En cheque sin límite de cuantía.</li>
+        </ul>
+        <a style="margin-top: 10px; margin-bottom: 15px;"href="https://www.citibank.com/icg/sa/latam/colombia/cash-mgmt/assets/docs/REVAL.pdf" target="_blank">Puntos Reval a nivel nacional</a>
+      </p>
+      <p style="line-height:1.3; margin-top: 14px; margin-bottom: 15px;">
+        Recuerde que también tiene disponible el portal electrónico de pagos de servicios públicos y privados 
+        <a href="https://www.mispagosaldia.com" target="_blank">www.mispagosaldia.com</a>, en donde podrá realizar los pagos de los siguientes <b><a href="https://www.citibank.com/icg/sa/latam/colombia/cash-mgmt/assets/docs/Facturadores.pdf">facturadores</a></b>:
+      </p>
+      <p style="line-height:1.3; margin-top: 14px; margin-bottom: 15px;">
+        Cualquier inquietud o información adicional que requiera, comuníquese a la línea de CitiService® en Bogotá (57 601) 6383838 y línea nacional 018000 523838 o al correo electrónico <a href="mailto:colombia.citiservice@citi.com">colombia.citiservice@citi.com</a>. Horario de atención: lunes a viernes (días hábiles) de 8:00 am hasta 6:00 p.m.
+      </p>
+      <img src="https://www.citibank.com/icg/sa/latam/colombia/cash-mgmt/assets/img/fogafin-logo.png" alt="Fogafín">
+      <br>
+      <button onclick="cerrarModal()">Cerrar</button>
+    </div>
+  </div>
+
+  <header class="header-principal">
+    <div class="contenedor-header">
+      <img src="imgs/citilogo.png" alt="Citi" class="logo-citi" />
+    </div>
+  </header>
+
+  <main class="contenido-principal">
+    <h1>Soluciones de Recaudo y Cobranza</h1>
+    <div style="font-size: 15px; color: #575757; margin-top: -44px; margin-bottom: 30px; text-align:left; max-width:900px; margin-left:auto; margin-right:auto;">
+      Fecha de actualización: enero 29 de 2024
+    </div>
+    <div class="navegacion-empresas-titulo">Colombia</div>
+    <div class="navegacion-empresas-tabs" style="gap:90px;justify-content:center;">
+      <button onclick="window.location.href='index.html'" class="tab-empresa">Página Principal</button>
+      <div class="dropdown">
+        <button class="tab-empresa tab-activa">Citibank Colombia S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="citibak-colombia.html">Página Principal</a>
+          <a href="informacion-institucional.html">Información Institucional</a>
+          <a href="productos-servicios.html">Productos y Servicios</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="tab-empresa">Citivalores S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="citivalores.html">Página principal</a>
+          <a href="corresponsal-inversiones.html">Corresponsal en Inversiones Globales</a>
+          <a href="corresponsal-banca.html">Corresponsal en Banca de Inversión</a>
+          <a href="etf.html">ETF MSCI COLCAP</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="tab-empresa">Cititrust S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="Cititrust.html">Página Principal</a>
+          <a href="#">Servicios de Custodia</a>
+          <a href="#">Fiducia Estructurada</a>
+          <a href="#">Links frecuentes</a>
+        </div>
+      </div>
+    </div>
+    <div class="contenido-empresa">
+      
+      <h2 style="color:#255be3;margin-top:30px;font-size:1.3em;margin-bottom:25px;font-weight:600;">CitiRecaudos "Speed Collect"</h2>
+      <div style="font-size:1em;margin-bottom:10px;"><b>Características del servicio:</b></div>
+      <ul>
+        <li>CitiRecaudos es un servicio automatizado para el recaudo identificado de cartera de su empresa, a través del cual usted podrá establecer la información del pagador, las facturas canceladas, los valores pagados y el medio de pago.</li>
+        <li>Ofrece información en línea y en tiempo real, a través de la banca electrónica "CitiDirect®", sobre los pagos realizados por sus clientes o usuarios.</li>
+        <li>Si su empresa dispone de identificación mediante código de barras, la información de facturación puede ser capturada desde volante especial diligenciado por el pagador al momento de realizar el pago. Los datos del recaudo pueden obtenerse en un archivo plano para actualizar sus sistemas de información directamente desde "CitiDirect®"</li>
+        <li>Citibank® - Colombia S.A. cuenta con una red de corresponsales bancarios y una sucursal propia, en donde sus clientes podrán realizar los CitiRecaudos.</li>
+      </ul>
+      <div style="font-size:1em;margin-bottom:10px;margin-top: 30px;"><b>Condiciones y requisitos del servicio de CitiRecaudo:</b></div>
+      <ul>
+        <li>Para poder acceder al servicio de CitiRecaudo, usted debe firmar el acuerdo de suscripción con el que solicita el servicio a Citibank Colombia S.A.</li>
+        <li>Al momento de contratar el servicio de CitiRecaudo, usted puede acceder a recibir los recaudos de forma identificada.</li>
+        <li>Como cliente corporativo de Citibank Colombia S.A., debe informar a sus clientes, usuarios y beneficiarios los convenios con que Citibank Colombia S.A. cuenta para poder hacer sus pagos.</li>
+        <li>Las transacciones realizadas a través de nuestros corresponsales bancarios no tienen costo. Si el corresponsal bancario efectúa algún cobro a sus clientes usuarios o beneficiarios por las transacciones realizadas, debe informarlo inmediatamente por medio de nuestra línea de Servicio al cliente Citiservice o contactando a su Gerente de Relación.</li>
+        <li>En el momento que necesite finalizar el servicio, comuníquese con su Gerente de Relación quien le explicará el proceso y la documentación requerida para la cancelación de su servicio.</li>
+    </ul>
+      <div style="font-size:1em;margin-bottom:10px; margin-top: 30px;"><b>Medidas de seguridad para usuarios y beneficiarios:</b></div>
+      <ul>
+        <li>Efectúe sus pagos solamente en los puntos y corresponsales bancarios autorizados por Citibank.</li>
+        <li>No entregue dinero o información de sus productos a personas ajenas a los cajeros y/o a las personas que atienden los corresponsales bancarios.</li>
+        <li>Por seguridad, retírese del corresponsal bancario o de la caja sólo cuando le hayan entregado el recibo, el cual le servirá como soporte de la transacción efectuada.</li>
+        <img src="https://www.citibank.com/icg/sa/latam/colombia/cash-mgmt/assets/img/fogafin-logo.png" alt="Fogafín">
+      </ul>
+
+      <h2 style="color:#255be3;margin-top:30px;font-size:1.3em;margin-bottom:18px;font-weight:600;">Mispagosaldia.com</h2>
+      <div>Active el recaudo de sus facturas a través de los canales electrónicos de Citibank - Colombia S.A. activos en la plataforma <a href="https://www.mispagosaldia.com" target="_blank">Mispagosaldia.com</a> para ofrecer a sus usuarios la comodidad de realizar sus pagos desde su hogar u oficina en horarios extendidos y con cobertura global o a través de Corresponsales Bancarios Reval.</div>
+      <p>Este sistema permite consultar el detalle de los pagos recibidos y obtener archivos de conciliación directamente desde la banca electrónica CitiDirect de Citibank - Colombia S.A</p>
+      <p>El sistema Mispagosaldia.com también cuenta con la opción de realizar el pago de las facturas por medio del botón PSE y/o débito automático a cuentas de sus pagadores en entidades financieras distintas a Citibank - Colombia S.A. que se encuentren afiliadas a ACH Colombia. Sus usuarios también podrán utilizar Los puntos habilitados como Corresponsales Bancarios en el país para realizar los pagos en efectivo de sus facturas, consultando la base de datos de Mispagosaldia. <a href="https://www.citibank.com/icg/sa/latam/colombia/cash-mgmt/assets/docs/Billers.pdf">Conozcan los facturadores disponibles</a></p>
+      <div style="font-weight:600;margin-top:24px;margin-bottom: 15px;">Medidas de seguridad</div>
+      <ul>
+        <li>Nunca comparta su usuario y contraseña de acceso al sistema con terceros.</li>
+        <li>Utilice contraseñas que no se relacionen con fechas especiales, nombre de familiares, mascotas, etc.; de esta forma hace más difícil que sean adivinadas por terceros.</li>
+        <li>No diligencie información confidencial o financiera que sea solicitada por medio de correos electrónicos.</li>
+        <li>Cambie su contraseña periódicamente (recomendamos cada 60 días); si usted sospecha que su contraseña es conocida por terceros, cámbiela inmediatamente en el sistema.</li>
+        <li>No comparta con otros usuarios los equipos a través de los cuales se hacen las operaciones bancarias. Así mismo, no ingrese a los portales de bancos desde otros equipos.</li>
+        <li>Digite la dirección de <a href="pago_dia2.html" target="_blank">Mispagosaldia.com</a> directamente en el navegador. Si utiliza su computador personal para realizar sus operaciones financieras, asegúrese de que tiene correctamente instalados y configurados el antivirus y el firewall, de esa forma evitará que se ejecuten programas espía en su computador.</li>
+        <li>El sistema enviará correos electrónicos a los usuarios registrados para este servicio, notificándole en los siguientes casos:
+          <ul>
+            <li>Cuando se registre un contrato nuevo.</li>
+            <li>Cuando se reciba una factura nueva para alguno de los contratos registrados por usted.</li>
+            <li>Cuando realice un pago a través de Mispagosaldia.com, recibirá una confirmación por correo electrónico, con los datos del pago realizado.</li>
+            <li>Si un pago automático es rechazado.</li>
+          </ul>
+        </li>
+        <li>El usuario administrador será contactado cuando se reporten riesgos de seguridad en la cuenta de <a href="pago_dia2.html" target="_blank">Mispagosaldia.com</a>.</li>
+      </ul>
+      <p><a href="pago_dia2.html" target="_blank">Mispagosaldia.com</a> cumple con altos estándares internacionales de seguridad para operaciones en Internet.</p>
+      <div style="font-weight:600;margin-top:24px;margin-bottom: 15px;">Condiciones y requisitos del servicio de Mispagosaldia:</div>
+      <ul>
+        <li>Para acceder al servicio de Mispagosaldia, usted debe firmar el acuerdo de suscripción con el que solicita el servicio a Citibank -Colombia S.A.</li>
+        <li>Como cliente corporativo de Citibank Colombia S.A., debe informar a sus clientes, usuarios y beneficiarios los convenios con los que el Banco cuenta para poder hacer sus pagos.</li>
+        <li>Tenga en cuenta que las transacciones realizadas por sus clientes, usuarios o beneficiarios desde la página de Mispagosaldia.com no tienen costo.</li>
+        <li>En el momento que necesite finalizar el servicio, comuníquese con su Gerente de Relación quien le explicará el proceso y la documentación requerida para la cancelación de éste.</li>
+        <li>En el caso que algún cliente, usuario o beneficiario haya realizado un pago a su entidad por la página de mispagosaldia.com, se recomienda verificar que el estado de la transacción sea exitoso</li>
+        <li>Si su cliente, usuario o beneficiario del servicio tiene alguna inconsistencia, puede comunicarse con nuestra línea de servicio al cliente de Citiservice 601 638 3838 en Bogotá y 01 8000 523838 para el resto del país.</li>
+      </ul>
+      <div style="margin-top: 15px;margin-bottom: 15px;">Este producto cuenta con seguro de depósitos.</div>
+      <img src="https://www.citibank.com/icg/sa/latam/colombia/cash-mgmt/assets/img/fogafin-logo.png" alt="Fogafín">
+
+      
+      <h2 style="color:#255be3;margin-top:32px;font-size:1.3em;margin-bottom:18px;font-weight:600;">Recolección de efectivo en sus oficinas (Pick up Service)</h2>
+      <div>Citibank - Colombia ofrece el servicio de recolección de efectivo para sus clientes corporativos, en las oficinas o ubicaciones requeridas por su empresa. Este servicio se realiza por medio de las empresas de transporte de valores acordadas por el Cliente y la Transportadora.</div>
+      <div style="font-weight:600;margin-top:14px;margin-bottom: 15px;">Características, condiciones y requisitos del servicio de recolección de efectivo (Pick Up).</div>
+      <ul>
+        <li>El contrato de recolección de efectivo se tramita y suscribe directamente entre el cliente corporativo y la empresa transportadora.</li>
+        <li>Citibank Colombia S.A., tiene convenio con tres transportadoras para prestar el servicio de recolección de efectivo, las cuales puede contratar a su elección.</li>
+        <li>El cliente corporativo debe instruir a Citibank Colombia S.A. mediante carta firmada por Representante Legal, indicando el número de cuenta corriente o de ahorros en donde se debe depositar el dinero que fue recogido.</li>
+        <li>El servicio de recolección se llevará a cabo de acuerdo con las condiciones de horarios y puntos pactados entre el cliente y la transportadora.</li>
+        <li>El dinero recaudado será abonado por Citibank Colombia S.A. en su cuenta el día hábil siguiente a la confirmación de la recolección por parte de la empresa transportadora de valores.</li>
+        <li>Los horarios y los días para la recolección del efectivo serán pactados directamente entre el cliente y la transportadora.</li>
+        <li>La logística de entrega de insumos y capacitaciones sobre el servicio, debe ser coordinada entre el cliente y la empresa transportadora.</li>
+      </ul>
+      <div style="font-weight:600;margin-top:14px;margin-bottom: 15px;">Medidas de seguridad</div>
+      <ul>
+        <li>El cliente corporativo debe instruir a Citibank Colombia S.A. mediante comunicación escrita firmada por Representante Legal, notificando el nombre de la transportadora con la cual se contrató el servicio, los puntos o sucursales y ciudades de recaudo. Para el efecto, puede pedir el formato de comunicación a su Gerente de Relación.</li>
+        <li>No inicie el servicio de recolección de efectivo sin antes haber notificado a Citibank Colombia S.A. sobre su intención de contratar el servicio con la transportadora.</li>
+        <li>Haga entrega del efectivo sólo al personal de la transportadora que esté dentro del listado de tripulantes, compartido de conformidad con lo establecido en el contrato que para el efecto se suscriba entre usted y la transportadora.</li>
+      </ul>
+      <div style="margin-top:14px;margin-bottom: 15px;">Este producto de Recolección de Efectivo cuenta con seguro de depósitos.</div>
+      <img src="https://www.citibank.com/icg/sa/latam/colombia/cash-mgmt/assets/img/fogafin-logo.png" alt="Fogafín">
+
+      <h2 style="color:#255be3;margin-top:32px;font-size:1.3em;margin-bottom:18px;font-weight:600;">Recaudo de Tarjetas Crédito/Débito</h2>
+      <div style="line-height:1.2; margin-bottom: 10px;">Citibank Colombia S.A., ofrece a sus clientes la facilidad de recaudar los fondos resultado de las ventas realizadas en sus establecimientos de comercio a través de las tarjetas débito y/o crédito pertenecientes a Visa y Mastercard, siendo abonados a sus cuentas Corriente y/o de Ahorros y recibir de forma oportuna y eficaz la información necesaria para la conciliación de sus ventas electrónicas con las ventajas de un servicio integrado con nuestros sistemas de banca electrónica.</div>
+      <p style="line-height:1.2 ;">Citibank Colombia S.A. como banco adquirente, será el recaudador de sus clientes ante el proceso de compensación en la respectiva red o franquicia, procesando los depósitos a favor de sus clientes. Para poder tener acceso a este producto o servicio, los clientes deberán tener suscrito el contrato junto con los demás documentos asociados al producto, además de contar con un código único habilitado otorgado por Incocrédito y tener una cuenta activa en Citibank para poder realizar la acreditación de los fondos o el abono de los valores correspondientes a sus ventas con tarjetas.</p>
+      <div style="font-weight:600;margin-top: 15px;margin-bottom: 15px;">Beneficios:</div>
+      <ul>
+        <li>Reduce costos y riesgos de administración de efectivo y cheques.</li>
+        <li>Abono neto de valor recaudado al siguiente día hábil.</li>
+        <li>Incremento de facturación - ventas.</li>
+        <li>Garantía de pago de la transacción.</li>
+        <li>Servicio especializado al cliente a través de nuestra línea de servicio CitiService.</li>
+      </ul>
+      <p style="line-height:1.2;">Citibank abonará las transacciones nacionales el día hábil siguiente a la realización de las mismas. Las transacciones internacionales serán abonadas a los dos días hábiles siguientes a la realización de las mismas. Las transacciones recaudadas serán abonadas sin tener en consideración su monto. Adicionalmente, con el fin de mantener separados los recursos propios y los de sus clientes, Citibank realiza un proceso de distribución y/o separación de fondos con base en la información transaccional proporcionada por los sistemas de pago a Citibank.</p>
+      <div style="margin-top: 15px; margin-bottom: 15px;">Este producto cuenta con seguro de depósitos.</div>
+      <img src="https://www.citibank.com/icg/sa/latam/colombia/cash-mgmt/assets/img/fogafin-logo.png" alt="Fogafín">
+
+      <h2 style="color:#255be3;margin-top:32px;font-size:1.3em;margin-bottom:18px;font-weight:600;">Débito automático</h2>
+      <div style="line-height:1.2 ;">Sistema automatizado para el recaudo de cartera de su empresa, que le permite, desde su banca electrónica, enviar la instrucción del cobro de sus facturas a sus clientes, usuarios o beneficiarios a otras entidades financieras y recibir el dinero y las notificaciones directamente en su portal bancario de Citibank Colombia S.A.</div>
+      <div style="font-weight:600;margin-top:14px;margin-bottom: 15px;">Características, términos, condiciones y requisitos del servicio de débito automático:</div>
+      <ul>
+        <li>Débito automático le permite acceder a la información del estado de sus recaudos en los cuatro ciclos de procesamiento que brinda la red de las cámaras de compensación de ACH y Cenit.</li>
+        <li>Para que se realice el débito automático en la otra entidad financiera, el cliente corporativo debe hacer la preinscripción de las cuentas con los datos de sus clientes, usuarios o beneficiarios en las entidades financieras de las cuales se va a realizar el débito automático con mínimo 5 días hábiles de anticipación.</li>
+        <li>Para poder ejecutar la preinscripción, el cliente corporativo debe tener la autorización del usuario al que se le realizará el debito en la entidad financiera destinataria.</li>
+        <li>Una vez la preinscripción sea aprobada, puede ejecutar el envío de la transacción monetaria para el débito automático.</li>
+        <li>Los datos del recaudo pueden obtenerse en un archivo plano para actualizar sus sistemas de información directamente desde su banca electrónica.</li>
+        <li>El horario para instruir transacciones monetarias será hasta las 3 p.m., las transacciones que se envíen posterior a esta hora quedaran con fecha del día hábil siguiente.</li>
+      </ul>
+      <div style="font-weight:600;margin-bottom: 15px;">Medidas de seguridad del servicio de débito automático:</div>
+      <ul>
+        <li>CitiDirect Banca Electrónica soporta hasta nueve niveles de aprobación. Se recomienda que su empresa establezca uno o más niveles de aprobación para las transacciones de débito automático.</li>
+        <li>Instruya sus transacciones por medio de la funcionalidad del pre-formato CitiDirect Banca Electrónica. Utilizando este formato podrá asegurarse de que sólo se le haga el débito automático a clientes, usuarios o beneficiarios con los que usted ya ha realizado transacciones o que han sido pre-aprobados por usted.</li>
+        <li>Nunca comparta su tarjeta de SafeWord, mantenga su PIN en secreto, instale anti-virus, anti-spyware y el software de detección de malware.</li>
+      </ul>
+      <div style="margin-bottom: 15px;">El producto Débito Automático cuenta con seguro de depósitos.</div>
+      <img src="https://www.citibank.com/icg/sa/latam/colombia/cash-mgmt/assets/img/fogafin-logo.png" alt="Fogafín">
+
+      <h2 style="color:#255be3;margin-top:32px;font-size:1.3em;margin-bottom:18px;font-weight:600;">Corresponsales Bancarios</h2>
+      <div><b>Servicios financieros a través de la red de corresponsales bancarios Reval (48 oficinas)</b></div>
+      <div style="font-weight:600;margin-top:14px;margin-bottom: 15px;">Características, condiciones y beneficios:</div>
+      <ul>
+        <li>Realizar transacciones de recaudo en efectivo hasta por COP$9.900.000 y cheque sin límite de cuantía.</li>
+        <li>Servicio disponible de lunes a viernes - las transacciones realizadas en fines de semana y/o festivos se reportan con fecha del día hábil siguiente.</li>
+        <li>Abonos en tiempo real para recaudos realizados en días y horarios hábiles 8:00 a.m. – 5:00 p.m.</li>
+      </ul>
+      <p style="margin-bottom:15px;">Clientes de la banca corporativa y sus usuarios podrán efectuar las siguientes transacciones en nuestros corresponsales bancarios</p>
+      <ul>
+        <li>Depósitos a cuenta en efectivo.</li>
+        <li>CitiRecaudos en efectivo y cheque (Recaudo Identificado)</li>
+      </ul>
+      <p style="margin-top:14px;margin-bottom: 15px;">Consulte los puntos de atención más cercanos a usted en: <a href="http://www.reval.com.co/" target="_blank">http://www.reval.com.co/</a></p>
+      <div style="font-weight:600;margin-top:14px;margin-bottom: 15px;">Medidas de seguridad, condiciones y requisitos con nuestros canales físicos:</div>
+      <ul>
+        <li>Con nuestros corresponsales bancarios usted cuenta con la posibilidad de contratar un servicio en línea y en tiempo real con Citibank Colombia S.A. y reportería en línea mediante Web Services.</li>
+        <li>Consulte la información de recaudos de forma detallada por medio de la banca electrónica CitiDirect BE®.</li>
+        <li>Antes de ejecutar cualquier operación verifique los corresponsales bancarios previamente autorizados por Citibank Colombia S.A. en nuestra página de internet <a href="https://www.citibank.com.co/" target="_blank">www.citibank.com.co</a>.</li>
+        <li>Recuerde que las transacciones hechas con nuestros corresponsales bancarios no tienen costo. Si el corresponsal le efectúa algún cobro infórmelo inmediatamente por medio de nuestra línea de servicio al cliente Citiservice o contacte a su Gerente de Relación.</li>
+        <li>Por seguridad, retírese del corresponsal bancario sólo cuando le hayan entregado el recibo que le servirá como soporte de la transacción efectuada.</li>
+        <li>Para acceder a los servicios, contacte a su Gerente de Relación, quien le presentará la información sobre los productos y servicios y dará inicio a la entrega de documentos para iniciar la implementación.</li>
+      </ul>
+      <div style="margin-top:14px;margin-bottom: 15px;">El producto Corresponsales Bancarios cuenta con seguro de depósitos</div>
+      <img src="https://www.citibank.com/icg/sa/latam/colombia/cash-mgmt/assets/img/fogafin-logo.png" alt="Fogafín">
+
+      <h2 style="color:#255be3;margin-top:32px;font-size:1.3em;margin-bottom:18px;font-weight:600;">Remesas negociadas</h2>
+      <div style="line-height:1.3 ;">Servicio que proporciona disponibilidad y liquidez inmediata sobre los cheques de otras plazas consignados en Citibank Colombia S.A. Citibank - Colombia S.A. procesa y envía los cheques para que sean cobrados en el canje local en su respectiva plaza. Para ofrecer mayor cobertura, Citibank - Colombia S.A. establece acuerdos de remesas con distintos bancos corresponsales.</div>
+      <div style="font-weight:600;margin-top:14px; margin-bottom: 15px;">Cuenta con las siguientes características:</div>
+      <ul>
+        <li>Citibank Colombia S.A. solamente presta el servicio de remesas negociadas, previa negociación de la línea de remesa con el cliente.</li>
+        <li>El horario de recepción de las remesas está sujeto al horario de procesamiento de la oficina en donde se recibe el cheque.</li>
+        <li>El proceso de canje para los cheques consignados como remesas pueden tomar hasta 15 días hábiles para confirmar su proceso exitoso o de devolución dentro del canje.</li>
+      </ul>
+      <div style="font-weight:600;margin-bottom: 15px;">Medidas de seguridad, términos, condiciones y requisitos de Remesas:</div>
+      <ul>
+        <li>Verifique que el cheque esté diligenciado en su totalidad, y debidamente endosado, para que surta el proceso de canje.</li>
+        <li>En los casos de devolución de un cheque consignado como remesa, aplican las causales de devolución del procesamiento de canje de cualquier cheque en circulación.</li>
+      </ul>
+      <div style="margin-top:14px;margin-bottom: 15px;">Este producto cuenta con seguro de depósitos.</div>
+      <img src="https://www.citibank.com/icg/sa/latam/colombia/cash-mgmt/assets/img/fogafin-logo.png" alt="Fogafín">
+      <br>
+      <div style="margin-top:22px; font-size:15px; color:#333;">
+        En caso de requerir más información de los productos de recaudos, cobranzas y remesas, por favor no dude en comunicarse con el canal de atención al cliente CitiService o su gerente de relación/ventas.
+      </div>
+    </div>
+  </main>
+
+  <section class="seccion-servicios">
+    <div class="contenedor-servicios">
+      <div class="columna-vigilado">
+        <div class="contenedor-vigilado">
+          <img src="imgs/vigilado.png" alt="Vigilado" class="imagen-vigilado">
+        </div>
+      </div>
+      <div class="columna-servicios">
+        <div class="grid-servicios">
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Tasas_tarifas.html';"
+          >
+            Tasas y Tarifas Vigentes
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Citidirect.html';"
+          >
+            CitiDirect
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='online_payments.html';"
+          >
+            Online Payments Channel
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Pago_dia2.html';"
+          >
+            Mis pagos al dia
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='pagos_PSE.html';"
+          >
+            PSE
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='';"
+          >
+            FXPulse
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='tarjetas_corporativas.html';"
+          >
+            Portal de tarjetas corporativas
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='informacion-consumidor-financiero.html';"
+          >
+            Sistema de Atencion al consumidor financiero SAC/Defensoria del Consumidor Financiero
+          </button>
+          </button>
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDA.pdf" class="boton-servicio" target="_blank" rel="noopener noreferrer">
+ 		 Programa de Transparencia PTEE Colrepfin LTDA
+	        </a>
+
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDAV2023_V_INGLES_VF2.pdf" class="boton-servicio boton-completo" target="_blank" rel="noopener noreferrer">
+     		TRANSPARENCY AND BUSINESS ETHICS PROGRAM (PTEE) COLREPFIN LTDA
+	        </a>
+        </div>
+      </div>
+    </div>
+    <div class="texto-disclaimer">
+      <p>Productos y servicios financieros ofrecidos por Citibank - Colombia S.A. Citi y el diseño del arco es una marca registrada de servicios de Citigroup Inc. Carrera 9A # 99 - 02 Bogotá, Colombia</p>
+    </div>
+  </section>
+
+  <footer class="footer-principal">
+    <div class="contenedor-footer">
+      <div class="footer-izquierda">
+        <img src="imgs/citilogo.png" alt="Citi" class="logo-footer" />
+        <div class="enlaces-footer">
+          <a href="#" class="enlace-footer">Citigroup.com</a>
+          <a href="#" class="enlace-footer">Términos y Condiciones</a>
+          <a href="#" class="enlace-footer">Privacidad</a>
+        </div>
+      </div>
+      <div class="footer-derecha">
+        <div class="redes-sociales">
+          <a href="#" class="icono-social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-google-plus-g"></i></a>
+        </div>
+        <span class="copyright">&copy; 2003–2025 Citigroup Inc.</span>
+      </div>
+    </div>
+  </footer>
+  <script>
+    function cerrarModal() {
+      document.getElementById('modalAviso').style.display = 'none';
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

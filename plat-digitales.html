@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plataformas Digitales</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    
+    .contenido-principal {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .contenido-principal h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #255be3;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .navegacion-empresas-titulo {
+      font-weight: bold;
+      color: #255be3;
+      margin-bottom: 12px;
+      padding-left: 72px;
+    }
+    .navegacion-empresas-tabs {
+      display: flex;
+      margin: 0 auto 32px auto;
+      max-width: 900px;
+      padding-left: 72px;
+      gap: 16px;
+    }
+    .tab-empresa {
+      background: none;
+      border: none;
+      padding: 14px 0;
+      font-size: 16px;
+      font-weight: 500;
+      color: #0f172a;
+      cursor: pointer;
+      position: relative;
+    }
+    .tab-empresa:hover,
+    .tab-empresa:focus {
+      color: #255be3;
+    }
+    .tab-empresa:hover::after,
+    .tab-activa::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background-color: #255be3;
+    }
+    .tab-activa {
+      font-weight: bold;
+      color: #255be3;
+    }
+    .contenido-empresa {
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: 0px;
+    }
+    .contenido-empresa h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 36px 0 24px;
+      color: #0f172a;
+    }
+    .contenido-empresa ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+    .contenido-empresa ul li {
+      margin-bottom: 16px;
+    }
+    .contenido-empresa ul li a {
+      color: #0f172a;
+      text-decoration: underline;
+      transition: color 0.2s ease;
+    }
+    .contenido-empresa ul li a:hover {
+      color: #255be3;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+      z-index: 100;
+      width: 220px;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content a {
+      display: block;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #0f172a;
+    }
+    .dropdown-content a:hover {
+      color: #255be3;
+      background-color: #f1f5f9;
+    }
+    .dropdown-content a.active {
+      color: #255be3;
+      border-bottom: 2px solid #255be3;
+    }
+  </style>
+</head>
+<body>
+  
+  
+  <header class="header-principal">
+    <div class="contenedor-header">
+      <img src="imgs/citilogo.png" alt="Citi" class="logo-citi" />
+    </div>
+  </header>
+
+  <main class="contenido-principal">
+    <h1>Cash Management</h1>
+    <div style="margin-top: 100px;" class="navegacion-empresas-titulo">Colombia</div>
+    <div class="navegacion-empresas-tabs" style="gap:90px;justify-content:center;margin-bottom: 40px;">
+      <button onclick="window.location.href='index.html'" class="tab-empresa">Página Principal</button>
+      <div class="dropdown">
+        <button class="tab-empresa tab-activa">Citibank Colombia S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="citibak-colombia.html">Página Principal</a>
+          <a href="informacion-institucional.html">Información Institucional</a>
+          <a href="productos-servicios.html">Productos y Servicios</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="tab-empresa">Citivalores S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="citivalores.html">Página principal</a>
+          <a href="#">Corresponsal en Inversiones Globales</a>
+          <a href="#">Corresponsal en Banca de Inversión</a>
+          <a href="#">ETF MSCI COLCAP</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="tab-empresa">Cititrust S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="Cititrust.html">Página Principal</a>
+          <a href="#">Servicios de Custodia</a>
+          <a href="#">Fiducia Estructurada</a>
+          <a href="#">Links frecuentes</a>
+        </div>
+      </div>
+    </div>
+
+<div class="contenido-empresa">
+
+
+  <h2 style="color:#000000;margin-top:30px;font-size:20px;margin-bottom:25px;font-weight:600;">RECOMENDACIONES DE SEGURIDAD</h2>
+  <div style="margin-bottom:16px; line-height:1.4; font-size: 15px;">
+    Para Citibank su seguridad es una prioridad, por eso compartimos a continuación algunas recomendaciones:
+  </div>
+    <ul style="margin-left:25px;margin-bottom:15px;line-height: 1.2;font-size: 15px;">
+    <li><span style="font-weight: bold;">Mantenga actualizado el software operativo</span> de los equipos en los cuales se realizan operaciones.</li>
+    <li>Instale y actualice periódicamente el software  <span style="font-weight: bold;">anti-virus,anti-spyware y de detección de malware</span> en los computadores y/o dispositivos en los cuales realiza transacciones.</li>
+    <li>Configure en las preferencias de su navegador de internet el bloqueo de pop-ups, esto, porque algunas veces pueden desplegar contenidos inapropiados o tener intenciones maliciosas.</li>
+    <li>Mantenga actualizada la versión de su navegador de internet.</li>
+    <li>Implemente <span style="font-weight: bold;">estándares de seguridad, calidad e idoneidad, para la contratación de terceros</span> encargados de la revisión, mantenimiento e instalación de equipos, software o hardware.</li>
+    <li>Sólo instale <span style="font-weight: bold;">aplicaciones y software</span> de compañías reconocidas y <span style="font-weight: bold;">avalaadas</span> por su empresa.</li>
+    <li><span style="font-weight: bold;">Evite abrir correos de dudosa procedencia, instalar</span> archivos que puedan contener software malicioso y navegar por sitios desconocidos en los equipos donde se realizan las operaciones.</li>
+    <li>Asegúrese que los <span style="font-weight: bold;">dispositivos</span> (computadoras personales, desktops, laptops, etc.) que utiliza para acceder a las plataformas electrónicas bancarias estén <span style="font-weight: bold;">protegidos con una contraseña segura.</span></li>
+    <li><span style="font-weight: bold;">No comparta claves ni contraseñas</span> como: códigos de autenticación (tokens), tarjetas de seguridad (safewordcards) o credenciales de acceso a plataformas bancarias. Igualmente haga una correcta custodia de los mismos.</li>
+    <li><span style="font-weight: bold;">Ingrese únicamente a la dirección de banca electrónica que el banco le ha suministrado</span>, digítela o guárdela como favoritos. No ingrese desde enlaces (links) que reciba por correo electrónico de remitentes no conocidos.</li>
+    <li><span style="font-weight: bold;">No defina usuarios transaccionales genéricos.</span> Restrinja cada acceso transaccional a un único funcionario, inclusive para usuarios adicionales (back up).</li>
+    <li><span style="font-weight: bold;">Inactive usuarios</span> transaccionales durante periodos de <span style="font-weight: bold;">ausencia.</span></li>
+    <li>Cierre <span style="font-weight: bold;">siempre la sesión</span> una vez termine su interacción con las plataformas bancarias y asegúrese de salir o cerrar el navegador de internet.</li>
+    <li>Utilice las parametrizaciones especiales que proveen las plataformas para <span style="font-weight: bold;">limitar la operación de sus usuarios y transacciones.</span></li>
+    <li>Es importante que consulte con su departamento de IT/Tecnología las mejores prácticas de uso de sus computadores y que realicen análisis de riesgos junto con controles de evaluación periódicos.</li>
+    <li>No comparta con otros usuarios los equipos a través de los cuales se realizan operaciones bancarias, y así mismo, evite ingresar a plataformas de bancos desde otros equipos.</li>
+    <li>Informe oportunamente los cambios de personas facultadas en las diferentes plataformas, incluyendo la creación de nuevos accesos y/o la eliminación de usuarios. Lo anterior, siguiendo los procedimientos que el banco ha establecido para ese fin.</li>
+  </ul>
+
+  <h2 style="color:#000000;margin-top:30px;font-size:20px;margin-bottom:25px;font-weight:600;">Citibank Colombia S.A brinda las siguientes soluciones de banca electrónica</h2>
+  
+  <ul style="margin-left:25px;margin-bottom:0px;font-size: 15px;">
+    <li><a href="">CitiDirect®</a></li>
+    <li><a href="">CitiConnect®</a></li>
+    <li><a href="">Online Payment Channel</a></li>
+    <li><a href="">InfoPool</a></li>
+    <li><a href="">CitiFX Pulse®</a></li>
+    <li><a href="">Mis Pagos al Día</a></li>
+    <li><a href="">PSE</a></li>
+  </ul>
+
+</div>
+
+  </main>
+
+
+  <section class="seccion-servicios">
+    <div class="contenedor-servicios">
+      <div class="columna-vigilado">
+        <div class="contenedor-vigilado">
+          <img src="imgs/vigilado.png" alt="Vigilado" class="imagen-vigilado">
+        </div>
+      </div>
+      <div class="columna-servicios">
+        <div class="grid-servicios">
+          <button type="button" class="boton-servicio" onclick="window.location.href='Tasas_tarifas.html';">Tasas y Tarifas Vigentes</button>
+          <button type="button" class="boton-servicio" onclick="window.location.href='Citidirect.html';">CitiDirect</button>
+          <button type="button" class="boton-servicio" onclick="window.location.href='online_payments.html';">Online Payments Channel</button>
+          <button type="button" class="boton-servicio" onclick="window.location.href='Pago_dia2.html';">Mis pagos al dia</button>
+          <button type="button" class="boton-servicio" onclick="window.location.href='pagos_PSE.html';">PSE</button>
+          <button type="button" class="boton-servicio" onclick="window.location.href='';">FXPulse</button>
+          <button type="button" class="boton-servicio" onclick="window.location.href='tarjetas_corporativas.html';">Portal de tarjetas corporativas</button>
+          <button type="button" class="boton-servicio" onclick="window.location.href='informacion-consumidor-financiero.html';">Sistema de Atencion al consumidor financiero SAC/Defensoria del Consumidor Financiero</button>
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDA.pdf" class="boton-servicio" target="_blank" rel="noopener noreferrer">Programa de Transparencia PTEE Colrepfin LTDA</a>
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDAV2023_V_INGLES_VF2.pdf" class="boton-servicio boton-completo" target="_blank" rel="noopener noreferrer">
+            TRANSPARENCY AND BUSINESS ETHICS PROGRAM (PTEE) COLREPFIN LTDA
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="texto-disclaimer">
+      <p>Productos y servicios financieros ofrecidos por Citibank - Colombia S.A. Citi y el diseño del arco es una marca registrada de servicios de Citigroup Inc. Carrera 9A # 99 - 02 Bogotá, Colombia</p>
+    </div>
+  </section>
+  <footer class="footer-principal">
+    <div class="contenedor-footer">
+      <div class="footer-izquierda">
+        <img src="imgs/citilogo.png" alt="Citi" class="logo-footer" />
+        <div class="enlaces-footer">
+          <a href="#" class="enlace-footer">Citigroup.com</a>
+          <a href="#" class="enlace-footer">Términos y Condiciones</a>
+          <a href="#" class="enlace-footer">Privacidad</a>
+        </div>
+      </div>
+      <div class="footer-derecha">
+        <div class="redes-sociales">
+          <a href="#" class="icono-social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-google-plus-g"></i></a>
+        </div>
+        <span class="copyright">&copy; 2003–2025 Citigroup Inc.</span>
+      </div>
+    </div>
+  </footer>
+  <script>
+    function cerrarModal() {
+      document.getElementById('modalAviso').style.display = 'none';
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Citivalores S.A.</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+
+  <style>
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .modal {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 640px;
+      width: 90%;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+      text-align: left;
+    }
+    .modal h2 {
+      margin-top: 0;
+      font-size: 22px;
+      color: #1e293b;
+    }
+    .modal p {
+      font-size: 15px;
+      color: #1e293b;
+      margin: 20px 0;
+      line-height: 1.5;
+    }
+    .modal button {
+      padding: 10px 20px;
+      background: #0f1632;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+    }
+    .contenido-principal {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .contenido-principal h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #255be3;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .navegacion-empresas-titulo {
+      font-weight: bold;
+      color: #255be3;
+      margin-bottom: 12px;
+      padding-left: 72px;
+    }
+    .navegacion-empresas-tabs {
+      display: flex;
+      margin: 0 auto 32px auto;
+      max-width: 900px;
+      padding-left: 72px;
+      gap: 16px;
+    }
+    .tab-empresa {
+      background: none;
+      border: none;
+      padding: 14px 0;
+      font-size: 16px;
+      font-weight: 500;
+      color: #0f172a;
+      cursor: pointer;
+      position: relative;
+    }
+    .tab-empresa:hover,
+    .tab-empresa:focus {
+      color: #255be3;
+    }
+    .tab-empresa:hover::after,
+    .tab-activa::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background-color: #255be3;
+    }
+    .tab-activa {
+      font-weight: bold;
+      color: #255be3;
+    }
+    .contenido-empresa {
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: 0px;
+    }
+    .contenido-empresa h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 36px 0 24px;
+      color: #0f172a;
+    }
+    .contenido-empresa ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+    .contenido-empresa ul li {
+      margin-bottom: 16px;
+    }
+    .contenido-empresa ul li a {
+      color: #0f172a;
+      text-decoration: underline;
+      transition: color 0.2s ease;
+    }
+    .contenido-empresa ul li a:hover {
+      color: #255be3;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+      z-index: 100;
+      width: 220px;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content a {
+      display: block;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #0f172a;
+    }
+    .dropdown-content a:hover {
+      color: #255be3;
+      background-color: #f1f5f9;
+    }
+    .dropdown-content a.active {
+      color: #255be3;
+      border-bottom: 2px solid #255be3;
+    }
+  </style>
+
+</head>
+<body>
+  <div id="modalAviso" class="modal-overlay">
+    <div class="modal">
+      <h2>Información importante</h2>
+      <p>
+        Tenemos conocimiento de que se está usando el nombre de Citi con objetivos fraudulentos.<br>
+        Le recordamos que ninguna de las empresas de Citigroup en Colombia (Citibank Colombia S.A., Citivalores S.A. y Cititrust Colombia S.A.) ofrece productos a personas naturales ni realiza ningún tipo de gestión comercial asociada con sorteos o rifas a través de redes sociales o páginas web.<br>
+        Evite ser víctima de fraude y comunique a las autoridades cualquier actividad sospechosa.
+      </p>
+      <button onclick="cerrarModal()">Cerrar</button>
+    </div>
+  </div>
+
+  <header class="header-principal">
+    <div class="contenedor-header">
+      <img src="imgs/citilogo.png" alt="Citi" class="logo-citi" />
+    </div>
+  </header>
+
+  <main class="contenido-principal">
+    <h1>Citivalores S.A.</h1>
+    <div class="navegacion-empresas-titulo">Colombia</div>
+    <div class="navegacion-empresas-tabs" style="gap:90px;justify-content:center;">
+      <button onclick="window.location.href='index.html'" class="tab-empresa">Página Principal</button>
+
+      <div class="dropdown">
+        <button class="tab-empresa">Citibank Colombia S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="citibak-colombia.html">Página Principal</a>
+          <a href="informacion-institucional.html">Información Institucional</a>
+          <a href="productos-servicios.html">Productos y Servicios</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="tab-empresa tab-activa">Citivalores S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="citivalores.html">Página principal</a>
+          <a href="corresponsal-inversiones.html">Corresponsal en Inversiones Globales</a>
+          <a href="corresponsal-banca.html">Corresponsal en Banca de Inversión</a>
+          <a href="etf.html">ETF MSCI COLCAP</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="tab-empresa">Cititrust S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="Cititrust.html">Página Principal</a>
+          <a href="#">Servicios de Custodia</a>
+          <a href="#">Fiducia Estructurada</a>
+          <a href="#">Links frecuentes</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contenido-empresa" style="padding-left:0;">
+      <h2 style="font-size: 18px; color: #255be3; font-weight:700; margin-top:36px; margin-bottom:24px;">Quienes Somos</h2>
+      <p style="font-size: 15px; color:#0f172a; margin-bottom:34px;">
+        Es una franquicia de Citigroup, grupo norteamericano con más de 200 años de trayectoria en el sector financiero. El grupo está compuesto por la sociedad controlante, Citibank Colombia S.A., y las subordinadas Citivalores S.A. Comisionista de Bolsa, Cititrust Colombia S.A Sociedad Fiduciaria, Colrepfin Ltda. Citibank N.A. es su matriz extranjera.
+      </p>
+
+      <h2 style="font-size: 18px; color: #255be3; font-weight:700; margin-top:30px; margin-bottom:24px;">Políticas y Procedimientos</h2>
+      <ul style="font-size:14px; margin-bottom:34px;">
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Codigo-de-buen-gobierno-Citivalores-S-A.pdf">Código de Buen Gobierno Citivalores S.A.</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Aviso_de_Privacidad_Citivalores_2019.pdf">Aviso de Privacidad Citivalores 2019</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Politicas-de-tratamiento-de-datos-personales-citivalores-S-A.pdf">Manual/Política de Tratamiento de Datos Personales Citivalores</a></li>
+      </ul>
+
+      <h2 style="font-size: 18px; color: #255be3; font-weight:700; margin-top:30px; margin-bottom:24px;">Estados Financieros</h2>
+      <p style="font-size: 15px; color:#0f172a; margin-bottom:20px;">
+        Según lo establecido en el Articulo 11.2.4.1.1 del Decreto 2555 de 2010, los estados financieros no requirieron autorización previa de la Superintendencia Financiera de Colombia para la aprobación por parte de la Asamblea de Accionistas
+      </p>
+      <ul style="font-size:14px; margin-bottom:34px;">
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/EEFF-y-Notas-Citivalores-Marzo-2025.pdf">Estados Financieros Citivalores 1Q 2025</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados-Financieros-Citivalores-2024.pdf">2024 Estados Financieros Anuales</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados-Financieros-Citivalores-3Q-2024.pdf">Estados Financieros Citivalores 3Q 2024</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Citivalores_Comisionista_de_Bolsa.pdf">Estados Financieros Citivalores 2Q 2024</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Citivalores_Marzo_2024.pdf">Estados Financieros Citivalores 1Q 2024</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados-Financieros-Citivalores-2023.pdf">2023 Estados Financieros Anuales</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Citivalores_Septiembre_2023.pdf">Estados Financieros Citivalores 3Q 2023</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Notas_Citivalores_Junio_2023_RF.pdf">Estados Financieros Citivalores 2Q 2023</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados-Financieros-Citivalores-1Q-2023.pdf">Estados Financieros Citivalores 1Q 2023</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados-Financieros-Citivalores-2022.pdf">2022 Estados Financieros Anuales</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados-Financieros-Citivalores-3Q-2022.pdf">Estados Financieros Citivalores 3Q 2022</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Notas_Citivalores_Junio_2023_RF.pdf">Estados Financieros Citivalores 2Q 2022</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados-Financieros-Citivalores-1Q-2023.pdf">Estados Financieros Citivalores 1Q 2022</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados-Financieros-Citivalores-2021.pdf">2021 Estados Financieros Anuales</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados-Financieros-Citivalores-3Q-2021.pdf">Estados Financieros Citivalores 3Q 2021</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados-Financieros-Citivalores-2Q-2021.pdf">Estados Financieros Citivalores 2Q 2021</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados-Financieros-Citivalores-1Q-2021.pdf">Estados Financieros Citivalores 1Q 2021</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados-Financieros-Citivalores-2020.pdf">2020 Estados Financieros Anuales</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados-Financieros-Citivalores-3Q-2020.pdf">Estados Financieros Citivalores 3Q 2020</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados_Financieros_Citivalores_2Q_2020.pdf">Estados Financieros Citivalores 2Q 2020</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados-Financieros-Citivalores-1Q-2020.pdf">Estados Financieros Citivalores 1Q 2020</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados-Financieros-Citivalores-2019.pdf">2019 Estados Financieros Anuales</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados-Financieros-Citivalores-3Q-2019.pdf">Estados Financieros Citivalores 3Q 2019</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados-Financieros-Citivalores-2Q-2019.pdf">Estados Financieros Citivalores 2Q 2019</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/EEFF-Citivalores-1q-2019.pdf">Estados Financieros Citivalores 1Q 2019</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/EEFF-Citivalores-2018.pdf">2018 Estados Financieros Anuales</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados_Financieros_Citivalores_3Q_2018.pdf">Estados Financieros Citivalores 3Q 2018</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Citivalores_S.A._Sociedad_Comisionista_2Q_2018.pdf">Estados Financieros Citivalores 2Q 2018</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados-Financieros-Citivalores-1Q-2018.pdf">2018 1er Trimestre</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados-Financieros-Citivalores-2017.pdf">2017 Estados Financieros Anuales</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados-Financieros-Citivalores-2016.pdf">2016 Estados Financieros Anuales</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados-Financieros-Citivalores-2015.pdf">2015 Estados Financieros Anuales</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados-Financieros-Citivalores-2014.pdf">2014 Estados Financieros Anuales</a></li>
+        <li><a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Estados-Financieros-Citivalores-2013.pdf">2013 Estados Financieros Anuales</a></li>
+      </ul>
+
+      <h2 style="font-size: 18px; color: #255be3; font-weight:700; margin-top:30px; margin-bottom:18px;">Educación Financiera</h2>
+      <p style="font-size: 15px; color:#0f172a; margin-bottom:14px;">
+        Citivalores se acoge al programa de educación financiera del Autorregulador del Mercado de Valores - AMV y por lo tanto a través de éste adelanta este programa, acceda al siguiente link 
+        <a href="https://www.amvcolombia.org.co/" target="_blank">https://www.amvcolombia.org.co/</a>
+      </p>
+      <ul style="margin-bottom: 20px;">
+        <li>
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/Perfil-de-Riesgo-Operativo-Citivalores.pdf" target="_blank">
+            Perfil de Riesgo Operativo
+          </a>
+        </li>
+      </ul>
+
+      <h2 style="font-size: 18px; color: #255be3; font-weight:700; margin-top:30px; margin-bottom:14px;">Puntos de contacto</h2>
+      <p style="font-size: 15px; color:#0f172a; margin-bottom:10px;">
+        Para descargar y conocer el procedimiento de atención de Peticiones, Quejas o Reclamos (PQRs) haga clic <a href="https://www.citibank.com/icg/sa/latam/colombia/citivalores/assets/docs/PQR_Citivalores_Columbia.pdf">aquí</a>.
+      </p>
+
+      <div style="display:flex; align-items:center; gap:30px; margin: 18px 0 8px 0;">
+        <div style="display:flex; align-items:center; gap:10px;">
+            <img src="https://www.citibank.com/icg/sa/latam/colombia/citiservice/assets/img/icons/icon-call.png" alt="Teléfonos" style="width:48px; height:48px;">
+            <div>
+            <span style="font-weight:600; color:#255be3;">Teléfonos</span><br>
+            Bogotá: (57) 601 492 03 42
+            </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+            <img src="https://www.citibank.com/icg/sa/latam/colombia/citiservice/assets/img/icons/icon-contact.png" alt="Correo Electrónico" style="width:48px; height:48px;">
+            <div>
+            <span style="font-weight:600; color:#255be3;">Correo Electrónico</span><br>
+            <a href="mailto:colombia.citivalores@citi.com" style="color:#255be3;">colombia.citivalores@citi.com</a>
+            </div>
+        </div>
+      </div>
+        <p style="margin-bottom:20px;">Horario de atención: lunes a viernes (días hábiles) de 9:00 am hasta 5:00pm</p>
+
+
+      <h2 style="font-size: 18px; color: #255be3; font-weight:700; margin-top:28px; margin-bottom:14px;">Notificaciones legales</h2>
+      <div style="font-size:15px;margin-bottom:30px;">
+        Correo Electrónico: <a href="mailto:legalnotificacionescitivalores@citi.com">legalnotificacionescitivalores@citi.com</a>
+      </div>
+
+      <h2 style="font-size: 18px; color: #255be3; font-weight:700; margin-top:32px; margin-bottom:10px;">
+        <a href="informacion-consumidor-financiero.html" style="color:#255be3;text-decoration:underline;">Sistema de Atención a Consumidores Financieros SAC</a>
+      </h2>
+    </div>
+  </main>
+
+
+<section class="seccion-servicios">
+    <div class="contenedor-servicios">
+      <div class="columna-vigilado">
+        <div class="contenedor-vigilado">
+          <img src="imgs/vigilado.png" alt="Vigilado" class="imagen-vigilado">
+        </div>
+      </div>
+      <div class="columna-servicios">
+        <div class="grid-servicios">
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Tasas_tarifas.html';"
+          >
+            Tasas y Tarifas Vigentes
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Citidirect.html';"
+          >
+            CitiDirect
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='online_payments.html';"
+          >
+            Online Payments Channel
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Pago_dia2.html';"
+          >
+            Mis pagos al dia
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='pagos_PSE.html';"
+          >
+            PSE
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='';"
+          >
+            FXPulse
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='tarjetas_corporativas.html';"
+          >
+            Portal de tarjetas corporativas
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='informacion-consumidor-financiero.html';"
+          >
+            Sistema de Atencion al consumidor financiero SAC/Defensoria del Consumidor Financiero
+          </button>
+          </button>
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDA.pdf" class="boton-servicio" target="_blank" rel="noopener noreferrer">
+ 		 Programa de Transparencia PTEE Colrepfin LTDA
+	        </a>
+
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDAV2023_V_INGLES_VF2.pdf" class="boton-servicio boton-completo" target="_blank" rel="noopener noreferrer">
+     		TRANSPARENCY AND BUSINESS ETHICS PROGRAM (PTEE) COLREPFIN LTDA
+	        </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="texto-disclaimer">
+      <p>Productos y servicios financieros ofrecidos por Citibank - Colombia S.A. Citi y el diseño del arco es una marca registrada de servicios de Citigroup Inc. Carrera 9A # 99 - 02 Bogotá, Colombia</p>
+    </div>
+  </section>
+
+  <footer class="footer-principal">
+    <div class="contenedor-footer">
+      <div class="footer-izquierda">
+        <img src="imgs/citilogo.png" alt="Citi" class="logo-footer" />
+        <div class="enlaces-footer">
+          <a href="#" class="enlace-footer">Citigroup.com</a>
+          <a href="#" class="enlace-footer">Términos y Condiciones</a>
+          <a href="#" class="enlace-footer">Privacidad</a>
+        </div>
+      </div>
+      <div class="footer-derecha">
+        <div class="redes-sociales">
+          <a href="#" class="icono-social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-google-plus-g"></i></a>
+        </div>
+        <span class="copyright">&copy; 2003–2025 Citigroup Inc.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function cerrarModal() {
+      const modal = document.getElementById('modalAviso');
+      modal.style.display = 'none';
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

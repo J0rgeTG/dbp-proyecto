@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corresponsal en Banca de Inversión</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    
+    .contenido-principal {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .contenido-principal h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #255be3;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .navegacion-empresas-titulo {
+      font-weight: bold;
+      color: #255be3;
+      margin-bottom: 12px;
+      padding-left: 72px;
+    }
+    .navegacion-empresas-tabs {
+      display: flex;
+      margin: 0 auto 32px auto;
+      max-width: 900px;
+      padding-left: 72px;
+      gap: 16px;
+    }
+    .tab-empresa {
+      background: none;
+      border: none;
+      padding: 14px 0;
+      font-size: 16px;
+      font-weight: 500;
+      color: #0f172a;
+      cursor: pointer;
+      position: relative;
+    }
+    .tab-empresa:hover,
+    .tab-empresa:focus {
+      color: #255be3;
+    }
+    .tab-empresa:hover::after,
+    .tab-activa::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background-color: #255be3;
+    }
+    .tab-activa {
+      font-weight: bold;
+      color: #255be3;
+    }
+    .contenido-empresa {
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: 0px;
+    }
+    .contenido-empresa h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 36px 0 24px;
+      color: #0f172a;
+    }
+    .contenido-empresa ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+    .contenido-empresa ul li {
+      margin-bottom: 16px;
+    }
+    .contenido-empresa ul li a {
+      color: #0f172a;
+      text-decoration: underline;
+      transition: color 0.2s ease;
+    }
+    .contenido-empresa ul li a:hover {
+      color: #255be3;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+      z-index: 100;
+      width: 220px;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content a {
+      display: block;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #0f172a;
+    }
+    .dropdown-content a:hover {
+      color: #255be3;
+      background-color: #f1f5f9;
+    }
+    .dropdown-content a.active {
+      color: #255be3;
+      border-bottom: 2px solid #255be3;
+    }
+  </style>
+</head>
+<body>
+  
+  
+  <header class="header-principal">
+    <div class="contenedor-header">
+      <img src="imgs/citilogo.png" alt="Citi" class="logo-citi" />
+    </div>
+  </header>
+
+  <main class="contenido-principal">
+    <h1>Corresponsal en Banca de Inversión</h1>
+    <div style="margin-top: 100px;" class="navegacion-empresas-titulo">Colombia</div>
+    <div class="navegacion-empresas-tabs" style="gap:90px;justify-content:center;margin-bottom: 40px;">
+      <button onclick="window.location.href='index.html'" class="tab-empresa">Página Principal</button>
+      <div class="dropdown">
+        <button class="tab-empresa ">Citibank Colombia S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="citibak-colombia.html">Página Principal</a>
+          <a href="informacion-institucional.html">Información Institucional</a>
+          <a href="productos-servicios.html">Productos y Servicios</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="tab-empresa tab-activa">Citivalores S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="citivalores.html">Página principal</a>
+          <a href="corresponsal-inversiones.html">Corresponsal en Inversiones Globales</a>
+          <a href="corresponsal-banca.html">Corresponsal en Banca de Inversión</a>
+          <a href="etf.html">ETF MSCI COLCAP</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="tab-empresa">Cititrust S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="Cititrust.html">Página Principal</a>
+          <a href="#">Servicios de Custodia</a>
+          <a href="#">Fiducia Estructurada</a>
+          <a href="#">Links frecuentes</a>
+        </div>
+      </div>
+    </div>
+
+<div class="contenido-empresa">
+
+  <div style="margin-bottom:16px; line-height:1.4; font-size: 14px;">
+    Disfrute de los servicios, conocimientos y experiencia de una Banca de Inversión Global con importante presencia local.
+  </div>
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:10px;font-weight:600;font-size: 22px;">Mercado de Capitales Internacionales</h2>
+ 
+  <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    Conocimiento en el mercado internacional.
+  </div>
+  <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    Citivalores le brinda información con herramientas que hacen más productivos y rentables sus negocios, ofreciéndole acceso a financiación en los mercados de capitales internacionales. Conquiste el mercado global. Características:
+  </div>
+  <ul style="margin-left:20px;margin-bottom:20px;margin-bottom: 16px;line-height: 1.3;font-size: 14px;">
+        <li>Acceso a financiaciones a largo plazo.</li>
+        <li>Respaldo y experiencia global.</li>
+  </ul>
+  <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    Citigroup Global Markets Inc., con el apoyo de Citivalores su corresponsal en Colombia, está en capacidad de brindar asesoría para colocar diferentes tipos de títulos en el mercado internacional.
+  </div>
+
+  <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    La amplitud de esta plataforma de negocios le permite ejecutar complejos financiamientos en múltiples monedas, y la habilidad de distribuir títulos institucionales.
+  </div>
+  <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    Citigroup Global Markets Inc. proporciona una alta gama de servicios que proveen acceso al mercado de capitales internacional. Estos servicios contemplan instrumentos tanto de deuda como de capital. Se presta un servicio integral de asesoría al cliente, analizando las posibilidades de acceso al mercado, de acuerdo con sus necesidades y condiciones de mercado. Su extensa red de distribución ofrece el posicionamiento del título y del emisor en los diferentes nichos del mercado.
+  </div>
+  <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    Beneficios:
+  </div>
+  <ul style="margin-left:20px;margin-bottom:20px;margin-bottom: 16px;line-height: 1.3;font-size: 14px;">
+        <li>Proporciona a los clientes acceso a financiaciones en diversas monedas a más largo plazo, con costos competitivos.</li>
+        <li>Diversifica la fuente de financiación, conservando la capacidad existente entre las instituciones financieras, y ampliando a nivel internacional la base de inversionistas.</li>
+  </ul>
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:10px;font-weight:600;font-size: 22px;">Préstamos Sindicados</h2>
+ 
+  <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    Estrategias innovadoras en el mercado nacional e internacional.
+  </div>
+  <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    Obtenga recursos en el mercado financiero ya sea en moneda nacional o extranjera. Disfrute de los servicios, conocimientos y experiencia de una Banca de Inversión Global con importante presencia local.
+  </div>
+  <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    Manejo unificado de créditos. Características:
+  </div>
+  <ul style="margin-left:20px;margin-bottom:20px;margin-bottom: 16px;line-height: 1.3;font-size: 14px;">
+        <li>Conocimiento del mercado.</li>
+        <li>Mejora el poder de negociación frente a los bancos.</li>
+        <li>Facilidad en el manejo de créditos.</li>
+  </ul>
+  <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    El crédito sindicado es una modalidad de préstamo en la cual participan varios bancos en un sólo paquete crediticio, unificando los términos y condiciones de los préstamos, facilitando el manejo del crédito al cliente, y permitiendo a su vez garantizar a los bancos igualdad de condiciones entre los participantes. El sindicado asegura la unificación de la documentación y un sólo agente dentro del proceso, lo cual se traduce en menores costos y mayor adecuación de las facilidades a las necesidades específicas del cliente.
+  </div>
+  <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    Nuestra experiencia en la coordinación de grupos de bancos locales y globales, nos otorga la capacidad de obtener recursos en el mercado financiero, ya sea en moneda nacional o extranjera. Estos recursos pueden ser utilizados, entre otros, para financiar adquisiciones y proyectos específicos.
+  </div>
+  <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    El proceso permite lograr una mayor coordinación entre los bancos participantes para obtener los mejores precios del mercado y óptimo poder de negociación del normalmente alcanzado en forma bilateral con cada uno de los bancos.El proceso permite lograr una mayor coordinación entre los bancos participantes para obtener los mejores precios del mercado y óptimo poder de negociación del normalmente alcanzado en forma bilateral con cada uno de los bancos.
+  </div>
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:10px;font-weight:600;font-size: 22px;">Estructuración de Financiación de Proyectos</h2>
+ 
+  <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    Productividad y rentabilidad en sus proyectos.
+  </div>
+  <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    Obtenga asesoría en la financiación de sus proyectos de infraestructura y servicios. Hacemos realidad las grandes ideas.
+  </div>
+  <ul style="margin-left:20px;margin-bottom:20px;margin-bottom: 16px;line-height: 1.3;font-size: 14px;">
+        <li>Asesoría integral.</li>
+        <li>Diversas fuentes de financiación.</li>
+  </ul>
+
+  <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    Este esquema hace referencia a la financiación de proyectos específicos, cuyo repago se basa principalmente en los flujos de caja del proyecto, distribuyendo el riesgo entre el proveedor de la materia prima, el constructor del proyecto y/o el comprador final del bien o servicio producido. Constituye una alternativa interesante para nuevos proyectos en etapa de implementación, cuyos resultados esperados son de gran crecimiento y proyección, especialmente en infraestructura y servicios, facilitando la inversión de grandes recursos en Colombia. Asesoramos a nuestros clientes en el proceso de estructuración de la financiación y coordinación en la consecución de los recursos (vía sindicación bancaria, mercados de capitales, inversionistas institucionales, colocaciones privadas) dependiendo del resultado de la estructuración financiera, acorde con las necesidades y expectativas del proyecto en el largo plazo.
+  </div>
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:10px;font-weight:600;font-size: 22px;">Asesoría en Fusiones y Adquisiciones</h2>
+ 
+  <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    Experiencia global.
+  </div>
+    <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    Ofrecemos asesoría financiera al cliente en la viabilidad y/o ejecución de compra, venta, fusión de compañías y/o proyectos. Con extensa experiencia en el mercado, contamos con la experiencia global de Citigroup en asesoría de fusiones y adquisiciones, un profundo conocimiento de los diferentes sectores y contactos entre los jugadores relevantes del sector.
+  </div>
+    <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    Su mano derecha en sus grandes decisiones. Características:
+  </div>
+  <ul style="margin-left:20px;margin-bottom:20px;margin-bottom: 16px;line-height: 1.3;font-size: 14px;">
+        <li>Asesoría integral en la negociación de sus transacciones.</li>
+        <li>Proporciona la experiencia de transacciones similares a nivel global, para aplicar en la negociación específica.</li>
+  </ul>
+  <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    Asesoramos al cliente en:
+  </div>
+  <ul style="margin-left:20px;margin-bottom:20px;margin-bottom: 16px;line-height: 1.3;font-size: 14px;">
+        <li>Búsqueda de compañías para compra, venta y fusión.</li>
+        <li>Organización y análisis de la información del negocio.</li>
+        <li>Valoración del negocio.</li>
+        <li>Definición de riesgos y oportunidades potenciales de la operación.</li>
+        <li>Análisis de viabilidad financiera.</li>
+        <li>Diseño de la estrategia de negociación.</li>
+        <li>Estructuración de los términos y condiciones para la ejecución de la operación.</li>
+        <li>Asesoramiento al cliente en el proceso de negociación.</li>
+  </ul>
+  <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:10px;font-weight:600;font-size: 22px;">Financiación a través de Agencia</h2>
+ 
+  <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    Experiencia y contactos a nivel global.
+  </div>
+  <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    Citivalores, como corresponsal de Citigroup Global Markets Inc. - una de las Bancas de Inversión más reconocidas a nivel internacional-, y como miembro de Citigroup, tiene acceso a su red global presente en más de 100 países, y a su relación con agencias promotoras de exportaciones y desarrollo.
+  </div>
+    <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    Ofrecemos la estructuración de financiamiento de largo plazo, usualmente para proyectos de inversión y bienes de capital con el soporte de agencias gubernamentales promotoras de exportaciones del país de origen (como EximBank, Bancoldex, Hermes, Coface, EDC y otras), y agencias gubernamentales de países desarrollados promotoras del desarrollo en países emergentes (como OPIC).
+  </div>
+    <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    Como cliente, puede beneficiarse obteniendo financiamientos considerablemente de más largo plazo que lo disponible en el mercado local y a tasas más accesibles. Ideal para proyectos de infraestructura en las áreas de industrias específicas.
+  </div>
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:10px;font-weight:600;font-size: 22px;">Mercado de Capitales Locales</h2>
+ 
+  <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    Conocimiento de industrias
+  </div>
+  <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    A través de Citivalores S.A. Comisionista de Bolsa, ofrecemos a los clientes corporativos la oportunidad de poder financiarse en el mercado de capitales local mediante emisiones de bonos, papeles comerciales y acciones, titularizaciones, así como otras estructuras. Los productos del mercado de capitales son una alternativa atractiva para obtener flexibilidad en tasas y plazos.
+  </div>
+  <div style="margin-bottom:20px; line-height:1.4; font-size: 14px;">
+    Un mundo de oportunidades. Características:
+  </div>
+  <ul style="margin-left:20px;margin-bottom:20px;margin-bottom: 16px;line-height: 1.3;font-size: 14px;">
+        <li>Diversificación de la fuente de financiación</li>
+        <li>Flexibilidad en tasas y plazos</li>
+  </ul>
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:10px;font-weight:600;font-size: 22px;">Tenemos la capacidad de estructurar y colocar diferentes tipos de títulos en el mercado local. Beneficios:</h2>
+ 
+  <ul style="margin-left:20px;margin-bottom:20px;margin-bottom: 16px;line-height: 1.3;font-size: 14px;">
+        <li>Proporciona a los clientes acceso a financiaciones a más largo plazo, con costos sustancialmente menores.</li>
+        <li>Diversifica la fuente de financiación, conservando la capacidad existente entre las instituciones financieras.</li>
+  </ul>
+
+
+</div>
+</main>
+
+
+  <section class="seccion-servicios">
+    <div class="contenedor-servicios">
+      <div class="columna-vigilado">
+        <div class="contenedor-vigilado">
+          <img src="imgs/vigilado.png" alt="Vigilado" class="imagen-vigilado">
+        </div>
+      </div>
+      <div class="columna-servicios">
+        <div class="grid-servicios">
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Tasas_tarifas.html';"
+          >
+            Tasas y Tarifas Vigentes
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Citidirect.html';"
+          >
+            CitiDirect
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='online_payments.html';"
+          >
+            Online Payments Channel
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Pago_dia2.html';"
+          >
+            Mis pagos al dia
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='pagos_PSE.html';"
+          >
+            PSE
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='';"
+          >
+            FXPulse
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='tarjetas_corporativas.html';"
+          >
+            Portal de tarjetas corporativas
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='informacion-consumidor-financiero.html';"
+          >
+            Sistema de Atencion al consumidor financiero SAC/Defensoria del Consumidor Financiero
+          </button>
+          </button>
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDA.pdf" class="boton-servicio" target="_blank" rel="noopener noreferrer">
+ 		 Programa de Transparencia PTEE Colrepfin LTDA
+	        </a>
+
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDAV2023_V_INGLES_VF2.pdf" class="boton-servicio boton-completo" target="_blank" rel="noopener noreferrer">
+     		TRANSPARENCY AND BUSINESS ETHICS PROGRAM (PTEE) COLREPFIN LTDA
+	        </a>
+        </div>
+      </div>
+    </div>
+    <div class="texto-disclaimer">
+      <p>Productos y servicios financieros ofrecidos por Citibank - Colombia S.A. Citi y el diseño del arco es una marca registrada de servicios de Citigroup Inc. Carrera 9A # 99 - 02 Bogotá, Colombia</p>
+    </div>
+  </section>
+
+
+  <footer class="footer-principal">
+    <div class="contenedor-footer">
+      <div class="footer-izquierda">
+        <img src="imgs/citilogo.png" alt="Citi" class="logo-footer" />
+        <div class="enlaces-footer">
+          <a href="#" class="enlace-footer">Citigroup.com</a>
+          <a href="#" class="enlace-footer">Términos y Condiciones</a>
+          <a href="#" class="enlace-footer">Privacidad</a>
+        </div>
+      </div>
+      <div class="footer-derecha">
+        <div class="redes-sociales">
+          <a href="#" class="icono-social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-google-plus-g"></i></a>
+        </div>
+        <span class="copyright">&copy; 2003–2025 Citigroup Inc.</span>
+      </div>
+    </div>
+  </footer>
+  <script>
+    function cerrarModal() {
+      document.getElementById('modalAviso').style.display = 'none';
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

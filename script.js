@@ -1,11 +1,10 @@
-// CONFIGURACION GLOBAL
+
 const CONFIG = {
   animacionDuracion: 300,
-  efectoParallax: false, // DESACTIVADO para evitar movimiento
+  efectoParallax: false, 
   debugMode: false
 };
 
-// URLS DE NAVEGACION
 const URLS_EMPRESA = {
   citibank: '/citibank-colombia',
   citivalores: '/citivalores',
@@ -25,7 +24,6 @@ const URLS_SERVICIOS = {
   transparency: '/transparency-program'
 };
 
-// FUNCIONES DE NAVEGACION
 function navegarEmpresa(tipoEmpresa) {
   const url = URLS_EMPRESA[tipoEmpresa];
   
@@ -33,14 +31,11 @@ function navegarEmpresa(tipoEmpresa) {
     console.log('Navegando a empresa:', tipoEmpresa, 'URL:', url);
   }
   
-  // Agregar efecto visual antes de navegar
   const boton = event.target;
   boton.style.transform = 'scale(0.95)';
   
   setTimeout(() => {
     boton.style.transform = '';
-    // Descomentar para navegacion real
-    // window.location.href = url;
   }, 150);
 }
 
@@ -51,27 +46,20 @@ function abrirServicio(tipoServicio) {
     console.log('Abriendo servicio:', tipoServicio, 'URL:', url);
   }
   
-  // Agregar efecto visual antes de abrir
   const boton = event.target;
   boton.style.transform = 'scale(0.98)';
   
   setTimeout(() => {
     boton.style.transform = '';
-    // Descomentar para navegacion real
-    // window.open(url, '_blank');
   }, 100);
 }
 
-// EFECTOS VISUALES - SIMPLIFICADOS
+
 function inicializarEfectos() {
-  // PARALLAX DESACTIVADO completamente
-  // configurarParallax();
-  
   configurarAnimacionesEntrada();
   configurarEfectosHover();
 }
 
-// ELIMINADA FUNCION configurarParallax() completamente
 
 function configurarAnimacionesEntrada() {
   const botonesEmpresa = document.querySelectorAll('.boton-empresa');
@@ -102,7 +90,6 @@ function configurarEfectosHover() {
   });
 }
 
-// UTILIDADES
 function debounce(func, wait) {
   let timeout;
   return function executedFunction(...args) {
@@ -128,22 +115,16 @@ function throttle(func, limit) {
   };
 }
 
-// MANEJO DE ERRORES
 function manejarError(error, contexto = '') {
   if (CONFIG.debugMode) {
     console.error('Error en', contexto, ':', error);
   }
-  
-  // Aqui se podria enviar el error a un servicio de monitoreo
-  // enviarErrorAServicio(error, contexto);
 }
 
-// RESPONSIVE Y ADAPTABILIDAD - SIMPLIFICADO
 function configurarResponsive() {
   const mediaQuery = window.matchMedia('(max-width: 768px)');
   
   function manejarCambioTamano(e) {
-    // Parallax siempre desactivado
     CONFIG.efectoParallax = false;
   }
   
@@ -151,7 +132,6 @@ function configurarResponsive() {
   manejarCambioTamano(mediaQuery);
 }
 
-// INICIALIZACION
 document.addEventListener('DOMContentLoaded', function() {
   try {
     inicializarEfectos();
@@ -165,20 +145,16 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// EVENTOS GLOBALES
 window.addEventListener('load', function() {
-  // Codigo que se ejecuta cuando todos los recursos estan cargados
   document.body.classList.add('completamente-cargado');
 });
 
 window.addEventListener('beforeunload', function() {
-  // Limpieza antes de salir de la pagina
   if (CONFIG.debugMode) {
     console.log('Limpiando recursos antes de salir');
   }
 });
 
-// EXPORTAR FUNCIONES PARA USO GLOBAL
 window.CitibankApp = {
   navegarEmpresa,
   abrirServicio,

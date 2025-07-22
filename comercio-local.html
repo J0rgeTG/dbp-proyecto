@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comercio Exterior y Local</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    
+    .contenido-principal {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .contenido-principal h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #255be3;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .navegacion-empresas-titulo {
+      font-weight: bold;
+      color: #255be3;
+      margin-bottom: 12px;
+      padding-left: 72px;
+    }
+    .navegacion-empresas-tabs {
+      display: flex;
+      margin: 0 auto 32px auto;
+      max-width: 900px;
+      padding-left: 72px;
+      gap: 16px;
+    }
+    .tab-empresa {
+      background: none;
+      border: none;
+      padding: 14px 0;
+      font-size: 16px;
+      font-weight: 500;
+      color: #0f172a;
+      cursor: pointer;
+      position: relative;
+    }
+    .tab-empresa:hover,
+    .tab-empresa:focus {
+      color: #255be3;
+    }
+    .tab-empresa:hover::after,
+    .tab-activa::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background-color: #255be3;
+    }
+    .tab-activa {
+      font-weight: bold;
+      color: #255be3;
+    }
+    .contenido-empresa {
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: 0px;
+    }
+    .contenido-empresa h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 36px 0 24px;
+      color: #0f172a;
+    }
+    .contenido-empresa ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+    .contenido-empresa ul li {
+      margin-bottom: 16px;
+    }
+    .contenido-empresa ul li a {
+      color: #0f172a;
+      text-decoration: underline;
+      transition: color 0.2s ease;
+    }
+    .contenido-empresa ul li a:hover {
+      color: #255be3;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+      z-index: 100;
+      width: 220px;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content a {
+      display: block;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #0f172a;
+    }
+    .dropdown-content a:hover {
+      color: #255be3;
+      background-color: #f1f5f9;
+    }
+    .dropdown-content a.active {
+      color: #255be3;
+      border-bottom: 2px solid #255be3;
+    }
+  </style>
+</head>
+<body>
+  
+  
+  <header class="header-principal">
+    <div class="contenedor-header">
+      <img src="imgs/citilogo.png" alt="Citi" class="logo-citi" />
+    </div>
+  </header>
+
+  <main class="contenido-principal">
+    <h1>Productos para Comercio Local</h1>
+    <div style="margin-top: 100px;" class="navegacion-empresas-titulo">Colombia</div>
+    <div class="navegacion-empresas-tabs" style="gap:90px;justify-content:center;margin-bottom: 40px;">
+      <button onclick="window.location.href='index.html'" class="tab-empresa">Página Principal</button>
+      <div class="dropdown">
+        <button class="tab-empresa tab-activa">Citibank Colombia S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="citibak-colombia.html">Página Principal</a>
+          <a href="informacion-institucional.html">Información Institucional</a>
+          <a href="productos-servicios.html">Productos y Servicios</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="tab-empresa">Citivalores S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="citivalores.html">Página principal</a>
+          <a href="corresponsal-inversiones.html">Corresponsal en Inversiones Globales</a>
+          <a href="corresponsal-banca.html">Corresponsal en Banca de Inversión</a>
+          <a href="etf.html">ETF MSCI COLCAP</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="tab-empresa">Cititrust S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="Cititrust.html">Página Principal</a>
+          <a href="#">Servicios de Custodia</a>
+          <a href="#">Fiducia Estructurada</a>
+          <a href="#">Links frecuentes</a>
+        </div>
+      </div>
+    </div>
+
+<div class="contenido-empresa">
+
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:10px;font-weight:600;font-size: 22px;">Productos para Comercio Local</h2>
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:18px;font-weight:600;font-size: 18px;">Cartas de Crédito Standby - SBLCs</h2>
+
+  <div style="margin-bottom:16px; line-height:1.4; font-size: 14px;">
+    En este mecanismo de pago secundario, el banco emite una Carta de Crédito Standby en nombre del cliente (ordenante) a favor del beneficiario, con el fin de proveerle la seguridad de que el ordenante cumplirá con los términos y condiciones de un contrato establecido entre ambas partes.
+  </div>
+  <div style="margin-bottom:16px; line-height:1.4; font-size: 14px;">
+    El beneficiario puede hacer efectiva la Carta de Crédito Standby ante el banco a través de la presentación de una solicitud de ejecución acompañada de los requisitos de ejecución establecidos en la Carta de Crédito Standby a su favor.
+  </div>
+  <div style="margin-bottom:16px; line-height:1.4; font-size: 14px;">
+    El banco está obligado a pagar la Carta de Crédito Standby si el beneficiario presenta los documentos que se establecen como requisitos de ejecución en la Carta de Crédito Standby. Por lo general este instrumento se solicita para garantizar el cumplimiento de obligaciones a una contra parte fuera del país dado que se rigen por lineamientos internacionales conocidos a nivel global y regulados por la Cámara de Comercio Internacional.
+  </div>
+  <div style="margin-bottom:16px; line-height:1.4; font-size: 14px;">
+    Citibank puede hacer emisión de las siguientes Cartas de Crédito Standby:
+  </div>
+
+  <ul style="margin-left:20px;margin-bottom:15px;line-height: 1.3;font-size: 14px;">
+    <li>Comerciales: Garantizan el pago o cumplimento de contratos relacionados con la compra o venta de bienes o servicios.</li>
+    <li>Avance de Pagos: Aseguran el correcto uso de un pago adelantado al proveedor de bienes o servicios.</li>
+    <li>Seriedad de Oferta: Respaldan el cumplimento de las ofertas presentadas a un contratante de bienes o servicios.</li>
+    <li>Cumplimiento: Garantizan el cumplimento de lo establecido en un contrato en lo relativo a calidad, tiempos de entrega, etc.</li>
+    <li>Contra Garantía: Avalan el riesgo de emisión de una garantía local por otra entidad bancaria local o en el exterior.</li>
+    <li>Crediticia: Certifican a una entidad bancaria del exterior para que esta extienda líneas de crédito a una subsidiaria del cliente.</li>
+  </ul>
+  <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:18px;font-weight:600;font-size: 18px;">Garantías Bancarias</h2>
+
+  <div style="margin-bottom:16px; line-height:1.4; font-size: 14px;">
+    Las Garantías Bancarias pueden ser usadas como un mecanismo de pago secundario. El banco emite una Garantía Bancaria en nombre del cliente (ordenante) a favor del beneficiario con el fin de proveer al beneficiario la seguridad de que el ordenante cumplirá con los términos y condiciones de un contrato establecido entre ambos.
+  </div>
+  <div style="margin-bottom:16px; line-height:1.4; font-size: 14px;">
+    El beneficiario puede hacer efectiva la Garantía Bancaria ante el banco a través de la presentación de una solicitud de ejecución acompañada de los documentos indicados en la Garantía Bancaria.
+  </div>
+    <div style="margin-bottom:16px; line-height:1.4; font-size: 14px;">
+    El banco está obligado a pagar la Garantía Bancaria si el beneficiario presenta los documentos que se establecen como requisitos de ejecución en ésta. Las Garantías Bancarias, son solicitadas para garantizar el cumplimiento de obligaciones a una contra parte dentro del país dado que se rigen en primera instancia por la Ley Colombiana.
+  </div>
+    <div style="margin-bottom:16px; line-height:1.4; font-size: 14px;">
+    Citibank puede hacer emisión de las siguientes Garantías Bancarias:
+  </div>
+
+  <ul style="margin-left:20px;margin-bottom:15px;line-height: 1.3;font-size: 14px;">
+    <li>Comerciales: Garantizan el pago o cumplimento de contratos relacionados con la compra o venta de bienes o servicios.</li>
+    <li>Avance de Pagos: Aseguran el correcto uso de un pago adelantado al proveedor de bienes o servicios.</li>
+    <li>Seriedad de Oferta: Respaldan el cumplimento de las ofertas presentadas a un contratante de bienes o servicios.</li>
+    <li>Cumplimiento: Garantizan el cumplimento de lo establecido en un contrato en lo relativo a calidad, tiempos de entrega, etc.</li>
+  </ul>
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:18px;font-weight:600;font-size: 18px;">Financiación de Compras Locales</h2>
+
+  <div style="margin-bottom:16px; line-height:1.4; font-size: 14px;">
+    Citibank Colombia S.A. ofrece créditos en Pesos Colombianos con el fin de apoyar a sus clientes en las necesidades de liquidez relacionadas con el pago de obligaciones a proveedores locales. Las condiciones para el financiamiento de necesidades de liquidez derivadas de compras de bienes o servicios locales se determinan basándose en el ciclo operativo de cada cliente. La documentación requerida para soportar el crédito dependerá de cada caso.
+  </div>
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:18px;font-weight:600;font-size: 18px;">Programa de Descuento de Cuentas por Cobrar</h2>
+
+  <div style="margin-bottom:16px; line-height:1.4; font-size: 14px;">
+    Esta es una fuente de liquidez para clientes de Citibank Colombia S.A. que tienen cuentas por cobrar que desean adelantar. En este tipo de programa, la relación primaria se tiene con el vendedor de bienes o servicios con el cual se puede establecer un acuerdo de compra de cuentas por cobrar considerando recurso crediticio completo, limitado o sin recurso al vendedor.
+  </div>
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:18px;font-weight:600;font-size: 18px;">Programa de Adelanto de Pago a Proveedores “Citi Supplier Finance”</h2>
+
+  <div style="margin-bottom:16px; line-height:1.4; font-size: 14px;">
+    “Citi Supplier Finance” es un servicio de pagos ofrecido a los Clientes Corporativos de Citibank, quienes a través de la Banca Electrónica de Citibank instruyen la realización de pagos futuros a sus proveedores. Los proveedores tendrán la oportunidad de anticipar los pagos programados a su favor al volverse usuarios de este servicio de uso opcional, que no requiere que el Proveedor se vincule como cliente de Citibank, no le exige exclusividad, pagarés o permanencia.
+  </div>
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:20px;margin-bottom:18px;font-weight:600;font-size: 18px;">Información Importante</h2>
+
+  <div style="margin-bottom:16px; line-height:1.4; font-size: 14px;">
+    Si tiene inquietudes relacionadas con los productos anteriormente descritos o requiere más información sobre las condiciones del producto, tales como: requisitos mínimos para acceder, procedimientos para la apertura y finalización, documentación, sus derechos y obligaciones y/o tasas y tarifas negociadas, por favor consulte el documento/contrato suscrito con el banco.
+  </div>
+  <div style="margin-bottom:16px; line-height:1.4; font-size: 14px;">
+    Para recibir atención personalizada, puede comunicarse con CitiService en los canales de atención al cliente, disponibles en: <a href="https://www.citibank.com/icg/sa/latam/colombia/citiservice/">https://www.citibank.com/icg/sa/latam/colombia/citiservice/</a>
+  </div>
+  <div style="margin-bottom:16px; line-height:1.4; font-size: 14px;">
+    Para conocer las tarifas no negociadas de los mismos consulte: <a href="https://www.citibank.com/icg/sa/latam/colombia/current-rates.html">https://www.citibank.com/icg/sa/latam/colombia/current-rates.html</a>
+  </div>
+  <div style="margin-bottom:0px; line-height:1.4; font-size: 14px; font-style: italic;">
+    Esta información se encuentra vigente desde marzo 2024 (fecha de su última actualización)
+  </div>
+
+
+</div>
+
+  </main>
+
+  <section class="seccion-servicios">
+    <div class="contenedor-servicios">
+      <div class="columna-vigilado">
+        <div class="contenedor-vigilado">
+          <img src="imgs/vigilado.png" alt="Vigilado" class="imagen-vigilado">
+        </div>
+      </div>
+      <div class="columna-servicios">
+        <div class="grid-servicios">
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Tasas_tarifas.html';"
+          >
+            Tasas y Tarifas Vigentes
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Citidirect.html';"
+          >
+            CitiDirect
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='online_payments.html';"
+          >
+            Online Payments Channel
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Pago_dia2.html';"
+          >
+            Mis pagos al dia
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='pagos_PSE.html';"
+          >
+            PSE
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='';"
+          >
+            FXPulse
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='tarjetas_corporativas.html';"
+          >
+            Portal de tarjetas corporativas
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='informacion-consumidor-financiero.html';"
+          >
+            Sistema de Atencion al consumidor financiero SAC/Defensoria del Consumidor Financiero
+          </button>
+          </button>
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDA.pdf" class="boton-servicio" target="_blank" rel="noopener noreferrer">
+ 		 Programa de Transparencia PTEE Colrepfin LTDA
+	        </a>
+
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDAV2023_V_INGLES_VF2.pdf" class="boton-servicio boton-completo" target="_blank" rel="noopener noreferrer">
+     		TRANSPARENCY AND BUSINESS ETHICS PROGRAM (PTEE) COLREPFIN LTDA
+	        </a>
+        </div>
+      </div>
+    </div>
+    <div class="texto-disclaimer">
+      <p>Productos y servicios financieros ofrecidos por Citibank - Colombia S.A. Citi y el diseño del arco es una marca registrada de servicios de Citigroup Inc. Carrera 9A # 99 - 02 Bogotá, Colombia</p>
+    </div>
+  </section>
+  
+  <footer class="footer-principal">
+    <div class="contenedor-footer">
+      <div class="footer-izquierda">
+        <img src="imgs/citilogo.png" alt="Citi" class="logo-footer" />
+        <div class="enlaces-footer">
+          <a href="#" class="enlace-footer">Citigroup.com</a>
+          <a href="#" class="enlace-footer">Términos y Condiciones</a>
+          <a href="#" class="enlace-footer">Privacidad</a>
+        </div>
+      </div>
+      <div class="footer-derecha">
+        <div class="redes-sociales">
+          <a href="#" class="icono-social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-google-plus-g"></i></a>
+        </div>
+        <span class="copyright">&copy; 2003–2025 Citigroup Inc.</span>
+      </div>
+    </div>
+  </footer>
+  <script>
+    function cerrarModal() {
+      document.getElementById('modalAviso').style.display = 'none';
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -8,8 +8,8 @@
   <meta name="description" content="With the most diverse array of products and the broadest global reach of any financial firm in the world, there is no bank better equipped to meet your corporation's evolving global needs.">
   <meta content="index,follow" name="Googlebot">
   <meta content="index,follow" name="robots">
+  <link rel="stylesheet" href="styles.css">
   
-  <!-- CSS -->
   <style>
     body {
     width: 80%;
@@ -149,7 +149,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
 }
 
-/* NAV EMPRESAS */
+
 .seccion-navegacion-empresas,
 .contenido-empresa {
   max-width: 900px;
@@ -199,7 +199,7 @@ h1, h2, h3, h4, h5, h6 {
   background: #f3f4f6;
 }
 
-/* ENLACES EMPRESA */
+
 .enlaces-empresa {
   display: flex;
   flex-direction: column;
@@ -219,7 +219,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Citi Sans Display', Arial, sans-serif;
 }
 
-/* RESET Y CONFIGURACION BASE */
+
 * {
   margin: 0;
   padding: 0;
@@ -233,16 +233,15 @@ body {
   line-height: 1.2em;
   font-weight: normal;
   overflow-x: hidden;
-  /* Eliminado el padding-top ya que el header no será fijo */
+ 
 }
 
-/* HEADER */
+
 .header-principal {
   background: #ffffff;
   border-bottom: 1px solid #e2e8f0;
   padding: 16px 0;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  /* Asegurar que sea completamente estático */
   position: static;
   display: block;
   width: 100%;
@@ -260,18 +259,15 @@ body {
   width: auto;
 }
 
-/* CONTENIDO PRINCIPAL */
+
 .contenido-principal {
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   padding: 40px 0;
-  /* Eliminado min-height y justify-content que causaban problemas */
 }
 
-/* BANNER COLOMBIA */
 .seccion-banner {
   padding: 20px;
   margin-bottom: 60px;
-  /* Asegurar que sea completamente estático */
   position: static;
   display: block;
 }
@@ -288,7 +284,6 @@ body {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   height: 500px;
   background: #334155;
-  /* Asegurar que no se superponga */
   z-index: 1;
 }
 
@@ -313,14 +308,12 @@ body {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* BOTONES EMPRESAS */
+
 .seccion-empresas {
   padding: 40px 20px;
-  /* Asegurar que sea completamente estático */
   position: static;
   display: block;
   background: transparent;
-  /* Separación clara del banner */
   margin-top: 20px;
   z-index: 1;
 }
@@ -367,12 +360,10 @@ body {
   box-shadow: 0 12px 32px rgba(146, 64, 14, 0.35);
 }
 
-/* SECCION SERVICIOS */
 .seccion-servicios {
   background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
   color: white;
   padding: 60px 0;
-  /* Asegurar separación clara de elementos anteriores */
   margin-top: 60px;
   position: static;
   display: block;
@@ -418,7 +409,6 @@ body {
   gap: 16px;
 }
 
-/* BOTONES SERVICIO MÁS NEGRITA */
 .boton-servicio {
   background: white;
   color: #1e40af;
@@ -627,22 +617,19 @@ body {
   <link rel="stylesheet" href="/tts/assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="/tts/assets/css/main-v2.css">
   <link rel="stylesheet" href="styles.css">
-  <!-- JS -->
+
   <script>
     function toggleDropdown(button) {
       const item = button.parentElement;
       const wasOpen = item.classList.contains('show');
   
-      // Cierra todos
       document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('show'));
   
-      // Si no estaba abierto, lo abre
       if (!wasOpen) {
         item.classList.add('show');
       }
     }
   
-    // Cierra si haces clic fuera
     document.addEventListener('click', function (e) {
       if (!e.target.closest('.menu-item')) {
         document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('show'));
@@ -665,7 +652,6 @@ body {
             </a>
   				</div>
   				<div id="main-header-lob">
-  					<!-- Aquí puedes añadir algún texto o enlace si lo deseas -->
   				</div>
   			</div>
   		</div>
@@ -678,7 +664,6 @@ body {
   </div>
   
   <section class="container pb-15">
-    <!-- Modal -->
     <div id="modalPop" class="modal fade" aria-hidden="true" style="display: none;">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -698,10 +683,8 @@ body {
     </div>
   
 <section class="container pb-15">
-    <!-- Modal -->
     <div id="modalPop" class="modal fade" style="display: none;" aria-hidden="true">
       <div class="modal-dialog modal-lg">    
-        <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">Información importante</button>
@@ -725,17 +708,14 @@ body {
     <div class="navbar-collapse collapse show">
       <ul class="nav navbar-nav sm-collapsible">
 
-        <!-- Colombia (solo título, no enlace ni submenú) -->
         <div class="titulo">Colombia</div>
 
         <div class="menu-horizontal">
         
-          <!-- Página Principal (no desplegable) -->
           <div class="menu-item">
             <a href="index.html" class="menu-link">Página Principal</a>
           </div>
-        
-          <!-- Citibank Colombia S.A. (sí desplegable) -->
+     
           <div class="menu-item">
             <div class="dropdown-button" onclick="toggleDropdown(this)">Citibank Colombia S.A.</div>
             <div class="dropdown-content">
@@ -745,7 +725,6 @@ body {
             </div>
           </div>
         
-          <!-- Citivalores S.A. (sí desplegable) -->
           <div class="menu-item">
             <div class="dropdown-button" onclick="toggleDropdown(this)">Citivalores S.A.</div>
             <div class="dropdown-content">
@@ -756,7 +735,6 @@ body {
             </div>
           </div>
         
-          <!-- Cititrust S.A. (sí desplegable) -->
           <div class="menu-item">
             <div class="dropdown-button" onclick="toggleDropdown(this)">Cititrust S.A.</div>
             <div class="dropdown-content">
@@ -880,7 +858,6 @@ body {
   
   <h3>
     <a href="informacion-consumidor-financiero.html" target="_self">Sistema de Atención a Consumidores Financieros SAC</a>
-    <!-- SECCION SERVICIOS (reutilizada) -->
   <section class="seccion-servicios">
     <div class="contenedor-servicios">
       <div class="columna-vigilado">
@@ -890,22 +867,70 @@ body {
       </div>
       <div class="columna-servicios">
         <div class="grid-servicios">
-	  <a href="Tasas_tarifas.html" class="boton-servicio">Tasas y Tarifas Vigentes</a>
-          <a href="Citidirect.html" class="boton-servicio">CitiDirect</a>
-          <a href="online_payments.html" class="boton-servicio">Online Payments Channel</a>
-          <a href="Pago_dia2.html" class="boton-servicio">Mis pagos al día</a>
-          <a href="pagos_PSE.html" class="boton-servicio">PSE</a>
-          <button class="boton-servicio" onclick="abrirServicio('fxpulse')">FXPulse</button>
-          <a href="tarjetas_corporativas.html" class="boton-servicio">Portal de Tarjetas Corporativas</a>
-          <a href="sistema_atencion.html" class="boton-servicio">Información Consumidor Financiero SAC</a>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Tasas_tarifas.html';"
+          >
+            Tasas y Tarifas Vigentes
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Citidirect.html';"
+          >
+            CitiDirect
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='online_payments.html';"
+          >
+            Online Payments Channel
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Pago_dia2.html';"
+          >
+            Mis pagos al dia
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='pagos_PSE.html';"
+          >
+            PSE
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='';"
+          >
+            FXPulse
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='tarjetas_corporativas.html';"
+          >
+            Portal de tarjetas corporativas
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='informacion-consumidor-financiero.html';"
+          >
+            Sistema de Atencion al consumidor financiero SAC/Defensoria del Consumidor Financiero
+          </button>
+          </button>
           <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDA.pdf" class="boton-servicio" target="_blank" rel="noopener noreferrer">
  		 Programa de Transparencia PTEE Colrepfin LTDA
-	  </a>
+	        </a>
 
           <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDAV2023_V_INGLES_VF2.pdf" class="boton-servicio boton-completo" target="_blank" rel="noopener noreferrer">
      		TRANSPARENCY AND BUSINESS ETHICS PROGRAM (PTEE) COLREPFIN LTDA
-	  </a>
-
+	        </a>
         </div>
       </div>
     </div>
@@ -914,10 +939,9 @@ body {
     </div>
   </section>
 
-  <!-- FOOTER -->
+  
   <footer class="footer-principal">
     <div class="contenedor-footer">
-      <!-- SECCION IZQUIERDA -->
       <div class="footer-izquierda">
         <img src="imgs\citilogo.png" alt="Citi" class="logo-footer">
         <div class="enlaces-footer">
@@ -926,7 +950,6 @@ body {
           <a href="#" class="enlace-footer">Privacidad</a>
         </div>
       </div>
-      <!-- SECCION DERECHA -->
       <div class="footer-derecha">
         <div class="redes-sociales">
           <a href="#" class="icono-social"><i class="fab fa-facebook-f"></i></a>

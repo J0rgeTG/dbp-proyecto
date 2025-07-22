@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soluciones de pagos</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    
+    .contenido-principal {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .contenido-principal h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #255be3;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .navegacion-empresas-titulo {
+      font-weight: bold;
+      color: #255be3;
+      margin-bottom: 12px;
+      padding-left: 72px;
+    }
+    .navegacion-empresas-tabs {
+      display: flex;
+      margin: 0 auto 32px auto;
+      max-width: 900px;
+      padding-left: 72px;
+      gap: 16px;
+    }
+    .tab-empresa {
+      background: none;
+      border: none;
+      padding: 14px 0;
+      font-size: 16px;
+      font-weight: 500;
+      color: #0f172a;
+      cursor: pointer;
+      position: relative;
+    }
+    .tab-empresa:hover,
+    .tab-empresa:focus {
+      color: #255be3;
+    }
+    .tab-empresa:hover::after,
+    .tab-activa::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background-color: #255be3;
+    }
+    .tab-activa {
+      font-weight: bold;
+      color: #255be3;
+    }
+    .contenido-empresa {
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: 0px;
+    }
+    .contenido-empresa h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 36px 0 24px;
+      color: #0f172a;
+    }
+    .contenido-empresa ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+    .contenido-empresa ul li {
+      margin-bottom: 16px;
+    }
+    .contenido-empresa ul li a {
+      color: #0f172a;
+      text-decoration: underline;
+      transition: color 0.2s ease;
+    }
+    .contenido-empresa ul li a:hover {
+      color: #255be3;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+      z-index: 100;
+      width: 220px;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content a {
+      display: block;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #0f172a;
+    }
+    .dropdown-content a:hover {
+      color: #255be3;
+      background-color: #f1f5f9;
+    }
+    .dropdown-content a.active {
+      color: #255be3;
+      border-bottom: 2px solid #255be3;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- HEADER Y NAVEGACION -->
+  <header class="header-principal">
+    <div class="contenedor-header">
+      <img src="imgs/citilogo.png" alt="Citi" class="logo-citi" />
+    </div>
+  </header>
+
+  <main class="contenido-principal">
+    <h1>Soluciones de pagos</h1>
+    <div style="font-size: 15px; color: #000000; margin-top: -10px; margin-bottom: 30px; text-align:left; max-width:900px; margin-left:auto; margin-right:auto;">
+      Fecha de actualización: marzo 7 de 2024
+    </div>
+    <div class="navegacion-empresas-titulo">Colombia</div>
+    <div class="navegacion-empresas-tabs" style="gap:90px;justify-content:center;">
+      <button onclick="window.location.href='index.html'" class="tab-empresa">Página Principal</button>
+      <div class="dropdown">
+        <button class="tab-empresa tab-activa">Citibank Colombia S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="citibak-colombia.html">Página Principal</a>
+          <a href="informacion-institucional.html">Información Institucional</a>
+          <a href="productos-servicios.html">Productos y Servicios</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="tab-empresa">Citivalores S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="citivalores.html">Página principal</a>
+          <a href="corresponsal-inversiones.html">Corresponsal en Inversiones Globales</a>
+          <a href="corresponsal-banca.html">Corresponsal en Banca de Inversión</a>
+          <a href="etf.html">ETF MSCI COLCAP</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="tab-empresa">Cititrust S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="Cititrust.html">Página Principal</a>
+          <a href="#">Servicios de Custodia</a>
+          <a href="#">Fiducia Estructurada</a>
+          <a href="#">Links frecuentes</a>
+        </div>
+      </div>
+    </div>
+
+<div class="contenido-empresa">
+
+  
+  <h2 style="color:#255be3;margin-top:30px;font-size:1.3em;margin-bottom:25px;font-weight:600;">Citibank Paylink<sup style="font-size:.7em;top:-.6em;position:relative;">®</sup> — Pagos en Moneda Local</h2>
+  <div style="margin-bottom:16px; line-height:1.4;">
+    Sistema electrónico de administración de transacciones locales que permite efectuar pagos de proveedores, nómina, regalías y subsidios, de forma ágil, segura y eficiente. Es una solución que le brinda la facilidad de ordenar pagos desde su oficina a través de múltiples instrumentos:
+  </div>
+  <ul style="margin-left:20px;margin-bottom:18px;">
+    <li>Transferencias a cuentas de Citibank<sup style="font-size:.8em;">®</sup> Colombia S.A. (Book to Book)</li>
+    <li>Transferencias a cuentas de otras instituciones financieras. (ACH o Sebra)</li>
+    <li>Cheques de gerencia entregados en la sucursal de Citibank Colombia S.A.</li>
+  </ul>
+  <div style="margin-bottom:16px; line-height: 1.4;">
+    Citibank Paylink le permite generar comprobantes de pago a sus beneficiarios, los cuales son entregados directamente por Citibank-Colombia S.A. Así mismo, CitiService<sup style="font-size:.7em;top:-.6em;position:relative;">®</sup> (nuestra línea de atención al cliente cuya información encuentra en la sección de CitiService) brinda la información del estado de sus pagos hechos a través de su banca electrónica CitiDirect BE<sup style="font-size:.7em;top:-.6em;position:relative;">®</sup>, permitiendo adicionalmente la atención de llamadas de sus beneficiarios y/o proveedores.
+  </div>
+  <div style="margin-bottom:16px;line-height: 1.4;">
+    Citibank Paylink, como producto integrado en CitiDirect BE<sup style="font-size:.7em;top:-.6em;position:relative;">®</sup>, cuenta con un sistema de encriptación en la transmisión del archivo de pagos, así como un esquema de perfiles de preparación y autorización de pagos, que le brinda confidencialidad, seguridad y confiabilidad.
+  </div>
+  <div style="margin-bottom:15px;font-weight:100;">Los horarios aplicables son:</div>
+  <ul style="margin-left:20px; line-height: 1.4;">
+    <li>
+      <b>Transferencias entre cuentas Citibank:</b> para que su transferencia se vea reflejada en la cuenta del destinatario el mismo día, debe realizarla a más tardar a las 6:00 p.m. Las transacciones hechas después de esta hora se reflejarán al día hábil siguiente. No tienen ningún límite en monto, salvo los configurados por el cliente.
+    </li>
+    <li>
+      <b>Transferencia interbancaria vía ACH:</b> para que su transferencia se vea reflejada en la cuenta del destinatario el mismo día, debe realizarla a más tardar a las 5:00 p.m. El límite máximo diario por transacción y beneficiario es de COP $200.000.000.000.
+    </li>
+    <li>
+      <b>Transferencias via Sebra:</b> Este tipo de transferencias deben realizarlas a más tardar a las 6:00 p.m.
+    </li>
+    <li>
+      <b>Cheques de gerencia:</b> la solicitud de cheques por CitiDirect BE<sup style="font-size:.7em;top:-.6em;position:relative;">®</sup> debe hacerse máximo hasta las 2:00 p.m. para su recolección el mismo día en la oficina de Citibank Colombia S.A.
+    </li>
+  </ul>
+  <div style="margin-bottom:16px;margin-top:18px; line-height: 1.4;">
+    En caso de requerir ampliación sobre la información de pagos, por favor comuníquese con el canal de atención al cliente CitiService o su gerente de relación/ventas.
+  </div>
+  <div style="margin-bottom:22px; line-height: 1.4;">
+    Recuerde que para conocer los derechos y obligaciones asociados a los productos y servicios puede consultar el siguiente enlace:
+    <a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/consumer-finance.html" target="_blank">https://www.citibank.com/icg/sa/latam/colombia/institutional-info/consumer-finance.html</a>
+  </div>
+  <div style="color:#444;font-size:14px;margin-bottom:40px;">Fecha de actualización: marzo 7 de 2024</div>
+
+  
+  <h2 style="color:#255be3;margin-top:30px;font-size:1.3em;margin-bottom:25px;font-weight:600;">MisPagosAlDía (MPAD) — Pagos Corporativos</h2>
+  <div style="margin-bottom:16px; line-height:1.6;">
+    MisPagosAlDia es un conjunto de canales electrónicos desde donde puede pagar automáticamente sus facturas de servicios públicos y privados de las entidades registradas en “MisPagosAlDia”, consultar sus pagos realizados, ver sus facturas pendientes y programar transacciones futuras.
+  </div>
+  <div style="margin-bottom:15px;">A continuación, encontrará algunos de los beneficios de este canal:</div>
+  <ul style="margin-left:20px;line-height: 1.4;">
+    <li><b>Pago programado:</b> programe el pago de facturas para que sean realizados automáticamente por el sistema, según las condiciones definidas por usted.</li>
+    <li><b>Consulta de pagos:</b> con <a href="pago_dia2.html" target="_blank">Mispagosaldia.com</a> usted tiene la posibilidad de llevar su contabilidad fácilmente pues el sistema le permite ver el histórico de pagos hasta por un año.</li>
+    <li><b>Todos sus pagos en un solo lugar:</b> usted puede registrar todos sus servicios públicos y/o privados y hacer los pagos desde un mismo lugar.</li>
+    <li><b>Notificaciones:</b> el sistema enviará correos electrónicos notificándole en los siguientes casos:
+      <ul style="margin-top:6px;">
+        <li>Cuando se registre un contrato nuevo.</li>
+        <li>Cuando se reciba una factura nueva para alguno de los contratos registrados por usted.</li>
+        <li>Cuando realice un pago a través de <a href="pago_dia2.html" target="_blank">Mispagosaldia.com</a> recibirá una confirmación por correo electrónico, con los datos del pago realizado.</li>
+        <li>Si un pago automático es rechazado.</li>
+      </ul>
+    </li>
+    <li><b>Seguridad:</b> realice sus pagos con tranquilidad, pague en línea y evite trasladarse con dinero en efectivo. <a href="pago_dia2.html" target="_blank">Mispagosaldia.com</a> cuenta con estándares de última tecnología que garantizan la seguridad de su información.</li>
+    <li>Recuerde que para el pago de las facturas registradas se deberá seguir un proceso dual de preparador y autorizador, en donde el preparador instruye el pago y el autorizador lo aprueba.</li>
+    <li>Con <a href="pago_dia2.html" target="_blank">Mispagosaldia.com</a> usted ahorra tiempo, pague desde la comodidad de su lugar de preferencia, sin filas ni desplazamientos.</li>
+    <li><b>Disponibilidad:</b> usted puede hacer sus pagos en cualquier momento del horario de servicio de MisPagosAlDía, desde las 8:00 am a 6:00 pm los días hábiles entre semana.</li>
+    <li><b>Respaldo:</b> <a href="pago_dia2.html" target="_blank">Mispagosaldia.com</a> cuenta con el respaldo de Citibank, miembro de Citigroup</li>
+  </ul>
+  <div style="margin-top:12px;margin-bottom:12px;">MisPagosAlDia® estará disponible para el Cliente de 8 a.m. a 6 p.m., los días hábiles entre semana.</div>
+  <div style="font-size:13.8px;margin-bottom:18px;">*Para realizar este pago, usted necesitará usuario de acceso a la aplicación PSE proveída por el banco desde donde desea hacer el pago.</div>
+  <div style="margin-bottom:18px; line-height: 1.4;">
+    En caso de requerir ampliación sobre la información de pagos, por favor no dude en comunicarse con el canal de atención al cliente CitiService o su gerente de relación/ventas.
+  </div>
+  <div style="margin-bottom:22px;line-height: 1.4;">
+    Recuerde que para conocer los derechos y obligaciones asociados a los productos y servicios puede consultar el siguiente enlace:
+    <a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/consumer-finance.html" target="_blank">https://www.citibank.com/icg/sa/latam/colombia/institutional-info/consumer-finance.html</a>
+  </div>
+  <div style="color:#444;font-size:14px;margin-bottom:40px;">Fecha de actualización: marzo 7 de 2024</div>
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:1.3em;margin-bottom:25px;font-weight:600;">Proveedores de Servicios Electrónicos - PSE</h2>
+  <div style="margin-bottom:16px; line-height:1.6;">
+    PSE de Citibank es un servicio para pagar facturas e impuestos desde una cuenta corriente o de ahorros a través de un portal de Internet. PSE permite realizar los pagos de seguridad social (SOI) e impuestos (DIAN y Secretaría Distrital de Hacienda de Bogotá) y de las cuentas pendientes en los comercios inscritos en el servicio. De acuerdo con los procedimientos de ACH COLOMBIA S.A. Hay un tiempo límite de 20 minutos para que el autorizador apruebe la transacción una vez ha sido iniciada por el preparador. Si es un pago de impuestos, el autorizador cuenta con 8 minutos para realizar la aprobación. Si la transacción no es autorizada en el rango de tiempo antes mencionado será rechazada automáticamente. Este rango de tiempo está definido por ACH COLOMBIA y puede ser modificado en el futuro.
+  </div>
+  <div style="margin-bottom:15px;">A continuación, encontrará algunos de los beneficios de este canal:</div>
+  <ul style="margin-left:20px;">
+    <li>Los pagos con el botón PSE se realizan con débito a su cuenta corriente o de ahorros, previamente definida.</li>
+    <li>Cada pago instruido a través de este canal requerirá por lo menos un preparador y un autorizador para que sea procesado.</li>
+    <li>Con PSE de Citibank podrá realizar sus pagos desde la comodidad y seguridad de su lugar de preferencia desde las 8:00 am a 6:00 pm los días hábiles entre semana y el monto máximo por transacción se encuentra determinado por el beneficiario del pago.</li>
+    <li>Estándares de tecnología y seguridad. PSE de Citibank posee una SSL encriptada de 128 bits, certificados digitales y paredes de fuego (firewalls) de última tecnología que mejoran la seguridad de la información.</li>
+    <li>PSE de Citibank cuenta con el respaldo de Citibank, miembro de Citigroup.</li>
+  </ul>
+  <div style="margin-top:12px;margin-bottom:12px;line-height: 1.4;">
+    El servicio de pagos a través de PSE estará disponible de 8:00 a.m. a 6:00 p.m. los días hábiles entre semana y hasta por el monto máximo por transacción determinado por el beneficiario del pago.
+  </div>
+  <div style="margin-bottom:18px;line-height: 1.4;">
+    En caso de requerir ampliación sobre la información de pagos, por favor no dude en comunicarse con el canal de atención al cliente CitiService o su gerente de relación/ventas.
+  </div>
+  <div style="margin-bottom:22px;line-height: 1.4;">
+    Recuerde que para conocer los derechos y obligaciones asociados a los productos y servicios puede consultar el siguiente enlace:
+    <a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/consumer-finance.html" target="_blank">https://www.citibank.com/icg/sa/latam/colombia/institutional-info/consumer-finance.html</a>
+  </div>
+  <div style="color:#444;font-size:14px;margin-bottom:40px;">Fecha de actualización: marzo 7 de 2024</div>
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:1.3em;margin-bottom:25px;font-weight:600;">Cheques</h2>
+  <div style="margin-bottom:12px;">Los siguientes tipos de cheques están disponibles:</div>
+  <ol style="margin-left:40px;">
+    <li>
+      Cheque de gerencia: (cheque - Paylink): Un cheque generado a través de la plataforma CitiDirect BE<sup style="font-size:.7em;top:-.6em;position:relative;">®</sup> para ser emitido en la sucursal de Citi.
+    </li>
+    <li>
+      Cheques estándar: instrumentos negociables (título valor) los cuales pueden ser endosados de una persona/entidad a otra o pagados en efectivo, emitido por el Cliente.
+    </li>
+  </ol>
+  <div style="margin-top:10px;margin-bottom:15px;">El Banco podrá aceptar o no, depósitos en cheques de otras plazas.</div>
+  <div style="margin-bottom:12px; line-height: 1.4;">
+    En caso de requerir ampliación sobre la información de pagos, por favor comuníquese con el canal de atención al cliente CitiService o su gerente de relación/ventas.
+  </div>
+  <div style="margin-bottom:22px; line-height: 1.4;">
+    Recuerde que para conocer los derechos y obligaciones asociados a los productos y servicios puede consultar el siguiente enlace:
+    <a href="https://www.citibank.com/icg/sa/latam/colombia/institutional-info/consumer-finance.html" target="_blank">https://www.citibank.com/icg/sa/latam/colombia/institutional-info/consumer-finance.html</a>
+  </div>
+  <div style="color:#444;font-size:14px;margin-bottom:40px;">Fecha de actualización: marzo 7 de 2024</div>
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:1.2em;margin-bottom:18px;font-weight:600;">Recomendación de seguridad para pagos</h2>
+  <div style="margin-bottom:12px;">
+    Para Citibank su seguridad es una prioridad, por eso compartimos a continuación algunas recomendaciones:
+  </div>
+  <ul style="margin-left:20px; line-height: 1.4;">
+    <li>Minimice la ejecución manual de pagos. Procure utilizar procedimientos automáticos, con mínimo un preparador y un autorizador para administrar los pagos e información de los beneficiarios. Así mismo, incremente los niveles de autorización conforme a los montos, nuevos beneficiarios o modificaciones en los mismos.</li>
+    <li>Procure remitir los pagos con la funcionalidad de “validar con el banco beneficiario que la cuenta beneficiaria pertenezca al NIT o identificación del beneficiario incorporado en el pago”.</li>
+    <li>Mantenga actualizado el software operativo y de seguridad de los equipos en los cuales se realizan operaciones.</li>
+    <li>Instale y actualice periódicamente el software anti-virus, anti-spyware y de detección de malware en los computadores y/o dispositivos en los cuales realiza transacciones.</li>
+    <li>Configure en las preferencias de su navegador de internet el bloqueo de pop-ups, pues algunas veces pueden desplegar contenidos inapropiados o tener intenciones maliciosas.</li>
+    <li>Mantenga actualizada la versión de su navegador de internet.</li>
+    <li>Implemente estándares de seguridad, calidad e idoneidad, para la contratación de terceros encargados de la revisión, mantenimiento e instalación de equipos, software o hardware.</li>
+    <li>Sólo instale aplicaciones y software de compañías reconocidas y avaladas por su empresa.</li>
+    <li>Evite abrir correos de dudosa procedencia, instalar archivos que puedan contener software malicioso y navegar por sitios desconocidos en los equipos donde se realizan las operaciones.</li>
+    <li>Asegúrese que los dispositivos (computadoras personales, desktops, laptops, etc.) que utiliza para acceder a las plataformas electrónicas bancarias estén protegidos con una contraseña segura.</li>
+    <li>Cierre siempre la sesión una vez termine su interacción con las plataformas bancarias y asegúrese de salir o cerrar el navegador de internet.</li>
+    <li>No comparta con otros usuarios los equipos a través de los cuales se realizan operaciones bancarias, y así mismo, evite ingresar a plataformas de bancos desde otros equipos.</li>
+  </ul>
+  <div style="margin-top:10px;margin-bottom:22px;">
+    Informe oportunamente los cambios de personas facultadas en las diferentes plataformas, incluyendo la creación de nuevos accesos y/o la eliminación de usuarios.
+  </div>
+  <div style="color:#444;font-size:14px;margin-bottom:40px;">Fecha de actualización: marzo 7 de 2024</div>
+
+  
+  <h2 style="color:#255be3;margin-top:30px;font-size:1.2em;margin-bottom:18px;font-weight:600;">Bloqueo, reactivación y cancelación de los productos y servicios de pagos</h2>
+  <div style="margin-bottom:12px;">
+    En el caso de PSE y MisPagosAlDia debe tener en cuenta lo siguiente:
+  </div>
+  <ul style="margin-left:20px;line-height: 1.3;">
+    <li>Las contraseñas se bloquean luego de tres (3) intentos de uso fallidos.</li>
+    <li>Las contraseñas se bloquean en un término de 60 días en caso de no haber ingresado a los canales.</li>
+    <li>En caso de presentar bloqueo de alguna de sus contraseñas, debe comunicarse con nuestro canal de servicio para solicitar el restablecimiento de clave respectivo.</li>
+    <li>Para la cancelación o bloqueo de los servicios de pagos por favor no dude en comunicarse con el canal de atención al cliente CitiService o su gerente de relación/ventas.</li>
+  </ul>
+  <div style="color:#444;font-size:14px;margin-bottom:40px;">Fecha de actualización: marzo 7 de 2024</div>
+
+ 
+  <h2 style="color:#255be3;margin-top:30px;font-size:1.2em;margin-bottom:18px;font-weight:600;">Condiciones para acceder a los servicios de pagos</h2>
+  <div style="margin-bottom:12px;line-height: 1.4;">
+    Para acceder a los servicios de pagos ofrecidos por Citibank Colombia S.A., deberá contar con una cuenta de ahorros o cuenta corriente abierta y activa en el banco, diligenciar y enviar el formato correspondiente a la solicitud de activación del producto o servicio (MPAD y/o PSE). Si quiere conocer más acerca de las tarifas, por favor ingrese a
+    <a href="https://www.citibank.com/icg/sa/latam/colombia/current-rates.html" target="_blank">https://www.citibank.com/icg/sa/latam/colombia/current-rates.html</a>
+  </div>
+  <div style="color:#444;font-size:14px;margin-bottom:0px;">Fecha de actualización: marzo 7 de 2024</div>
+</div>
+
+  </main>
+
+  <section class="seccion-servicios">
+    <div class="contenedor-servicios">
+      <div class="columna-vigilado">
+        <div class="contenedor-vigilado">
+          <img src="imgs/vigilado.png" alt="Vigilado" class="imagen-vigilado">
+        </div>
+      </div>
+      <div class="columna-servicios">
+        <div class="grid-servicios">
+          <button type="button" class="boton-servicio" onclick="window.location.href='Tasas_tarifas.html';">Tasas y Tarifas Vigentes</button>
+          <button type="button" class="boton-servicio" onclick="window.location.href='Citidirect.html';">CitiDirect</button>
+          <button type="button" class="boton-servicio" onclick="window.location.href='online_payments.html';">Online Payments Channel</button>
+          <button type="button" class="boton-servicio" onclick="window.location.href='Pago_dia2.html';">Mis pagos al dia</button>
+          <button type="button" class="boton-servicio" onclick="window.location.href='pagos_PSE.html';">PSE</button>
+          <button type="button" class="boton-servicio" onclick="window.location.href='';">FXPulse</button>
+          <button type="button" class="boton-servicio" onclick="window.location.href='tarjetas_corporativas.html';">Portal de tarjetas corporativas</button>
+          <button type="button" class="boton-servicio" onclick="window.location.href='informacion-consumidor-financiero.html';">Sistema de Atencion al consumidor financiero SAC/Defensoria del Consumidor Financiero</button>
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDA.pdf" class="boton-servicio" target="_blank" rel="noopener noreferrer">Programa de Transparencia PTEE Colrepfin LTDA</a>
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDAV2023_V_INGLES_VF2.pdf" class="boton-servicio boton-completo" target="_blank" rel="noopener noreferrer">
+            TRANSPARENCY AND BUSINESS ETHICS PROGRAM (PTEE) COLREPFIN LTDA
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="texto-disclaimer">
+      <p>Productos y servicios financieros ofrecidos por Citibank - Colombia S.A. Citi y el diseño del arco es una marca registrada de servicios de Citigroup Inc. Carrera 9A # 99 - 02 Bogotá, Colombia</p>
+    </div>
+  </section>
+  <footer class="footer-principal">
+    <div class="contenedor-footer">
+      <div class="footer-izquierda">
+        <img src="imgs/citilogo.png" alt="Citi" class="logo-footer" />
+        <div class="enlaces-footer">
+          <a href="#" class="enlace-footer">Citigroup.com</a>
+          <a href="#" class="enlace-footer">Términos y Condiciones</a>
+          <a href="#" class="enlace-footer">Privacidad</a>
+        </div>
+      </div>
+      <div class="footer-derecha">
+        <div class="redes-sociales">
+          <a href="#" class="icono-social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-google-plus-g"></i></a>
+        </div>
+        <span class="copyright">&copy; 2003–2025 Citigroup Inc.</span>
+      </div>
+    </div>
+  </footer>
+  <script>
+    function cerrarModal() {
+      document.getElementById('modalAviso').style.display = 'none';
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

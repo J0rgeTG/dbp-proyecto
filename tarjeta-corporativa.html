@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tarjetas Corporativas</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    
+    .contenido-principal {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .contenido-principal h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #255be3;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .navegacion-empresas-titulo {
+      font-weight: bold;
+      color: #255be3;
+      margin-bottom: 12px;
+      padding-left: 72px;
+    }
+    .navegacion-empresas-tabs {
+      display: flex;
+      margin: 0 auto 32px auto;
+      max-width: 900px;
+      padding-left: 72px;
+      gap: 16px;
+    }
+    .tab-empresa {
+      background: none;
+      border: none;
+      padding: 14px 0;
+      font-size: 16px;
+      font-weight: 500;
+      color: #0f172a;
+      cursor: pointer;
+      position: relative;
+    }
+    .tab-empresa:hover,
+    .tab-empresa:focus {
+      color: #255be3;
+    }
+    .tab-empresa:hover::after,
+    .tab-activa::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background-color: #255be3;
+    }
+    .tab-activa {
+      font-weight: bold;
+      color: #255be3;
+    }
+    .contenido-empresa {
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: 0px;
+    }
+    .contenido-empresa h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 36px 0 24px;
+      color: #0f172a;
+    }
+    .contenido-empresa ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+    .contenido-empresa ul li {
+      margin-bottom: 16px;
+    }
+    .contenido-empresa ul li a {
+      color: #0f172a;
+      text-decoration: underline;
+      transition: color 0.2s ease;
+    }
+    .contenido-empresa ul li a:hover {
+      color: #255be3;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+      z-index: 100;
+      width: 220px;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content a {
+      display: block;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #0f172a;
+    }
+    .dropdown-content a:hover {
+      color: #255be3;
+      background-color: #f1f5f9;
+    }
+    .dropdown-content a.active {
+      color: #255be3;
+      border-bottom: 2px solid #255be3;
+    }
+  </style>
+</head>
+<body>
+  
+  
+  <header class="header-principal">
+    <div class="contenedor-header">
+      <img src="imgs/citilogo.png" alt="Citi" class="logo-citi" />
+    </div>
+  </header>
+
+  <main class="contenido-principal">
+    <h1>Tarjetas Corporativas</h1>
+    <div style="margin-top: 100px;" class="navegacion-empresas-titulo">Colombia</div>
+    <div class="navegacion-empresas-tabs" style="gap:90px;justify-content:center;margin-bottom: 40px;">
+      <button onclick="window.location.href='index.html'" class="tab-empresa">Página Principal</button>
+      <div class="dropdown">
+        <button class="tab-empresa tab-activa">Citibank Colombia S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="citibak-colombia.html">Página Principal</a>
+          <a href="informacion-institucional.html">Información Institucional</a>
+          <a href="productos-servicios.html">Productos y Servicios</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="tab-empresa">Citivalores S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="citivalores.html">Página principal</a>
+          <a href="corresponsal-inversiones.html">Corresponsal en Inversiones Globales</a>
+          <a href="corresponsal-banca.html">Corresponsal en Banca de Inversión</a>
+          <a href="etf.html">ETF MSCI COLCAP</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="tab-empresa">Cititrust S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
+        <div class="dropdown-content">
+          <a href="Cititrust.html">Página Principal</a>
+          <a href="#">Servicios de Custodia</a>
+          <a href="#">Fiducia Estructurada</a>
+          <a href="#">Links frecuentes</a>
+        </div>
+      </div>
+    </div>
+
+<div class="contenido-empresa">
+
+  <div style="margin-bottom:30px; line-height:1.4;margin-bottom: 14px;">
+    Cobertura y Globalidad: 80 mercados, 64 monedas. Las tarjetas corporativas de Citi® son aceptadas en más de 40 millones de establecimientos en más de 140 países.
+  </div>
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:1.3em;margin-bottom:25px;font-weight:600;">Experiencia</h2>
+  <div style="margin-bottom:16px; line-height:1.4;">
+    Más de 40 años de experiencia y cerca de 11,000 clientes activos globalmente en el programa de tarjetas corporativas.
+  </div>
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:1.3em;margin-bottom:25px;font-weight:600;">Soluciones tecnológicas y de Infraestructura</h2>
+  <div style="margin-bottom:16px; line-height:1.4;">
+    Procesadores estándar a nivel global aseguran consistencia en el programa.
+  </div>
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:1.3em;margin-bottom:25px;font-weight:600;">Servicio al Cliente - CitiService®</h2>
+  <div style="margin-bottom:16px; line-height:1.4;">
+    Contamos con un HUB regional de atención al cliente, 7x24 para soporte a administradores y tarjetahabientes.
+  </div>
+  <ul style="margin-left:25px;margin-bottom:18px;">
+    <li>Altos estándares de servicio y tecnología para atender sus solicitudes.</li>
+    <li>Acceso multicanal para atención a través de teléfono, correo electrónico o fax.</li>
+    <li>Personal calificado para garantizar tiempos de respuesta adecuados.</li>
+    <li>Confidencialidad de la información.</li>
+    <li>Número de referencia para el seguimiento de todas sus consultas.</li>
+  </ul>
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:1.3em;margin-bottom:25px;font-weight:600;">Flexibilidad y personalización</h2>
+  <div style="margin-bottom:16px; line-height:1.4;">
+    Nuestra solución de tarjetas corporativas se adapta a las necesidades de su empresa, a través de controles de gastos, utilizaciones, seguridad y sistemas de gestión de reportes.
+  </div>
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:1.3em;margin-bottom:25px;font-weight:600;">Sistemas de información</h2>
+  <div style="margin-bottom:16px; line-height:1.4;">
+    Contamos con distintas aplicaciones de banca electrónica para el control del programa de tarjetas corporativas en sus compañías.
+  </div>
+  <div style="margin-bottom:16px; line-height:1.4;">
+    Mycardsinfonet:<a href="www.mycardsinfonet.com">(www.mycardsinfonet.com)</a> Ofrece la posibilidad de realizar la administración diaria de sus Cuentas de Tarjetas de Crédito, la planificación comercial a largo plazo, permitiendo además, transferir la información a sus propias hojas de cálculo, agilizando eficazmente las tareas de recolección y carga de estos datos.
+  </div>
+
+  <div style="margin-bottom:16px; line-height:1.4;">
+    La Empresa podrá acceder a:
+  </div>
+  <ul style="margin-left:25px;margin-bottom:18px;">
+    <li>Información del período actual y anterior categorizada por Cuenta y Tarjeta.</li>
+    <li>Características de cuentas y tarjetas.</li>
+    <li>Archivo de Movimientos a nivel tarjeta y consumo.</li>
+    <li>Crear usuarios del sistema con acceso delimitado a su ámbito de control.</li>
+  </ul>
+
+  <div style="margin-bottom:16px; line-height:1.4;">
+    Visa Intellilink Spend Managment: Informes en línea diseñados para ayudar a los usuarios en la gestión de datos de la tarjeta de crédito, esto incluye diferentes tipos de tableros, alertas e informes interactivos.
+  </div>
+  <div style="margin-bottom:16px; line-height:1.4;">
+    Descarga de datos financieros que se pueden integrar con los sistemas internos de su compañía. Gestión de control de gastos; Proceso simple de aprobación de cada uno de las utilizaciones de su tarjeta de crédito comercial.
+  </div>
+  <div style="margin-bottom:16px; line-height:1.4;">
+    Creación de reportes específicos y personalizados por usuario de gastos. Creación de flujo de aprobación por montos y tipo de gasto.
+  </div>
+  <div style="margin-bottom:16px; line-height:1.4;">
+    Permite a los administradores de la plataforma en la compañía, crear y actualizar las cuentas de usuario, restablecer contraseñas y asignar los distintos servicios de Visa Intellilink Spend Management a los usuarios.
+  </div>
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:1.3em;margin-bottom:25px;font-weight:600;">Condiciones para acceder al producto</h2>
+  <div style="margin-bottom:16px; line-height:1.4;">
+    Para acceder al producto de tarjetas corporativas ofrecido por Citibank Colombia S.A., el cliente deberá contar con una línea de crédito abierta sujeta a aprobación de crédito correspondiente y estará sujeto a las condiciones contractuales entre Citibank Colombia S.A. y el cliente, con vigencia a término indefinido, y delimitado en los términos y condiciones de un programa de tarjetas corporativas incluidos en el contrato.
+  </div>
+  <div style="margin-bottom:16px; line-height:1.4;">
+    Para conocer más información acerca de las tasas vigentes asociadas al producto por favor ingrese a <a href="www.citibank.com/icg/sa/latam/colombia/current-rates.html.">www.citibank.com/icg/sa/latam/colombia/current-rates.html.</a>
+  </div>
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:1.3em;margin-bottom:25px;font-weight:600;">Seguridad</h2>
+  <div style="margin-bottom:16px; line-height:1.4;">
+    Nuestra solución de tarjetas corporativas cuenta con los estándares de monitoreo de Citi a nivel mundial, con un permanente monitoreo de fraudes, tarjetas con tecnología Chip, nos aseguran estar a la vanguardia en los modelos de seguridad y prevención de fraude de soluciones comerciales de tarjetas de crédito.
+  </div>
+  <h2 style="color:#255be3;margin-top:30px;font-size:1.3em;margin-bottom:25px;font-weight:600;">Medios de Pagos</h2>
+  <div style="margin-bottom:16px; line-height:1.4;">
+    Contamos con diversos canales de pago para el producto de tarjetas corporativas; Transferencia electrónica a través de nuestro portal de Banca electrónica CitiDirect BE®, Débito automático a través de domiciliación del pago ingresando sus tarjetas en la aplicación MisPagosalDia® con cargo a la cuenta que la empresa seleccione, Red de sucursales Citibank® Colombia S.A. Domiciliación de cuenta en cualquier banco de la red Visa.
+  </div>
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:1.3em;margin-bottom:25px;font-weight:600;">Nuestros productos</h2>
+  <div style="margin-bottom:16px; line-height:1.4; font-weight: bold;">
+    Tarjeta Corporativa: (Corporate T&E - Travel & Entertainment Expenses)
+  </div>
+  <ul style="margin-left:25px;margin-bottom:18px;">
+    <li>Tarjeta destinada para cubrir gastos de representación y viajes.</li>
+    <li>Permite la aplicación de controles de compra tales como: límites por transacción, límites por avances.</li>
+    <li>Permite o no avances en efectivo según el criterio de la empresa (hasta el 100% del cupo), permitiendo al tarjetahabiente contar siempre con efectivo en moneda local en cualquier país del mundo donde son aceptadas las tarjetas corporativas Visa Citibank Colombia S.A.</li>
+    <li>Permite realizar bloqueos a compras en grupos de establecimientos.</li>
+  </ul>
+  <div style="margin-bottom:16px; line-height:1.4; font-weight: bold;">
+    Tarjeta Compras institucionales (Purchasing Card)
+  </div>
+  <ul style="margin-left:25px;margin-bottom:18px;">
+    <li>Tarjeta destinada para compra de materiales e insumos.</li>
+    <li>Compras de bienes no estratégicos, no relacionados directamente con la producción, tales como: materiales para reparación, mantenimiento y operaciones.</li>
+    <li>Permite la aplicación de controles de compra ya que se pueden establecer restricciones, tanto por usuarios y área de la empresa.</li>
+    <li>Permite seleccionar los tipos de establecimientos en los cuales se pueden realizar las compras.</li>
+    <li>Permite obtener mejores negociaciones con los proveedores y financiación al 0% al ser referidas las compras a un mes.</li>
+  </ul>
+  <div style="margin-bottom:16px; line-height:1.4; font-weight: bold;">
+    Tarjeta Cuenta Central (Central Travel Account)
+  </div>
+  <ul style="margin-left:25px;margin-bottom:18px;">
+    <li>Tarjeta utilizada para realizar compras de tiquetes aéreos exclusivamente.</li>
+    <li>Puede realizar el cargo de todos los tiquetes que el cliente mensualmente consume a una misma tarjeta.</li>
+    <li>No permite realizar avances en efectivo.</li>
+  </ul>
+  <div style="margin-bottom:16px; line-height:1.4; font-weight: bold;">
+    Medidas de seguridad y procedimientos de bloqueo, desbloqueo y cancelación– Tarjetas Corporativas Citibank Colombia
+  </div>
+  <ul style="margin-left:25px;margin-bottom:18px;">
+    <li>Por seguridad su tarjeta viene bloqueada, actívela llamando a la línea de servicio al cliente CitiService +57 601 638 3838 en Bogotá o al 01 8000 52 3838 a nivel nacional, días hábiles de lunes a viernes.</li>
+    <li>Una vez reciba su nueva tarjeta, fírmela y destruya la anterior.</li>
+    <li>No revele su clave, memorícela y destrúyala. Ninguna entidad, empresa, persona u otro organismo puede solicitarla por ningún motivo y por ningún medio (personalmente, teléfono, etc.).</li>
+    <li>Nunca digite su clave en presencia de extraños ni permita colaboración de ellos para realizar sus operaciones, ya sea en cajeros o en los puntos de servicio de entidades comerciales.</li>
+    <li>Nunca preste su tarjeta.</li>
+    <li>No olvide retirar el comprobante de la operación. Si tiene servicios con cargo a su tarjeta, como suscripciones, televisión por cable o celular, contacte dichos establecimientos para informar el dato de su nueva tarjeta.</li>
+    <li>Evite exponer sus tarjetas a fuentes electromagnéticas.</li>
+    <li>Nunca acepte ayuda de extraños cuando el cajero presente fallas, si esto sucede, cancele su operación antes de retirarse.</li>
+    <li>Siempre asegúrese de terminar su operación presionando la tecla cancelar antes de retirarse del cajero automático.</li>
+    <li>Por su seguridad cambie frecuentemente su clave, o de forma inmediata si sospecha que ha sido conocida por alguien.</li>
+    <li>Siempre que utilice su tarjeta en los establecimientos comerciales afiliados a Visa y/o MasterCard, verifique que sea deslizada en su presencia (no la pierda de vista) y que solamente lo hagan una vez.</li>
+    <li>Cada vez que renueve su tarjeta, destruya la anterior cuando su vigencia haya expirado, y asegúrese de que la banda magnética y el chip queden completamente inservibles.</li>
+    <li>Bloqueo de tarjetas de crédito - En caso de fraude, pérdida o robo, el tarjetahabiente o el administrador del programa de tarjeta de crédito podrá comunicarse directamente en horarios 24/7 con nuestro equipo de CitiService marcando la opción 4 en Bogotá al (57) 601 6383838 o línea nacional 018000 523838 o dirigiendo su solicitud a la dirección de correo electrónico cards.co.service@citi.com para solicitar el bloqueo de la(s) tarjeta(s) de crédito y la generación de un(s) nuevo plástico.</li>
+    <li>Desbloqueo de tarjetas de crédito – Las tarjetas de crédito no podrán ser desbloqueadas una vez realizado el bloqueo. Es necesario que el tarjetahabiente o el administrador del programa soliciten la expedición de una nueva tarjeta conforme los procedimientos establecidos por el banco, comunicándose directamente en horarios 24/7 con nuestro equipo de CitiService marcando la opción 4 en Bogotá al (57) 601 6383838 y o la línea nacional 018000 523838 o dirigiendo su solicitud a la dirección de correo electrónico cards.co.service@citi.com.</li>
+    <li>Cancelación de tarjetas de crédito – En caso de requerir la cancelación de una o varias tarjetas de crédito asociadas a su programa, el administrador del programa puede dirigir esta solicitud al correo electrónico cards.co.service@citi.com para proceder con la cancelación de las tarjetas.</li>
+  </ul>
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:1.3em;margin-bottom:25px;font-weight:600;">Tasas y Tarifas</h2>
+  <div style="margin-bottom:16px; line-height:1.4;">
+    Las tarifas asociadas a éste producto serán acordadas mediante el contrato suscrito entre el cliente y Citibank. Para consulta sobre la tasa de interés vigente, por favor consulte en <a href="https://www.citibank.com/icg/sa/latam/colombia/current-rates.html">https://www.citibank.com/icg/sa/latam/colombia/current-rates.html</a> sección Operaciones Activas.
+  </div>
+
+  <h2 style="color:#255be3;margin-top:30px;font-size:1.3em;margin-bottom:25px;font-weight:600;">Impuestos</h2>
+  <div style="margin-bottom:16px; line-height:1.4;">
+    Toda utilización con las Tarjetas Corporativas de Citibank-Colombia S.A, tales como: compras, débitos automáticos o avances en efectivo se encuentran gravados con el Gravamen a Movimientos Financieros (GMF). El valor del GMF es de COP 4 por cada COP 1.000 de utilización.
+  </div>
+    <div style="margin-bottom:16px; line-height:1.4; font-weight: bold;">
+    Ésta información se encuentra vigente desde diciembre 2021 (fecha de su última publicación)
+  </div>
+  <h2 style="color:#255be3;margin-top:30px;font-size:1.3em;margin-bottom:25px;font-weight:600;">VISA INFINITE
+    CORPORATIVA DE CITIBANK</h2>
+  <div style="margin-bottom:16px; line-height:1.4; font-weight: bold;">
+    Una tarjeta de crédito con servicios exclusivos para los altos ejecutivos de las empresas.
+  </div>
+    <div style="margin-bottom:16px; line-height:1.4; font-weight: bold;">
+        <a href="https://www.citibank.com/icg/sa/latam/colombia/corporate-cards/">Más info</a>
+        <img src="https://www.citibank.com/icg/sa/latam/colombia/cash-mgmt/assets/img/card_visa_inf.png" alt="Visa Infinite" style="width: 300px; height: auto; margin-top: 16px; margin-left: 600px;margin-bottom: 0px;">
+  </div>
+</div>
+
+  </main>
+
+  <section class="seccion-servicios">
+    <div class="contenedor-servicios">
+      <div class="columna-vigilado">
+        <div class="contenedor-vigilado">
+          <img src="imgs/vigilado.png" alt="Vigilado" class="imagen-vigilado">
+        </div>
+      </div>
+      <div class="columna-servicios">
+        <div class="grid-servicios">
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Tasas_tarifas.html';"
+          >
+            Tasas y Tarifas Vigentes
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Citidirect.html';"
+          >
+            CitiDirect
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='online_payments.html';"
+          >
+            Online Payments Channel
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Pago_dia2.html';"
+          >
+            Mis pagos al dia
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='pagos_PSE.html';"
+          >
+            PSE
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='';"
+          >
+            FXPulse
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='tarjetas_corporativas.html';"
+          >
+            Portal de tarjetas corporativas
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='informacion-consumidor-financiero.html';"
+          >
+            Sistema de Atencion al consumidor financiero SAC/Defensoria del Consumidor Financiero
+          </button>
+          </button>
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDA.pdf" class="boton-servicio" target="_blank" rel="noopener noreferrer">
+ 		 Programa de Transparencia PTEE Colrepfin LTDA
+	        </a>
+
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDAV2023_V_INGLES_VF2.pdf" class="boton-servicio boton-completo" target="_blank" rel="noopener noreferrer">
+     		TRANSPARENCY AND BUSINESS ETHICS PROGRAM (PTEE) COLREPFIN LTDA
+	        </a>
+        </div>
+      </div>
+    </div>
+    <div class="texto-disclaimer">
+      <p>Productos y servicios financieros ofrecidos por Citibank - Colombia S.A. Citi y el diseño del arco es una marca registrada de servicios de Citigroup Inc. Carrera 9A # 99 - 02 Bogotá, Colombia</p>
+    </div>
+  </section>
+
+  <footer class="footer-principal">
+    <div class="contenedor-footer">
+      <div class="footer-izquierda">
+        <img src="imgs/citilogo.png" alt="Citi" class="logo-footer" />
+        <div class="enlaces-footer">
+          <a href="#" class="enlace-footer">Citigroup.com</a>
+          <a href="#" class="enlace-footer">Términos y Condiciones</a>
+          <a href="#" class="enlace-footer">Privacidad</a>
+        </div>
+      </div>
+      <div class="footer-derecha">
+        <div class="redes-sociales">
+          <a href="#" class="icono-social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="icono-social"><i class="fab fa-google-plus-g"></i></a>
+        </div>
+        <span class="copyright">&copy; 2003–2025 Citigroup Inc.</span>
+      </div>
+    </div>
+  </footer>
+  <script>
+    function cerrarModal() {
+      document.getElementById('modalAviso').style.display = 'none';
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

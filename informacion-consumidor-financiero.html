@@ -76,12 +76,12 @@
     .accordion { border-radius: 16px; overflow: hidden; box-shadow: 0 1px 8px #edf2f7; background: #f8fafc;}
     .accordion-item + .accordion-item { border-top: 1px solid #e2e8f0;}
     .accordion-title {
-      font-size: 19px;
+      font-size: 15px;
       color: #255be3;
       background: #f4f7fb;
       cursor: pointer;
       padding: 22px 30px 22px 28px;
-      font-weight: 500;
+      font-weight: 600;
       display: flex; align-items: center; justify-content: space-between;
       border: none; width: 100%;
       transition: background 0.18s;
@@ -106,7 +106,7 @@
     }
     .accordion-item.active .accordion-content {
     padding: 22px 30px;
-    max-height: none;  /* Ajusta aquí si alguna sección es muy extensa */
+    max-height: none;
     transition: max-height 0.7s cubic-bezier(.4,0,.2,1);
     }
     .accordion-item.active .accordion-title .icon { transform: rotate(180deg);}
@@ -116,149 +116,7 @@
       .video-texto-flex { flex-direction: column; gap:18px;}
       .video-inclusion {margin-right:0;}
     }
-    /* ————————————————————————————
-   Sección de Servicios
-————————————————————————————— */
-.seccion-servicios {
-  background: #fff;
-  padding: 36px 0 0 0;
-}
-.contenedor-servicios {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1170px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-.columna-vigilado {
-  width: 100px;
-  position: relative;
-}
-.contenedor-vigilado {
-  position: absolute;
-  left: calc(50% - 50px);
-  top: -58px;
-  background: #fff;
-  border-radius: 50%;
-  z-index: 1;
-  padding: 15px;
-  box-shadow: 0 5px 8px rgba(0,0,0,0.1);
-}
-.imagen-vigilado {
-  width: 100%;
-}
-.columna-servicios .grid-servicios {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  flex: 1;
-}
-.boton-servicio,
-.boton-completo {
-  background: #255be3;
-  color: #fff;
-  border: none;
-  font-size: 14px;
-  font-weight: 500;
-  border-radius: 8px;
-  height: 48px;
-  width: 100%;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(10,24,147,0.07);
-  transition: background .15s ease, transform .15s ease;
-}
-.boton-servicio:hover,
-.boton-completo:hover {
-  background: #1e4fcc;
-}
-.boton-completo {
-  grid-column: span 3;
-}
-.texto-disclaimer {
-  text-align: center;
-  font-size: 13px;
-  color: #6b7280;
-  margin-top: 24px;
-  padding: 0 16px;
-}
-
-/* ————————————————————————————
-   Footer Principal
-————————————————————————————— */
-.footer-principal {
-  background: #18214e;
-  color: #fff;
-  margin-top: 42px;
-}
-.footer-principal .contenedor-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 32px 16px;
-}
-.footer-izquierda,
-.footer-derecha {
-  display: flex;
-  align-items: center;
-}
-.logo-footer {
-  height: 38px;
-  margin-right: 22px;
-}
-.enlaces-footer a {
-  color: #fff;
-  margin-right: 24px;
-  text-decoration: none;
-  font-size: 15px;
-}
-.enlaces-footer a:hover {
-  text-decoration: underline;
-}
-.footer-derecha {
-  flex-direction: column;
-  align-items: flex-end;
-}
-.redes-sociales {
-  margin-bottom: 7px;
-}
-.icono-social {
-  color: #fff;
-  font-size: 19px;
-  margin-right: 13px;
-}
-.icono-social:last-child {
-  margin-right: 0;
-}
-.icono-social:hover {
-  color: #255be3;
-}
-.copyright {
-  font-size: 13px;
-  color: #b8bdd8;
-}
-@media (max-width:800px) {
-  .contenedor-footer,
-  .contenedor-servicios {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .footer-derecha {
-    align-items: flex-start;
-  }
-  .grid-servicios {
-    grid-template-columns: 1fr;
-  }
-  .navegacion-empresas-tabs {
-    padding-left: 12px;
-  }
-  .navegacion-empresas-titulo {
-    margin-left: 12px;
-  }
-}
-
+  
   </style>
 </head>
 <body>
@@ -284,16 +142,16 @@
       <div class="dropdown">
         <button class="tab-empresa">Citivalores S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
         <div class="dropdown-content">
-          <a href="#">Página principal</a>
-          <a href="#">Corresponsal en Inversiones Globales</a>
-          <a href="#">Corresponsal en Banca de Inversión</a>
-          <a href="#">ETF MSCI COLCAP</a>
+          <a href="citivalores.html">Página principal</a>
+          <a href="corresponsal-inversiones.html">Corresponsal en Inversiones Globales</a>
+          <a href="corresponsal-banca.html">Corresponsal en Banca de Inversión</a>
+          <a href="etf.html">ETF MSCI COLCAP</a>
         </div>
       </div>
       <div class="dropdown">
         <button class="tab-empresa">Cititrust S.A. <i class="fas fa-chevron-down" style="font-size: 12px;"></i></button>
         <div class="dropdown-content">
-          <a href="#">Página Principal</a>
+          <a href="Cititrust.html">Página Principal</a>
           <a href="#">Servicios de Custodia</a>
           <a href="#">Fiducia Estructurada</a>
           <a href="#">Links frecuentes</a>
@@ -482,7 +340,7 @@
         </div>
         </div>
     
-        <!-- ACCORDION ITEM 2 -->
+        
         <div class="accordion-item">
           <button class="accordion-title" type="button">
             Productos y Servicios
@@ -500,9 +358,9 @@
                 Entre los productos que ofrecen las entidades financieras se encuentran: <span style="font-weight: 500;">Por favor haga clic sobre cada una para desplegar la información.</span>
             </p>
             <ul style="margin-left: 16px; margin-bottom: 20px;">
-                <li><a href="#" style="color: #2361e8; text-decoration: underline;">Productos Bancarios</a></li>
-                <li><a href="#" style="color: #2361e8; text-decoration: underline;">Productos Fiduciarios y de Custodia</a></li>
-                <li><a href="#" style="color: #2361e8; text-decoration: underline;">Productos de Inversión</a></li>
+                <li><a href="cash-management.html" style="color: #2361e8; text-decoration: underline;">Productos Bancarios</a></li>
+                <li><a href="Cititrust.html" style="color: #2361e8; text-decoration: underline;">Productos Fiduciarios y de Custodia</a></li>
+                <li><a href="citivalores.html" style="color: #2361e8; text-decoration: underline;">Productos de Inversión</a></li>
             </ul>
             <h4 style="font-size: 17px; color: #2361e8; margin-top: 24px; margin-bottom: 8px; font-weight: 600;">
                 Tarifas o Precios de Productos o Servicios
@@ -563,7 +421,7 @@
 
         </div>
 
-        <!-- ACCORDION ITEM 3 -->
+        
         <div class="accordion-item">
           <button class="accordion-title" type="button">
             Recomendaciones para el manejo Seguro de sus Productos y Servicios
@@ -663,7 +521,7 @@
             <p style="margin-bottom:16px;">
                 El sistema financiero es un conjunto de instituciones y operaciones a través del cual el dinero circula en la economía, con el rol principal de actuar como intermediario entre las personas que tienen recursos disponibles y las que solicitan esos recursos. Por esta razón las instituciones que conforman el sistema financiero cumplen dos funciones fundamentales: la captación de recursos y la colocación.
             </p>
-            <a href="#" style="color:#255be3;text-decoration:underline;cursor:pointer;font-weight:500;">Ver más</a>
+            <a href="https://www.superfinanciera.gov.co/jsp/11268" style="color:#255be3;text-decoration:underline;cursor:pointer;font-weight:500;">Ver más</a>
             </div>
         </div>
         </div>
@@ -749,7 +607,7 @@
             <span class="icon"><i class="fas fa-plus"></i></span>
         </button>
             <div class="accordion-content">
-                <!-- Texto introductorio -->
+
                 <p style="margin-bottom:16px;">
                 Citibank Colombia S.A., Cititrust Colombia S.A. Sociedad Fiduciaria y Citivalores S.A. Comisionista de Bolsa, respondiendo a las necesidades de las personas con discapacidad y en línea con el concepto de inclusión, cuenta con políticas de atención incluyente que permiten el acceso a la información, productos, canales y servicios. Para ello, nuestras oficinas bancarias contemplan elementos informativos y de comunicación accesible en su entorno, como señalización en Lengua de Señas Colombiana para personas sordas y lenguaje braille utilizado por personas ciegas y sordociegas como sistema de lectura y escritura táctil, en complemento todas nuestras oficinas ofrecen atención prioritaria para personas con discapacidad física, visual, auditiva, intelectual y sordociegas, así como para adultos mayores de 60 años y mujeres en estado de embarazo, con el propósito de que su atención se efectúe de forma adecuada y oportuna.
                 </p>
@@ -760,9 +618,7 @@
                 Lo invitamos a que conozca el programa gremial de educación financiera incluyente <a href="#" style="color:#255be3; text-decoration:underline; font-weight:500;">Saber Más Ser Más</a> de la Asobancaria donde podrá ampliar información sobre el sector financiero.
                 </p>
 
-                <!-- Contenedor flex para video + texto -->
                 <div class="video-texto-flex" style="display:flex; gap:24px; align-items:flex-start;">
-                <!-- Video -->
                 <div class="video-inclusion" style="flex:1; min-width:0;">
                     <iframe
                     src="https://video.citi.com/embed/secure/iframe/entryId/1_2dvmor42/uiConfId/53182812/st/0"
@@ -770,7 +626,6 @@
                     style="border-radius:12px; border:none; overflow:hidden; background:#000;">
                     </iframe>
                 </div>
-                <!-- Texto al costado -->
                 <div class="texto-inclusion" style="flex:1; font-size:16px; line-height:1.6;">
                     <strong>2020-1094 Citi 5 minutos – Lengua de señas</strong>
                 </div>
@@ -870,43 +725,87 @@
   </main>
 
 
-  <!-- Sección Servicios -->
-    <section class="seccion-servicios">
+  <section class="seccion-servicios">
     <div class="contenedor-servicios">
-        <div class="columna-vigilado">
+      <div class="columna-vigilado">
         <div class="contenedor-vigilado">
-            <img src="imgs/vigilado.png" alt="Vigilado" class="imagen-vigilado" />
+          <img src="imgs/vigilado.png" alt="Vigilado" class="imagen-vigilado">
         </div>
-        </div>
-        <div class="columna-servicios">
+      </div>
+      <div class="columna-servicios">
         <div class="grid-servicios">
-            <button class="boton-servicio" onclick="abrirServicio('tasas')">Tasas y Tarifas Vigentes</button>
-            <button class="boton-servicio" onclick="abrirServicio('citidirect')">CitiDirect</button>
-            <button class="boton-servicio" onclick="abrirServicio('payments')">Online Payments Channel</button>
-            <button class="boton-servicio" onclick="abrirServicio('pagos')">Mis pagos al día</button>
-            <button class="boton-servicio" onclick="abrirServicio('pse')">PSE</button>
-            <button class="boton-servicio" onclick="abrirServicio('fxpulse')">FXPulse</button>
-            <button class="boton-servicio" onclick="abrirServicio('tarjetas')">Portal de Tarjetas Corporativas</button>
-            <button class="boton-servicio" onclick="abrirServicio('sac')">SAC/Defensoría del Consumidor Financiero</button>
-            <button class="boton-servicio" onclick="abrirServicio('transparencia')">Programa de Transparencia PTEE Colrepfin LTDA</button>
-            <button class="boton-servicio boton-completo" onclick="abrirServicio('transparency')">
-                TRANSPARENCY AND BUSINESS ETHICS PROGRAM (PTEE) COLREPFIN LTDA
-            </button>
-            </div>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Tasas_tarifas.html';"
+          >
+            Tasas y Tarifas Vigentes
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Citidirect.html';"
+          >
+            CitiDirect
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='online_payments.html';"
+          >
+            Online Payments Channel
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='Pago_dia2.html';"
+          >
+            Mis pagos al dia
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='pagos_PSE.html';"
+          >
+            PSE
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='';"
+          >
+            FXPulse
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='tarjetas_corporativas.html';"
+          >
+            Portal de tarjetas corporativas
+          </button>
+          <button
+            type="button"
+            class="boton-servicio"
+            onclick="window.location.href='informacion-consumidor-financiero.html';"
+          >
+            Sistema de Atencion al consumidor financiero SAC/Defensoria del Consumidor Financiero
+          </button>
+          </button>
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDA.pdf" class="boton-servicio" target="_blank" rel="noopener noreferrer">
+ 		 Programa de Transparencia PTEE Colrepfin LTDA
+	        </a>
 
+          <a href="https://www.citibank.com/icg/sa/latam/colombia/assets/docs/Programa-de-Transparencia-PTEE-Colrepfin-LTDAV2023_V_INGLES_VF2.pdf" class="boton-servicio boton-completo" target="_blank" rel="noopener noreferrer">
+     		TRANSPARENCY AND BUSINESS ETHICS PROGRAM (PTEE) COLREPFIN LTDA
+	        </a>
         </div>
+      </div>
     </div>
-
     <div class="texto-disclaimer">
-        <p>
-        Productos y servicios financieros ofrecidos por Citibank - Colombia S.A. Citi y
-        el diseño del arco es una marca registrada de servicios de Citigroup Inc. Carrera
-        9A # 99 - 02 Bogotá, Colombia
-        </p>
+      <p>Productos y servicios financieros ofrecidos por Citibank - Colombia S.A. Citi y el diseño del arco es una marca registrada de servicios de Citigroup Inc. Carrera 9A # 99 - 02 Bogotá, Colombia</p>
     </div>
-    </section>
+  </section>
 
-    <!-- Footer -->
     <footer class="footer-principal">
     <div class="contenedor-footer">
         <div class="footer-izquierda">
@@ -937,9 +836,7 @@
 
 
 
-  <!-- Script acordeón funcionalidad -->
   <script>
-    // Lógica para solo 1 desplegado, cambia + a -
     document.querySelectorAll('.accordion-title').forEach((btn, idx) => {
       btn.addEventListener('click', function(){
         document.querySelectorAll('.accordion-item').forEach((item, i) => {

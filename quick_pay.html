@@ -143,14 +143,14 @@
       const numero = document.getElementById('numero').value.trim();
       const errorDiv = document.getElementById('errorMsg');
 
-      errorDiv.textContent = ""; // Limpiar errores anteriores
+      errorDiv.textContent = ""; 
 
       if (busqueda === "" || numero === "") {
         errorDiv.textContent = "Por favor, complete todos los campos para continuar.";
         return;
       }
 
-      // Simular búsqueda exitosa
+    
       errorDiv.style.color = "green";
       errorDiv.textContent = "Búsqueda realizada exitosamente.";
     }

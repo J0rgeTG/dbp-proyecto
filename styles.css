@@ -13,7 +13,7 @@
   margin-left: 0;
   margin-bottom: 30px;
 }
-/* ESTILO CITI ORIGINAL */
+
 .text-citi-blue {
   color: #255be3 !important;
 }
@@ -34,7 +34,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
 }
 
-/* NAV EMPRESAS */
+
 .seccion-navegacion-empresas,
 .contenido-empresa {
   max-width: 900px;
@@ -84,7 +84,7 @@ h1, h2, h3, h4, h5, h6 {
   background: #f3f4f6;
 }
 
-/* ENLACES EMPRESA */
+
 .enlaces-empresa {
   display: flex;
   flex-direction: column;
@@ -104,7 +104,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Citi Sans Display', Arial, sans-serif;
 }
 
-/* RESET Y CONFIGURACION BASE */
+
 * {
   margin: 0;
   padding: 0;
@@ -118,16 +118,15 @@ body {
   line-height: 1.2em;
   font-weight: normal;
   overflow-x: hidden;
-  /* Eliminado el padding-top ya que el header no será fijo */
+  
 }
 
-/* HEADER */
+
 .header-principal {
   background: #ffffff;
   border-bottom: 1px solid #e2e8f0;
   padding: 16px 0;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  /* Asegurar que sea completamente estático */
   position: static;
   display: block;
   width: 100%;
@@ -145,18 +144,16 @@ body {
   width: auto;
 }
 
-/* CONTENIDO PRINCIPAL */
+
 .contenido-principal {
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   padding: 40px 0;
-  /* Eliminado min-height y justify-content que causaban problemas */
 }
 
-/* BANNER COLOMBIA */
+
 .seccion-banner {
   padding: 20px;
   margin-bottom: 60px;
-  /* Asegurar que sea completamente estático */
   position: static;
   display: block;
 }
@@ -173,7 +170,6 @@ body {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   height: 500px;
   background: #334155;
-  /* Asegurar que no se superponga */
   z-index: 1;
 }
 
@@ -198,14 +194,12 @@ body {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* BOTONES EMPRESAS */
+
 .seccion-empresas {
   padding: 40px 20px;
-  /* Asegurar que sea completamente estático */
   position: static;
   display: block;
   background: transparent;
-  /* Separación clara del banner */
   margin-top: 20px;
   z-index: 1;
 }
@@ -252,12 +246,10 @@ body {
   box-shadow: 0 12px 32px rgba(146, 64, 14, 0.35);
 }
 
-/* SECCION SERVICIOS */
 .seccion-servicios {
   background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
   color: white;
   padding: 60px 0;
-  /* Asegurar separación clara de elementos anteriores */
   margin-top: 60px;
   position: static;
   display: block;
@@ -303,7 +295,6 @@ body {
   gap: 16px;
 }
 
-/* BOTONES SERVICIO MÁS NEGRITA */
 .boton-servicio {
   background: white;
   color: #1e40af;
@@ -353,7 +344,7 @@ body {
   line-height: 1.4;
 }
 
-/* FOOTER */
+
 .footer-principal {
   background: linear-gradient(135deg, #0a0f1f 0%, #1e293b 100%);
   color: white;
@@ -431,7 +422,7 @@ body {
   font-size: 12px;
 }
 
-/* RESPONSIVE */
+
 @media (max-width: 1024px) {
   .contenedor-servicios {
     flex-direction: column;
